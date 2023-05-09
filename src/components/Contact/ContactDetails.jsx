@@ -19,7 +19,7 @@ const ContactDetails = () => {
                             <p class="text-lg font-medium text-gray-900">Public User's</p>
 
                             <nav aria-label="Footer Services Nav" class="mt-8">
-                                <ul class="space-y-4 text-sm">
+                                <ul class="space-y-6 text-sm">
                                     <li>
                                         <p
                                             class="text-gray-700 transition hover:text-gray-700/75"
