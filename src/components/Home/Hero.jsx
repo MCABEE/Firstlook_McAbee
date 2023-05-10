@@ -13,40 +13,38 @@ const Hero = () => {
                 ><Navbar /></div>
 
 
-                <motion.div
-                    initial={{ y: "-10vw", opacity: 0 }}
-                    animate={{ y: 1, opacity: 1 }}
-                    transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
-                    className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 bg-auto bg-no-repeat bg-right bg-bg_model"
+                <div
+                    className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 bg-auto bg-no-repeat bg-right lg:bg-bg_model"
                 >
                     <div
                         className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right mt-16">
                         <motion.h1
                             initial={{ y: "-10vw", opacity: 0 }}
                             animate={{ y: 1, opacity: 1 }}
-                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="text-4xl font-bold text-start tracking-tight text-red-950 sm:text-5xl">
-                            YOU WILL
+                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
+                            className="text-4xl font-thin text-start tracking-tight text-red-950 sm:text-7xl">
+                            You will
 
                             <motion.h1
                                 initial={{ y: "-10vw", opacity: 0 }}
                                 animate={{ y: 1, opacity: 1 }}
                                 transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
                                 className="text-start text-white mt-1 block ">
-                                NEVER BE ALONE !
+                                Never be alone !
                             </motion.h1>
                         </motion.h1>
 
                         <motion.p
                             initial={{ y: "-10vw", opacity: 0 }}
                             animate={{ y: 1, opacity: 1 }}
-                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="mt-6 text-lg leading-8 text-gray-300 text-start">
+                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="mt-6 text-2xl leading-8 text-white text-start">
                             Be in Firstlook !
                         </motion.p>
 
                         <motion.p
                             initial={{ y: "-10vw", opacity: 0 }}
                             animate={{ y: 1, opacity: 1 }}
-                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="text-lg -mt-2 leading-8 text-gray-300 text-start">
+                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="text-2xl leading-8 text-white text-start">
                             signup to the social platform for singles
                         </motion.p>
 
@@ -54,7 +52,7 @@ const Hero = () => {
                             initial={{ y: "-10vw", opacity: 0 }}
                             animate={{ y: 1, opacity: 1 }}
                             transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
-                            className="-mt-2 text-lg leading-8 text-gray-300 text-start">
+                            className=" text-2xl leading-8 text-white text-start">
                             to find matches easily.
                         </motion.p>
 
@@ -105,7 +103,7 @@ const Hero = () => {
                             </button>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </section>
         </>
     )
