@@ -99,7 +99,7 @@ const Feature = () => {
                                 </div>
                                 <div className="w-full md:w-full px-4">
                                     <div className='relative flex flex-col items-end min-w-0'>
-                                        <button className='bg-gradient-to-b from-orange-500 to-rose-600 text-white w-full lg:w-36 h-10 rounded-lg md:ml-5 transform transition hover:scale-95 duration-300 ease-in-out'>Register</button>
+                                        <button className='bg-rose-600 text-white hover:bg-black w-full lg:w-36 h-10 rounded-lg md:ml-5 transform transition hover:scale-95 duration-300 ease-in-out'>Register</button>
                                     </div>
                                 </div>
                             </div>

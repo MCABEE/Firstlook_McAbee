@@ -24,7 +24,7 @@ const JoinSection = () => {
                             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                                 <a
                                     href="#"
-                                    className="transform transition hover:scale-95 duration-300 ease-in-out rounded-md bg-gradient-to-b from-orange-500 to-rose-600 text-white px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                                    className="transform transition hover:scale-95 duration-300 ease-in-out rounded-md bg-rose-600 text-white hover:bg-black px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                                 >
                                     Get started
                                 </a>
