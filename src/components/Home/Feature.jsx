@@ -23,7 +23,7 @@ const Feature = () => {
                             </motion.div>
                         </div>
 
-                        <div className="w-full md:w-6/12 px-4">
+                        <div className="w-full md:w-8/12 px-4">
                             <div className="flex flex-wrap">
                                 <div className="w-full lg:w-6/12 px-4">
                                     <motion.div

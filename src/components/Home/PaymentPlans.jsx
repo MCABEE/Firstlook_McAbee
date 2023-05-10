@@ -65,7 +65,7 @@ const PaymentPlans = () => {
                                         <p class="mr-2 text-5xl font-semibold text-black lg:text-6xl">
                                             ₹999
                                         </p>
-                                        <p class="text-lg text-gray-100">/ year</p>
+                                        <p class="text-lg text-black">/ year</p>
                                     </div>
                                 </div>
                                 <ul class="mb-8 space-y-2">
@@ -191,7 +191,7 @@ const PaymentPlans = () => {
                                         <p class="mr-2 text-5xl font-semibold text-black lg:text-6xl">
                                             ₹2499
                                         </p>
-                                        <p class="text-lg text-gray-100">/ year</p>
+                                        <p class="text-lg text-black">/ year</p>
                                     </div>
                                 </div>
                                 <ul class="mb-8 space-y-2">
@@ -317,7 +317,7 @@ const PaymentPlans = () => {
                                         <p class="mr-2 text-5xl font-semibold text-white lg:text-6xl">
                                             ₹2499
                                         </p>
-                                        <p class="text-lg text-gray-100">/ year</p>
+                                        <p class="text-lg text-white">/ year</p>
                                     </div>
                                 </div>
                                 <ul class="mb-8 space-y-2">
