@@ -41,9 +41,9 @@ const PaymentPlans = () => {
                             first unlimited package in the industry !
                         </p>
                     </div>
-                    <div class="grid max-w-screen-md gap-10 md:grid-cols-2 sm:mx-auto">
+                    <div class="grid gap-10 lg:grid-cols-3 sm:mx-auto">
                         <div>
-                            <div class="p-8 bg-gradient-to-b from-orange-500 to-rose-600 rounded">
+                            <div class="p-8 bg-gradient-to-b from-orange-500 to-rose-600 rounded-xl">
                                 <div class="mb-4 text-center">
                                     <p class="text-xl font-medium tracking-wide text-white">
                                         Standard Plan
@@ -155,17 +155,17 @@ const PaymentPlans = () => {
                                 </ul>
                                 <button
                                     type="submit"
-                                    class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
+                                    class="inline-flex items-center bg-red-500 justify-center w-full h-12 px-6 font-medium tracking-wide text-white rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Get Now
                                 </button>
                             </div>
-                            <div class="w-11/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-75" />
+                            {/* <div class="w-11/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-75" />
                             <div class="w-10/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-50" />
-                            <div class="w-9/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-25" />
+                            <div class="w-9/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-25" /> */}
                         </div>
                         <div>
-                            <div class="p-8 bg-gradient-to-b from-orange-500 to-rose-600 rounded">
+                            <div class="p-8 bg-gradient-to-b from-orange-500 to-rose-600 rounded-xl ">
                                 <div class="mb-4 text-center">
                                     <p class="text-xl font-medium tracking-wide text-white">
                                         Unlimited Plan
@@ -277,14 +277,136 @@ const PaymentPlans = () => {
                                 </ul>
                                 <button
                                     type="submit"
-                                    class="inline-flex items-center justify-center w-full h-12 px-6 font-semibold tracking-wide text-white rounded shadow-md hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
+                                    class="inline-flex items-center bg-red-500 justify-center w-full h-12 px-6 font-semibold tracking-wide text-white rounded shadow-md hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Get Now
                                 </button>
                             </div>
-                            <div class="w-11/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-75" />
+                            {/* <div class="w-11/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-75" />
                             <div class="w-10/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-50" />
-                            <div class="w-9/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-25" />
+                            <div class="w-9/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-25" /> */}
+                        </div>
+                        <div>
+                            <div class="p-8 bg-gradient-to-b from-orange-500 to-rose-600 rounded-xl">
+                                <div class="mb-4 text-center">
+                                    <p class="text-xl font-medium tracking-wide text-white">
+                                        Unlimited Plan
+                                    </p>
+                                    <div class="flex items-center justify-center">
+                                        <p class="mr-2 text-5xl font-semibold text-white lg:text-6xl">
+                                            ₹2499
+                                        </p>
+                                        <p class="text-lg text-gray-100">/ year</p>
+                                    </div>
+                                </div>
+                                <ul class="mb-8 space-y-2">
+                                    <li class="flex items-center">
+                                        <div class="mr-3">
+                                            <svg
+                                                class="w-4 h-4 text-white"
+                                                viewBox="0 0 24 24"
+                                                strokeLinecap="round"
+                                                strokeWidth="2"
+                                            >
+                                                <polyline
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    points="6,12 10,16 18,8"
+                                                />
+                                                <circle
+                                                    cx="12"
+                                                    cy="12"
+                                                    fill="none"
+                                                    r="11"
+                                                    stroke="currentColor"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <p class="font-medium text-gray-300">100 deploys per day</p>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="mr-3">
+                                            <svg
+                                                class="w-4 h-4 text-white"
+                                                viewBox="0 0 24 24"
+                                                strokeLinecap="round"
+                                                strokeWidth="2"
+                                            >
+                                                <polyline
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    points="6,12 10,16 18,8"
+                                                />
+                                                <circle
+                                                    cx="12"
+                                                    cy="12"
+                                                    fill="none"
+                                                    r="11"
+                                                    stroke="currentColor"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <p class="font-medium text-gray-300">50 GB of storage</p>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="mr-3">
+                                            <svg
+                                                class="w-4 h-4 text-white"
+                                                viewBox="0 0 24 24"
+                                                strokeLinecap="round"
+                                                strokeWidth="2"
+                                            >
+                                                <polyline
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    points="6,12 10,16 18,8"
+                                                />
+                                                <circle
+                                                    cx="12"
+                                                    cy="12"
+                                                    fill="none"
+                                                    r="11"
+                                                    stroke="currentColor"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <p class="font-medium text-gray-300">Unlimited domains</p>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="mr-3">
+                                            <svg
+                                                class="w-4 h-4 text-white"
+                                                viewBox="0 0 24 24"
+                                                strokeLinecap="round"
+                                                strokeWidth="2"
+                                            >
+                                                <polyline
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    points="6,12 10,16 18,8"
+                                                />
+                                                <circle
+                                                    cx="12"
+                                                    cy="12"
+                                                    fill="none"
+                                                    r="11"
+                                                    stroke="currentColor"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <p class="font-medium text-gray-300">SSL Certificates</p>
+                                    </li>
+                                </ul>
+                                <button
+                                    type="submit"
+                                    class="inline-flex items-center bg-red-500 justify-center w-full h-12 px-6 font-semibold tracking-wide text-white rounded shadow-md hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
+                                >
+                                    Get Now
+                                </button>
+                            </div>
+                            {/* <div class="w-11/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-75" />
+                            <div class="w-10/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-50" />
+                            <div class="w-9/12 h-2 mx-auto bg-gradient-to-b from-orange-500 to-rose-600 rounded-b opacity-25" /> */}
                         </div>
                     </div>
                 </div>

@@ -5,8 +5,8 @@ const CtaSection = () => {
     return (
         <>
             <div className="bg-white">
-                <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-                    <div className="relative isolate overflow-hidden bg-gradient-to-b from-orange-500 to-rose-600 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+                <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-1 lg:px-8">
+                    <div className="relative isolate overflow-hidden bg-gradient-to-b from-orange-500 to-rose-600 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-40 lg:px-24 lg:pt-0">
                         <svg
                             viewBox="0 0 1024 1024"
                             className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
@@ -43,7 +43,7 @@ const CtaSection = () => {
                         </div>
                         <div className="relative mt-16 h-80 lg:mt-8">
                             <img
-                                className="absolute left-0 top-0 w-[28rem] max-w-none rounded-xl mx-auto mt-2 bg-white/5 ring-1 ring-white/10"
+                                className="absolute left-0 top-0 w-[32.5rem] max-w-none rounded-xl mx-auto mt-2 bg-white/5 ring-1 ring-white/10"
                                 src={media}
                                 alt="App screenshot"
                                 width={1824}

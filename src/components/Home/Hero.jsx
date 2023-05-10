@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
+import model from '../../assets/bannerModel.png'
 
 const Hero = () => {
     return (
@@ -13,37 +14,30 @@ const Hero = () => {
 
 
                 <div
-                    class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
+                    class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 bg-auto bg-no-repeat bg-right bg-bg_model"
                 >
                     <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right mt-16">
-                        <h1 class="text-start font-thin text-3xl sm:text-5xl ">
+                        <h1 class="text-4xl font-bold text-start tracking-tight text-red-950 sm:text-5xl">
                             YOU WILL
 
-                            <h1 class="text-start mt-1 block ">
+                            <h1 class="text-start text-white mt-1 block ">
                                 NEVER BE ALONE !
                             </h1>
                         </h1>
 
-                        <p class="text-start mt-8 font-thin max-w-lg sm:text-xl/relaxed text-white">
+                        <p class="mt-6 text-lg leading-8 text-gray-300 text-start">
                             Be in Firstlook !
                         </p>
 
-                        <p class="text-start -mt-2 font-thin max-w-lg sm:text-xl/relaxed text-white">
+                        <p class="text-lg -mt-2 leading-8 text-gray-300 text-start">
                             signup to the social platform for singles
                         </p>
 
-                        <p class="text-start -mt-2 font-thin max-w-lg sm:text-xl/relaxed text-white">
+                        <p class="-mt-2 text-lg leading-8 text-gray-300 text-start">
                             to find matches easily.
                         </p>
 
                         <div class="mt-8 flex flex-wrap gap-4 text-center">
-
-                            {/* <a
-                                href="#"
-                                class="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
-                            >
-                                Learn More
-                            </a> */}
 
                             <button type="button" class="flex items-center justify-center w-4/6 mx-auto sm:w-40 mt-3 text-black font-bold bg-white h-14 rounded-xl transform transition hover:scale-95 duration-300 ease-in-out">
                                 Join Now
