@@ -17,7 +17,7 @@ const Hero = () => {
                     initial={{ y: "-10vw", opacity: 0 }}
                     animate={{ y: 1, opacity: 1 }}
                     transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
-                    className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 bg-auto bg-no-repeat bg-right lg:bg-bg_model"
+                    className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 bg-auto bg-no-repeat bg-right bg-bg_model"
                 >
                     <div
                         className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right mt-16">
