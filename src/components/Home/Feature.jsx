@@ -4,6 +4,7 @@ import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import Diversity1OutlinedIcon from '@mui/icons-material/Diversity1Outlined';
 import ShoppingCartCheckoutOutlinedIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
 import Mobileimage from '../../assets/mob_image_index.png'
+
 const Feature = () => {
     return (
         <>
