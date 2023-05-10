@@ -1,67 +1,88 @@
 import React from 'react'
 import Navbar from './Navbar'
-import model from '../../assets/bannerModel.png'
+import { motion } from 'framer-motion'
 
 const Hero = () => {
     return (
         <>
             <section
-                class="relative bg-gradient-to-b from-orange-500 to-rose-600 bg-cover bg-center bg-no-repeat"
+                className="relative bg-gradient-to-b from-orange-500 to-rose-600 bg-cover bg-center bg-no-repeat"
             >
                 <div
-                    class="absolute inset-0"
+                    className="absolute inset-0"
                 ><Navbar /></div>
 
 
-                <div
-                    class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 bg-auto bg-no-repeat bg-right lg:bg-bg_model"
+                <motion.div
+                    initial={{ y: "-10vw", opacity: 0 }}
+                    animate={{ y: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
+                    className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 bg-auto bg-no-repeat bg-right lg:bg-bg_model"
                 >
-                    <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right mt-16">
-                        <h1 class="text-4xl font-bold text-start tracking-tight text-red-950 sm:text-5xl">
+                    <div
+                        className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right mt-16">
+                        <motion.h1
+                            initial={{ y: "-10vw", opacity: 0 }}
+                            animate={{ y: 1, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="text-4xl font-bold text-start tracking-tight text-red-950 sm:text-5xl">
                             YOU WILL
 
-                            <h1 class="text-start text-white mt-1 block ">
+                            <motion.h1
+                                initial={{ y: "-10vw", opacity: 0 }}
+                                animate={{ y: 1, opacity: 1 }}
+                                transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
+                                className="text-start text-white mt-1 block ">
                                 NEVER BE ALONE !
-                            </h1>
-                        </h1>
+                            </motion.h1>
+                        </motion.h1>
 
-                        <p class="mt-6 text-lg leading-8 text-gray-300 text-start">
+                        <motion.p
+                            initial={{ y: "-10vw", opacity: 0 }}
+                            animate={{ y: 1, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="mt-6 text-lg leading-8 text-gray-300 text-start">
                             Be in Firstlook !
-                        </p>
+                        </motion.p>
 
-                        <p class="text-lg -mt-2 leading-8 text-gray-300 text-start">
+                        <motion.p
+                            initial={{ y: "-10vw", opacity: 0 }}
+                            animate={{ y: 1, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="text-lg -mt-2 leading-8 text-gray-300 text-start">
                             signup to the social platform for singles
-                        </p>
+                        </motion.p>
 
-                        <p class="-mt-2 text-lg leading-8 text-gray-300 text-start">
+                        <motion.p
+                            initial={{ y: "-10vw", opacity: 0 }}
+                            animate={{ y: 1, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
+                            className="-mt-2 text-lg leading-8 text-gray-300 text-start">
                             to find matches easily.
-                        </p>
+                        </motion.p>
 
-                        <div class="mt-8 flex flex-wrap gap-4 text-center">
+                        <div className="mt-8 flex flex-wrap gap-4 text-center">
 
-                            <button type="button" class="flex items-center justify-center w-4/6 mx-auto sm:w-40 mt-3 text-black font-bold bg-white h-14 rounded-xl transform transition hover:scale-95 duration-300 ease-in-out">
+                            <button type="button" className="flex items-center justify-center w-4/6 mx-auto sm:w-40 mt-3 text-black font-bold bg-white h-14 rounded-xl transform transition hover:scale-95 duration-300 ease-in-out hover:bg-black hover:text-white">
                                 Join Now
                             </button>
 
-                            <button type="button" class="flex items-center justify-center w-4/6 mx-auto sm:w-48 mt-3 text-white bg-black h-14 rounded-xl transform transition hover:scale-95 duration-300 ease-in-out">
-                                <div class="mr-3">
+                            <button type="button" className="flex items-center justify-center w-4/6 mx-auto sm:w-48 mt-3 text-white bg-black h-14 rounded-xl transform transition hover:scale-95 duration-300 ease-in-out">
+                                <div className="mr-3">
                                     <svg viewBox="0 0 384 512" width="30">
                                         <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z">
                                         </path>
                                     </svg>
                                 </div>
                                 <div>
-                                    <div class="text-xs">
+                                    <div className="text-xs">
                                         Download on the
                                     </div>
-                                    <div class="-mt-1 font-sans text-xl font-semibold">
+                                    <div className="-mt-1 font-sans text-xl font-semibold">
                                         App Store
                                     </div>
                                 </div>
                             </button>
 
-                            <button type="button" class="flex items-center justify-center w-4/6 mx-auto sm:w-48 mt-3 text-white bg-black rounded-lg h-14 transform transition hover:scale-95 duration-300 ease-in-out">
-                                <div class="mr-3">
+                            <button type="button" className="flex items-center justify-center w-4/6 mx-auto sm:w-48 mt-3 text-white bg-black rounded-lg h-14 transform transition hover:scale-95 duration-300 ease-in-out">
+                                <div className="mr-3">
                                     <svg viewBox="30 336.7 120.9 129.2" width="30">
                                         <path fill="#FFD400" d="M119.2,421.2c15.3-8.4,27-14.8,28-15.3c3.2-1.7,6.5-6.2,0-9.7  c-2.1-1.1-13.4-7.3-28-15.3l-20.1,20.2L119.2,421.2z">
                                         </path>
@@ -74,17 +95,17 @@ const Hero = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <div class="text-xs">
+                                    <div className="text-xs">
                                         GET IT ON
                                     </div>
-                                    <div class="-mt-1 font-sans text-xl font-semibold">
+                                    <div className="-mt-1 font-sans text-xl font-semibold">
                                         Google Play
                                     </div>
                                 </div>
                             </button>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </section>
         </>
     )

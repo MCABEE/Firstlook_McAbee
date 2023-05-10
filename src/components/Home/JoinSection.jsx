@@ -1,5 +1,6 @@
 import React from 'react'
 import Mobileimage from '../../assets/mob_image_index.png'
+import { motion } from 'framer-motion'
 
 const JoinSection = () => {
     return (
@@ -9,17 +10,25 @@ const JoinSection = () => {
 
                     <div className="md:flex justify-between items-center">
                         <div className="lg:w-6/12 lg:p-0 p-7">
-                            <h1 className="text-5xl font-bold leading-tight mb-5 text-red-900">JOIN <br /> TODAY !</h1>
-                            <p className="text-xl text-gray-500">Experience the easyness of <br /> quick signup, searching <br /> for your matches and free communication </p>
+                            <motion.h1
+                                initial={{ y: "-10vw", opacity: 0 }}
+                                whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
+                                viewport={{ once: true, amount: 0.8 }}
+                                className="text-5xl font-bold leading-tight mb-5 text-red-900">JOIN <br /> TODAY !</motion.h1>
+                            <motion.p
+                                initial={{ y: "-10vw", opacity: 0 }}
+                                whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
+                                viewport={{ once: true, amount: 0.8 }}
+                                className="text-xl text-gray-500">Experience the easyness of <br /> quick signup, searching <br /> for your matches and free communication </motion.p>
 
                             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                                 <a
                                     href="#"
-                                    className="rounded-md bg-gradient-to-b from-orange-500 to-rose-600 text-white px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                                    className="transform transition hover:scale-95 duration-300 ease-in-out rounded-md bg-gradient-to-b from-orange-500 to-rose-600 text-white px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                                 >
                                     Get started
                                 </a>
-                                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                                <a href="#" className="text-sm font-semibold leading-6 text-gray-900 hover:text-gray-500">
                                     Learn more <span aria-hidden="true">→</span>
                                 </a>
                             </div>
@@ -30,9 +39,13 @@ const JoinSection = () => {
                             </div> */}
 
                         </div>
-                        <div className="md:w-4/12 order-2">
+                        <motion.div
+                            initial={{ y: "-10vw", opacity: 0 }}
+                            whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
+                            viewport={{ once: true, amount: 0.8 }}
+                            className="md:w-4/12 order-2">
                             <img src={Mobileimage} alt="" />
-                        </div>
+                        </motion.div>
                     </div>
 
                 </div>

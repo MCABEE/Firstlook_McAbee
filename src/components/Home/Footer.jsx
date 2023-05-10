@@ -1,12 +1,17 @@
 import React from 'react'
 import firstLook from '../../assets/firstLook.png'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 const Footer = () => {
     return (
         <>
             <footer aria-label="Site Footer" class="bg-white">
-                <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+                <motion.div 
+                initial={{ y: "-10vw", opacity: 0 }}
+                                whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
+                                viewport={{ once: true, amount: 0.8 }}
+                                 class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
 
                     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
                         <div class="text-center sm:text-left">
@@ -261,7 +266,7 @@ const Footer = () => {
                             </p>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </footer>
         </>
     )
