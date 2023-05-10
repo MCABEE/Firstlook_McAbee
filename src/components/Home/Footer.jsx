@@ -12,7 +12,7 @@ const Footer = () => {
                         <div class="text-center sm:text-left">
                             <p class="text-xl font-medium text-gray-900">Country</p>
 
-                            <nav aria-label="Footer About Nav" class="mt-16">
+                            <nav aria-label="Footer About Nav" class="mt-8 sm:mt-16">
 
                                 <div>
                                     <select
