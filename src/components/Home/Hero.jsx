@@ -14,7 +14,7 @@ const Hero = () => {
 
 
                 <div
-                    class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 bg-auto bg-no-repeat bg-right bg-bg_model"
+                    class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 bg-auto bg-no-repeat bg-right lg:bg-bg_model"
                 >
                     <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right mt-16">
                         <h1 class="text-4xl font-bold text-start tracking-tight text-red-950 sm:text-5xl">

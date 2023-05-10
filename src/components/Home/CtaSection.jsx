@@ -43,7 +43,7 @@ const CtaSection = () => {
                         </div>
                         <div className="relative mt-16 h-80 lg:mt-8">
                             <img
-                                className="absolute left-0 top-0 w-[32.5rem] max-w-none rounded-xl mx-auto mt-2 bg-white/5 ring-1 ring-white/10"
+                                className="absolute left-0 top-0 w-[25rem] md:w-[32.5rem] max-w-none rounded-xl mx-auto mt-2 bg-white/5 ring-1 ring-white/10"
                                 src={media}
                                 alt="App screenshot"
                                 width={1824}
