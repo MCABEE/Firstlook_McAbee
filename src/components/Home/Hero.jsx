@@ -107,7 +107,7 @@ const Hero = () => {
                             </button>
                         </div>
                     </div>
-                    <img src={model} className='ml-auto h-full hidden xl:block' alt="" />
+                    <img src={model} className='ml-auto mt-64 opacity-70 h-full hidden xl:block' alt="" />
                 </motion.div>
             </section>
         </>

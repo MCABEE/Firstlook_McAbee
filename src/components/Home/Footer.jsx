@@ -76,7 +76,7 @@ const Footer = () => {
                             </nav>
                         </div>
 
-                        <div class="text-center sm:text-left">
+                        <div class="text-center md:text-left lg:text-center">
                             <p class="text-lg font-medium text-gray-900"></p>
 
                             <nav aria-label="Footer Resources Nav" class="mt-8">
@@ -130,7 +130,7 @@ const Footer = () => {
                             </nav>
                         </div>
 
-                        <div class="text-center sm:text-left">
+                        <div class="text-center md:text-left lg:text-end">
                             <p class="text-xl font-medium text-gray-900">Connect Us</p>
 
                             <nav aria-label="Footer Helpful Nav" class="mt-8">
@@ -171,7 +171,7 @@ const Footer = () => {
                                         </a>
                                     </li>
 
-                                    <ul class="flex justify-center gap-6 sm:justify-start">
+                                    <ul class="flex justify-center gap-6 md:justify-start lg:justify-end">
                                         <li>
                                             <a
                                                 href="/"
