@@ -7,7 +7,7 @@ const Hero = () => {
     return (
         <>
             <section
-                className="relative bg-gradient-to-b from-orange-500 to-rose-600 bg-cover bg-center bg-no-repeat"
+                className="relative bg-gradient-to-b from-orange-500 to-rose-600 lg:bg-bg_model bg-cover bg-center bg-no-repeat"
             >
                 <div
                     className="absolute inset-0"
@@ -107,7 +107,7 @@ const Hero = () => {
                             </button>
                         </div>
                     </div>
-                    <img src={model} className='ml-auto mt-64 opacity-70 h-full hidden xl:block' alt="" />
+                    {/* <img src={model} className='ml-auto mt-64 opacity-70 h-full hidden xl:block' alt="" /> */}
                 </motion.div>
             </section>
         </>
