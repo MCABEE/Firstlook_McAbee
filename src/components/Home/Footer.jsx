@@ -7,24 +7,24 @@ const Footer = () => {
     return (
         <>
             <footer aria-label="Site Footer" class="bg-white">
-                <motion.div 
-                initial={{ y: "-10vw", opacity: 0 }}
-                                whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
-                                viewport={{ once: true, amount: 0.8 }}
-                                 class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+                <motion.div
+                    initial={{ y: "-10vw", opacity: 0 }}
+                    whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
+                    viewport={{ once: true, amount: 0.8 }}
+                    class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
 
-                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
                         <div class="text-center sm:text-left">
-                            <p class="text-xl font-medium text-gray-900">Country</p>
+                            <p class="text-3xl lg:mt-24 font-oxygen font-bold text-gray-900">Country</p>
 
-                            <nav aria-label="Footer About Nav" class="mt-8 sm:mt-16">
+                            <nav aria-label="Footer About Nav" class="mt-8 sm:mt-16 lg:mt-6">
 
                                 <div>
                                     <select
                                         id="country"
                                         name="country"
                                         autoComplete="country-name"
-                                        className="block w-56 mx-auto sm:mx-0 sm:w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                        className="block w-56 mx-auto sm:mx-0 sm:w-4/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                     >
                                         <option>India</option>
                                     </select>
@@ -32,8 +32,8 @@ const Footer = () => {
                             </nav>
                         </div>
 
-                        <div class="text-center sm:text-left">
-                            <p class="text-xl font-medium text-gray-900">Helpful Links</p>
+                        <div class="text-center lg:ml-auto sm:text-left">
+                            <p class="text-base font-oxygen font-extrabold text-gray-900">Helpful Links</p>
 
                             <nav aria-label="Footer Services Nav" class="mt-8">
                                 <ul class="space-y-4 text-sm">
@@ -42,7 +42,25 @@ const Footer = () => {
                                             class="text-gray-700 transition hover:text-gray-700/75"
                                             href="/"
                                         >
-                                            Terms of Use - Policy
+                                            Terms of Use
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            href="/"
+                                        >
+                                            Membership Policy
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            href="/"
+                                        >
+                                            Refund Policy
                                         </a>
                                     </li>
 
@@ -54,6 +72,15 @@ const Footer = () => {
                                             FAQs
                                         </a>
                                     </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="text-center lg:ml-24 sm:text-left lg:text-start">
+                            <p class="text-lg font-medium text-white">.</p>
+
+                            <nav aria-label="Footer Resources Nav" class="mt-8">
+                                <ul class="space-y-4 text-sm">
 
                                     <li>
                                         <a
@@ -72,16 +99,7 @@ const Footer = () => {
                                             Purchase
                                         </a>
                                     </li>
-                                </ul>
-                            </nav>
-                        </div>
 
-                        <div class="text-center md:text-left lg:text-center">
-                            <p class="text-lg font-medium text-gray-900"></p>
-
-                            <nav aria-label="Footer Resources Nav" class="mt-8">
-                                <ul class="space-y-4 text-sm">
-                                    
                                     <li>
                                         <a
                                             class="text-gray-700 transition hover:text-gray-700/75"
@@ -100,38 +118,12 @@ const Footer = () => {
                                         </a>
                                     </li>
 
-                                    <li>
-                                        <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
-                                            href="/"
-                                        >
-                                            Media Centre
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
-                                            href="/"
-                                        >
-                                            About Us
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
-                                            href="/"
-                                        >
-                                            Contact
-                                        </a>
-                                    </li>
                                 </ul>
                             </nav>
                         </div>
 
-                        <div class="text-center md:text-left lg:text-end">
-                            <p class="text-xl font-medium text-gray-900">Connect Us</p>
+                        <div class="text-center lg:ml-auto sm:text-left lg:text-start">
+                            <p class="text-base font-oxygen font-extrabold text-gray-900">Connect Us</p>
 
                             <nav aria-label="Footer Helpful Nav" class="mt-8">
                                 <ul class="space-y-4 text-sm">
@@ -171,7 +163,43 @@ const Footer = () => {
                                         </a>
                                     </li>
 
-                                    <ul class="flex justify-center gap-6 md:justify-start lg:justify-end">
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="text-center lg:ml-auto sm:text-left lg:text-start">
+                            <p class="text-lg font-medium text-white">.</p>
+
+                            <nav aria-label="Footer Resources Nav" class="mt-8">
+                                <ul class="space-y-4 text-sm">
+
+                                    <li>
+                                        <a
+                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            href="/"
+                                        >
+                                            Media Centre
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            href="/"
+                                        >
+                                            About Us
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            class="text-gray-500 transition hover:text-gray-700/75"
+                                            href="/"
+                                        >
+                                            Social Media
+                                        </a>
+                                    </li>
+
+                                    <ul class="flex justify-center gap-6 md:justify-start lg:justify-start">
                                         <li>
                                             <a
                                                 href="/"
@@ -260,6 +288,10 @@ const Footer = () => {
                             <div class="flex justify-center sm:justify-start">
                                 <img src={firstLook} className='h-10' alt="" />
                             </div>
+
+                            <p className='text-center text-gray-500'>
+                                from <br /><span className='font-bold text-black'>MCABEE</span>
+                            </p>
 
                             <p class="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-right">
                                 Copyright &copy; Firstlook 2023.
