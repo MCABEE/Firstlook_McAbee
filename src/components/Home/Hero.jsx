@@ -26,7 +26,7 @@ const Hero = () => {
                             initial={{ y: "-10vw", opacity: 0 }}
                             animate={{ y: 1, opacity: 1 }}
                             transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
-                            className="text-4xl font-thin text-start tracking-tight text-red-950 sm:text-7xl">
+                            className="text-4xl font-thin text-start tracking-tight text-white sm:text-7xl">
                             You will
 
                             <motion.h1

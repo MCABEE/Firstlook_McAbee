@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const PaymentPlans = () => {
     return (
         <>
-            <div class="relative w-full h-full">
+            <div class="relative w-full h-full bg-cover bg-bg_pay">
                 <div class="absolute hidden w-full lg:block h-96" />
                 <div class="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                     <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -315,7 +315,7 @@ const PaymentPlans = () => {
                                     </p>
                                     <div class="flex items-center justify-center">
                                         <p class="mr-2 text-5xl font-semibold text-white lg:text-6xl">
-                                            ₹2499
+                                            ₹99
                                         </p>
                                         <p class="text-lg text-white">/ year</p>
                                     </div>

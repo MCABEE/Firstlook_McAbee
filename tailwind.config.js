@@ -9,7 +9,8 @@ export default {
        backgroundImage:
           {
             'feature_pattern': "url('./src/assets/hero-bg-bottom.svg')",
-            'bg_model': "url('./src/assets/bannerModel.png')"
+            'bg_model': "url('./src/assets/bannerModel.png')",
+            'bg_pay': "url('./src/assets/Index_Model_004.png')",
           }
       }
   }
