@@ -56,19 +56,23 @@ const PaymentPlans = () => {
                             whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.2 } }}
                             viewport={{ once: true, amount: 0.8 }}
                         >
-                            <div class="p-8 bg-white shadow-2xl rounded-xl">
-                                <div class="mb-4 text-center">
-                                    <p class="text-xl font-medium tracking-wide text-black">
-                                        Standard Plan
-                                    </p>
-                                    <div class="flex items-center justify-center">
-                                        <p class="mr-2 text-5xl font-semibold text-black lg:text-6xl">
+                            <div class="w-6/12 h-8 bg-red-500 rounded-t-xl">
+                                <p class="text-lg text-center font-thin tracking-wide text-white">
+                                    Standard Plan
+                                </p>
+                            </div>
+                            <div class="p-8 bg-white shadow-2xl rounded-b-xl">
+                                <div class="text-start">
+
+                                    <div class="flex items-start justify-start">
+                                        <p class="mr-2 text-5xl font-semibold text-black lg:text-4xl">
                                             ₹999
                                         </p>
-                                        <p class="text-lg text-black">/ year</p>
+                                        <p class="text-lg text-black mt-3">/ year</p>
                                     </div>
+                                    <hr className='w-full mt-6 bg-black' />
                                 </div>
-                                <ul class="mb-8 space-y-2">
+                                <ul class="mb-8 mt-8 space-y-4">
                                     <li class="flex items-center">
                                         <div class="mr-3">
                                             <svg
@@ -91,7 +95,7 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-black">10 deploys per day</p>
+                                        <p class="font-medium text-black">One year validity</p>
                                     </li>
                                     <li class="flex items-center">
                                         <div class="mr-3">
@@ -115,7 +119,7 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-black">10 GB of storage</p>
+                                        <p class="font-medium text-black">36 Connections</p>
                                     </li>
                                     <li class="flex items-center">
                                         <div class="mr-3">
@@ -139,7 +143,7 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-black">3 domains</p>
+                                        <p class="font-medium text-black">Chat with favorites</p>
                                     </li>
                                     <li class="flex items-center">
                                         <div class="mr-3">
@@ -163,12 +167,12 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-black">SSL Certificates</p>
+                                        <p class="font-medium text-black">Unlimited proposals</p>
                                     </li>
                                 </ul>
                                 <button
                                     type="submit"
-                                    class="inline-flex items-center bg-gray-200 justify-center w-full h-12 px-6 font-medium tracking-wide text-black rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
+                                    class="inline-flex items-center bg-red-500 justify-center w-full h-12 px-6 font-medium tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Get Now
                                 </button>
@@ -182,19 +186,23 @@ const PaymentPlans = () => {
                             whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.3 } }}
                             viewport={{ once: true, amount: 0.8 }}
                         >
-                            <div class="p-8 bg-white rounded-xl ">
-                                <div class="mb-4 text-center">
-                                    <p class="text-xl font-medium tracking-wide text-black">
-                                        Unlimited Plan
-                                    </p>
-                                    <div class="flex items-center justify-center">
-                                        <p class="mr-2 text-5xl font-semibold text-black lg:text-6xl">
+                            <div class="w-6/12 h-8 bg-orange-500 rounded-t-xl">
+                                <p class="text-lg text-center font-thin tracking-wide text-white">
+                                    Premiuim Plan
+                                </p>
+                            </div>
+                            <div class="p-8 bg-white shadow-2xl rounded-b-xl">
+                                <div class="text-start">
+
+                                    <div class="flex items-start justify-start">
+                                        <p class="mr-2 text-5xl font-semibold text-black lg:text-4xl">
                                             ₹2499
                                         </p>
-                                        <p class="text-lg text-black">/ year</p>
+                                        <p class="text-lg text-black mt-3">/ year</p>
                                     </div>
+                                    <hr className='w-full mt-6 bg-black' />
                                 </div>
-                                <ul class="mb-8 space-y-2">
+                                <ul class="mb-8 mt-8 space-y-4">
                                     <li class="flex items-center">
                                         <div class="mr-3">
                                             <svg
@@ -217,7 +225,7 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-black">100 deploys per day</p>
+                                        <p class="font-medium text-black">One year validity</p>
                                     </li>
                                     <li class="flex items-center">
                                         <div class="mr-3">
@@ -241,7 +249,7 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-black">50 GB of storage</p>
+                                        <p class="font-medium text-black">Unlimited Connections</p>
                                     </li>
                                     <li class="flex items-center">
                                         <div class="mr-3">
@@ -265,7 +273,7 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-black">Unlimited domains</p>
+                                        <p class="font-medium text-black">Chat with favorites</p>
                                     </li>
                                     <li class="flex items-center">
                                         <div class="mr-3">
@@ -289,12 +297,12 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-black">SSL Certificates</p>
+                                        <p class="font-medium text-black">Unlimited proposals</p>
                                     </li>
                                 </ul>
                                 <button
                                     type="submit"
-                                    class="inline-flex items-center bg-blue-100 justify-center w-full h-12 px-6 font-semibold tracking-wide text-black rounded shadow-md hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
+                                    class="inline-flex items-center bg-red-500 justify-center w-full h-12 px-6 font-medium tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Get Now
                                 </button>
@@ -308,23 +316,27 @@ const PaymentPlans = () => {
                             whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
                             viewport={{ once: true, amount: 0.8 }}
                         >
-                            <div class="p-8 bg-gradient-to-b from-orange-500 to-rose-600 rounded-xl">
-                                <div class="mb-4 text-center">
-                                    <p class="text-xl font-medium tracking-wide text-white">
-                                        Unlimited Plan
-                                    </p>
-                                    <div class="flex items-center justify-center">
-                                        <p class="mr-2 text-5xl font-semibold text-white lg:text-6xl">
+                            <div class="w-6/12 h-8 bg-yellow-400 rounded-t-xl">
+                                <p class="text-lg text-center font-thin tracking-wide text-white">
+                                    Top Up
+                                </p>
+                            </div>
+                            <div class="p-8 bg-white shadow-2xl rounded-b-xl">
+                                <div class="text-start">
+
+                                    <div class="flex items-start justify-start">
+                                        <p class="mr-2 text-5xl font-semibold text-black lg:text-4xl">
                                             ₹99
                                         </p>
-                                        <p class="text-lg text-white">/ year</p>
+                                        <p class="text-lg text-black mt-3">/ Connection</p>
                                     </div>
+                                    <hr className='w-full mt-6 bg-black' />
                                 </div>
-                                <ul class="mb-8 space-y-2">
+                                <ul class="mb-8 mt-8 space-y-4">
                                     <li class="flex items-center">
                                         <div class="mr-3">
                                             <svg
-                                                class="w-4 h-4 text-white"
+                                                class="w-4 h-4 text-black"
                                                 viewBox="0 0 24 24"
                                                 strokeLinecap="round"
                                                 strokeWidth="2"
@@ -343,12 +355,12 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-white">100 deploys per day</p>
+                                        <p class="font-medium text-black">Validity as per Basic Plan</p>
                                     </li>
                                     <li class="flex items-center">
                                         <div class="mr-3">
                                             <svg
-                                                class="w-4 h-4 text-white"
+                                                class="w-4 h-4 text-black"
                                                 viewBox="0 0 24 24"
                                                 strokeLinecap="round"
                                                 strokeWidth="2"
@@ -367,12 +379,12 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-white">50 GB of storage</p>
+                                        <p class="font-medium text-black">01 Connections</p>
                                     </li>
                                     <li class="flex items-center">
                                         <div class="mr-3">
                                             <svg
-                                                class="w-4 h-4 text-white"
+                                                class="w-4 h-4 text-black"
                                                 viewBox="0 0 24 24"
                                                 strokeLinecap="round"
                                                 strokeWidth="2"
@@ -391,12 +403,12 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-white">Unlimited domains</p>
+                                        <p class="font-medium text-black">Chat with favorites</p>
                                     </li>
                                     <li class="flex items-center">
                                         <div class="mr-3">
                                             <svg
-                                                class="w-4 h-4 text-white"
+                                                class="w-4 h-4 text-black"
                                                 viewBox="0 0 24 24"
                                                 strokeLinecap="round"
                                                 strokeWidth="2"
@@ -415,12 +427,12 @@ const PaymentPlans = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <p class="font-medium text-white">SSL Certificates</p>
+                                        <p class="font-medium text-black">Unlimited proposals</p>
                                     </li>
                                 </ul>
                                 <button
                                     type="submit"
-                                    class="inline-flex items-center bg-red-500 justify-center w-full h-12 px-6 font-semibold tracking-wide text-white rounded shadow-md hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
+                                    class="inline-flex items-center bg-red-500 justify-center w-full h-12 px-6 font-medium tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Get Now
                                 </button>
