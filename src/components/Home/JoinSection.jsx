@@ -1,5 +1,5 @@
 import React from 'react'
-import Mobileimage from '../../assets/mob_image_index.png'
+import Mobileimage from '../../assets/Index_Model_001.png'
 import { motion } from 'framer-motion'
 
 const JoinSection = () => {
@@ -14,12 +14,12 @@ const JoinSection = () => {
                                 initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
                                 viewport={{ once: true, amount: 0.8 }}
-                                className="text-5xl font-bold leading-tight mb-5 text-red-900">JOIN <br /> TODAY !</motion.h1>
+                                className="text-5xl font-semibold leading-tight mb-5 text-black">Join Today</motion.h1>
                             <motion.p
                                 initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
                                 viewport={{ once: true, amount: 0.8 }}
-                                className="text-xl text-gray-500">Experience the easyness of <br /> quick signup, searching <br /> for your matches and free communication </motion.p>
+                                className="text-xl text-gray-500">Experience the easyness of quick signup, <br /> searching for your matches and free communication </motion.p>
 
                             <div className="mt-10 flex items-center gap-x-6 justify-start">
                                 <a
@@ -28,15 +28,28 @@ const JoinSection = () => {
                                 >
                                     Get started
                                 </a>
-                                <a href="#" className="text-sm font-semibold leading-6 text-gray-900 hover:text-gray-500">
+                                {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900 hover:text-gray-500">
                                     Learn more <span aria-hidden="true">→</span>
-                                </a>
+                                </a> */}
                             </div>
 
-                            {/* <div className="py-5">
-                                <a href="#" className="text-white rounded-full py-2 px-5 text-lg font-semibold bg-purple-600 inline-block border border-purple-600 mr-3">Experience the easyness of</a>
-                                <a href="#" className="text-black rounded-full py-2 px-5 text-lg font-semibold bg-gray-400 inline-block border hover:bg-white hover:text-black">Requist a demo</a>
-                            </div> */}
+                            <a
+                                class="block rounded-xl bg-sky-200 p-4 shadow-xl sm:p-6 lg:p-8 mt-8 md:mt-20 md:w-3/4"
+                                href=""
+                            >
+
+                                <h3 class="mt-3 text-lg font-semibold text-black sm:text-3xl">
+                                    FAQs
+                                </h3>
+
+                                <p class="mt-4 text-sm text-black">
+                                    Here are frequently asked questions. Might help you as well.
+                                </p>
+
+                                <p class="mt-4 text-sm text-black">
+                                    View FAQ <span aria-hidden="true">→</span>
+                                </p>
+                            </a>
 
                         </div>
                         <motion.div
@@ -47,7 +60,6 @@ const JoinSection = () => {
                             <img src={Mobileimage} alt="" />
                         </motion.div>
                     </div>
-
                 </div>
             </div>
         </>
