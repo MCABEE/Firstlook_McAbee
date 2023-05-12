@@ -61,7 +61,7 @@ const PaymentPlans = () => {
                             viewport={{ once: true, amount: 0.8 }}
                         >
                             <div class="w-6/12 h-8 bg-red-500 rounded-t-xl">
-                                <p class="text-base text-center font-oxygen text-white">
+                                <p class="text-base h-full flex justify-center items-center font-oxygen text-white">
                                     Standard Plan
                                 </p>
                             </div>
@@ -72,7 +72,7 @@ const PaymentPlans = () => {
                                         <p class="mr-2 text-5xl font-semibold text-black lg:text-4xl">
                                             ₹999
                                         </p>
-                                        <p class="text-lg text-black mt-3">/ year</p>
+                                        <p class="text-lg text-gray-900 mt-3">/ Year</p>
                                     </div>
                                     <hr className='w-full mt-6 bg-black' />
                                 </div>
@@ -125,7 +125,7 @@ const PaymentPlans = () => {
                             viewport={{ once: true, amount: 0.8 }}
                         >
                             <div class="w-6/12 h-8 bg-orange-500 rounded-t-xl">
-                                <p class="text-base text-center font-oxygen tracking-wide text-white">
+                                <p class="text-base h-full flex justify-center items-center font-oxygen tracking-wide text-white">
                                     Premiuim Plan
                                 </p>
                             </div>
@@ -136,7 +136,7 @@ const PaymentPlans = () => {
                                         <p class="mr-2 text-5xl font-semibold text-black lg:text-4xl">
                                             ₹2499
                                         </p>
-                                        <p class="text-lg text-black mt-3">/ year</p>
+                                        <p class="text-lg text-gray-900 mt-3">/ Year</p>
                                     </div>
                                     <hr className='w-full mt-6 bg-black' />
                                 </div>
@@ -189,7 +189,7 @@ const PaymentPlans = () => {
                             viewport={{ once: true, amount: 0.8 }}
                         >
                             <div class="w-6/12 h-8 bg-yellow-400 rounded-t-xl">
-                                <p class="text-base text-center font-oxygen text-white">
+                                <p class="text-base h-full flex justify-center items-center font-oxygen text-white">
                                     Top Up
                                 </p>
                             </div>
@@ -200,7 +200,7 @@ const PaymentPlans = () => {
                                         <p class="mr-2 text-5xl font-semibold text-black lg:text-4xl">
                                             ₹99
                                         </p>
-                                        <p class="text-lg text-black mt-3">/ Connection</p>
+                                        <p class="text-lg text-gray-900 mt-3">/ Connection</p>
                                     </div>
                                     <hr className='w-full mt-6 bg-black' />
                                 </div>
