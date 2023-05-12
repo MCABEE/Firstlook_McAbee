@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import Navbar from "../../Home/Navbar";
-import './PhoneReg.css'
 
 const PhoneReg = () => {
     const [countryState, setCountryState] = useState({
@@ -90,12 +89,12 @@ const PhoneReg = () => {
                             </select>
                         </div>
 
-                        <div class="input-container">
+                        <div class="relative">
                             <img src={
                                 searchSelectedCountry &&
                                 searchSelectedCountry?.flags?.png
-                            } alt="Image" class="input-image w-8 h-5 mt-3" />
-                            <p className="input-text ml-12">
+                            } alt="Image" class="absolute w-8 h-5 mt-3.5 ml-3" />
+                            <p className="absolute ml-12 mt-3">
                                 {searchSelectedCountry &&
                                     searchSelectedCountry.idd.root}
                                 {searchSelectedCountry &&
@@ -105,9 +104,9 @@ const PhoneReg = () => {
                                 type="text"
                                 name="first-name"
                                 id="first-name"
-                                placeholder="Enter Mobile Number"
+                                placeholder="Enter Your Number"
                                 autoComplete="given-name"
-                                className="block w-80 rounded-xl border-0 py-3 px-24 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                                className=" w-80 rounded-xl border-0 py-3 px-24 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                             ></input>
                         </div>
 
