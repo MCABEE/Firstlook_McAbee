@@ -20,8 +20,9 @@ const PhoneReg = () => {
                 });
 
                 //  fetch data
-                const dataUrl = `https://restcountries.com/v3.1/all`;
+                const dataUrl = `https://restcountries.com/v2/all`;
                 const response = await axios.get(dataUrl);
+                console.log(response);
                 setCountryState({
                     ...countryState,
                     countries: response.data,
@@ -49,7 +50,7 @@ const PhoneReg = () => {
     //   find selected country data
     //search selected country
     const searchSelectedCountry = countries.find((obj) => {
-        if (obj.name.common === selectedCountry) {
+        if (obj.name === selectedCountry) {
             return true;
         }
         return false;
@@ -92,9 +93,8 @@ const PhoneReg = () => {
                                 } alt="Image" class="absolute w-8 h-5 mt-3.5 ml-[15.3rem]" />}
                             <p className="absolute ml-48 mt-3">
                                 {searchSelectedCountry &&
-                                    searchSelectedCountry.idd.root}
-                                {searchSelectedCountry &&
-                                    searchSelectedCountry.idd.suffixes}
+                                    searchSelectedCountry.callingCodes}
+                               
                             </p>
                             <div className="absolute mt-2.5 ml-72 text-gray-500">
                                 <KeyboardArrowDownIcon />
@@ -112,11 +112,11 @@ const PhoneReg = () => {
                                         <li
                                             key={item.name.common}
                                             className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                                            onClick={() => handleOptionClick(item.name.common)}
+                                            onClick={() => handleOptionClick(item.name)}
                                         >
                                             <img src={item.flags.png} className="w-8 h-5 mr-2" alt="" />
-                                            <p className="mr-2 truncate">{item.idd.root}{item.idd.suffixes}</p>
-                                            <p className="truncate">{item.name.common}</p>
+                                            <p className="mr-2">{item.callingCodes}</p>
+                                            <p className="truncate">{item.name}</p>
                                         </li>
                                     ))}
                                 </ul>
@@ -136,7 +136,7 @@ const PhoneReg = () => {
 
                     </div>
 
-                    <button className='bg-red-500 p-3 rounded-xl mt-16 mb-20 ml-24 text-white px-20'>
+                    <button className='bg-red-500 w-80 p-3 rounded-xl mt-12 mb-20 ml-16 text-white px-20'>
                         Verify Mobile
                     </button>
                 </div>
