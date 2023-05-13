@@ -90,13 +90,13 @@ const PhoneReg = () => {
                                 <img src={
                                     searchSelectedCountry &&
                                     searchSelectedCountry?.flags?.png
-                                } alt="Image" class="absolute w-8 h-5 mt-3.5 ml-[15.3rem]" />}
-                            <p className="absolute ml-48 mt-3">
+                                } alt="Image" class="absolute w-8 h-5 mt-3.5 ml-[15.3rem] pointer-events-none" />}
+                            <p className="absolute ml-48 mt-3 pointer-events-none">
                                 {searchSelectedCountry &&
                                     searchSelectedCountry.callingCodes}
                                
                             </p>
-                            <div className="absolute mt-2.5 ml-72 text-gray-500">
+                            <div className="absolute mt-2.5 ml-72 text-gray-500 pointer-events-none">
                                 <KeyboardArrowDownIcon />
                             </div>
                             <button
