@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 import Navbar from "../../Home/Navbar";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const PhoneReg = () => {
     const [countryState, setCountryState] = useState({
@@ -56,6 +56,17 @@ const PhoneReg = () => {
     });
     console.log("searchSelectedCountry", searchSelectedCountry);
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleToggle = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleOptionClick = (value) => {
+        setSelectedCountry(value);
+        setIsOpen(false);
+    };
+
     return (
         <>
             <Navbar />
@@ -73,46 +84,59 @@ const PhoneReg = () => {
 
                     <div className="grid justify-center mt-10 rounded-2xl mx-10 space-y-10">
 
-                        <div>
-                            <select
-                                value={selectedCountry}
-                                onChange={(e) => setSelectedCountry(e.target.value)}
-                                className=" w-80 h-12 text-lg border border-gray-400 rounded-2xl px-4 md:text-lg "
-                            >
-                                {countries.map((item) => {
-                                    return (
-                                        <option key={uuidv4()} value={item.name.common}>
-                                            {item.name.common}
-                                        </option>
-                                    );
-                                })}
-                            </select>
-                        </div>
-
-                        <div class="relative">
-                            <img src={
-                                searchSelectedCountry &&
-                                searchSelectedCountry?.flags?.png
-                            } alt="Image" class="absolute w-8 h-5 mt-3.5 ml-3" />
-                            <p className="absolute ml-12 mt-3">
+                        <div className="relative w-80">
+                            {searchSelectedCountry &&
+                                <img src={
+                                    searchSelectedCountry &&
+                                    searchSelectedCountry?.flags?.png
+                                } alt="Image" class="absolute w-8 h-5 mt-3.5 ml-[15.3rem]" />}
+                            <p className="absolute ml-48 mt-3">
                                 {searchSelectedCountry &&
                                     searchSelectedCountry.idd.root}
                                 {searchSelectedCountry &&
                                     searchSelectedCountry.idd.suffixes}
                             </p>
+                            <div className="absolute mt-2.5 ml-72 text-gray-500">
+                                <KeyboardArrowDownIcon />
+                            </div>
+                            <button
+                                type="button"
+                                className="w-full h-12 text-left border border-gray-400 rounded-xl px-4 text-gray-600 bg-white"
+                                onClick={handleToggle}
+                            >
+                                <p className="w-44 truncate text-sm">{selectedCountry ? selectedCountry : "Select Your Country"}</p>
+                            </button>
+                            {isOpen && (
+                                <ul className="absolute z-10 w-full mt-1 h-64 overflow-y-scroll bg-white border border-gray-400 rounded-lg shadow-lg">
+                                    {countries.map((item) => (
+                                        <li
+                                            key={item.name.common}
+                                            className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                                            onClick={() => handleOptionClick(item.name.common)}
+                                        >
+                                            <img src={item.flags.png} className="w-8 h-5 mr-2" alt="" />
+                                            <p className="mr-2 truncate">{item.idd.root}{item.idd.suffixes}</p>
+                                            <p className="truncate">{item.name.common}</p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+
+                        <div class="relative">
                             <input
                                 type="text"
                                 name="first-name"
                                 id="first-name"
                                 placeholder="Enter Your Number"
                                 autoComplete="given-name"
-                                className=" w-80 rounded-xl border-0 py-3 px-24 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                                className=" w-80 rounded-xl border-0 py-3 px-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                             ></input>
                         </div>
 
                     </div>
 
-                    <button className='bg-red-500 p-3 rounded-xl mt-10 mb-10 ml-24 text-white px-20'>
+                    <button className='bg-red-500 p-3 rounded-xl mt-16 mb-20 ml-24 text-white px-20'>
                         Verify Mobile
                     </button>
                 </div>
