@@ -7,10 +7,8 @@ const Footer = () => {
     return (
         <>
             <footer aria-label="Site Footer" class="bg-white">
-                <motion.div
-                    initial={{ y: "-10vw", opacity: 0 }}
-                    whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
-                    viewport={{ once: true, amount: 0.8 }}
+                <div
+                    
                     class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
 
                     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
@@ -298,7 +296,7 @@ const Footer = () => {
                             </p>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </footer>
         </>
     )

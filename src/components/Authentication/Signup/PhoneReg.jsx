@@ -71,19 +71,19 @@ const PhoneReg = () => {
     return (
         <>
             <Navbar />
-            <div className="flex h-screen justify-center items-center ">
+            <div className="flex h-screen justify-center items-center mb-44">
 
-                <div className="w-full max-w-md  bg-white rounded-2xl shadow-2xl">
+                <div className="w-full h-[45rem] mt-44 max-w-sm bg-[#F2F2F2] rounded-2xl shadow-2xl">
 
-                    <p className='font-oxygen font-bold text-center text-2xl mt-12'>
+                    <p className='font-oxygen font-bold text-center text-2xl mt-16'>
                         Registration
                     </p>
 
-                    <p className='ml-10 mt-10 font-medium'>
+                    <p className='ml-10 mt-16 font-medium'>
                         Select Country Code
                     </p>
 
-                    <div className="grid justify-center mt-10 rounded-2xl mx-10 space-y-10">
+                    <div className="grid justify-center mt-7 rounded-2xl mx-10 space-y-10">
 
                         <div className="relative w-80">
                             {searchSelectedCountry &&
@@ -101,13 +101,13 @@ const PhoneReg = () => {
                             </div>
                             <button
                                 type="button"
-                                className="w-full h-12 text-left border border-gray-400 rounded-xl px-4 text-gray-600 bg-white"
+                                className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
                                 onClick={handleToggle}
                             >
                                 <p className="w-44 truncate text-sm">{selectedCountry ? selectedCountry : "Select Your Country"}</p>
                             </button>
                             {isOpen && (
-                                <ul className="absolute z-10 w-full mt-1 h-64 overflow-y-scroll bg-white border border-gray-400 rounded-lg shadow-lg">
+                                <ul className="absolute z-10 w-full mt-1 h-64 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                                     {countries.map((item) => (
                                         <li
                                             key={item.name.common}
@@ -130,13 +130,13 @@ const PhoneReg = () => {
                                 id="first-name"
                                 placeholder="Enter Your Number"
                                 autoComplete="given-name"
-                                className=" w-80 rounded-xl border-0 py-3 px-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                                className=" w-80 rounded-xl py-3 px-5 text-gray-900 shadow-sm border border-[#B8B8B8] placeholder:text-gray-400 sm:text-sm sm:leading-6"
                             ></input>
                         </div>
 
                     </div>
 
-                    <button className='bg-red-500 w-80 p-3 rounded-xl mt-12 mb-20 ml-16 text-white px-20'>
+                    <button className='bg-red-500 w-80 p-3 rounded-xl mt-12 mb-20 ml-8 text-white px-20'>
                         Verify Mobile
                     </button>
                 </div>

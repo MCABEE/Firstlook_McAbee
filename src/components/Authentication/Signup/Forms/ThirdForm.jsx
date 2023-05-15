@@ -1,83 +1,97 @@
 import React from "react";
 
-const ThirdForm = ({ onChange, formValues }) => {
+const ThirdForm = ({ formValues, onChange }) => {
   return (
-    <div className="w-full max-w-sm">
-      <form className="bg-white shadow-md px-24 pt-16 pb-10 mb-8 rounded-md ">
-        <div className="grid gap-4 place-content-center items-center">
-          <h1 className="text-gray-700 pb-8 font-bold text-2xl">Login Info</h1>
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="username"
-          >
-            Username
-          </label>
+    <>
+      <form className="w-72">
+
+        <div className="mb-6 mt-4">
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="username"
-            name="username"
-            onChange={onChange}
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            id="name"
+            name="name"
             type="text"
-            placeholder="Username"
+            placeholder="Religion"
+            onChange={onChange}
+            value={formValues.name}
           ></input>
         </div>
+
         <div className="mb-6">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="password"
-          >
-            Password
-          </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="password"
-            name="password"
-            value={formValues.password}
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            id="lastname"
+            name="lastname"
             onChange={onChange}
-            type="password"
-            placeholder="******************"
+            value={formValues.lastname}
+            type="text"
+            placeholder="Caste"
           ></input>
         </div>
+
         <div className="mb-6">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="confirmPassword"
-          >
-            ConfirmPassword
-          </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="confirmPassword"
-            name="confirmPassword"
-            type="password"
-            value={formValues.confirmPassword}
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            id="lastname"
+            name="lastname"
             onChange={onChange}
-            placeholder="******************"
+            value={formValues.lastname}
+            type="text"
+            placeholder="Marital Status"
           ></input>
         </div>
-        <div className="flex justify-items-center content-center items-center">
-          <label
-            className="block text-gray-700 px-2  text-sm font-bold mb-2"
-            htmlFor="Terms"
-          >
-            Terms
-          </label>
+
+        <div className="mb-6">
           <input
-            name="terms"
-            value={formValues.terms}
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            id="lastname"
+            name="lastname"
             onChange={onChange}
-            className="shadow cursor-pointer border rounded"
-            type="checkbox"
+            value={formValues.lastname}
+            type="text"
+            placeholder="Height"
           ></input>
         </div>
+
+        <div className="mb-6">
+          <input
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            id="lastname"
+            name="lastname"
+            onChange={onChange}
+            value={formValues.lastname}
+            type="text"
+            placeholder="Weight"
+          ></input>
+        </div>
+
+        <div className="mb-6">
+          <input
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            id="lastname"
+            name="lastname"
+            onChange={onChange}
+            value={formValues.lastname}
+            type="text"
+            placeholder="Body Type"
+          ></input>
+        </div>
+
+        <div className="mb-6">
+          <input
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            id="lastname"
+            name="lastname"
+            onChange={onChange}
+            value={formValues.lastname}
+            type="text"
+            placeholder="Physical Status"
+          ></input>
+        </div>
+
         <div className="flex items-center justify-between"></div>
       </form>
-      <p className="text-center text-gray-500 text-xs">
-        &copy;2022 Form Stepper. All rights reserved.
-      </p>
-    </div>
+    </>
   );
 };
 
