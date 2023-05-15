@@ -80,7 +80,7 @@ const PhoneReg = () => {
                     </p>
 
                     <p className='ml-10 mt-10 font-medium'>
-                        Select Country
+                        Select Country Code
                     </p>
 
                     <div className="grid justify-center mt-10 rounded-2xl mx-10 space-y-10">
@@ -93,7 +93,7 @@ const PhoneReg = () => {
                                 } alt="Image" class="absolute w-8 h-5 mt-3.5 ml-[15.3rem] pointer-events-none" />}
                             <p className="absolute ml-48 mt-3 pointer-events-none">
                                 {searchSelectedCountry &&
-                                    searchSelectedCountry.callingCodes}
+                                    "+"+searchSelectedCountry.callingCodes}
                                
                             </p>
                             <div className="absolute mt-2.5 ml-72 text-gray-500 pointer-events-none">
