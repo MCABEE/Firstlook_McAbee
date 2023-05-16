@@ -72,7 +72,7 @@ const PhoneReg = () => {
     return (
         <>
             <Navbar />
-            <div className="flex h-screen justify-center items-center mb-44">
+            <div className="flex h-screen justify-center items-center mb-36">
 
                 <div className="w-full h-[45rem] mt-44 max-w-sm bg-[#F2F2F2] rounded-2xl shadow-2xl">
 
