@@ -107,7 +107,7 @@ const FirstForm = ({ formValues, onChange }) => {
               <Calendar
                 date={selectedDate}
                 onChange={handleDateChange}
-                className="mb-10 border border-gray-400 rounded-xl -ml-6 shadow-sm"
+                className="mb-10 border border-gray-400 rounded-xl ml-7 shadow-sm"
               />
             </div>
           )}
