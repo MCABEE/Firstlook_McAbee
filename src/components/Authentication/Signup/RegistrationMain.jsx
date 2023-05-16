@@ -12,9 +12,11 @@ import FifthForm from "./Forms/FifthForm";
 import FourthForm from "./Forms/FourthForm";
 import ThirdForm2 from "./Forms/ThirdForm2";
 import ThirdForm3 from "./Forms/ThirdForm3";
+import FifthForm2 from "./Forms/FifthForm2";
+import SixthForm2 from "./Forms/SixthForm2";
 
 const RegistrationMain = () => {
-    const formList = ["FirstForm", "SecondForm", "ThirdForm", "FourthForm", "FifthForm", "SixthForm", "SeventhForm", "EighthForm"];
+    const formList = ["FirstForm", "SecondForm", "ThirdForm", "ThirdForm2", "ThirdForm3",  "FourthForm", "FifthForm", "FifthForm2", "SixthForm", "SixthForm2", "SeventhForm", "EighthForm"];
 
     const formLength = formList.length;
 
@@ -84,13 +86,29 @@ const RegistrationMain = () => {
             }
             case 7: {
                 return (
+                    <FifthForm2
+                        formValues={values}
+                        onChange={onChange}
+                    ></FifthForm2>
+                );
+            }
+            case 8: {
+                return (
                     <SixthForm
                         formValues={values}
                         onChange={onChange}
                     ></SixthForm>
                 );
             }
-            case 8: {
+            case 9: {
+                return (
+                    <SixthForm2
+                        formValues={values}
+                        onChange={onChange}
+                    ></SixthForm2>
+                );
+            }
+            case 10: {
                 return (
                     <SeventhForm
                         formValues={values}
@@ -98,7 +116,7 @@ const RegistrationMain = () => {
                     ></SeventhForm>
                 );
             }
-            case 9: {
+            case 11: {
                 return (
                     <EighthForm
                         formValues={values}
@@ -138,13 +156,13 @@ const RegistrationMain = () => {
                 return setPage(6);
             }
             case "Family": {
-                return setPage(7);
-            }
-            case "Upload": {
                 return setPage(8);
             }
+            case "Upload": {
+                return setPage(10);
+            }
             case "Verification": {
-                return setPage(9);
+                return setPage(11);
             }
             default:
                 setPage(0);
@@ -208,7 +226,7 @@ const RegistrationMain = () => {
                             <li
                                 onClick={setForm}
                                 className={
-                                    page === 2 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 2 || page === 3 || page === 4 ? " w-2/6 rounded-lg  " : "bg: transparent"
                                 }
                             >
                                 <div className="flex items-center ">
@@ -246,13 +264,13 @@ const RegistrationMain = () => {
                             <li
                                 onClick={setForm}
                                 className={
-                                    page === 6 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 6 || page === 7 ? " w-2/6 rounded-lg  " : "bg: transparent"
                                 }
                             >
                                 <div className="flex items-center ">
                                     <span
                                         className={
-                                            page === 6
+                                            page === 6 || page === 7
                                                 ? "ml-2 text-[#F92739] font-medium"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
@@ -265,56 +283,18 @@ const RegistrationMain = () => {
                             <li
                                 onClick={setForm}
                                 className={
-                                    page === 7 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 8 || page === 9 ? " w-2/6 rounded-lg  " : "bg: transparent"
                                 }
                             >
                                 <div className="flex items-center ">
                                     <span
                                         className={
-                                            page === 7
+                                            page === 8 || page === 9
                                                 ? "ml-2 text-[#F92739] font-medium"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >
                                         Family
-                                    </span>
-                                </div>
-                            </li>
-
-                            <li
-                                onClick={setForm}
-                                className={
-                                    page === 8 ? " w-2/6 rounded-lg  " : "bg: transparent"
-                                }
-                            >
-                                <div className="flex items-center ">
-                                    <span
-                                        className={
-                                            page === 8
-                                                ? "ml-2 text-[#F92739] font-medium"
-                                                : "ml-2 text-[#807D7D] cursor-pointer"
-                                        }
-                                    >
-                                        Upload
-                                    </span>
-                                </div>
-                            </li>
-
-                            <li
-                                onClick={setForm}
-                                className={
-                                    page === 9 ? " w-2/6 rounded-lg  " : "bg: transparent"
-                                }
-                            >
-                                <div className="flex items-center ">
-                                    <span
-                                        className={
-                                            page === 9
-                                                ? "ml-2 text-[#F92739] font-medium"
-                                                : "ml-2 text-[#807D7D] cursor-pointer"
-                                        }
-                                    >
-                                        Verification
                                     </span>
                                 </div>
                             </li>
@@ -333,6 +313,44 @@ const RegistrationMain = () => {
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >
+                                        Upload
+                                    </span>
+                                </div>
+                            </li>
+
+                            <li
+                                onClick={setForm}
+                                className={
+                                    page === 11 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                }
+                            >
+                                <div className="flex items-center ">
+                                    <span
+                                        className={
+                                            page === 11
+                                                ? "ml-2 text-[#F92739] font-medium"
+                                                : "ml-2 text-[#807D7D] cursor-pointer"
+                                        }
+                                    >
+                                        Verification
+                                    </span>
+                                </div>
+                            </li>
+
+                            <li
+                                onClick={setForm}
+                                className={
+                                    page === 12 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                }
+                            >
+                                <div className="flex items-center ">
+                                    <span
+                                        className={
+                                            page === 12
+                                                ? "ml-2 text-[#F92739] font-medium"
+                                                : "ml-2 text-[#807D7D] cursor-pointer"
+                                        }
+                                    >
 
                                     </span>
                                 </div>
@@ -342,15 +360,15 @@ const RegistrationMain = () => {
                         <div className="flex-1">{handleForms()}</div>
                     </div>
                     <div className="flex">
-                        {page === 5 ? (
+                        {page === 5 || page === 6 || page === 7 || page === 10 ? (
                             <button
                                 onClick={handleSubmit}
-                                className="rounded-xl text-white ml-12 px-4 bg-gray-300 w-16 h-8"
+                                className="rounded-xl text-[#A0A0A0] ml-12 px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"
                             >
                                 Skip
                             </button>
                         ) : ""}
-                        {page === 5 ? (
+                        {page === 5 || page === 6 || page === 7 || page === 10 ? (
                             <button
                                 onClick={handleNext}
                                 className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
@@ -359,7 +377,7 @@ const RegistrationMain = () => {
                             </button>
                         ) : ""}
 
-                        {page === 0 || page === 1 || page === 2 || page === 3 || page === 4 ? (
+                        {page === 0 || page === 1 || page === 2 || page === 3 || page === 4 || page === 8 || page === 9 ? (
                             <button
                                 onClick={handleNext}
                                 className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-48"
@@ -368,7 +386,7 @@ const RegistrationMain = () => {
                             </button>
                         ) : ""}
 
-                        {page === 9 ? (
+                        {page === 12 ? (
                             <button
                                 onClick={handleSubmit}
                                 className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
@@ -416,13 +434,6 @@ const RegistrationMain = () => {
                     <CircleIcon sx={{ height: "10px" }} />
                 </div>
                 <div className={
-                    page === 7
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
-                </div>
-                <div className={
                     page === 8
                         ? "text-[#F92739] font-medium"
                         : "text-gray-300 cursor-pointer"
@@ -430,7 +441,14 @@ const RegistrationMain = () => {
                     <CircleIcon sx={{ height: "10px" }} />
                 </div>
                 <div className={
-                    page === 9
+                    page === 10
+                        ? "text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "10px" }} />
+                </div>
+                <div className={
+                    page === 11
                         ? "text-[#F92739] font-medium"
                         : "text-gray-300 cursor-pointer"
                 } >
