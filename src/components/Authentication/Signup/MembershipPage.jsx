@@ -1,24 +1,46 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Navbar from '../../Home/Navbar'
 import CircleIcon from '@mui/icons-material/Circle';
 import { Link } from 'react-router-dom';
 
 const MembershipPage = () => {
+    const termsAndConditionsRef = useRef(null);
+    const [showAcceptButton, setShowAcceptButton] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = (e) => {
+            e.preventDefault()
+            if (termsAndConditionsRef.current) {
+                const isFullyScrolled = termsAndConditionsRef.current.scrollHeight - termsAndConditionsRef.current.scrollTop === termsAndConditionsRef.current.clientHeight;
+                setShowAcceptButton(isFullyScrolled);
+            }
+        };
+
+        if (termsAndConditionsRef.current) {
+            termsAndConditionsRef.current.addEventListener('scroll', handleScroll);
+        }
+
+        return () => {
+            if (termsAndConditionsRef.current) {
+                termsAndConditionsRef.current.removeEventListener('scroll', handleScroll);
+            }
+        };
+    }, []);
     return (
         <>
             <Navbar />
             <div className="flex h-screen justify-center items-center mt-16">
 
-                <div className="w-full max-w-md  bg-white rounded-xl shadow-2xl">
-                    <p className='font-oxygen font-bold text-2xl ml-10 mt-12'>
+                <div className="w-full max-w-md  bg-white rounded-xl shadow-2xl min-h-screen">
+                    <p className='font-oxygen font-bold text-2xl ml-10 mt-20'>
                         Membership Policy and <br />
                         Terms of Use
                     </p>
-                    <p className='font-oxygen font-bold text-sm mt-3 ml-10'>
+                    <p className='font-oxygen font-bold text-sm mt-4 ml-10'>
                         Please read carefully and accept before you <br /> proceed.
                     </p>
-                    <div className='mt-4 w-11/12 h-96 ml-5 p-5 bg-gray-200 shadow-sm border border-gray-300 rounded-xl overflow-y-scroll'>
-                        <p className='font-oxygen font-bold'>
+                    <div ref={termsAndConditionsRef} style={{ maxHeight: '400px' }} className='w-11/12 h-96 p-4 overflow-y-auto bg-[#F2F2F2] rounded-lg ml-5 mt-10'>
+                        <p className='font-oxygen font-bold mt-10'>
                             Membership Policy
                         </p>
                         <p className='font-oxygen font-bold mt-5'>
@@ -143,11 +165,13 @@ const MembershipPage = () => {
                             FIRSTLOOK
                         </p>
                     </div>
-                    <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-12 sm:ml-20 text-white px-20'>
-                        <Link to='/register/verify'>
-                            I Accept, Let’s Go
-                        </Link>
-                    </button>
+                    {showAcceptButton && (
+                        <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-12 sm:ml-20 text-white px-20'>
+                            <Link to='/register/verify'>
+                                I Accept, Let’s Go
+                            </Link>
+                        </button>
+                    )}
                 </div>
             </div>
         </>
