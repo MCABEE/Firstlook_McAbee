@@ -29,9 +29,9 @@ const MembershipPage = () => {
     return (
         <>
             <Navbar />
-            <div className="flex h-screen justify-center items-center mt-16 mb-16">
+            <div className="flex h-screen justify-center items-center mt-36 mb-36">
 
-                <div className="w-full max-w-md  bg-white rounded-xl shadow-2xl min-h-screen">
+                <div className="w-full max-w-md  bg-white rounded-xl shadow-2xl h-[117vh]">
                     <p className='font-oxygen font-bold text-2xl ml-10 mt-20'>
                         Membership Policy and <br />
                         Terms of Use
@@ -39,7 +39,7 @@ const MembershipPage = () => {
                     <p className='font-oxygen font-bold text-sm mt-4 ml-10'>
                         Please read carefully and accept before you <br /> proceed.
                     </p>
-                    <div ref={termsAndConditionsRef} style={{ maxHeight: '400px' }} className='w-11/12 h-96 p-4 overflow-y-auto bg-[#F2F2F2] rounded-lg ml-5 mt-10'>
+                    <div ref={termsAndConditionsRef} style={{ maxHeight: '800px' }} className='w-11/12 h-[30rem] p-4 overflow-y-auto bg-[#F2F2F2] rounded-lg ml-5 mt-10'>
                         <p className='font-oxygen font-bold mt-10'>
                             Membership Policy
                         </p>
