@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../../Home/Navbar";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { Link } from "react-router-dom";
 
 const PhoneReg = () => {
     const [countryState, setCountryState] = useState({
@@ -93,8 +94,8 @@ const PhoneReg = () => {
                                 } alt="Image" class="absolute w-8 h-5 mt-3.5 ml-[15.3rem] pointer-events-none" />}
                             <p className="absolute ml-48 mt-3 pointer-events-none">
                                 {searchSelectedCountry &&
-                                    "+"+searchSelectedCountry.callingCodes}
-                               
+                                    "+" + searchSelectedCountry.callingCodes}
+
                             </p>
                             <div className="absolute mt-2.5 ml-72 text-gray-500 pointer-events-none">
                                 <KeyboardArrowDownIcon />
@@ -137,7 +138,9 @@ const PhoneReg = () => {
                     </div>
 
                     <button className='bg-red-500 w-80 p-3 rounded-xl mt-12 mb-20 ml-8 text-white px-20'>
-                        Verify Mobile
+                        <Link to='/register/signup'>
+                            Verify Mobile
+                        </Link>
                     </button>
                 </div>
             </div>
