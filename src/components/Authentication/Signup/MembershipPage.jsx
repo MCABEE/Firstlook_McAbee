@@ -143,7 +143,7 @@ const MembershipPage = () => {
                             FIRSTLOOK
                         </p>
                     </div>
-                    <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-20 text-white px-20'>
+                    <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-12 sm:ml-20 text-white px-20'>
                         <Link to='/register/verify'>
                             I Accept, Let’s Go
                         </Link>
