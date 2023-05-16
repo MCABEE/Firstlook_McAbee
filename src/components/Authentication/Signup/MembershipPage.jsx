@@ -31,7 +31,7 @@ const MembershipPage = () => {
             <Navbar />
             <div className="flex h-screen justify-center items-center mt-36 mb-36">
 
-                <div className="w-full max-w-md  bg-white rounded-xl shadow-2xl h-[117vh]">
+                <div className="w-full max-w-md  bg-white rounded-xl shadow-2xl h-[115vh] sm:h-[117vh]">
                     <p className='font-oxygen font-bold text-2xl ml-10 mt-20'>
                         Membership Policy and <br />
                         Terms of Use
