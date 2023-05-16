@@ -397,7 +397,7 @@ const RegistrationMain = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex justify-center mt-28 sm:mt-32 mb-20">
+            <div className="flex justify-center mt-20 sm:mt-32 mb-20">
                 <div className={
                     page === 0
                         ? " text-[#F92739] font-medium"
