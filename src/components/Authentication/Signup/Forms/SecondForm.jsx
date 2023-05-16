@@ -3,7 +3,7 @@ import React from "react";
 const SecondForm = ({ formValues, onChange }) => {
   return (
     <>
-      <form className="w-72">
+      <form className="w-72 ml-12">
 
         <div className="mb-6">
           <input
@@ -53,7 +53,7 @@ const SecondForm = ({ formValues, onChange }) => {
           ></input>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-10">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
             id="lastname"

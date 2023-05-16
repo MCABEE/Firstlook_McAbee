@@ -53,7 +53,7 @@ const FirstForm = ({ formValues, onChange }) => {
 
         <div className="mb-6 mt-10">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 text-gray-700 text-sm"
             id="name"
             name="name"
             type="text"
@@ -65,7 +65,7 @@ const FirstForm = ({ formValues, onChange }) => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 text-gray-700 text-sm"
             id="lastname"
             name="lastname"
             onChange={onChange}
@@ -77,7 +77,7 @@ const FirstForm = ({ formValues, onChange }) => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 text-gray-700 text-sm"
             id="lastname"
             name="lastname"
             onChange={onChange}
@@ -87,27 +87,27 @@ const FirstForm = ({ formValues, onChange }) => {
           ></input>
         </div>
 
-        <div className="relative inline-block">
+        <div className="relative inline-block mb-10">
           <input
             type="text"
             value={formattedDate}
             placeholder="DOB"
             readOnly
             onClick={handleInputClick}
-            className="w-72 px-5 py-3 text-sm text-gray-700 bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
+            className="w-72 ml-12 px-5 py-3 text-sm text-gray-700 bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
           />
           <span
             onClick={handleInputClick}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 -mt-1 cursor-pointer"
           >
-            <CalendarMonthIcon sx={{color: "#F93445"}}/>
+            <CalendarMonthIcon sx={{color: "#F93445", height: "20px"}}/>
           </span>
           {showCalendar && (
             <div className="absolute z-10">
               <Calendar
                 date={selectedDate}
                 onChange={handleDateChange}
-                className="mb-10 border border-gray-400 rounded-xl shadow-sm"
+                className="mb-10 border border-gray-400 rounded-xl -ml-6 shadow-sm"
               />
             </div>
           )}

@@ -160,13 +160,13 @@ const RegistrationMain = () => {
         <>
 
             <Navbar />
-            <div className="flex h-screen justify-center items-center mt-20 mb-56">
+            <div className="flex h-screen justify-center items-center mt-20">
                 <div className="w-full h-[55rem] max-w-sm bg-[#F2F2F2] rounded-2xl shadow-2xl mt-44">
                     <p className="font-oxygen font-bold flex justify-center mt-16 text-2xl">
                         Registration
                     </p>
-                    <div className="grid gap-4 h-screen place-items-center mt-5">
-                        <ul className="gap-16 ml-16 flex justify-between w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right">
+                    <div className="grid gap-4 mt-10">
+                        <ul className="gap-16 ml-8 mb-16 flex justify-between w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right">
                             <li
                                 onClick={setForm}
                                 className={
@@ -214,7 +214,7 @@ const RegistrationMain = () => {
                                 <div className="flex items-center ">
                                     <span
                                         className={
-                                            page === 2 || page ===  3 || page === 4
+                                            page === 2 || page === 3 || page === 4
                                                 ? "ml-2 text-[#F92739] font-medium"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
@@ -340,89 +340,101 @@ const RegistrationMain = () => {
 
                         </ul>
                         <div className="flex-1">{handleForms()}</div>
-                        <div className="">
-                            {/* <button
-                                onClick={handlePrev}
-                                className="bg-blue-200  hover:bg-blue-300 rounded-md text-gray-800 font-bold py-2 px-4 disabled:bg-gray-400 "
-                                disabled={page === 0}
+                    </div>
+                    <div className="flex">
+                        {page === 5 ? (
+                            <button
+                                onClick={handleSubmit}
+                                className="rounded-xl text-white ml-12 px-4 bg-gray-300 w-16 h-8"
                             >
-                                Prev
-                            </button> */}
-                            {page === 7 ? (
-                                <button
-                                    onClick={handleSubmit}
-                                    className="bg-red-600 rounded-xl text-white py-2 px-10 ml-36"
-                                >
-                                    Submit
-                                </button>
-                            ) : (
-                                <button
-                                    onClick={handleNext}
-                                    className="bg-red-600 rounded-xl text-white py-2 px-10 ml-36"
-                                >
-                                    Continue
-                                </button>
-                            )}
-                        </div>
+                                Skip
+                            </button>
+                        ) : ""}
+                        {page === 5 ? (
+                            <button
+                                onClick={handleNext}
+                                className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
+                            >
+                                Continue
+                            </button>
+                        ) : ""}
+
+                        {page === 0 || page === 1 || page === 2 || page === 3 || page === 4 ? (
+                            <button
+                                onClick={handleNext}
+                                className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-48"
+                            >
+                                Continue
+                            </button>
+                        ) : ""}
+
+                        {page === 9 ? (
+                            <button
+                                onClick={handleSubmit}
+                                className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
+                            >
+                                Submit
+                            </button>
+                        ) : ""}
                     </div>
-                    <div className="flex justify-center">
-                        <div className={
-                            page === 0
-                                ? " text-[#F92739] font-medium"
-                                : "text-gray-300 cursor-pointer"
-                        } >
-                            <CircleIcon sx={{ height: "10px" }} />
-                        </div>
-                        <div className={
-                            page === 1
-                                ? "text-[#F92739] font-medium"
-                                : "text-gray-300 cursor-pointer"
-                        } >
-                            <CircleIcon sx={{ height: "10px" }} />
-                        </div>
-                        <div className={
-                            page === 2 || page ===  3 || page === 4
-                                ? "text-[#F92739] font-medium"
-                                : "text-gray-300 cursor-pointer"
-                        } >
-                            <CircleIcon sx={{ height: "10px" }} />
-                        </div>
-                        <div className={
-                            page === 5
-                                ? "text-[#F92739] font-medium"
-                                : "text-gray-300 cursor-pointer"
-                        } >
-                            <CircleIcon sx={{ height: "10px" }} />
-                        </div>
-                        <div className={
-                            page === 6
-                                ? "text-[#F92739] font-medium"
-                                : "text-gray-300 cursor-pointer"
-                        } >
-                            <CircleIcon sx={{ height: "10px" }} />
-                        </div>
-                        <div className={
-                            page === 7
-                                ? "text-[#F92739] font-medium"
-                                : "text-gray-300 cursor-pointer"
-                        } >
-                            <CircleIcon sx={{ height: "10px" }} />
-                        </div>
-                        <div className={
-                            page === 8
-                                ? "text-[#F92739] font-medium"
-                                : "text-gray-300 cursor-pointer"
-                        } >
-                            <CircleIcon sx={{ height: "10px" }} />
-                        </div>
-                        <div className={
-                            page === 9
-                                ? "text-[#F92739] font-medium"
-                                : "text-gray-300 cursor-pointer"
-                        } >
-                            <CircleIcon sx={{ height: "10px" }} />
-                        </div>
-                    </div>
+                </div>
+            </div>
+            <div className="flex justify-center mt-32 mb-20">
+                <div className={
+                    page === 0
+                        ? " text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "10px" }} />
+                </div>
+                <div className={
+                    page === 1
+                        ? "text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "10px" }} />
+                </div>
+                <div className={
+                    page === 2 || page === 3 || page === 4
+                        ? "text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "10px" }} />
+                </div>
+                <div className={
+                    page === 5
+                        ? "text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "10px" }} />
+                </div>
+                <div className={
+                    page === 6
+                        ? "text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "10px" }} />
+                </div>
+                <div className={
+                    page === 7
+                        ? "text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "10px" }} />
+                </div>
+                <div className={
+                    page === 8
+                        ? "text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "10px" }} />
+                </div>
+                <div className={
+                    page === 9
+                        ? "text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "10px" }} />
                 </div>
             </div>
         </>
