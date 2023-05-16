@@ -362,7 +362,7 @@ const RegistrationMain = () => {
                     <div className="flex">
                         {page === 5 || page === 6 || page === 7 || page === 10 ? (
                             <button
-                                onClick={handleSubmit}
+                                onClick={handleNext}
                                 className="rounded-xl text-[#A0A0A0] ml-12 px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"
                             >
                                 Skip
@@ -427,14 +427,14 @@ const RegistrationMain = () => {
                     <CircleIcon sx={{ height: "10px" }} />
                 </div>
                 <div className={
-                    page === 6
+                    page === 6 || page === 7
                         ? "text-[#F92739] font-medium"
                         : "text-gray-300 cursor-pointer"
                 } >
                     <CircleIcon sx={{ height: "10px" }} />
                 </div>
                 <div className={
-                    page === 8
+                    page === 8 || page === 9
                         ? "text-[#F92739] font-medium"
                         : "text-gray-300 cursor-pointer"
                 } >
