@@ -11,9 +11,9 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <div className='bg-white w-fit -mt-28 mx-auto p-1 px-4 md:p-4 md:px-20 rounded-2xl opacity-80 shadow-xl flex justify-center items-center'>
-        <p>We are providing you this web experience using cookies. <br /> Can we proceed ?</p>
-        <button className='bg-red-500 text-end p-3 px-7 rounded-2xl ml-20 transform transition hover:scale-95 duration-300 ease-in-out'>
+      <div className='bg-white w-fit -mt-20 mx-auto p-1 px-4 md:p-2 md:px-10 rounded-2xl opacity-80 shadow-xl flex justify-center items-center'>
+        <p className='text-sm'>We are providing you this web experience using cookies. <br className='hidden sm:block' /> Can we proceed ?</p>
+        <button className='bg-red-500 text-end p-1 px-7 rounded-xl text-white ml-20 transform transition hover:scale-95 duration-300 ease-in-out'>
           Okay
         </button>
       </div>

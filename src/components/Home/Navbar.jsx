@@ -46,7 +46,7 @@ const Navbar = () => {
                       
                                 <Link
                                     to='/login'
-                                    className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 bg-gradient-to-b from-orange-500 to-rose-600 shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
+                                    className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 bg-red-500 shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Join Now
                                 </Link>

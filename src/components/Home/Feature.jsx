@@ -33,7 +33,7 @@ const Feature = () => {
                                         className="relative flex flex-col mt-4">
                                         <div className="px-4 py-5 flex-auto">
                                             <div
-                                                className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-gradient-to-b from-orange-500 to-rose-600">
+                                                className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-500">
                                                 <DoneIcon sx={{ color: "white" }} />
                                             </div>
                                             <h6
@@ -51,7 +51,7 @@ const Feature = () => {
                                         className="relative flex flex-col min-w-0">
                                         <div className="px-4 py-5 flex-auto">
                                             <div
-                                                className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-gradient-to-b from-orange-500 to-rose-600">
+                                                className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-500">
                                                 <Diversity1OutlinedIcon sx={{ color: "white" }} />
                                             </div>
                                             <h6
@@ -72,7 +72,7 @@ const Feature = () => {
                                         viewport={{ once: true, amount: 0.8 }}
                                         className="relative flex flex-col min-w-0 mt-4">
                                         <div className="px-4 py-5 flex-auto">
-                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-gradient-to-b from-orange-500 to-rose-600">
+                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-500">
                                                 <SecurityOutlinedIcon sx={{ color: "white" }} />
                                             </div>
                                             <h6 className="text-xl mb-1 font-semibold">Data Security</h6>
@@ -87,7 +87,7 @@ const Feature = () => {
                                         viewport={{ once: true, amount: 0.8 }}
                                         className="relative flex flex-col min-w-0">
                                         <div className="px-4 py-5 flex-auto">
-                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-gradient-to-b from-orange-500 to-rose-600">
+                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-500">
                                                 <ShoppingCartCheckoutOutlinedIcon sx={{ color: "white" }} />
                                             </div>
                                             <h6 className="text-xl mb-1 font-semibold">Budget Plans</h6>

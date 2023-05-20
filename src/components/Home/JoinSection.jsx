@@ -1,5 +1,4 @@
-import React from 'react'
-import Mobileimage from '../../assets/Index_Model_001.png'
+import Mobileimage from '../../assets/mobIndex.png'
 import { motion } from 'framer-motion'
 import KeyboardDoubleArrowRightOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowRightOutlined';
 
