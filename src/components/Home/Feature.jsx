@@ -1,8 +1,7 @@
-import React from 'react'
-import DoneIcon from '@mui/icons-material/Done';
-import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
-import Diversity1OutlinedIcon from '@mui/icons-material/Diversity1Outlined';
-import ShoppingCartCheckoutOutlinedIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
+import verify from '../../assets/icon_verify.png'
+import lock from '../../assets/icon_lock.png'
+import user from '../../assets/icon_user.png'
+import money from '../../assets/icon_money.png'
 import Mobileimage from '../../assets/Index_Model_002.png'
 import { motion } from 'framer-motion'
 
@@ -33,14 +32,14 @@ const Feature = () => {
                                         className="relative flex flex-col mt-4">
                                         <div className="px-4 py-5 flex-auto">
                                             <div
-                                                className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-500">
-                                                <DoneIcon sx={{ color: "white" }} />
+                                                className="mb-3">
+                                                <img src={verify} className='w-[25.92px] h-[25.92px]' alt="" />
                                             </div>
                                             <h6
                                                 className="text-xl mb-1 font-semibold">Verified Profiles</h6>
                                             <p
                                                 className="mb-4 text-blueGray-500">
-                                                Only profiles with validated government ID's will be featured here. Additionally, each profile will undergo thorough screening to ensure the accuracy of the data.
+                                                Only profiles with validated government ID’s will be featured here. Additionally, each profile will undergo thorough screening to ensure the accuracy of the data.
                                             </p>
                                         </div>
                                     </motion.div>
@@ -51,8 +50,8 @@ const Feature = () => {
                                         className="relative flex flex-col min-w-0">
                                         <div className="px-4 py-5 flex-auto">
                                             <div
-                                                className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-500">
-                                                <Diversity1OutlinedIcon sx={{ color: "white" }} />
+                                                className="mb-3">
+                                                <img src={user} className='w-[25.92px] h-[25.92px]' alt="" />
                                             </div>
                                             <h6
                                                 className="text-xl mb-1 font-semibold">
@@ -72,8 +71,8 @@ const Feature = () => {
                                         viewport={{ once: true, amount: 0.8 }}
                                         className="relative flex flex-col min-w-0 mt-4">
                                         <div className="px-4 py-5 flex-auto">
-                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-500">
-                                                <SecurityOutlinedIcon sx={{ color: "white" }} />
+                                            <div className="mb-3">
+                                                <img src={lock} className='w-[25.92px] h-[25.92px]' alt="" />
                                             </div>
                                             <h6 className="text-xl mb-1 font-semibold">Data Security</h6>
                                             <p className="mb-4 text-blueGray-500">
@@ -87,8 +86,8 @@ const Feature = () => {
                                         viewport={{ once: true, amount: 0.8 }}
                                         className="relative flex flex-col min-w-0">
                                         <div className="px-4 py-5 flex-auto">
-                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-500">
-                                                <ShoppingCartCheckoutOutlinedIcon sx={{ color: "white" }} />
+                                            <div className="mb-3">
+                                                <img src={money} className='w-[25.92px] h-[25.92px]' alt="" />
                                             </div>
                                             <h6 className="text-xl mb-1 font-semibold">Budget Plans</h6>
                                             <p className="mb-4 text-blueGray-500">
@@ -98,8 +97,8 @@ const Feature = () => {
                                     </motion.div>
                                 </div>
                                 <div className="w-full md:w-full px-4">
-                                    <div className='relative flex flex-col items-end min-w-0'>
-                                        <button className='bg-rose-600 text-white hover:bg-black w-full lg:w-36 h-10 rounded-lg md:ml-5 transform transition hover:scale-95 duration-300 ease-in-out'>Register</button>
+                                    <div className='relative flex flex-col min-w-0'>
+                                        <button className='bg-[#FC3657] text-white hover:bg-black w-full lg:w-36 h-10 rounded-lg md:ml-3 transform transition hover:scale-95 duration-300 ease-in-out'>Let’s Start</button>
                                     </div>
                                 </div>
                             </div>

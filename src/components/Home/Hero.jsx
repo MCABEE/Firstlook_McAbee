@@ -1,13 +1,11 @@
-import React from 'react'
 import Navbar from './Navbar'
 import { motion } from 'framer-motion'
-import model from '../../assets/bannerModel.png'
 
 const Hero = () => {
     return (
         <>
             <section
-                className="relative bg-gradient-to-b from-orange-500 to-rose-600"
+                className="relative"
             >
                 <div
                     className="absolute inset-0"
@@ -15,57 +13,39 @@ const Hero = () => {
                 
                 <motion.div
                     initial={{ y: "-10vw", opacity: 0 }}
-                    animate={{ y: 1, opacity: 1 }}
+                    animate={{ y: 0, opacity: 1 }}
                     transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
-                    className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 lg:bg-bg_model bg-right-bottom bg-no-repeat"
+                    className="relative mx-auto w-full px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 bg-bg_model bg-cover bg-no-repeat"
                 >
                     <div
-                        className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right mt-16">
+                        className="max-w-xl ml-2 md:ml-32 text-center ltr:sm:text-left rtl:sm:text-right mt-16">
                         <motion.h1
                             initial={{ y: "-10vw", opacity: 0 }}
-                            animate={{ y: 1, opacity: 1 }}
+                            animate={{ y: 0, opacity: 1 }}
                             transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
-                            className="text-5xl font-oxygen text-start tracking-tight text-white sm:text-6xl">
-                            You will
-
-                            <motion.h1
-                                initial={{ y: "-10vw", opacity: 0 }}
-                                animate={{ y: 1, opacity: 1 }}
-                                transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
-                                className="text-start text-white mt-1 block ">
-                                Never be alone !
-                            </motion.h1>
+                            className="text-[38px] font-oxygen text-start text-white sm:text-[48px]">
+                            You will Never be Alone !
                         </motion.h1>
 
                         <motion.p
                             initial={{ y: "-10vw", opacity: 0 }}
-                            animate={{ y: 1, opacity: 1 }}
-                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="mt-6 text-2xl font-oxygen leading-8 text-white text-start">
-                            Be in Firstlook !
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="mt-6 text-[18px] font-oxygen leading-8 text-white text-start">
+                            Join the Social Network,
                         </motion.p>
 
                         <motion.p
                             initial={{ y: "-10vw", opacity: 0 }}
-                            animate={{ y: 1, opacity: 1 }}
-                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="text-2xl font-oxygen leading-8 text-white text-start">
-                            signup to the social platform for singles
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }} className="text-[18px] font-oxygen leading-8 text-white text-start">
+                            Exclusively for finding life partner’s !
                         </motion.p>
 
-                        <motion.p
-                            initial={{ y: "-10vw", opacity: 0 }}
-                            animate={{ y: 1, opacity: 1 }}
-                            transition={{ type: "spring", stiffness: 50, delay: 0.4 }}
-                            className=" text-2xl leading-8 font-oxygen text-white text-start">
-                            to find matches easily.
-                        </motion.p>
+                        <div className="mt-14 flex flex-wrap gap-4 text-center">
 
-                        <div className="mt-8 flex flex-wrap gap-4 text-center">
+                            
 
-                            <button type="button" className="flex items-center justify-center w-4/6 mx-auto sm:w-40 mt-3 text-black font-bold bg-white h-14 rounded-xl transform transition hover:scale-95 duration-300 ease-in-out hover:bg-black hover:text-white">
-                                Join Now
-                            </button>
-
-                            <button type="button" className="flex items-center justify-center w-4/6 mx-auto sm:w-48 mt-3 text-white bg-black h-14 rounded-xl transform transition hover:scale-95 duration-300 ease-in-out">
+                            <button type="button" className="flex items-center justify-center w-4/6  mx-auto md:mx-0 sm:w-56 mt-3 text-black bg-white h-14 rounded-xl transform transition hover:scale-95 duration-300 ease-in-out">
                                 <div className="mr-3">
                                     <svg viewBox="0 0 384 512" width="30">
                                         <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z">
@@ -82,7 +62,7 @@ const Hero = () => {
                                 </div>
                             </button>
 
-                            <button type="button" className="flex items-center justify-center w-4/6 mx-auto sm:w-48 mt-3 text-white bg-black rounded-lg h-14 transform transition hover:scale-95 duration-300 ease-in-out">
+                            <button type="button" className="flex items-center justify-center w-4/6 mx-auto md:mx-0 md:ml-8 sm:w-56 mt-3 text-black bg-white rounded-xl h-14 transform transition hover:scale-95 duration-300 ease-in-out">
                                 <div className="mr-3">
                                     <svg viewBox="30 336.7 120.9 129.2" width="30">
                                         <path fill="#FFD400" d="M119.2,421.2c15.3-8.4,27-14.8,28-15.3c3.2-1.7,6.5-6.2,0-9.7  c-2.1-1.1-13.4-7.3-28-15.3l-20.1,20.2L119.2,421.2z">

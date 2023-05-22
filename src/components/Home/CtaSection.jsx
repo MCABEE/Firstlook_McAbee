@@ -1,4 +1,3 @@
-import React from 'react'
 import media from '../../assets/media.png'
 import { motion } from 'framer-motion'
 
@@ -32,7 +31,7 @@ const CtaSection = () => {
                                 <span className='text-white'>Says About Us !</span>
                             </h2>
                             <p className="mt-6 text-lg leading-8 text-gray-300">
-                                Let's see, How this social platform covered by major national and regional publisher's
+                                Let’s see, How this social platform covered by major national and regional publisher’s
                             </p>
                             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                                 <a

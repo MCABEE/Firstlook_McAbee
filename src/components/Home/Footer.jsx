@@ -1,21 +1,19 @@
-import React from 'react'
 import firstLook from '../../assets/firstLook.png'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 
 const Footer = () => {
     return (
         <>
-            <footer aria-label="Site Footer" class="bg-white">
+            <footer aria-label="Site Footer" className="bg-white">
                 <div
                     
-                    class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+                    className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
 
-                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
-                        <div class="text-center sm:text-left">
-                            <p class="text-3xl lg:mt-24 font-oxygen font-bold text-gray-900">Country</p>
+                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
+                        <div className="text-center sm:text-left">
+                            <p className="text-3xl lg:mt-24 font-oxygen font-bold text-gray-900">Country</p>
 
-                            <nav aria-label="Footer About Nav" class="mt-8 sm:mt-16 lg:mt-6">
+                            <nav aria-label="Footer About Nav" className="mt-8 sm:mt-16 lg:mt-6">
 
                                 <div>
                                     <select
@@ -30,14 +28,14 @@ const Footer = () => {
                             </nav>
                         </div>
 
-                        <div class="text-center lg:ml-auto sm:text-left">
-                            <p class="text-base font-oxygen font-extrabold text-gray-900">Helpful Links</p>
+                        <div className="text-center lg:ml-auto sm:text-left">
+                            <p className="text-base font-oxygen font-extrabold text-gray-900">Helpful Links</p>
 
-                            <nav aria-label="Footer Services Nav" class="mt-8">
-                                <ul class="space-y-4 text-sm">
+                            <nav aria-label="Footer Services Nav" className="mt-8">
+                                <ul className="space-y-4 text-sm">
                                     <li>
                                         <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            className="text-gray-700 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             Terms of Use
@@ -46,7 +44,7 @@ const Footer = () => {
 
                                     <li>
                                         <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            className="text-gray-700 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             Membership Policy
@@ -55,7 +53,7 @@ const Footer = () => {
 
                                     <li>
                                         <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            className="text-gray-700 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             Refund Policy
@@ -64,7 +62,7 @@ const Footer = () => {
 
                                     <li>
                                         <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            className="text-gray-700 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             FAQs
@@ -74,15 +72,15 @@ const Footer = () => {
                             </nav>
                         </div>
 
-                        <div class="text-center lg:ml-24 sm:text-left lg:text-start">
-                            <p class="text-lg font-medium text-white">.</p>
+                        <div className="text-center lg:ml-24 sm:text-left lg:text-start">
+                            <p className="text-lg font-medium text-white">.</p>
 
-                            <nav aria-label="Footer Resources Nav" class="mt-8">
-                                <ul class="space-y-4 text-sm">
+                            <nav aria-label="Footer Resources Nav" className="mt-8">
+                                <ul className="space-y-4 text-sm">
 
                                     <li>
                                         <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            className="text-gray-700 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             Register
@@ -91,7 +89,7 @@ const Footer = () => {
 
                                     <li>
                                         <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            className="text-gray-700 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             Purchase
@@ -100,7 +98,7 @@ const Footer = () => {
 
                                     <li>
                                         <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            className="text-gray-700 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             Stories
@@ -109,7 +107,7 @@ const Footer = () => {
 
                                     <li>
                                         <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            className="text-gray-700 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             Coupons
@@ -120,14 +118,14 @@ const Footer = () => {
                             </nav>
                         </div>
 
-                        <div class="text-center lg:ml-auto sm:text-left lg:text-start">
-                            <p class="text-base font-oxygen font-extrabold text-gray-900">Connect Us</p>
+                        <div className="text-center lg:ml-auto sm:text-left lg:text-start">
+                            <p className="text-base font-oxygen font-extrabold text-gray-900">Connect Us</p>
 
-                            <nav aria-label="Footer Helpful Nav" class="mt-8">
-                                <ul class="space-y-4 text-sm">
+                            <nav aria-label="Footer Helpful Nav" className="mt-8">
+                                <ul className="space-y-4 text-sm">
                                     <li>
                                         <span
-                                            class="text-gray-700 transition"
+                                            className="text-gray-700 transition"
                                             href="/"
                                         >
                                             Customer Care ( Toll-Free )
@@ -136,7 +134,7 @@ const Footer = () => {
 
                                     <li>
                                         <a
-                                            class="text-rose-600 transition hover:text-gray-700/75"
+                                            className="text-rose-600 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             1800 270 1431
@@ -145,7 +143,7 @@ const Footer = () => {
 
                                     <li>
                                         <span
-                                            class="text-gray-700 transition"
+                                            className="text-gray-700 transition"
                                             href="/"
                                         >
                                             Write to us
@@ -154,7 +152,7 @@ const Footer = () => {
 
                                     <li>
                                         <a
-                                            class="text-rose-600 transition hover:text-gray-700/75"
+                                            className="text-rose-600 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             support@firstlook.pro
@@ -164,15 +162,15 @@ const Footer = () => {
                                 </ul>
                             </nav>
                         </div>
-                        <div class="text-center lg:ml-auto sm:text-left lg:text-start">
-                            <p class="text-lg font-medium text-white">.</p>
+                        <div className="text-center lg:ml-auto sm:text-left lg:text-start">
+                            <p className="text-lg font-medium text-white">.</p>
 
-                            <nav aria-label="Footer Resources Nav" class="mt-8">
-                                <ul class="space-y-4 text-sm">
+                            <nav aria-label="Footer Resources Nav" className="mt-8">
+                                <ul className="space-y-4 text-sm">
 
                                     <li>
                                         <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            className="text-gray-700 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             Media Centre
@@ -181,7 +179,7 @@ const Footer = () => {
 
                                     <li>
                                         <a
-                                            class="text-gray-700 transition hover:text-gray-700/75"
+                                            className="text-gray-700 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             About Us
@@ -190,32 +188,32 @@ const Footer = () => {
 
                                     <li>
                                         <a
-                                            class="text-gray-500 transition hover:text-gray-700/75"
+                                            className="text-gray-500 transition hover:text-gray-700/75"
                                             href="/"
                                         >
                                             Social Media
                                         </a>
                                     </li>
 
-                                    <ul class="flex justify-center gap-6 md:justify-start lg:justify-start">
+                                    <ul className="flex justify-center gap-6 md:justify-start lg:justify-start">
                                         <li>
                                             <a
                                                 href="/"
                                                 rel="noreferrer"
                                                 target="_blank"
-                                                class="text-rose-600 transition hover:text-rose-600/75"
+                                                className="text-rose-600 transition hover:text-rose-600/75"
                                             >
-                                                <span class="sr-only">Facebook</span>
+                                                <span className="sr-only">Facebook</span>
                                                 <svg
-                                                    class="h-6 w-6"
+                                                    className="h-6 w-6"
                                                     fill="currentColor"
                                                     viewBox="0 0 24 24"
                                                     aria-hidden="true"
                                                 >
                                                     <path
-                                                        fill-rule="evenodd"
+                                                        fillRule="evenodd"
                                                         d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                                        clip-rule="evenodd"
+                                                        clipRule="evenodd"
                                                     />
                                                 </svg>
                                             </a>
@@ -226,19 +224,19 @@ const Footer = () => {
                                                 href="/"
                                                 rel="noreferrer"
                                                 target="_blank"
-                                                class="text-rose-600 transition hover:text-rose-600/75"
+                                                className="text-rose-600 transition hover:text-rose-600/75"
                                             >
-                                                <span class="sr-only">Instagram</span>
+                                                <span className="sr-only">Instagram</span>
                                                 <svg
-                                                    class="h-6 w-6"
+                                                    className="h-6 w-6"
                                                     fill="currentColor"
                                                     viewBox="0 0 24 24"
                                                     aria-hidden="true"
                                                 >
                                                     <path
-                                                        fill-rule="evenodd"
+                                                        fillRule="evenodd"
                                                         d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                                        clip-rule="evenodd"
+                                                        clipRule="evenodd"
                                                     />
                                                 </svg>
                                             </a>
@@ -249,11 +247,11 @@ const Footer = () => {
                                                 href="/"
                                                 rel="noreferrer"
                                                 target="_blank"
-                                                class="text-rose-600 transition hover:text-rose-600/75"
+                                                className="text-rose-600 transition hover:text-rose-600/75"
                                             >
-                                                <span class="sr-only">Twitter</span>
+                                                <span className="sr-only">Twitter</span>
                                                 <svg
-                                                    class="h-6 w-6"
+                                                    className="h-6 w-6"
                                                     fill="currentColor"
                                                     viewBox="0 0 24 24"
                                                     aria-hidden="true"
@@ -276,14 +274,14 @@ const Footer = () => {
 
                         <div>
                             <p className='text-gray-700 mt-10 font-thin text-center'>
-                                A social network for Matchmaking, listed in Firstlook and find life partner's for Indian's Globally. Before registering or using this web / mobile application, everyone should read our <Link className='text-rose-600 font-normal'> Membership Policy, Terms of Use</Link> and <Link className='text-rose-600 font-normal'>Refund / Cancellation Policy</Link>  in detail.
-                                We invite peoples who are legally eligible for marriage under the rules of Govt. of India. Any kind of misuse / malpractice's should be offensive and legally punishable.
+                                A social network for Matchmaking, listed in Firstlook and find life partner’s for Indian’s Globally. Before registering or using this web / mobile application, everyone should read our <Link className='text-rose-600 font-normal'> Membership Policy, Terms of Use</Link> and <Link className='text-rose-600 font-normal'>Refund / Cancellation Policy</Link>  in detail.
+                                We invite peoples who are legally eligible for marriage under the rules of Govt. of India. Any kind of misuse / malpractice’s should be offensive and legally punishable.
                                 Firstlook is owned, operated and maintained by MCABEE. For more details <Link className='text-rose-600 font-normal'>Connect </Link>with us.
                             </p>
                         </div>
 
-                        <div class="mt-10 sm:flex sm:items-center sm:justify-between">
-                            <div class="flex justify-center sm:justify-start">
+                        <div className="mt-10 sm:flex sm:items-center sm:justify-between">
+                            <div className="flex justify-center sm:justify-start">
                                 <img src={firstLook} className='h-10' alt="" />
                             </div>
 
@@ -291,7 +289,7 @@ const Footer = () => {
                                 from <br /><span className='font-bold text-black'>MCABEE</span>
                             </p>
 
-                            <p class="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-right">
+                            <p className="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-right">
                                 Copyright &copy; Firstlook 2023.
                             </p>
                         </div>
