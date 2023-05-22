@@ -1,5 +1,7 @@
 import Navbar from '../Home/Navbar';
 import bgContact from '../../assets/contactBg.png'
+import iconMsg from '../../assets/icon_msg.png'
+
 
 const ContactDetails = () => {
     return (
@@ -10,7 +12,7 @@ const ContactDetails = () => {
                     <Navbar />
                 </div>
                 <div className="w-full max-w-xl px-4 mx-auto md:px-0 lg:px-20 xl:px-0 lg:py-20 lg:max-w-screen-xl">
-                    <div className="mb-0 lg:max-w-lg lg:pr-8 xl:pr-6 mt-24">
+                    <div className="mb-0 lg:max-w-lg lg:pr-8 xl:pr-6 md:mt-24">
                         <h2 className="mb-5 font-sans text-[24px] font-semibold tracking-tight text-gray-900 sm:text-[24px] md:text-start">
                             Have something you want to share with us?
                         </h2>
@@ -43,7 +45,7 @@ const ContactDetails = () => {
                             For Business
                         </h2>
                         <p className="ml-5 mb-5 text-sm text-gray-700 md:text-[14px] md:text-start w-[350px] md:w-[600px]">
-                            Please connect us through - Email [ mail@firstlook.pro ], Tel [ 91 - 9946 - 250 - 333 ]
+                            Please connect us through - Email [ <span className='font-bold'>mail@firstlook.pro</span>  ], Tel [ <span className='font-bold'>91 - 9946 - 250 - 333</span> ]
                         </p>
 
                         <div
@@ -85,12 +87,20 @@ const ContactDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="inset-y-0 top-0 right-0 w-full max-w-xl px-4 mx-auto mb-6 md:px-0 lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0 pointer-events-none">
-                    <img
-                        className="relative w-[45rem] -mt-20 ml-4 lg:ml-[2.85rem] lg:mt-0 h-full lg:h-[56.5rem]"
-                        src={bgContact}
-                        alt=""
-                    />
+                <div className="inset-y-0 top-0 right-0 w-full max-w-xl px-0 pl-8 pr-0 mb-0 mx-0 lg:absolute xl:px-0 pointer-events-none">
+                    <div className='lg:absolute'>
+                        <img
+                            className="w-[45rem] -mt-20 flex justify-end lg:mt-0 h-full lg:h-[56.5rem]"
+                            src={bgContact}
+                            alt=""
+                        />
+                        <p className='hidden lg:block lg:-mt-[33rem] lg:mr-16 lg:text-[36px] text-white text-end font-oxygen'>
+                            We always love to <br />
+                            hear from the community
+
+                        </p>
+                        <img src={iconMsg} className='hidden lg:block ml-80 lg:-mt-48' alt="" />
+                    </div>
                 </div>
             </div>
 
