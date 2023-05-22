@@ -12,7 +12,7 @@ const ContactDetails = () => {
                     <Navbar />
                 </div>
                 <div className="w-full max-w-xl px-4 mx-auto md:px-0 lg:px-20 xl:px-0 lg:py-20 lg:max-w-screen-xl">
-                    <div className="mb-0 lg:max-w-lg lg:pr-8 xl:pr-6 md:mt-24">
+                    <div className="mb-0 lg:max-w-lg lg:pr-8 xl:pr-6 mt-24">
                         <h2 className="mb-5 font-sans text-[24px] font-semibold tracking-tight text-gray-900 sm:text-[24px] md:text-start">
                             Have something you want to share with us?
                         </h2>
@@ -87,7 +87,7 @@ const ContactDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="inset-y-0 top-0 right-0 w-full max-w-xl px-0 pl-8 pr-0 mb-0 mx-0 lg:absolute xl:px-0 pointer-events-none">
+                <div className="hidden lg:block inset-y-0 top-0 right-0 w-full max-w-xl px-0 pl-8 pr-0 mb-0 mx-0 lg:absolute xl:px-0 pointer-events-none">
                     <div className='lg:absolute'>
                         <img
                             className="w-[45rem] -mt-20 flex justify-end lg:mt-0 h-full lg:h-[56.5rem]"
