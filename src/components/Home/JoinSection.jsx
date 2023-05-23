@@ -39,7 +39,7 @@ const JoinSection = () => {
                                     <h3 className="font-semibold text-black text-[24px]">
                                         FAQs
                                     </h3>
-                                    <img src={msgIcon} className='w-8 h-6 ml-72 mt-1' alt="" />
+                                    <img src={msgIcon} className='w-8 h-6 ml-auto mt-1' alt="" />
                                 </div>
 
                                 <p className="mt-3 text-[14px] text-black">
