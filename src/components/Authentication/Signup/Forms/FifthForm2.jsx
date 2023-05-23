@@ -48,18 +48,6 @@ const FifthForm2 = ({ formValues, onChange }) => {
           ></input>
         </div>
 
-        <textarea
-            id="about"
-            name="about"
-            rows={4}
-            value={formValues.name}
-            onChange={onChange}
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm mb-10"
-            placeholder="About your Business"
-            defaultValue={''}
-          />
-
-
         <div className="flex items-center justify-between"></div>
       </form >
     </>

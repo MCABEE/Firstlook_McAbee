@@ -1,4 +1,3 @@
-import React from "react";
 
 const EighthForm = ({ formValues, onChange }) => {
   return (
@@ -25,8 +24,12 @@ const EighthForm = ({ formValues, onChange }) => {
           Request OTP
         </button>
 
-        <button className="bg-[#B5B5B5] text-white w-full py-3 rounded-xl mb-10 text-sm">
+        <button className="bg-[#B5B5B5] text-white w-full py-3 rounded-xl mb-20 text-sm">
           Do it Later
+        </button>
+
+        <button className="bg-white text-black w-full py-3 border border-[#B8B8B8] rounded-xl mb-10 text-[10px]">
+          I don’t have Aadhar linked mobile with me
         </button>
 
       </form>

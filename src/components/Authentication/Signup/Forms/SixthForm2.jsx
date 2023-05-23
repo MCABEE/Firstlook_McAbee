@@ -57,7 +57,7 @@ const SixthForm2 = ({ formValues, onChange }) => {
           ></input>
         </div>
 
-        <div className="mb-10">
+        <div className="mb-6">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
             id="lastname"
@@ -66,6 +66,18 @@ const SixthForm2 = ({ formValues, onChange }) => {
             value={formValues.lastname}
             type="text"
             placeholder="Home Contact Number"
+          ></input>
+        </div>
+
+        <div className="mb-10">
+          <input
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            id="lastname"
+            name="lastname"
+            onChange={onChange}
+            value={formValues.lastname}
+            type="text"
+            placeholder="Diocese Name (for Christian’s)"
           ></input>
         </div>
 

@@ -69,7 +69,7 @@ const FourthForm = ({ formValues, onChange }) => {
             id="name"
             name="name"
             type="text"
-            placeholder="Location you Studied"
+            placeholder="Name of University"
             onChange={onChange}
             value={formValues.name}
           ></input>
@@ -81,13 +81,13 @@ const FourthForm = ({ formValues, onChange }) => {
             id="name"
             name="name"
             type="text"
-            placeholder="Add University / Institute Name"
+            placeholder="Name of College / Institute"
             onChange={onChange}
             value={formValues.name}
           ></input>
         </div>
 
-        <div className="mb-6 flex">
+        <div className="mb-10 flex">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
             id="lastname"
@@ -102,12 +102,12 @@ const FourthForm = ({ formValues, onChange }) => {
           </div>
         </div>
 
-        <button className="bg-[#D7D5D5] flex text-black text-sm w-full px-6 py-3 rounded-xl mb-8">
+        {/* <button className="bg-[#D7D5D5] flex text-black text-sm w-full px-6 py-3 rounded-xl mb-8">
           <div className="text-red-500 -mt-0.5 ml-6">
             <AddOutlinedIcon />
           </div>
           Add another Qualification
-        </button>
+        </button> */}
 
         <div className="flex items-center justify-between"></div>
       </form >
