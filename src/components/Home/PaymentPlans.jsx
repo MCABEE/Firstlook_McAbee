@@ -9,7 +9,7 @@ const PaymentPlans = () => {
         <>
             <div className="relative w-full h-full bg-no-repeat bg-cover lg:bg-bg_pay">
                 <div className="absolute hidden w-full lg:block h-96" />
-                <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                <div className="relative sm:px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                     <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                         <motion.h2
                             initial={{ y: "-10vw", opacity: 0 }}
@@ -62,17 +62,17 @@ const PaymentPlans = () => {
                                     Standard Plan
                                 </p>
                             </div>
-                            <div className="p-8 bg-white shadow-2xl lg:shadow-sm rounded-b-xl">
+                            <div className="p-8 bg-white shadow-2xl lg:shadow-sm rounded-b-xl rounded-tr-xl">
                                 <div className="text-start">
 
                                     <div className="flex items-start justify-start">
-                                        <p className="mr-2 text-5xl font-semibold text-black lg:text-4xl">
+                                        <p className="mr-2 text-[30px] sm:text-[36px] font-semibold text-black">
                                             ₹999
                                         </p>
-                                        <p className="text-[14px] text-gray-900 mt-4">/ Year</p>
-                                        <p className="text-[14px] text-gray-900 mt-4 ml-32">+ GST</p>
+                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6">/ Year</p>
+                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6 ml-auto">+ GST</p>
                                     </div>
-                                    <hr className='w-full mt-6 bg-black' />
+                                    <hr className='w-full mt-2 bg-black' />
                                 </div>
                                 <ul className="mb-8 mt-8 space-y-4">
                                     <li className="flex items-center">
@@ -127,17 +127,17 @@ const PaymentPlans = () => {
                                     Premiuim Plan
                                 </p>
                             </div>
-                            <div className="p-8 bg-white shadow-2xl lg:shadow-sm rounded-b-xl">
+                            <div className="p-8 bg-white shadow-2xl lg:shadow-sm rounded-b-xl rounded-tr-xl">
                                 <div className="text-start">
 
                                     <div className="flex items-start justify-start">
-                                        <p className="mr-2 text-5xl font-semibold text-black lg:text-4xl">
+                                        <p className="mr-2 text-[30px] sm:text-[36px] font-semibold text-black">
                                             ₹2499
                                         </p>
-                                        <p className="text-[14px] text-gray-900 mt-4">/ Year</p>
-                                        <p className="text-[14px] text-gray-900 mt-4 ml-32">+ GST</p>
+                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6">/ Year</p>
+                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6 ml-auto">+ GST</p>
                                     </div>
-                                    <hr className='w-full mt-6 bg-black' />
+                                    <hr className='w-full mt-2 bg-black' />
                                 </div>
                                 <ul className="mb-8 mt-8 space-y-4">
                                     <li className="flex items-center">
@@ -192,17 +192,17 @@ const PaymentPlans = () => {
                                     Top Up
                                 </p>
                             </div>
-                            <div className="p-8 bg-white shadow-2xl lg:shadow-sm rounded-b-xl">
+                            <div className="p-8 bg-white shadow-2xl lg:shadow-sm rounded-b-xl rounded-tr-xl">
                                 <div className="text-start">
 
                                     <div className="flex items-start justify-start">
-                                        <p className="mr-2 text-5xl font-semibold text-black lg:text-4xl">
+                                        <p className="mr-2 text-[30px] sm:text-[36px] font-semibold text-black">
                                             ₹99
                                         </p>
-                                        <p className="text-[14px] text-gray-900 mt-4">/ Connection</p>
-                                        <p className="text-[14px] text-gray-900 mt-4 ml-32"> + GST</p>
+                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6">/ Connection</p>
+                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6 ml-auto"> + GST</p>
                                     </div>
-                                    <hr className='w-full mt-6 bg-black' />
+                                    <hr className='w-full mt-2 bg-black' />
                                 </div>
                                 <ul className="mb-8 mt-8 space-y-4">
                                     <li className="flex items-center">
