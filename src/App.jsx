@@ -5,6 +5,7 @@ import Login from './components/Authentication/Login/Login';
 import MembershipPage from './components/Authentication/Signup/MembershipPage';
 import PhoneReg from './components/Authentication/Signup/PhoneReg';
 import RegistrationMain from './components/Authentication/Signup/RegistrationMain';
+import TermsOfUse from './components/TermsOfUse/TermsOfUse';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path='/register' element={<MembershipPage/>}/>
         <Route path='/register/verify' element={<PhoneReg/>}/>
         <Route path='/register/signup' element={<RegistrationMain/>}/>
+        <Route path='/termsofuse' element={<TermsOfUse/>}/>
       </Routes>
     </BrowserRouter>
   )

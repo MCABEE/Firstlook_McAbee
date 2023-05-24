@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import { useState } from "react";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 
 const FourthForm = ({ formValues, onChange }) => {
 
   const [selectedOption, setSelectedOption] = useState(false);
+  const [isOpen, setIsOpen] = useState("");
+  const [passYear, setPassYear] = useState("")
 
   const handleToggle = () => {
     setSelectedOption(!selectedOption);
@@ -88,6 +89,62 @@ const FourthForm = ({ formValues, onChange }) => {
         </div>
 
         <div className="mb-10 flex">
+        <button
+            type="button"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            onClick={() => setIsOpen("Pass-out Year")}
+          >
+            <p className="w-44 truncate text-sm">{passYear ? passYear : "Pass-out Year"}</p>
+          </button>
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
+            <KeyboardArrowDownRoundedIcon />
+          </div>
+          {isOpen === 'Pass-out Year' ? (
+            <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+              <li
+                key=" "
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                onClick={() => {
+                  setPassYear("Business")
+                  setIsOpen("")
+                }}
+              >
+                <p className="mr-2" >Business</p>
+              </li>
+              <li
+                key=" "
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                onClick={() => {
+                  setPassYear("1990")
+                  setIsOpen("")
+                }}
+              >
+                <p className="mr-2">1990</p>
+              </li>
+              <li
+                key=" "
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                onClick={() => {
+                  setPassYear("1991")
+                  setIsOpen("")
+                }}
+              >
+                <p className="mr-2">1991</p>
+              </li>
+              <li
+                key=" "
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                onClick={() => {
+                  setPassYear("1992")
+                  setIsOpen("")
+                }}
+              >
+                <p className="mr-2">1992</p>
+              </li>
+
+            </ul>
+          ) : " "}
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
             id="lastname"
