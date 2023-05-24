@@ -6,6 +6,8 @@ import MembershipPage from './components/Authentication/Signup/MembershipPage';
 import PhoneReg from './components/Authentication/Signup/PhoneReg';
 import RegistrationMain from './components/Authentication/Signup/RegistrationMain';
 import TermsOfUse from './components/TermsOfUse/TermsOfUse';
+import MembershipPolicy from './components/MembershipPolicy/MembershipPolicy';
+import RefundPolicy from './components/RefundPolicy/RefundPolicy';
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
         <Route path='/register/verify' element={<PhoneReg/>}/>
         <Route path='/register/signup' element={<RegistrationMain/>}/>
         <Route path='/termsofuse' element={<TermsOfUse/>}/>
+        <Route path='/membership/policy' element={<MembershipPolicy/>}/>
+        <Route path='/refund/policy' element={<RefundPolicy/>}/>
       </Routes>
     </BrowserRouter>
   )
