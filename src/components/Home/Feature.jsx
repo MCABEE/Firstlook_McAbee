@@ -1,7 +1,7 @@
-import verify from '../../assets/icon_verify.png'
-import lock from '../../assets/icon_lock.png'
-import user from '../../assets/icon_user.png'
-import money from '../../assets/icon_money.png'
+import DoneIcon from '@mui/icons-material/Done';
+import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
+import Diversity1OutlinedIcon from '@mui/icons-material/Diversity1Outlined';
+import ShoppingCartCheckoutOutlinedIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
 import Mobileimage from '../../assets/Index_Model_002.png'
 import { motion } from 'framer-motion'
 
@@ -31,9 +31,8 @@ const Feature = () => {
                                         viewport={{ once: true, amount: 0.8 }}
                                         className="relative flex flex-col mt-4">
                                         <div className="px-4 py-5 flex-auto">
-                                            <div
-                                                className="mb-3">
-                                                <img src={verify} className='w-[25.92px] h-[25.92px]' alt="" />
+                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-[#FC3657]">
+                                                <DoneIcon sx={{ color: "white" }} />
                                             </div>
                                             <h6
                                                 className="text-xl mb-1 font-semibold">Verified Profiles</h6>
@@ -49,9 +48,8 @@ const Feature = () => {
                                         viewport={{ once: true, amount: 0.8 }}
                                         className="relative flex flex-col min-w-0">
                                         <div className="px-4 py-5 flex-auto">
-                                            <div
-                                                className="mb-3">
-                                                <img src={user} className='w-[25.92px] h-[25.92px]' alt="" />
+                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-[#FC3657]">
+                                                <Diversity1OutlinedIcon sx={{ color: "white" }} />
                                             </div>
                                             <h6
                                                 className="text-xl mb-1 font-semibold">
@@ -71,8 +69,8 @@ const Feature = () => {
                                         viewport={{ once: true, amount: 0.8 }}
                                         className="relative flex flex-col min-w-0 mt-4">
                                         <div className="px-4 py-5 flex-auto">
-                                            <div className="mb-3">
-                                                <img src={lock} className='w-[25.92px] h-[25.92px]' alt="" />
+                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-[#FC3657]">
+                                                <SecurityOutlinedIcon sx={{ color: "white" }} />
                                             </div>
                                             <h6 className="text-xl mb-1 font-semibold">Data Security</h6>
                                             <p className="mb-4 text-blueGray-500">
@@ -86,8 +84,8 @@ const Feature = () => {
                                         viewport={{ once: true, amount: 0.8 }}
                                         className="relative flex flex-col min-w-0">
                                         <div className="px-4 py-5 flex-auto">
-                                            <div className="mb-3">
-                                                <img src={money} className='w-[25.92px] h-[25.92px]' alt="" />
+                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-[#FC3657]">
+                                                <ShoppingCartCheckoutOutlinedIcon sx={{ color: "white" }} />
                                             </div>
                                             <h6 className="text-xl mb-1 font-semibold">Budget Plans</h6>
                                             <p className="mb-4 text-blueGray-500">

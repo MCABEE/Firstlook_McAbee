@@ -76,25 +76,25 @@ const PaymentPlans = () => {
                                 </div>
                                 <ul className="mb-8 mt-8 space-y-4">
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <UpdateOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">One year validity</p>
                                     </li>
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <SensorOccupiedOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">36 Connections</p>
                                     </li>
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <ChatOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">Chat with favorites</p>
                                     </li>
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <FavoriteBorderOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">Unlimited proposals</p>
@@ -141,25 +141,25 @@ const PaymentPlans = () => {
                                 </div>
                                 <ul className="mb-8 mt-8 space-y-4">
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <UpdateOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">One year validity</p>
                                     </li>
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <SensorOccupiedOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">Unlimited Connections</p>
                                     </li>
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <ChatOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">Chat with favorites</p>
                                     </li>
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <FavoriteBorderOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">Unlimited proposals</p>
@@ -206,25 +206,25 @@ const PaymentPlans = () => {
                                 </div>
                                 <ul className="mb-8 mt-8 space-y-4">
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <UpdateOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">Validity as per Basic Plan</p>
                                     </li>
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <SensorOccupiedOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">01 Connections</p>
                                     </li>
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <ChatOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">Chat with favorites</p>
                                     </li>
                                     <li className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-3 text-[#747474]">
                                             <FavoriteBorderOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-black">Unlimited proposals</p>

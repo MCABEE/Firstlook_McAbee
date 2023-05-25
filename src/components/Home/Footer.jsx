@@ -11,7 +11,7 @@ const Footer = () => {
 
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
                         <div className="text-center sm:text-left">
-                            <p className="text-3xl lg:mt-24 font-oxygen font-bold text-gray-900">Country</p>
+                            <p className="text-[21px] lg:mt-24 font-oxygen font-bold text-gray-900">Country</p>
 
                             <nav aria-label="Footer About Nav" className="mt-8 sm:mt-16 lg:mt-6">
 
@@ -191,7 +191,7 @@ const Footer = () => {
                                             className="text-gray-500 transition hover:text-gray-700/75"
                                             href="/"
                                         >
-                                            Social Media
+                                            Contact 
                                         </a>
                                     </li>
 
@@ -273,15 +273,15 @@ const Footer = () => {
 
 
                         <div>
-                            <p className='text-gray-700 mt-10 font-thin text-center'>
+                            <p className='text-gray-700 mt-20 font-thin text-center text-justify'>
                                 A social network for Matchmaking, listed in Firstlook and find life partner’s for Indian’s Globally. Before registering or using this web / mobile application, everyone should read our <Link className='text-rose-600 font-normal'> Membership Policy, Terms of Use</Link> and <Link className='text-rose-600 font-normal'>Refund / Cancellation Policy</Link>  in detail.
                                 We invite peoples who are legally eligible for marriage under the rules of Govt. of India. Any kind of misuse / malpractice’s should be offensive and legally punishable.
                                 Firstlook is owned, operated and maintained by MCABEE. For more details <Link className='text-rose-600 font-normal'>Connect </Link>with us.
                             </p>
                         </div>
 
-                        <div className="mt-10 sm:flex sm:items-center sm:justify-between">
-                            <div className="flex justify-center sm:justify-start">
+                        <div className="mt-10 sm:flex sm:justify-between">
+                            <div className="flex justify-center sm:justify-start sm:-ml-4">
                                 <img src={firstLook} className='h-10' alt="" />
                             </div>
 
