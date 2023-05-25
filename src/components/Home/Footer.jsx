@@ -189,7 +189,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             className="text-gray-700 transition hover:text-gray-700/75"
-                                            href="/contact"
+                                            to="/contact"
                                         >
                                             Contact 
                                         </Link>

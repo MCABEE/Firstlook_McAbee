@@ -25,15 +25,15 @@ const ContactDetails = () => {
                         <h2 className="mb-12 font-sans text-[24px] font-semibold tracking-tight text-gray-900 sm:text-[24px] md:text-start">
                             Say hello to us !
                         </h2>
-                        <div className='flex mb-10'>
-                            <div className="p-4 rounded-2xl border border-[#DDDCDC] w-56 md:p-7">
+                        <div className='flex flex-col sm:flex-row mb-10'>
+                            <div className="p-4 rounded-2xl border border-[#DDDCDC] md:w-56 md:p-7">
                                 <h2 className="text-base font-medium text-[16px] text-[#FC3657]">Address</h2>
                                 <p className="mt-3 text-sm text-[14px] text-black">7th Floor, Spencer Plaza</p>
                                 <p className="mt-1 text-sm text-[14px] text-black">Mount Road, Anna Salai</p>
                                 <p className="mt-1 text-sm text-[14px] text-black">Chennai - 600 002</p>
                                 <p className="mt-1 text-sm text-[14px] text-black">Tamil Nadu, India</p>
                             </div>
-                            <div className="p-4 rounded-2xl border border-[#DDDCDC] md:p-7 w-56 ml-10">
+                            <div className="p-4 rounded-2xl border border-[#DDDCDC] md:p-7 md:w-56 mt-10 sm:mt-0 sm:ml-10">
                                 <h2 className="text-base font-medium text-[16px] text-[#FC3657]">Customer Care</h2>
                                 <p className="mt-3 text-sm font-semibold text-[14px] text-black">Phone</p>
                                 <p className="mt-0 text-sm text-[14px] text-black">1800 270 1431</p>
@@ -100,6 +100,21 @@ const ContactDetails = () => {
 
                         </p>
                         <img src={iconMsg} className='hidden lg:block ml-80 lg:-mt-48' alt="" />
+                    </div>
+                </div>
+                <div className="block sm:hidden inset-y-0 top-0 right-0 w-full max-w-xl px-0 pl-8 pr-0 mb-0 mx-0 lg:absolute xl:px-0 pointer-events-none">
+                    <div className='lg:absolute'>
+                        <img
+                            className="w-[45rem] -mt-20 flex justify-end h-full "
+                            src={bgContact}
+                            alt=""
+                        />
+                        <p className='-mt-80 text-[24px] text-white text-end font-oxygen'>
+                            We always love to <br />
+                            hear from the community
+
+                        </p>
+                        <img src={iconMsg} className='ml-64 h-10 -mt-32 mb-72' alt="" />
                     </div>
                 </div>
             </div>

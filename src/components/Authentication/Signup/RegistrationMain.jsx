@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "../../Home/Navbar";
 import './RegistrationMain.css'
 import FirstForm from "./Forms/FirstForm";
