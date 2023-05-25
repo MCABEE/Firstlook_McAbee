@@ -34,30 +34,30 @@ const Footer = () => {
                             <nav aria-label="Footer Services Nav" className="mt-8">
                                 <ul className="space-y-4 text-sm">
                                     <li>
-                                        <a
+                                        <Link 
                                             className="text-gray-700 transition hover:text-gray-700/75"
-                                            href="/"
+                                            to="/termsofuse"
                                         >
                                             Terms of Use
-                                        </a>
+                                        </Link>
                                     </li>
 
                                     <li>
-                                        <a
+                                        <Link
                                             className="text-gray-700 transition hover:text-gray-700/75"
-                                            href="/"
+                                            to="/membership/policy"
                                         >
                                             Membership Policy
-                                        </a>
+                                        </Link>
                                     </li>
 
                                     <li>
-                                        <a
+                                        <Link
                                             className="text-gray-700 transition hover:text-gray-700/75"
-                                            href="/"
+                                            to="/refund/policy"
                                         >
                                             Refund Policy
-                                        </a>
+                                        </Link>
                                     </li>
 
                                     <li>
@@ -79,12 +79,12 @@ const Footer = () => {
                                 <ul className="space-y-4 text-sm">
 
                                     <li>
-                                        <a
+                                        <Link
                                             className="text-gray-700 transition hover:text-gray-700/75"
-                                            href="/"
+                                            to="/register"
                                         >
                                             Register
-                                        </a>
+                                        </Link>
                                     </li>
 
                                     <li>
@@ -187,12 +187,12 @@ const Footer = () => {
                                     </li>
 
                                     <li>
-                                        <a
-                                            className="text-gray-500 transition hover:text-gray-700/75"
-                                            href="/"
+                                        <Link
+                                            className="text-gray-700 transition hover:text-gray-700/75"
+                                            href="/contact"
                                         >
                                             Contact 
-                                        </a>
+                                        </Link>
                                     </li>
 
                                     <ul className="flex justify-center gap-6 md:justify-start lg:justify-start">
@@ -273,10 +273,10 @@ const Footer = () => {
 
 
                         <div>
-                            <p className='text-gray-700 mt-20 font-thin text-center text-justify'>
+                            <p className='text-gray-700 mt-20 font-thin text-justify'>
                                 A social network for Matchmaking, listed in Firstlook and find life partner’s for Indian’s Globally. Before registering or using this web / mobile application, everyone should read our <Link className='text-rose-600 font-normal'> Membership Policy, Terms of Use</Link> and <Link className='text-rose-600 font-normal'>Refund / Cancellation Policy</Link>  in detail.
                                 We invite peoples who are legally eligible for marriage under the rules of Govt. of India. Any kind of misuse / malpractice’s should be offensive and legally punishable.
-                                Firstlook is owned, operated and maintained by MCABEE. For more details <Link className='text-rose-600 font-normal'>Connect </Link>with us.
+                                Firstlook is owned, operated and maintained by MCABEE. For more details <Link to='/contact' className='text-rose-600 font-normal'>Connect </Link>with us.
                             </p>
                         </div>
 

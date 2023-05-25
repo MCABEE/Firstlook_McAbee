@@ -131,7 +131,7 @@ const Terms = () => {
                         Education, Family, Photos, Comments, Messages etc…) are the sole responsibility of the
                         profile owner. This application, our parent company, owners, directors, or management
                         staff will have no responsibility over the user generated contents. If you have any
-                        grievances, you can directly contact us [write us to support@firstlook.pro ] and we will
+                        grievances, you can directly contact us [write us to <span className='text-[#FC3657] font-medium'> support@firstlook.pro</span> ] and we will
                         analyze the situation and act accordingly. It may vary from strict warning to total ban of the
                         profile. If you want to escalate your grievances further, you can act accordingly as per the
                         legal norms available to you. We will provide available data.
@@ -171,8 +171,8 @@ const Terms = () => {
                         This is a premium application. You can use our services for free for a short period of time to
                         get familiarized with the nature of our services. However, you need to get paid membership
                         to continue our service. You can do the payment via any digital method such as ATM/ Debit
-                        card / Credit Card / UPI etc… Kindly refer to payment plans [ www.firstlook.pro/pricing ]
-                        for further details. You can also contact us [ support@firstlook.pro ] in case any queries or
+                        card / Credit Card / UPI etc… Kindly refer to payment plans [ <span className='text-[#FC3657] font-medium'> www.firstlook.pro/pricing</span> ]
+                        for further details. You can also contact us [ <span className='text-[#FC3657] font-medium'> support@firstlook.pro</span> ] in case any queries or
                         complaints.
                     </p>
                     <p className="text-[24px] font-oxygen font-bold mt-8">
@@ -292,7 +292,7 @@ const Terms = () => {
                         members or parents as a secondary contact.
                     </p>
                     <p className="text-[16px] mt-2 text-justify">
-                        Kindly inform us [ complaints@firstlook.pro ] if any member behaves in an
+                        Kindly inform us [ <span className='text-[#FC3657] font-medium'> complaints@firstlook.pro</span> ] if any member behaves in an
                         inappropriate manner. Use the help of cyber cell or police if necessary.
                     </p>
                     <p className="text-[16px] mt-2 text-justify">

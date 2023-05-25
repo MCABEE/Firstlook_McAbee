@@ -16,8 +16,8 @@ const Refund = () => {
                         time to get familiarized with the nature of our services. However, you need to get paid
                         membership to continue our service. You can do the payment via any digital method
                         such as ATM/ Debit card / Credit Card / UPI etc… Kindly refer to payment plans [
-                        www.firstlook.pro/pricing ] for further details. You can also contact us [
-                        support@firstlook.pro ] in case any queries or complaints.
+                         <span className='text-[#FC3657] font-medium'> www.firstlook.pro/pricing</span> ] for further details. You can also contact us [
+                        <span className='text-[#FC3657] font-medium'> support@firstlook.pro</span> ] in case any queries or complaints.
                     </p>
                     <p className="text-[24px] font-oxygen font-bold mt-8">
                         Refund Policy
