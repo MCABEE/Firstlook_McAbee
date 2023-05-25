@@ -44,7 +44,7 @@ const ContactDetails = () => {
                         <h2 className="ml-5 mb-2 font-sans text-[16px] font-semibold tracking-tight text-gray-900 sm:text-[16px] sm:leading-none md:text-start">
                             For Business
                         </h2>
-                        <p className="ml-5 mb-5 text-sm text-gray-700 md:text-[14px] md:text-start w-[350px] md:w-[600px]">
+                        <p className="ml-5 mb-5 text-sm text-gray-700 md:text-[14px] md:text-start w-auto md:w-[600px]">
                             Please connect us through - Email [ <span className='font-bold'>mail@firstlook.pro</span>  ], Tel [ <span className='font-bold'>91 - 9946 - 250 - 333</span> ]
                         </p>
 
@@ -109,12 +109,12 @@ const ContactDetails = () => {
                             src={bgContact}
                             alt=""
                         />
-                        <p className='-mt-80 text-[24px] text-white text-end font-oxygen'>
+                        <p className='-mt-72 text-[24px] text-white text-end font-oxygen'>
                             We always love to <br />
                             hear from the community
 
                         </p>
-                        <img src={iconMsg} className='ml-64 h-10 -mt-32 mb-72' alt="" />
+                        <img src={iconMsg} className='ml-60 h-10 -mt-28 mb-44' alt="" />
                     </div>
                 </div>
             </div>
