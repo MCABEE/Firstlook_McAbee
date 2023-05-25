@@ -8,7 +8,6 @@ import RegistrationMain from './components/Authentication/Signup/RegistrationMai
 import TermsOfUse from './components/TermsOfUse/TermsOfUse';
 import MembershipPolicy from './components/MembershipPolicy/MembershipPolicy';
 import RefundPolicy from './components/RefundPolicy/RefundPolicy';
-import New from './components/Authentication/Login/new';
 
 function App() {
 
@@ -24,8 +23,6 @@ function App() {
         <Route path='/termsofuse' element={<TermsOfUse/>}/>
         <Route path='/membership/policy' element={<MembershipPolicy/>}/>
         <Route path='/refund/policy' element={<RefundPolicy/>}/>
-        <Route path='/new' element={<New/>}/>
-
       </Routes>
     </BrowserRouter>
   )
