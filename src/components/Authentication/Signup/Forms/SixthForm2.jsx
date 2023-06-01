@@ -1,6 +1,12 @@
-import React from "react";
+import { useContext } from "react";
+import { registrationContext } from "../../../../context/formContext";
 
-const SixthForm2 = ({ formValues, onChange }) => {
+const SixthForm2 = () => {
+  const { page, setPage } = useContext(registrationContext)
+
+  const handleNext = () => {
+    setPage(page === 10 ? 0 : page + 1);
+  };
   return (
     <>
       <form className="w-72 ml-12">
@@ -12,22 +18,14 @@ const SixthForm2 = ({ formValues, onChange }) => {
         <div className="mb-6">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
             type="text"
             placeholder="Your Family / House Name"
-            onChange={onChange}
-            value={formValues.name}
           ></input>
         </div>
 
         <div className="mb-6">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
             type="text"
             placeholder="Your Home Town"
           ></input>
@@ -36,10 +34,6 @@ const SixthForm2 = ({ formValues, onChange }) => {
         <div className="mb-6">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
             type="text"
             placeholder="Pincode"
           ></input>
@@ -48,10 +42,6 @@ const SixthForm2 = ({ formValues, onChange }) => {
         <div className="mb-6">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
             type="text"
             placeholder="Your Contact Number"
           ></input>
@@ -60,10 +50,6 @@ const SixthForm2 = ({ formValues, onChange }) => {
         <div className="mb-6">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
             type="text"
             placeholder="Home Contact Number"
           ></input>
@@ -72,14 +58,17 @@ const SixthForm2 = ({ formValues, onChange }) => {
         <div className="mb-10">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
             type="text"
             placeholder="Diocese Name (for Christian’s)"
           ></input>
         </div>
+
+        <button
+          onClick={handleNext}
+          className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
+        >
+          Continue
+        </button>
 
         <div className="flex items-center justify-between"></div>
       </form>

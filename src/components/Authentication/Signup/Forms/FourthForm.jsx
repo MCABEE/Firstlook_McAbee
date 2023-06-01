@@ -1,7 +1,9 @@
 import { useState } from "react";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import { useContext } from "react";
+import { registrationContext } from "../../../../context/formContext";
 
-const FourthForm = ({ formValues, onChange }) => {
+const FourthForm = () => {
 
   const [selectedOption, setSelectedOption] = useState(false);
   const [isOpen, setIsOpen] = useState("");
@@ -9,6 +11,12 @@ const FourthForm = ({ formValues, onChange }) => {
 
   const handleToggle = () => {
     setSelectedOption(!selectedOption);
+  };
+
+  const { page, setPage } = useContext(registrationContext)
+
+  const handleNext = () => {
+    setPage(page === 10 ? 0 : page + 1);
   };
   return (
     <>
@@ -23,7 +31,7 @@ const FourthForm = ({ formValues, onChange }) => {
           <span className="w-5 h-5 right-8 absolute rounded-full transform transition-transform bg-gray-200" />
         </label>
 
-        <style jsx>{`
+        <style>{`
         input:checked {
           background-color: #22c55e;
         }
@@ -40,12 +48,8 @@ const FourthForm = ({ formValues, onChange }) => {
         <div className="mb-6 mt-4 flex">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
             type="text"
             placeholder="Select Academic Stream"
-            onChange={onChange}
-            value={formValues.name}
           ></input>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
@@ -55,41 +59,29 @@ const FourthForm = ({ formValues, onChange }) => {
         <div className="mb-6 mt-5">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
             type="text"
             placeholder="Enter Course Name"
-            onChange={onChange}
-            value={formValues.name}
           ></input>
         </div>
 
         <div className="mb-6 mt-5">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
             type="text"
             placeholder="Name of University"
-            onChange={onChange}
-            value={formValues.name}
           ></input>
         </div>
 
         <div className="mb-6 mt-5">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
             type="text"
             placeholder="Name of College / Institute"
-            onChange={onChange}
-            value={formValues.name}
           ></input>
         </div>
 
         <div className="mb-10 flex">
-        <button
+          <button
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
             onClick={() => setIsOpen("Pass-out Year")}
@@ -103,7 +95,6 @@ const FourthForm = ({ formValues, onChange }) => {
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setPassYear("Business")
@@ -113,7 +104,6 @@ const FourthForm = ({ formValues, onChange }) => {
                 <p className="mr-2" >Business</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setPassYear("1990")
@@ -123,7 +113,6 @@ const FourthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">1990</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setPassYear("1991")
@@ -133,7 +122,6 @@ const FourthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">1991</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setPassYear("1992")
@@ -145,26 +133,23 @@ const FourthForm = ({ formValues, onChange }) => {
 
             </ul>
           ) : " "}
-          <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
-            type="text"
-            placeholder="Pass-out Year"
-          ></input>
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
-            <KeyboardArrowDownRoundedIcon />
-          </div>
+        </div>
+        <div className="flex">
+          <button
+            onClick={handleNext}
+            className="rounded-xl text-[#A0A0A0] px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"
+          >
+            Skip
+          </button>
+
+          <button
+            onClick={handleNext}
+            className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
+          >
+            Continue
+          </button>
         </div>
 
-        {/* <button className="bg-[#D7D5D5] flex text-black text-sm w-full px-6 py-3 rounded-xl mb-8">
-          <div className="text-red-500 -mt-0.5 ml-6">
-            <AddOutlinedIcon />
-          </div>
-          Add another Qualification
-        </button> */}
 
         <div className="flex items-center justify-between"></div>
       </form >

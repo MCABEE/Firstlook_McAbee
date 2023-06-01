@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Navbar from '../../Home/Navbar'
 import CircleIcon from '@mui/icons-material/Circle';
 import { Link } from 'react-router-dom';
@@ -22,6 +22,7 @@ const MembershipPage = () => {
 
         return () => {
             if (termsAndConditionsRef.current) {
+                // eslint-disable-next-line react-hooks/exhaustive-deps
                 termsAndConditionsRef.current.removeEventListener('scroll', handleScroll);
             }
         };

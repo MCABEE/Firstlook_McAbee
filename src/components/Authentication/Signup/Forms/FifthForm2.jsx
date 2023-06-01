@@ -1,10 +1,18 @@
 import { useState } from "react";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import { useContext } from "react";
+import { registrationContext } from "../../../../context/formContext";
 
-const FifthForm2 = ({ formValues, onChange }) => {
+const FifthForm2 = () => {
   const [isOpen, setIsOpen] = useState("");
   const [jobCategory, setJobCategory] = useState("")
   const [jobType, setJobType] = useState("")
+
+  const { page, setPage } = useContext(registrationContext)
+
+  const handleNext = () => {
+    setPage(page === 10 ? 0 : page + 1);
+  };
 
   return (
     <>
@@ -74,12 +82,8 @@ const FifthForm2 = ({ formValues, onChange }) => {
           <><div className="mb-6 mt-5 flex">
             <input
               className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-              id="name"
-              name="name"
               type="text"
               placeholder="Your Designation"
-              onChange={onChange}
-              value={formValues.name}
             ></input>
             <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
               <KeyboardArrowDownRoundedIcon />
@@ -87,12 +91,8 @@ const FifthForm2 = ({ formValues, onChange }) => {
           </div><div className="mb-6 mt-5">
               <input
                 className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-                id="name"
-                name="name"
                 type="text"
                 placeholder="Company Name"
-                onChange={onChange}
-                value={formValues.name}
               ></input>
             </div></>
         ) : jobCategory === "Government" ? (
@@ -100,12 +100,8 @@ const FifthForm2 = ({ formValues, onChange }) => {
             <div className="mb-6 mt-5 flex">
               <input
                 className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-                id="name"
-                name="name"
                 type="text"
                 placeholder="Your Designation / Post"
-                onChange={onChange}
-                value={formValues.name}
               ></input>
               <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
                 <KeyboardArrowDownRoundedIcon />
@@ -126,7 +122,6 @@ const FifthForm2 = ({ formValues, onChange }) => {
                 <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
                   <li
-                    key=" "
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                     onClick={() => {
                       setJobType("Permanent")
@@ -136,7 +131,6 @@ const FifthForm2 = ({ formValues, onChange }) => {
                     <p className="mr-2" >Permanent</p>
                   </li>
                   <li
-                    key=" "
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                     onClick={() => {
                       setJobType("Temporary")
@@ -152,12 +146,8 @@ const FifthForm2 = ({ formValues, onChange }) => {
             <div className="mb-6 mt-5 flex">
               <input
                 className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-                id="name"
-                name="name"
                 type="text"
                 placeholder="Department / Authority"
-                onChange={onChange}
-                value={formValues.name}
               ></input>
               <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
                 <KeyboardArrowDownRoundedIcon />
@@ -169,12 +159,8 @@ const FifthForm2 = ({ formValues, onChange }) => {
             <div className="mb-6 mt-5 flex">
               <input
                 className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-                id="name"
-                name="name"
                 type="text"
                 placeholder="Job Stream"
-                onChange={onChange}
-                value={formValues.name}
               ></input>
               <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
                 <KeyboardArrowDownRoundedIcon />
@@ -183,23 +169,15 @@ const FifthForm2 = ({ formValues, onChange }) => {
             <div className="mb-6 mt-5">
               <input
                 className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-                id="name"
-                name="name"
                 type="text"
                 placeholder="Your Designation"
-                onChange={onChange}
-                value={formValues.name}
               ></input>
             </div>
             <div className="mb-6 mt-5">
               <input
                 className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-                id="name"
-                name="name"
                 type="text"
                 placeholder="Company Name"
-                onChange={onChange}
-                value={formValues.name}
               ></input>
             </div>
           </>
@@ -208,12 +186,8 @@ const FifthForm2 = ({ formValues, onChange }) => {
             <div className="mb-6 mt-5 flex">
               <input
                 className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-                id="name"
-                name="name"
                 type="text"
                 placeholder="Job Stream"
-                onChange={onChange}
-                value={formValues.name}
               ></input>
               <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
                 <KeyboardArrowDownRoundedIcon />
@@ -222,17 +196,28 @@ const FifthForm2 = ({ formValues, onChange }) => {
             <div className="mb-6 mt-5">
               <input
                 className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-                id="name"
-                name="name"
                 type="text"
                 placeholder="Your Designation"
-                onChange={onChange}
-                value={formValues.name}
               ></input>
             </div>
           </>
-        ) : ""
-        }
+        ) : ""}
+
+        <div className="flex">
+          <button
+            onClick={handleNext}
+            className="rounded-xl text-[#A0A0A0] px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"
+          >
+            Skip
+          </button>
+
+          <button
+            onClick={handleNext}
+            className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
+          >
+            Continue
+          </button>
+        </div>
 
 
         <div className="flex items-center justify-between"></div>

@@ -1,7 +1,15 @@
-import React from "react";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import { useContext } from "react";
+import { registrationContext } from "../../../../context/formContext";
 
-const SecondForm = ({ formValues, onChange }) => {
+const SecondForm = () => {
+
+  const { page, setPage } = useContext(registrationContext)
+
+  const handleNext = () => {
+    setPage(page === 10 ? 0 : page + 1);
+  };
+
   return (
     <>
       <form className="w-72 ml-12">
@@ -9,12 +17,8 @@ const SecondForm = ({ formValues, onChange }) => {
         <div className="mb-6 flex">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
             type="text"
             placeholder="Country"
-            onChange={onChange}
-            value={formValues.name}
           ></input>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
@@ -24,10 +28,6 @@ const SecondForm = ({ formValues, onChange }) => {
         <div className="mb-6 flex">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
             type="text"
             placeholder="State"
           ></input>
@@ -39,10 +39,6 @@ const SecondForm = ({ formValues, onChange }) => {
         <div className="mb-6 flex">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
             type="text"
             placeholder="District"
           ></input>
@@ -54,10 +50,6 @@ const SecondForm = ({ formValues, onChange }) => {
         <div className="mb-10 flex">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
             type="text"
             placeholder="Mother Toungue"
           ></input>
@@ -65,6 +57,13 @@ const SecondForm = ({ formValues, onChange }) => {
             <KeyboardArrowDownRoundedIcon />
           </div>
         </div>
+
+        <button
+          onClick={handleNext}
+          className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
+        >
+          Continue
+        </button>
 
         <div className="flex items-center justify-between"></div>
       </form>

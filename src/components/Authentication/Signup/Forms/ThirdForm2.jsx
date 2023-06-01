@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import { useContext } from 'react';
+import { registrationContext } from '../../../../context/formContext';
+import { registerAdditionalPersonalInfo } from '../../../../api';
 
-const ThirdForm2 = ({ formValues, onChange }) => {
+const ThirdForm2 = () => {
   const [isOpen, setIsOpen] = useState("");
   const [drink, setDrink] = useState("")
   const [smoke, setSmoke] = useState("")
@@ -10,9 +13,22 @@ const ThirdForm2 = ({ formValues, onChange }) => {
   const [license, setLicense] = useState("")
   const [financialStatus, setFinancialStatus] = useState("")
 
+  const handleData = async(e) => {
+    e.preventDefault()
+    await registerAdditionalPersonalInfo(drink, smoke, diet, bloodGroup, license, financialStatus)
+    .then((result) => {
+      console.log(result)
+    })
+  }
+
+  const { page, setPage } = useContext(registrationContext)
+
+  const handleNext = () => {
+    setPage(page === 10 ? 0 : page + 1);
+  };
   return (
     <>
-      <form className="w-72 ml-12">
+      <form onSubmit={handleData} className="w-72 ml-12">
 
         <div className="mb-6 flex ">
 
@@ -30,7 +46,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setDrink("Yes")
@@ -40,7 +55,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2" >Yes</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setDrink("Occasionally")
@@ -50,7 +64,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">Occasionally</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setDrink("No")
@@ -62,19 +75,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
 
             </ul>
           ) : " "}
-
-          {/* <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Do you Drink ?"
-            onChange={onChange}
-            value={formValues.name}
-          ></input>
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
-            <KeyboardArrowDownRoundedIcon />
-          </div> */}
         </div>
 
         <div className="mb-6 flex">
@@ -92,7 +92,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setSmoke("Yes")
@@ -102,7 +101,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2" >Yes</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setSmoke("Occasionally")
@@ -112,7 +110,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">Occasionally</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setSmoke("No")
@@ -141,7 +138,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setDiet("Non-Vegetarian")
@@ -151,7 +147,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2" >Non-Vegetarian</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setDiet("Eggetarian")
@@ -161,7 +156,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">Eggetarian</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setDiet("Pure Vegetarian")
@@ -190,7 +184,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBloodGroup("A+")
@@ -200,7 +193,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2" >A+</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBloodGroup("A-")
@@ -210,7 +202,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">A-</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBloodGroup("B+")
@@ -220,7 +211,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">B+</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBloodGroup("B+")
@@ -230,7 +220,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">B+</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBloodGroup("B-")
@@ -240,7 +229,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">B-</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBloodGroup("O+")
@@ -250,7 +238,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">O+</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBloodGroup("O-")
@@ -260,7 +247,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">O-</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBloodGroup("AB+")
@@ -270,7 +256,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">AB+</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBloodGroup("AB-")
@@ -299,7 +284,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setLicense("Two-Wheeler Only")
@@ -309,7 +293,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2" >Two-Wheeler Only</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setLicense("Four-Wheeler Only")
@@ -319,7 +302,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">Four-Wheeler Only</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setLicense("Two & Four-Wheeler")
@@ -329,7 +311,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">Two &amp; Four-Wheeler</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setLicense("No License")
@@ -358,7 +339,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setFinancialStatus("Average")
@@ -368,7 +348,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2" >Average</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setFinancialStatus("Middle Class")
@@ -378,7 +357,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">Middle Class</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setFinancialStatus("Middle Class")
@@ -388,7 +366,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">Middle Class</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setFinancialStatus("Rich")
@@ -398,7 +375,6 @@ const ThirdForm2 = ({ formValues, onChange }) => {
                 <p className="mr-2">Rich</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setFinancialStatus("HNI (High Net-worth)")
@@ -411,6 +387,13 @@ const ThirdForm2 = ({ formValues, onChange }) => {
             </ul>
           ) : " "}
         </div>
+
+        <button
+          onClick={handleNext}
+          className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
+        >
+          Continue
+        </button>
 
         <div className="flex items-center justify-between"></div>
       </form>

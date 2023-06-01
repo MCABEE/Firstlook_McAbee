@@ -1,11 +1,19 @@
 import { useState } from "react";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import { useContext } from "react";
+import { registrationContext } from "../../../../context/formContext";
 
-const ThirdForm = ({ formValues, onChange }) => {
+const ThirdForm = () => {
   const [isOpen, setIsOpen] = useState("");
   const [maritalStatus, setMaritalStatus] = useState("")
   const [bodyType, setBodyType] = useState("")
   const [physicalStatus, setPhysicalStatus] = useState("")
+
+  const { page, setPage } = useContext(registrationContext)
+
+  const handleNext = () => {
+    setPage(page === 10 ? 0 : page + 1);
+  };
 
   return (
     <>
@@ -14,12 +22,8 @@ const ThirdForm = ({ formValues, onChange }) => {
         <div className="mb-6 flex">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
             type="text"
             placeholder="Religion"
-            onChange={onChange}
-            value={formValues.name}
           ></input>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
@@ -29,10 +33,6 @@ const ThirdForm = ({ formValues, onChange }) => {
         <div className="mb-6 flex">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
             type="text"
             placeholder="Caste"
           ></input>
@@ -55,7 +55,6 @@ const ThirdForm = ({ formValues, onChange }) => {
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setMaritalStatus("Unmarried")
@@ -66,7 +65,6 @@ const ThirdForm = ({ formValues, onChange }) => {
 
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setMaritalStatus("Divorced")
@@ -77,7 +75,6 @@ const ThirdForm = ({ formValues, onChange }) => {
 
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setMaritalStatus("Widow / Widower")
@@ -88,7 +85,6 @@ const ThirdForm = ({ formValues, onChange }) => {
 
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setMaritalStatus("Separated")
@@ -101,27 +97,11 @@ const ThirdForm = ({ formValues, onChange }) => {
 
             </ul>
           ) : " "}
-          {/* <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
-            type="text"
-            placeholder="Marital Status"
-          ></input>
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
-            <KeyboardArrowDownRoundedIcon />
-          </div> */}
         </div>
 
         <div className="mb-6 flex">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
             type="text"
             placeholder="Height"
           ></input>
@@ -133,10 +113,6 @@ const ThirdForm = ({ formValues, onChange }) => {
         <div className="mb-6 flex">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
             type="text"
             placeholder="Weight"
           ></input>
@@ -160,7 +136,6 @@ const ThirdForm = ({ formValues, onChange }) => {
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBodyType("Slim")
@@ -171,7 +146,6 @@ const ThirdForm = ({ formValues, onChange }) => {
 
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBodyType("Average")
@@ -182,7 +156,6 @@ const ThirdForm = ({ formValues, onChange }) => {
 
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBodyType("Athletic")
@@ -193,7 +166,6 @@ const ThirdForm = ({ formValues, onChange }) => {
 
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setBodyType("Plus Size")
@@ -223,7 +195,6 @@ const ThirdForm = ({ formValues, onChange }) => {
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setPhysicalStatus("Normal")
@@ -234,7 +205,6 @@ const ThirdForm = ({ formValues, onChange }) => {
 
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setPhysicalStatus("Disabled")
@@ -247,19 +217,14 @@ const ThirdForm = ({ formValues, onChange }) => {
 
             </ul>
           ) : " "}
-          {/* <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
-            type="text"
-            placeholder="Physical Status"
-          ></input>
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
-            <KeyboardArrowDownRoundedIcon />
-          </div> */}
         </div>
+
+        <button
+          onClick={handleNext}
+          className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
+        >
+          Continue
+        </button>
 
         <div className="flex items-center justify-between"></div>
       </form >

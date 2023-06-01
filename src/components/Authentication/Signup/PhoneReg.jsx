@@ -7,6 +7,7 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "@firebase/auth";
 import OtpInput from "otp-input-react";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router";
+import { registerUser } from "../../../api";
 
 const PhoneReg = () => {
     const [countryState, setCountryState] = useState({
@@ -34,7 +35,6 @@ const PhoneReg = () => {
                 //  fetch data
                 const dataUrl = `https://restcountries.com/v2/all`;
                 const response = await axios.get(dataUrl);
-                console.log(response);
                 setCountryState({
                     ...countryState,
                     countries: response.data,
@@ -54,10 +54,7 @@ const PhoneReg = () => {
     }, []);
     const { loading, errorMessage, countries } = countryState;
     console.log("loading", loading);
-    console.log("countries", countries);
     console.log("errorMessage", errorMessage);
-
-    console.log("selectedCountry", selectedCountry);
 
     //   find selected country data
     //search selected country
@@ -67,8 +64,6 @@ const PhoneReg = () => {
         }
         return false;
     });
-    console.log("searchSelectedCountry", searchSelectedCountry);
-
 
     const handleToggle = () => {
         setIsOpen(!isOpen);
@@ -100,9 +95,7 @@ const PhoneReg = () => {
 
         const appVerifier = window.recaptchaVerifier;
 
-        const formatPh = `+${searchSelectedCountry.callingCodes}` + phone;
-
-        signInWithPhoneNumber(auth, formatPh, appVerifier)
+        signInWithPhoneNumber(auth, phone, appVerifier)
             .then((confirmationResult) => {
                 window.confirmationResult = confirmationResult;
                 setShowOTP(true);
@@ -116,28 +109,17 @@ const PhoneReg = () => {
     function onOTPVerify() {
         window.confirmationResult
             .confirm(otp)
-            .then(async (res) => {
-                console.log(res);
-                navigate('/register/signup')
+            .then(async () => {
+                await registerUser(phone).then((result) => {
+                    localStorage.setItem( "userId", result.data.data.user._id )
+                    localStorage.setItem( "token", result.data.token )
+                    navigate('/register/signup')
+                })
             })
             .catch((err) => {
                 console.log(err);
             });
     }
-
-    // const sendOtp = async() => {
-    //     try {
-    //         let recaptchaVerifier = await new RecaptchaVerifier("recaptcha", {}, auth)
-    //         let confirmation = await signInWithPhoneNumber(auth, phone, recaptchaVerifier)
-    //         console.log(confirmation) 
-    //     } catch(err) {
-    //         console.log(err)
-    //     }
-    // }
-
-    // const verifyOtp = () => {
-
-    // }
 
     return (
         <>
@@ -161,7 +143,7 @@ const PhoneReg = () => {
                             </p>
 
                             <div className="grid justify-center mt-7 rounded-2xl mx-10 space-y-10">
-                                
+
                                 <OtpInput
                                     value={otp}
                                     onChange={setOtp}
@@ -175,9 +157,6 @@ const PhoneReg = () => {
                                     onClick={onOTPVerify}
                                     className="bg-[#F92739] w-full flex gap-1 items-center justify-center py-3 text-white rounded-xl"
                                 >
-                                    {/* {loading && (
-                                        <CgSpinner size={20} className="mt-1 animate-spin" />
-                                    )} */}
                                     <span>Verify OTP</span>
                                 </button>
                             </div>
@@ -237,7 +216,7 @@ const PhoneReg = () => {
                                         name="first-name"
                                         id="first-name"
                                         value={phone}
-                                        onChange={(e) => setPhone(e.target.value)}
+                                        onChange={(e) => setPhone(`+${searchSelectedCountry.callingCodes}` + e.target.value)}
                                         placeholder="Enter Your Number"
                                         autoComplete="given-name"
                                         className=" w-80 rounded-xl py-3 px-5 text-gray-900 shadow-sm border border-[#B8B8B8] placeholder:text-gray-400 sm:text-sm sm:leading-6"
@@ -247,9 +226,7 @@ const PhoneReg = () => {
                             </div>
 
                             <button onClick={onSignup} className='bg-red-500 w-80 p-3 rounded-xl mt-12 mb-20 ml-8 text-white px-20'>
-                                {/* <Link to='/register/signup'> */}
                                 Verify Mobile
-                                {/* </Link> */}
                             </button>
                             <div id="recaptcha-container"></div>
                         </>

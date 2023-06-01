@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import { useContext } from "react";
+import { registrationContext } from "../../../../context/formContext";
 
-const FifthForm = ({ formValues, onChange }) => {
+const FifthForm = () => {
 
   const [isOpen, setIsOpen] = useState("");
   const [annualIncome, setAnnualIncome] = useState("")
@@ -10,6 +12,12 @@ const FifthForm = ({ formValues, onChange }) => {
 
   const handleToggle = () => {
     setSelectedOption(!selectedOption);
+  };
+
+  const { page, setPage } = useContext(registrationContext)
+
+  const handleNext = () => {
+    setPage(page === 10 ? 0 : page + 1);
   };
   return (
     <>
@@ -24,7 +32,7 @@ const FifthForm = ({ formValues, onChange }) => {
           <span className="w-5 h-5 right-8 absolute rounded-full transform transition-transform bg-gray-200" />
         </label>
 
-        <style jsx>{`
+        <style>{`
         input:checked {
           background-color: #22c55e;
         }
@@ -41,12 +49,8 @@ const FifthForm = ({ formValues, onChange }) => {
         <div className="mb-6 mt-4 flex">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
             type="text"
             placeholder="Select Country"
-            onChange={onChange}
-            value={formValues.name}
           ></input>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
@@ -56,36 +60,24 @@ const FifthForm = ({ formValues, onChange }) => {
         <div className="mb-6 mt-5">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
             type="text"
             placeholder="State / Province"
-            onChange={onChange}
-            value={formValues.name}
           ></input>
         </div>
 
         <div className="mb-6 mt-5">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
             type="text"
             placeholder="District / Area"
-            onChange={onChange}
-            value={formValues.name}
           ></input>
         </div>
 
         <div className="mb-6 mt-5">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
-            id="name"
-            name="name"
             type="text"
             placeholder="City / Town"
-            onChange={onChange}
-            value={formValues.name}
           ></input>
         </div>
 
@@ -104,7 +96,6 @@ const FifthForm = ({ formValues, onChange }) => {
             <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("Less than 01 Lakh")
@@ -114,7 +105,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2" >Less than 01 Lakh</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("01 -03 Lakh")
@@ -124,7 +114,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">01 -03 Lakh</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("03 – 06 Lakh")
@@ -134,7 +123,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">03 – 06 Lakh</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("06 – 12 Lakh")
@@ -144,7 +132,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">06 – 12 Lakh</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("12 – 24 Lakh")
@@ -154,7 +141,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">12 – 24 Lakh</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("24 – 36 Lakh")
@@ -164,7 +150,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">24 – 36 Lakh</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("36 – 48 Lakh")
@@ -174,7 +159,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">36 – 48 Lakh</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("48 – 60 Lakh")
@@ -184,7 +168,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">48 – 60 Lakh</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("60 – 84 Lakh")
@@ -194,7 +177,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">60 – 84 Lakh</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("84 – 120 Lakh")
@@ -204,7 +186,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">84 – 120 Lakh</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("1.2 – 3 Cr")
@@ -214,7 +195,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">1.2 – 3 Cr</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("3 – 6 Cr")
@@ -224,7 +204,6 @@ const FifthForm = ({ formValues, onChange }) => {
                 <p className="mr-2">3 – 6 Cr</p>
               </li>
               <li
-                key=" "
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                 onClick={() => {
                   setAnnualIncome("6 Cr Above")
@@ -237,6 +216,23 @@ const FifthForm = ({ formValues, onChange }) => {
             </ul>
           ) : " "}
         </div>
+
+        <div className="flex">
+          <button
+            onClick={handleNext}
+            className="rounded-xl text-[#A0A0A0] px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"
+          >
+            Skip
+          </button>
+
+          <button
+            onClick={handleNext}
+            className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
+          >
+            Continue
+          </button>
+        </div>
+
 
         <div className="flex items-center justify-between"></div>
       </form >

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "../../Home/Navbar";
 import './RegistrationMain.css'
 import FirstForm from "./Forms/FirstForm";
@@ -13,121 +12,70 @@ import FourthForm from "./Forms/FourthForm";
 import ThirdForm2 from "./Forms/ThirdForm2";
 import FifthForm2 from "./Forms/FifthForm2";
 import SixthForm2 from "./Forms/SixthForm2";
+import { useContext } from "react";
+import { registrationContext } from "../../../context/formContext";
 
 const RegistrationMain = () => {
-    const formList = ["FirstForm", "SecondForm", "ThirdForm", "ThirdForm2", "FourthForm", "FifthForm", "FifthForm2", "SixthForm", "SixthForm2", "SeventhForm", "EighthForm"];
 
-    const formLength = formList.length;
-
-    const [page, setPage] = useState(0);
-
-    const handleNext = () => {
-        setPage(page === formLength - 1 ? 0 : page + 1);
-    };
-
-    const initialValues = {
-        name: "",
-        lastname: "",
-        password: "",
-        confirmPassword: "",
-        username: "",
-        city: "1",
-        address: "",
-        zip: "",
-        terms: "",
-    };
-    const [values, setValues] = useState(initialValues);
+    const { page, setPage } = useContext(registrationContext)
 
     const handleForms = () => {
         switch (page) {
             case 0: {
+
                 return (
-                    <div>
-                        <FirstForm formValues={values} onChange={onChange}></FirstForm>
-                    </div>
+                    <FirstForm></FirstForm>
                 );
             }
             case 1: {
                 return (
-                    <SecondForm
-                        formValues={values}
-                        onChange={onChange}
-                    ></SecondForm>
+                    <SecondForm></SecondForm>
                 );
             }
             case 2: {
-                return <ThirdForm formValues={values} onChange={onChange}></ThirdForm>;
+                return <ThirdForm></ThirdForm>;
             }
             case 3: {
-                return <ThirdForm2 formValues={values} onChange={onChange}></ThirdForm2>;
+                return <ThirdForm2></ThirdForm2>;
             }
             case 4: {
                 return (
-                    <FourthForm
-                        formValues={values}
-                        onChange={onChange}
-                    ></FourthForm>
+                    <FourthForm></FourthForm>
                 );
             }
             case 5: {
                 return (
-                    <FifthForm
-                        formValues={values}
-                        onChange={onChange}
-                    ></FifthForm>
+                    <FifthForm></FifthForm>
                 );
             }
             case 6: {
                 return (
-                    <FifthForm2
-                        formValues={values}
-                        onChange={onChange}
-                    ></FifthForm2>
+                    <FifthForm2></FifthForm2>
                 );
             }
             case 7: {
                 return (
-                    <SixthForm
-                        formValues={values}
-                        onChange={onChange}
-                    ></SixthForm>
+                    <SixthForm></SixthForm>
                 );
             }
             case 8: {
                 return (
-                    <SixthForm2
-                        formValues={values}
-                        onChange={onChange}
-                    ></SixthForm2>
+                    <SixthForm2></SixthForm2>
                 );
             }
             case 9: {
                 return (
-                    <SeventhForm
-                        formValues={values}
-                        onChange={onChange}
-                    ></SeventhForm>
+                    <SeventhForm></SeventhForm>
                 );
             }
             case 10: {
                 return (
-                    <EighthForm
-                        formValues={values}
-                        onChange={onChange}
-                    ></EighthForm>
+                    <EighthForm></EighthForm>
                 );
             }
             default:
                 return null;
         }
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const response = await setTimeout(() => {
-            console.log("form", values);
-        }, 2000);
-        return response;
     };
 
     const setForm = (e) => {
@@ -162,14 +110,8 @@ const RegistrationMain = () => {
         }
     };
 
-    const onChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        setValues({ ...values, [name]: type === "checkbox" ? checked : value });
-    };
-
     return (
         <>
-
             <Navbar />
             <div className="flex h-screen justify-center items-center mt-20">
                 <div className="w-full h-[55rem] max-w-sm bg-[#F2F2F2] rounded-2xl shadow-2xl mt-44">
@@ -344,49 +286,11 @@ const RegistrationMain = () => {
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >
-
                                     </span>
                                 </div>
                             </li>
-
                         </ul>
                         <div className="flex-1">{handleForms()}</div>
-                    </div>
-                    <div className="flex">
-                        {page === 4 || page === 5 || page === 6 || page === 9 ? (
-                            <button
-                                onClick={handleNext}
-                                className="rounded-xl text-[#A0A0A0] ml-12 px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"
-                            >
-                                Skip
-                            </button>
-                        ) : ""}
-                        {page === 4 || page === 5 || page === 6 || page === 9 ? (
-                            <button
-                                onClick={handleNext}
-                                className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
-                            >
-                                Continue
-                            </button>
-                        ) : ""}
-
-                        {page === 0 || page === 1 || page === 2 || page === 3 || page === 7 || page === 8 ? (
-                            <button
-                                onClick={handleNext}
-                                className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-48"
-                            >
-                                Continue
-                            </button>
-                        ) : ""}
-
-                        {page === 11 ? (
-                            <button
-                                onClick={handleSubmit}
-                                className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
-                            >
-                                Submit
-                            </button>
-                        ) : ""}
                     </div>
                 </div>
             </div>
