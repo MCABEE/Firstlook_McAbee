@@ -73,7 +73,7 @@ const FirstForm = () => {
 
         <div className="mb-6 mt-10">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="First Name"
             value={firstName}
@@ -83,7 +83,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Last Name"
             value={lastName}
@@ -93,7 +93,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Display Name"
             value={displayName}
@@ -108,7 +108,7 @@ const FirstForm = () => {
             placeholder="DOB"
             readOnly
             onClick={handleInputClick}
-            className="w-72 ml-12 px-5 py-3 text-sm text-gray-700 bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
+            className="w-72 ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
           />
           <span
             onClick={handleInputClick}

@@ -3,6 +3,7 @@ import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownR
 import { useContext } from 'react';
 import { registrationContext } from '../../../../context/formContext';
 import { registerAdditionalPersonalInfo } from '../../../../api';
+import { bloodGroups, diets, doDrink, doSmoke, financeStatus, userLicense } from '../../../../lib/constants';
 
 const ThirdForm2 = () => {
   const [isOpen, setIsOpen] = useState("");
@@ -13,19 +14,19 @@ const ThirdForm2 = () => {
   const [license, setLicense] = useState("")
   const [financialStatus, setFinancialStatus] = useState("")
 
-  const handleData = async(e) => {
-    e.preventDefault()
-    await registerAdditionalPersonalInfo(drink, smoke, diet, bloodGroup, license, financialStatus)
-    .then((result) => {
-      console.log(result)
-    })
-  }
-
   const { page, setPage } = useContext(registrationContext)
 
-  const handleNext = () => {
-    setPage(page === 10 ? 0 : page + 1);
-  };
+  const handleData = async (e) => {
+    e.preventDefault()
+    await registerAdditionalPersonalInfo(drink, smoke, diet, bloodGroup, license, financialStatus)
+      .then((result) => {
+        console.log(result)
+        setPage(page === 10 ? 0 : page + 1);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
   return (
     <>
       <form onSubmit={handleData} className="w-72 ml-12">
@@ -34,7 +35,7 @@ const ThirdForm2 = () => {
 
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Drink")}
           >
             <p className="w-44 truncate text-sm">{drink ? drink : "Do You Drink ?"}</p>
@@ -44,34 +45,19 @@ const ThirdForm2 = () => {
           </div>
           {isOpen == 'Drink' ? (
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setDrink("Yes")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2" >Yes</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setDrink("Occasionally")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Occasionally</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setDrink("No")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">No</p>
-              </li>
+              {doDrink.map((status) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setDrink(status.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2" >{status.name}</p>
+                  </li>
+                </>
+              ))}
 
             </ul>
           ) : " "}
@@ -80,7 +66,7 @@ const ThirdForm2 = () => {
         <div className="mb-6 flex">
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Smoke")}
           >
             <p className="w-44 truncate text-sm">{smoke ? smoke : "Do You Smoke ?"}</p>
@@ -91,33 +77,19 @@ const ThirdForm2 = () => {
           {isOpen == 'Smoke' ? (
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setSmoke("Yes")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2" >Yes</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setSmoke("Occasionally")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Occasionally</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setSmoke("No")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">No</p>
-              </li>
+              {doSmoke.map((status) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setSmoke(status.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2" >{status.name}</p>
+                  </li>
+                </>
+              ))}
 
             </ul>
           ) : " "}
@@ -126,7 +98,7 @@ const ThirdForm2 = () => {
         <div className="mb-6 flex">
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Diet")}
           >
             <p className="w-44 truncate text-sm">{diet ? diet : "Do You Diet ?"}</p>
@@ -137,33 +109,19 @@ const ThirdForm2 = () => {
           {isOpen == 'Diet' ? (
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setDiet("Non-Vegetarian")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2" >Non-Vegetarian</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setDiet("Eggetarian")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Eggetarian</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setDiet("Pure Vegetarian")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Pure Vegetarian</p>
-              </li>
+              {diets.map((status) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setDiet(status.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2" >{status.name}</p>
+                  </li>
+                </>
+              ))}
 
             </ul>
           ) : " "}
@@ -172,7 +130,7 @@ const ThirdForm2 = () => {
         <div className="mb-6 flex">
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Blood Group")}
           >
             <p className="w-44 truncate text-sm">{bloodGroup ? bloodGroup : "Blood Group"}</p>
@@ -183,87 +141,19 @@ const ThirdForm2 = () => {
           {isOpen == 'Blood Group' ? (
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBloodGroup("A+")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2" >A+</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBloodGroup("A-")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">A-</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBloodGroup("B+")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">B+</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBloodGroup("B+")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">B+</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBloodGroup("B-")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">B-</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBloodGroup("O+")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">O+</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBloodGroup("O-")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">O-</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBloodGroup("AB+")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">AB+</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBloodGroup("AB-")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">AB-</p>
-              </li>
+              {bloodGroups.map((group) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setBloodGroup(group.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2" >{group.name}</p>
+                  </li>
+                </>
+              ))}
 
             </ul>
           ) : " "}
@@ -272,7 +162,7 @@ const ThirdForm2 = () => {
         <div className="mb-6 flex">
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("License")}
           >
             <p className="w-44 truncate text-sm">{license ? license : "Do you have a Driving License ?"}</p>
@@ -283,51 +173,28 @@ const ThirdForm2 = () => {
           {isOpen == 'License' ? (
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setLicense("Two-Wheeler Only")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2" >Two-Wheeler Only</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setLicense("Four-Wheeler Only")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Four-Wheeler Only</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setLicense("Two & Four-Wheeler")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Two &amp; Four-Wheeler</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setLicense("No License")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">No License</p>
-              </li>
+              {userLicense.map((license) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setLicense(license.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2" >{license.name}</p>
+                  </li>
+                </>
+              ))}
 
             </ul>
           ) : " "}
         </div>
 
         <div className="mb-10 flex">
-        <button
+          <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Financial Status")}
           >
             <p className="w-44 truncate text-sm">{financialStatus ? financialStatus : "Financial Status"}</p>
@@ -338,58 +205,26 @@ const ThirdForm2 = () => {
           {isOpen == 'Financial Status' ? (
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setFinancialStatus("Average")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2" >Average</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setFinancialStatus("Middle Class")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Middle Class</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setFinancialStatus("Middle Class")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Middle Class</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setFinancialStatus("Rich")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Rich</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setFinancialStatus("HNI (High Net-worth)")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">HNI (High Net-worth)</p>
-              </li>
+              {financeStatus.map((status) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setFinancialStatus(status.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2" >{status.name}</p>
+                  </li>
+                </>
+              ))}
 
             </ul>
           ) : " "}
         </div>
 
         <button
-          onClick={handleNext}
+          type='submit'
           className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
         >
           Continue

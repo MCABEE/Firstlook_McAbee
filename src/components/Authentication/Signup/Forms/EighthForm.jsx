@@ -60,9 +60,7 @@ const EighthForm = () => {
 
   return (
     <>
-
       <Toaster toastOptions={{ duration: 4000 }} />
-
       {showOTP ? (
         <>
           <form onSubmit={onOTPVerify} className="w-72 ml-12">
@@ -101,7 +99,7 @@ const EighthForm = () => {
 
             <div className="mb-6">
               <input
-                className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+                className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
                 name="Aadhar"
                 value={aadhar}
                 onChange={(e) => setAadhar(e.target.value)}

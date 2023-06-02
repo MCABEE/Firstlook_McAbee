@@ -2,6 +2,7 @@ import { useState } from "react";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { useContext } from "react";
 import { registrationContext } from "../../../../context/formContext";
+import { annualIncomes } from "../../../../lib/constants";
 
 const FifthForm = () => {
 
@@ -48,7 +49,7 @@ const FifthForm = () => {
 
         <div className="mb-6 mt-4 flex">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Select Country"
           ></input>
@@ -59,7 +60,7 @@ const FifthForm = () => {
 
         <div className="mb-6 mt-5">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="State / Province"
           ></input>
@@ -67,7 +68,7 @@ const FifthForm = () => {
 
         <div className="mb-6 mt-5">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="District / Area"
           ></input>
@@ -75,7 +76,7 @@ const FifthForm = () => {
 
         <div className="mb-6 mt-5">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="City / Town"
           ></input>
@@ -84,7 +85,7 @@ const FifthForm = () => {
         <div className="mb-10 flex">
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Annual Income")}
           >
             <p className="w-44 truncate text-sm">{annualIncome ? annualIncome : "Annual Income (Approx.)"}</p>
@@ -93,127 +94,24 @@ const FifthForm = () => {
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen == 'Annual Income' ? (
+
             <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("Less than 01 Lakh")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2" >Less than 01 Lakh</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("01 -03 Lakh")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">01 -03 Lakh</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("03 – 06 Lakh")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">03 – 06 Lakh</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("06 – 12 Lakh")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">06 – 12 Lakh</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("12 – 24 Lakh")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">12 – 24 Lakh</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("24 – 36 Lakh")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">24 – 36 Lakh</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("36 – 48 Lakh")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">36 – 48 Lakh</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("48 – 60 Lakh")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">48 – 60 Lakh</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("60 – 84 Lakh")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">60 – 84 Lakh</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("84 – 120 Lakh")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">84 – 120 Lakh</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("1.2 – 3 Cr")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">1.2 – 3 Cr</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("3 – 6 Cr")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">3 – 6 Cr</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setAnnualIncome("6 Cr Above")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">6 Cr Above</p>
-              </li>
-
+              {annualIncomes.map((income) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setAnnualIncome(income.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2" >{income.name}</p>
+                  </li>
+                </>
+              ))
+              }
             </ul>
+
           ) : " "}
         </div>
 
@@ -233,7 +131,6 @@ const FifthForm = () => {
           </button>
         </div>
 
-
         <div className="flex items-center justify-between"></div>
       </form >
     </>
@@ -241,4 +138,3 @@ const FifthForm = () => {
 };
 
 export default FifthForm;
-

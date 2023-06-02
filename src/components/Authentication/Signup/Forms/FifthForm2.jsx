@@ -2,6 +2,7 @@ import { useState } from "react";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { useContext } from "react";
 import { registrationContext } from "../../../../context/formContext";
+import { jobCategories } from "../../../../lib/constants";
 
 const FifthForm2 = () => {
   const [isOpen, setIsOpen] = useState("");
@@ -22,7 +23,7 @@ const FifthForm2 = () => {
 
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Job Category")}
           >
             <p className="w-44 truncate text-sm">{jobCategory ? jobCategory : "Job Category ?"}</p>
@@ -32,47 +33,19 @@ const FifthForm2 = () => {
           </div>
           {isOpen === 'Job Category' ? (
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
-              <li
-                key=" "
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setJobCategory("Business")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2" >Business</p>
-              </li>
-              <li
-                key=" "
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setJobCategory("Government")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Government</p>
-              </li>
-              <li
-                key=" "
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setJobCategory("Private")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Private</p>
-              </li>
-              <li
-                key=" "
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setJobCategory("Self Employed")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Self Employed</p>
-              </li>
+              {jobCategories.map((category) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setJobCategory(category.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2" >{category.name}</p>
+                  </li>
+                </>
+              ))}
 
             </ul>
           ) : " "}
@@ -81,7 +54,7 @@ const FifthForm2 = () => {
         {jobCategory === 'Business' ? (
           <><div className="mb-6 mt-5 flex">
             <input
-              className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+              className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
               type="text"
               placeholder="Your Designation"
             ></input>
@@ -90,7 +63,7 @@ const FifthForm2 = () => {
             </div>
           </div><div className="mb-6 mt-5">
               <input
-                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
                 type="text"
                 placeholder="Company Name"
               ></input>
@@ -99,7 +72,7 @@ const FifthForm2 = () => {
           <>
             <div className="mb-6 mt-5 flex">
               <input
-                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
                 type="text"
                 placeholder="Your Designation / Post"
               ></input>
@@ -110,7 +83,7 @@ const FifthForm2 = () => {
             <div className="mb-6 mt-5 flex">
               <button
                 type="button"
-                className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+                className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen("Job Type")}
               >
                 <p className="w-44 truncate text-sm">{jobType ? jobType : "Job Type"}</p>
@@ -145,7 +118,7 @@ const FifthForm2 = () => {
             </div>
             <div className="mb-6 mt-5 flex">
               <input
-                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
                 type="text"
                 placeholder="Department / Authority"
               ></input>
@@ -158,7 +131,7 @@ const FifthForm2 = () => {
           <>
             <div className="mb-6 mt-5 flex">
               <input
-                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
                 type="text"
                 placeholder="Job Stream"
               ></input>
@@ -168,14 +141,14 @@ const FifthForm2 = () => {
             </div>
             <div className="mb-6 mt-5">
               <input
-                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
                 type="text"
                 placeholder="Your Designation"
               ></input>
             </div>
             <div className="mb-6 mt-5">
               <input
-                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
                 type="text"
                 placeholder="Company Name"
               ></input>
@@ -185,7 +158,7 @@ const FifthForm2 = () => {
           <>
             <div className="mb-6 mt-5 flex">
               <input
-                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
                 type="text"
                 placeholder="Job Stream"
               ></input>
@@ -195,7 +168,7 @@ const FifthForm2 = () => {
             </div>
             <div className="mb-6 mt-5">
               <input
-                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
                 type="text"
                 placeholder="Your Designation"
               ></input>

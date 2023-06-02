@@ -18,6 +18,14 @@ const FourthForm = () => {
   const handleNext = () => {
     setPage(page === 10 ? 0 : page + 1);
   };
+
+  const startYear = 1990;
+  const endYear = 2023;
+  const passOutYear = [];
+
+  for (let year = startYear; year <= endYear; year++) {
+    passOutYear.push(year);
+  }
   return (
     <>
       <form className="w-72 ml-12">
@@ -47,7 +55,7 @@ const FourthForm = () => {
 
         <div className="mb-6 mt-4 flex">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Select Academic Stream"
           ></input>
@@ -58,7 +66,7 @@ const FourthForm = () => {
 
         <div className="mb-6 mt-5">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Enter Course Name"
           ></input>
@@ -66,7 +74,7 @@ const FourthForm = () => {
 
         <div className="mb-6 mt-5">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Name of University"
           ></input>
@@ -74,7 +82,7 @@ const FourthForm = () => {
 
         <div className="mb-6 mt-5">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Name of College / Institute"
           ></input>
@@ -83,7 +91,7 @@ const FourthForm = () => {
         <div className="mb-10 flex">
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Pass-out Year")}
           >
             <p className="w-44 truncate text-sm">{passYear ? passYear : "Pass-out Year"}</p>
@@ -92,44 +100,21 @@ const FourthForm = () => {
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Pass-out Year' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setPassYear("Business")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2" >Business</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setPassYear("1990")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">1990</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setPassYear("1991")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">1991</p>
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setPassYear("1992")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">1992</p>
-              </li>
+              {passOutYear.map((year) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setPassYear(year)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2">{year}</p>
+                  </li>
+                </>
+              ))}
 
             </ul>
           ) : " "}

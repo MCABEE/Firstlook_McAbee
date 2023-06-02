@@ -2,6 +2,7 @@ import { useState } from "react";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { useContext } from "react";
 import { registrationContext } from "../../../../context/formContext";
+import { marriedStatus, typeBody } from "../../../../lib/constants";
 
 const ThirdForm = () => {
   const [isOpen, setIsOpen] = useState("");
@@ -21,7 +22,7 @@ const ThirdForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Religion"
           ></input>
@@ -32,7 +33,7 @@ const ThirdForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Caste"
           ></input>
@@ -43,7 +44,7 @@ const ThirdForm = () => {
         <div className="mb-6 flex">
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Marital Status")}
           >
             <p className="w-44 truncate text-sm">{maritalStatus ? maritalStatus : "Marital Status"}</p>
@@ -53,47 +54,20 @@ const ThirdForm = () => {
           </div>
           {isOpen == 'Marital Status' ? (
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              {marriedStatus.map((status) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setMaritalStatus(status.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2" >{status.name}</p>
 
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setMaritalStatus("Unmarried")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2" >Unmarried</p>
-
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setMaritalStatus("Divorced")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Divorced</p>
-
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setMaritalStatus("Widow / Widower")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Widow / Widower</p>
-
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setMaritalStatus("Separated")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Separated</p>
-
-              </li>
+                  </li>
+                </>
+              ))}
 
             </ul>
           ) : " "}
@@ -101,7 +75,7 @@ const ThirdForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Height"
           ></input>
@@ -112,7 +86,7 @@ const ThirdForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Weight"
           ></input>
@@ -124,7 +98,7 @@ const ThirdForm = () => {
         <div className="mb-6 flex">
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Body Type")}
           >
             <p className="w-44 truncate text-sm">{bodyType ? bodyType : "Body Type"}</p>
@@ -134,47 +108,20 @@ const ThirdForm = () => {
           </div>
           {isOpen == 'Body Type' ? (
             <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              {typeBody.map((type) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setBodyType(type.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2" >{type.name}</p>
 
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBodyType("Slim")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2" >Slim</p>
-
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBodyType("Average")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Average</p>
-
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBodyType("Athletic")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Athletic</p>
-
-              </li>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                onClick={() => {
-                  setBodyType("Plus Size")
-                  setIsOpen("")
-                }}
-              >
-                <p className="mr-2">Plus Size</p>
-
-              </li>
+                  </li>
+                </>
+              ))}
 
             </ul>
           ) : " "}
@@ -183,7 +130,7 @@ const ThirdForm = () => {
         <div className="mb-10 flex">
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-gray-600 bg-white"
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Physical Status")}
           >
             <p className="w-44 truncate text-sm">{physicalStatus ? physicalStatus : "Physical Status"}</p>

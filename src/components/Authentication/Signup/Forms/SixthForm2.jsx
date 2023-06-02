@@ -17,7 +17,7 @@ const SixthForm2 = () => {
 
         <div className="mb-6">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Your Family / House Name"
           ></input>
@@ -25,7 +25,7 @@ const SixthForm2 = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Your Home Town"
           ></input>
@@ -33,7 +33,7 @@ const SixthForm2 = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Pincode"
           ></input>
@@ -41,7 +41,7 @@ const SixthForm2 = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Your Contact Number"
           ></input>
@@ -49,7 +49,7 @@ const SixthForm2 = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Home Contact Number"
           ></input>
@@ -57,7 +57,7 @@ const SixthForm2 = () => {
 
         <div className="mb-10">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Diocese Name (for Christian’s)"
           ></input>

@@ -14,7 +14,7 @@ const SixthForm = () => {
 
         <div className="mb-6">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Father Name"
           ></input>
@@ -22,7 +22,7 @@ const SixthForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Father’s Education"
           ></input>
@@ -33,7 +33,7 @@ const SixthForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Father’s Occupation"
           ></input>
@@ -44,7 +44,7 @@ const SixthForm = () => {
 
         <div className="mb-6">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Mother Name"
           ></input>
@@ -52,7 +52,7 @@ const SixthForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Mother’s Education"
           ></input>
@@ -63,7 +63,7 @@ const SixthForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Mother’s Occupation"
           ></input>
@@ -74,7 +74,7 @@ const SixthForm = () => {
 
         <div className="mb-10 flex">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 text-gray-700 text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="How Many Siblings ?"
           ></input>
