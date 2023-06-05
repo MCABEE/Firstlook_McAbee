@@ -77,3 +77,75 @@ export const financeStatus = [
     { id: 3, name: "Rich" },
     { id: 4, name: "HNI (High Net-worth)" },
 ];
+
+export const parentEducations = [
+    { id: 1, name: "PRIMARY SCHOOL" },
+    { id: 2, name: "HIGH SCHOOL" },
+    { id: 3, name: "SSLC/SSC/HSC" },
+    { id: 4, name: "PRE-DEGREE" },
+    { id: 5, name: "DEGREE" },
+    { id: 6, name: "MASTER DEGREE" },
+    { id: 7, name: "PROFESSIONAL" },
+    { id: 8, name: "DOCTORATE" },
+    { id: 9, name: "CIVIL SERVICE" },
+];
+
+export const fatherOccupations = [
+    { id: 1, name: "NOT EMPLOYED" },
+    { id: 2, name: "FARMER" },
+    { id: 3, name: "PLANTER / FARMING" },
+    { id: 4, name: "SKILLED WORKER / LABOR" },
+    { id: 5, name: "SELF EMPLOYED" },
+    { id: 6, name: "ENTREPRENUER" },
+    { id: 7, name: "NRI" },
+    { id: 8, name: "Ex. NRI" },
+    { id: 9, name: "POLITICIAN / SOCIAL WORKER" },
+    { id: 10, name: "GOVT EMPLOYEE" },
+    { id: 12, name: "PRIVATE EMPLOYEE" },
+    { id: 13, name: "RETIRED EMPLOYEE" },
+    { id: 14, name: "PRIEST" },
+    { id: 15, name: "JOURNALIST" },
+    { id: 16, name: "LAWYER" },
+    { id: 17, name: "ARCHITECT" },
+    { id: 18, name: "CA" },
+    { id: 19, name: "TEACHER / LECTURER" },
+    { id: 20, name: "DOCTOR" },
+    { id: 21, name: "CIVIL SERVICE" },
+    { id: 22, name: "BUSINESS MAN" },
+];
+
+export const motherOccupations = [
+    { id: 1, name: "HOME MAKER" },
+    { id: 2, name: "FARMER" },
+    { id: 3, name: "PLANTER / FARMING" },
+    { id: 4, name: "SKILLED WORKER / LABOR" },
+    { id: 5, name: "SELF EMPLOYED" },
+    { id: 6, name: "ENTREPRENUER" },
+    { id: 7, name: "NRI" },
+    { id: 8, name: "Ex. NRI" },
+    { id: 9, name: "POLITICIAN / SOCIAL WORKER" },
+    { id: 10, name: "GOVT EMPLOYEE" },
+    { id: 12, name: "PRIVATE EMPLOYEE" },
+    { id: 13, name: "RETIRED EMPLOYEE" },
+    { id: 14, name: "JOURNALIST" },
+    { id: 15, name: "LAWYER" },
+    { id: 16, name: "ARCHITECT" },
+    { id: 17, name: "CA" },
+    { id: 18, name: "TEACHER / LECTURER" },
+    { id: 19, name: "DOCTOR" },
+    { id: 20, name: "CIVIL SERVICE" },
+    { id: 21, name: "BUSINESS WOMEN" },
+];
+
+export const businessDesignations = [
+    { id: 1, name: "Founder" },
+    { id: 2, name: "Proprietor" },
+    { id: 3, name: "Chairman" },
+    { id: 4, name: "Managing Partner" },
+    { id: 5, name: "Managing Director" },
+    { id: 6, name: "Director" },
+    { id: 7, name: "CEO" },
+    { id: 8, name: "President / Vice-President" },
+    { id: 9, name: "COO/CFO/CTO/CMO" },
+];
+

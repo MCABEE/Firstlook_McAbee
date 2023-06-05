@@ -119,7 +119,7 @@ const RegistrationMain = () => {
                         Registration
                     </p>
                     <div className="grid gap-4 mt-10">
-                        <ul className="gap-16 ml-8 mb-16 flex justify-between w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right">
+                        <ul className="gap-16 ml-8 mb-10 flex justify-between w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right">
                             <li
                                 onClick={setForm}
                                 className={

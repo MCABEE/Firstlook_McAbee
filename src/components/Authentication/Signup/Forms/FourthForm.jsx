@@ -1,19 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { useContext } from "react";
 import { registrationContext } from "../../../../context/formContext";
+import { getAllAcademicStream, getAllCountries, getAllCourse, getAllInstitutes, getAllUniversities, registerAcademic } from "../../../../api";
 
 const FourthForm = () => {
 
   const [selectedOption, setSelectedOption] = useState(false);
   const [isOpen, setIsOpen] = useState("");
   const [passYear, setPassYear] = useState("")
+  const [option, setOption] = useState("No")
+  const [academicStream, setAcademicStream] = useState("")
+  const [courseName, setCourseName] = useState("")
+  const [country, setCountry] = useState("")
+  const [university, setUniversity] = useState("")
+  const [institute, setInstitute] = useState("")
+
+  const [nAcademicStream, setNAcademicStream] = useState([])
+  const [nCourseName, setNCourseName] = useState([])
+  const [nCountries, setNCountries] = useState([])
+  const [nUniversity, setNUniversity] = useState([])
+  const [nInstitute, setNInstitute] = useState([])
+
+  const { page, setPage } = useContext(registrationContext)
 
   const handleToggle = () => {
     setSelectedOption(!selectedOption);
+    if (!selectedOption) {
+      setOption("Yes")
+    } else {
+      setOption("No")
+    }
   };
-
-  const { page, setPage } = useContext(registrationContext)
 
   const handleNext = () => {
     setPage(page === 10 ? 0 : page + 1);
@@ -26,6 +44,86 @@ const FourthForm = () => {
   for (let year = startYear; year <= endYear; year++) {
     passOutYear.push(year);
   }
+
+  const getCountry = async () => {
+    await getAllCountries()
+      .then((result) => {
+        console.log(result);
+        setNCountries(result.data.countries)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  const getAcademicStream = async () => {
+    await getAllAcademicStream()
+      .then((result) => {
+        console.log(result);
+        setNAcademicStream(result.data.academicStream)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  const getCourseName = async () => {
+    await getAllCourse(academicStream)
+      .then((result) => {
+        console.log(result);
+        setNCourseName(result.data.courseName)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  const getUniversity = async () => {
+    await getAllUniversities(country)
+      .then((result) => {
+        console.log(result);
+        setNUniversity(result.data.institutions)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  const getInstitute = async () => {
+    await getAllInstitutes(country)
+      .then((result) => {
+        console.log(result);
+        setNInstitute(result.data.institutions)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  const handleData = async (e) => {
+    e.preventDefault()
+    await registerAcademic(passYear, option, academicStream, courseName, country, university, institute)
+      .then(() => {
+        setPage(page === 10 ? 0 : page + 1);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  useEffect(() => {
+    getAcademicStream()
+    getCourseName()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [academicStream])
+
+  useEffect(() => {
+    getCountry()
+    getUniversity()
+    getInstitute()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [country])
+
   return (
     <>
       <form className="w-72 ml-12">
@@ -54,41 +152,165 @@ const FourthForm = () => {
         </p>
 
         <div className="mb-6 mt-4 flex">
-          <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
-            type="text"
-            placeholder="Select Academic Stream"
-          ></input>
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
+          <div
+            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            onClick={() => setIsOpen("Academic Stream")}
+          >
+            <p className="w-44 mt-3 ml-2 truncate text-sm">{academicStream ? academicStream : "Select Academic Stream"}</p>
+          </div>
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
+          {isOpen === 'Academic Stream' ? (
+            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+              {nAcademicStream?.map((stream) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setAcademicStream(stream?.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2">{stream?.name}</p>
+                  </li>
+                </>
+              ))}
+
+            </ul>
+          ) : " "}
         </div>
 
-        <div className="mb-6 mt-5">
-          <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
-            type="text"
-            placeholder="Enter Course Name"
-          ></input>
+        <div className="mb-6 mt-5 flex">
+          <div
+            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            onClick={() => setIsOpen("Course Name")}
+          >
+            <p className="w-44 mt-3 ml-2 truncate text-sm">{courseName ? courseName : "Enter Course Name"}</p>
+          </div>
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+            <KeyboardArrowDownRoundedIcon />
+          </div>
+          {isOpen === 'Course Name' ? (
+            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+              {nCourseName?.map((course) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setCourseName(course?.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2">{course?.name}</p>
+                  </li>
+                </>
+              ))}
+
+            </ul>
+          ) : " "}
         </div>
 
-        <div className="mb-6 mt-5">
-          <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
-            type="text"
-            placeholder="Name of University"
-          ></input>
+        <div className="mb-6 flex">
+          <div
+            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            onClick={() => setIsOpen("Country")}
+          >
+            <p className="w-44 mt-3 ml-2 truncate text-sm">{country ? country : "Country"}</p>
+          </div>
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+            <KeyboardArrowDownRoundedIcon />
+          </div>
+          {isOpen === 'Country' ? (
+            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+              {nCountries.map((country) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setCountry(country?.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2">{country?.name}</p>
+                  </li>
+                </>
+              ))}
+
+            </ul>
+          ) : " "}
         </div>
 
-        <div className="mb-6 mt-5">
-          <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
-            type="text"
-            placeholder="Name of College / Institute"
-          ></input>
+        <div className="mb-6 mt-5 flex">
+          <div
+            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            onClick={() => setIsOpen("University")}
+          >
+            <p className="w-44 mt-3 ml-2 truncate text-sm">{university ? university : "Name of University"}</p>
+          </div>
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+            <KeyboardArrowDownRoundedIcon />
+          </div>
+          {isOpen === 'University' ? (
+            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+              {nUniversity?.map((university) => (
+                university?.institutions?.map((univ) => (
+                  <>
+                    <li
+                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                      onClick={() => {
+                        setUniversity(univ?.name)
+                        setIsOpen("")
+                      }}
+                    >
+                      <p className="mr-2">{univ?.name}</p>
+                    </li>
+                  </>
+                ))
+              ))}
+
+            </ul>
+          ) : " "}
         </div>
 
-        <div className="mb-10 flex">
+        <div className="mb-6 mt-5 flex">
+          <div
+            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            onClick={() => setIsOpen("Institute")}
+          >
+            <p className="w-44 mt-3 ml-2 truncate text-sm">{institute ? institute : "Name of College / Institute"}</p>
+          </div>
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+            <KeyboardArrowDownRoundedIcon />
+          </div>
+          {isOpen === 'Institute' ? (
+            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+              {nInstitute?.map((institute) => (
+                institute?.institutions?.map((college) => (
+                  <>
+                    <li
+                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                      onClick={() => {
+                        setInstitute(college?.name)
+                        setIsOpen("")
+                      }}
+                    >
+                      <p className="mr-2">{college?.name}</p>
+                    </li>
+                  </>
+                ))
+              ))}
+
+            </ul>
+          ) : " "}
+        </div>
+
+        <div className="mb-6 flex">
           <button
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
@@ -128,7 +350,7 @@ const FourthForm = () => {
           </button>
 
           <button
-            onClick={handleNext}
+            onClick={handleData}
             className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
           >
             Continue

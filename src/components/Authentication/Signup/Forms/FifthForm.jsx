@@ -3,23 +3,107 @@ import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownR
 import { useContext } from "react";
 import { registrationContext } from "../../../../context/formContext";
 import { annualIncomes } from "../../../../lib/constants";
+import { getAllCities, getAllCountries, getAllDistricts, getAllStates, registerOccupation } from "../../../../api";
+import { useEffect } from "react";
 
 const FifthForm = () => {
 
   const [isOpen, setIsOpen] = useState("");
   const [annualIncome, setAnnualIncome] = useState("")
-
   const [selectedOption, setSelectedOption] = useState(false);
+  const [country, setCountry] = useState("")
+  const [state, setState] = useState("")
+  const [stateID, setStateID] = useState(null)
+  const [district, setDistrict] = useState("")
+  const [city, setCity] = useState("")
+  const [option, setOption] = useState("No")
+
+  const [nCountries, setNCountries] = useState([])
+  const [nStates, setNStates] = useState([])
+  const [nDistricts, setNDistricts] = useState([])
+  const [nCity, setNCity] = useState([])
+
+  const { page, setPage } = useContext(registrationContext)
+
+  const getCountry = async () => {
+    await getAllCountries()
+      .then((result) => {
+        console.log(result);
+        setNCountries(result.data.countries)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  const getStates = async () => {
+    await getAllStates(country)
+      .then((result) => {
+        console.log(result);
+        setNStates(result.data.states)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  const getDistricts = async () => {
+    await getAllDistricts(stateID)
+      .then((result) => {
+        console.log(result);
+        setNDistricts(result.data.districts)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  const getCity = async () => {
+    await getAllCities(stateID)
+      .then((result) => {
+        console.log(result);
+        setNCity(result.data.cities)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
   const handleToggle = () => {
     setSelectedOption(!selectedOption);
+    if (!selectedOption) {
+      setOption("Yes")
+    } else {
+      setOption("No")
+    }
   };
-
-  const { page, setPage } = useContext(registrationContext)
 
   const handleNext = () => {
     setPage(page === 10 ? 0 : page + 1);
   };
+
+  const handleData = async (e) => {
+    e.preventDefault()
+    await registerOccupation(annualIncome, option, country, state, district, city)
+      .then(() => {
+        setPage(page === 10 ? 0 : page + 1);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  useEffect(() => {
+    getCountry()
+    getStates()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [country])
+
+  useEffect(() => {
+    getDistricts()
+    getCity()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state])
   return (
     <>
       <form className="w-72 ml-12">
@@ -48,38 +132,128 @@ const FifthForm = () => {
         </p>
 
         <div className="mb-6 mt-4 flex">
-          <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
-            type="text"
-            placeholder="Select Country"
-          ></input>
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
+          <div
+            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            onClick={() => setIsOpen("Country")}
+          >
+            <p className="w-44 mt-3 ml-2 truncate text-sm">{country ? country : "Country"}</p>
+          </div>
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
+          {isOpen === 'Country' ? (
+            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+              {nCountries.map((country) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setCountry(country?.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2">{country?.name}</p>
+                  </li>
+                </>
+              ))}
+
+            </ul>
+          ) : " "}
         </div>
 
-        <div className="mb-6 mt-5">
-          <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
-            type="text"
-            placeholder="State / Province"
-          ></input>
+        <div className="mb-6 mt-5 flex">
+          <div
+            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            onClick={() => setIsOpen("State")}
+          >
+            <p className="w-44 mt-3 ml-2 truncate text-sm">{state ? state : "State / Province"}</p>
+          </div>
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+            <KeyboardArrowDownRoundedIcon />
+          </div>
+          {isOpen === 'State' ? (
+            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+              {nStates?.map((state) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setState(state?.name)
+                      setStateID(state?._id)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2">{state?.name}</p>
+                  </li>
+                </>
+              ))}
+
+            </ul>
+          ) : " "}
         </div>
 
-        <div className="mb-6 mt-5">
-          <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
-            type="text"
-            placeholder="District / Area"
-          ></input>
+        <div className="mb-6 mt-5 flex">
+          <div
+            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            onClick={() => setIsOpen("District")}
+          >
+            <p className="w-44 mt-3 ml-2 truncate text-sm">{district ? district : "District / Area"}</p>
+          </div>
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+            <KeyboardArrowDownRoundedIcon />
+          </div>
+          {isOpen === 'District' ? (
+            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+              {nDistricts?.map((district) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setDistrict(district?.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2">{district?.name}</p>
+                  </li>
+                </>
+              ))}
+
+            </ul>
+          ) : " "}
         </div>
 
-        <div className="mb-6 mt-5">
-          <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
-            type="text"
-            placeholder="City / Town"
-          ></input>
+        <div className="mb-6 mt-5 flex">
+          <div
+            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            onClick={() => setIsOpen("City")}
+          >
+            <p className="w-44 mt-3 ml-2 truncate text-sm">{city ? city : "City"}</p>
+          </div>
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+            <KeyboardArrowDownRoundedIcon />
+          </div>
+          {isOpen === 'City' ? (
+            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+              {nCity?.map((city) => (
+                <>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    onClick={() => {
+                      setCity(city?.name)
+                      setIsOpen("")
+                    }}
+                  >
+                    <p className="mr-2">{city?.name}</p>
+                  </li>
+                </>
+              ))}
+
+            </ul>
+          ) : " "}
         </div>
 
         <div className="mb-10 flex">
@@ -124,7 +298,7 @@ const FifthForm = () => {
           </button>
 
           <button
-            onClick={handleNext}
+            onClick={handleData}
             className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
           >
             Continue
