@@ -24,7 +24,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<MembershipPage />} />
         <Route path='/register/verify' element={<PhoneReg />} />
-        <Route path='/register/selectOption' element={<SignupOption />} />
+        <Route path='/register/signupOption' element={<SignupOption />} />
         <Route path='/register/signup' element={
           <registrationContext.Provider value={{ page, setPage }}>
             <RegistrationMain />

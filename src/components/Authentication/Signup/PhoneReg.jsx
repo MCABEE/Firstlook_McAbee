@@ -113,7 +113,7 @@ const PhoneReg = () => {
                 await registerUser(phone).then((result) => {
                     localStorage.setItem( "userId", result.data.data.user._id )
                     localStorage.setItem( "token", result.data.token )
-                    navigate('/register/signup')
+                    navigate('/register/signupOption')
                 })
             })
             .catch((err) => {
