@@ -10,6 +10,8 @@ import MembershipPolicy from './components/MembershipPolicy/MembershipPolicy';
 import RefundPolicy from './components/RefundPolicy/RefundPolicy';
 import { registrationContext } from './context/formContext';
 import { useState } from 'react';
+import QuickSignup from './components/Authentication/QuickSignup/QuickSignup';
+import SignupOption from './components/Authentication/QuickSignup/SignupOption';
 
 function App() {
   const [page, setPage] = useState(0)
@@ -22,9 +24,14 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<MembershipPage />} />
         <Route path='/register/verify' element={<PhoneReg />} />
+        <Route path='/register/selectOption' element={<SignupOption />} />
         <Route path='/register/signup' element={
           <registrationContext.Provider value={{ page, setPage }}>
             <RegistrationMain />
+          </registrationContext.Provider>} />
+        <Route path='/register/quickSignup' element={
+          <registrationContext.Provider value={{ page, setPage }}>
+            <QuickSignup />
           </registrationContext.Provider>} />
         <Route path='/termsofuse' element={<TermsOfUse />} />
         <Route path='/membership/policy' element={<MembershipPolicy />} />
