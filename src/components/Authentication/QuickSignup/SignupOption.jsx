@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "../../Home/Navbar";
 
 const SignupOption = () => {
@@ -19,7 +20,9 @@ const SignupOption = () => {
                                 While choosing this option, you can easily launch profile. But will have to provide complete information about yourself before doing any activity on your profile.
                             </p>
                             <button className="text-[14px] font-semibold bg-white ml-[4.35rem] w-56 mt-6 py-3 rounded-xl">
-                                Let’s Start
+                                <Link to="/register/quickSignup">
+                                    Let’s Start
+                                </Link>
                             </button>
                             <p className="ml-10 text-[14px] font-semibold mt-20">
                                 Or
@@ -31,7 +34,9 @@ const SignupOption = () => {
                                 If you choose the <span className="font-semibold">’Standard Signup’</span> option, enter the complete information now and start search without any hassles further.
                             </p>
                             <button className="text-[14px] font-semibold bg-white border border-[#F92739] ml-[4.35rem] w-56 mt-9 py-3 rounded-xl mb-28">
-                                I Select this
+                                <Link to="/register/signup">
+                                    I Select this
+                                </Link>
                             </button>
                         </div>
                     </div>

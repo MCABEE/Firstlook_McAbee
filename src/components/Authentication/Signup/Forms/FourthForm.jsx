@@ -15,6 +15,7 @@ const FourthForm = () => {
   const [country, setCountry] = useState("")
   const [university, setUniversity] = useState("")
   const [institute, setInstitute] = useState("")
+  const [search, setSearch] = useState("");
 
   const [nAcademicStream, setNAcademicStream] = useState([])
   const [nCourseName, setNCourseName] = useState([])
@@ -23,6 +24,25 @@ const FourthForm = () => {
   const [nInstitute, setNInstitute] = useState([])
 
   const { page, setPage } = useContext(registrationContext)
+  const tempUniversity = []
+
+  nUniversity?.map((university) => (
+    university?.institutions?.map((univ) => (
+      tempUniversity.push(univ?.name)
+    ))
+  ))
+
+  console.log(tempUniversity);
+
+  const searchData = (tempProduct) => {
+    return search === ""
+      ? tempProduct
+      : tempProduct?.toLowerCase().includes(search)
+  };
+
+  const dataToRender = tempUniversity.filter(searchData)
+
+  console.log(dataToRender);
 
   const handleToggle = () => {
     setSelectedOption(!selectedOption);
@@ -245,35 +265,38 @@ const FourthForm = () => {
         </div>
 
         <div className="mb-6 mt-5 flex">
-          <div
-            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+          <input type="text"
+            value={university}
+            onChange={(e) => {
+              let searchValue = e.target.value.toLocaleLowerCase();
+              setSearch(searchValue);
+              setUniversity(e.target.value)
+            }}
             onClick={() => setIsOpen("University")}
-          >
-            <p className="w-44 mt-3 ml-2 truncate text-sm">{university ? university : "Name of University"}</p>
-          </div>
+            placeholder="Enter University" className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'University' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
-              {nUniversity?.map((university) => (
-                university?.institutions?.map((univ) => (
-                  <>
-                    <li
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                      onClick={() => {
-                        setUniversity(univ?.name)
-                        setIsOpen("")
-                      }}
-                    >
-                      <p className="mr-2">{univ?.name}</p>
-                    </li>
-                  </>
-                ))
+            <>
+              {dataToRender.map((data) => (
+                <>
+                  <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                    <>
+                      <li
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                        onClick={() => {
+                          setUniversity(data)
+                          setIsOpen("")
+                        }}
+                      >
+                        <p className="mr-2">{data}</p>
+                      </li>
+                    </>
+                  </ul >
+                </>
               ))}
-
-            </ul>
+            </>
           ) : " "}
         </div>
 
