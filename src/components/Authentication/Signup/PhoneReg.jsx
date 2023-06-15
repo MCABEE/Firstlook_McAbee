@@ -8,6 +8,7 @@ import OtpInput from "otp-input-react";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router";
 import { registerUser } from "../../../api";
+import { Link } from "react-router-dom";
 
 const PhoneReg = () => {
     const [countryState, setCountryState] = useState({
@@ -95,7 +96,10 @@ const PhoneReg = () => {
 
         const appVerifier = window.recaptchaVerifier;
 
-        signInWithPhoneNumber(auth, phone, appVerifier)
+        const number = `+${searchSelectedCountry.callingCodes}` + phone
+        console.log(number);
+
+        signInWithPhoneNumber(auth, number, appVerifier)
             .then((confirmationResult) => {
                 window.confirmationResult = confirmationResult;
                 setShowOTP(true);
@@ -111,8 +115,8 @@ const PhoneReg = () => {
             .confirm(otp)
             .then(async () => {
                 await registerUser(phone).then((result) => {
-                    localStorage.setItem( "userId", result.data.data.user._id )
-                    localStorage.setItem( "token", result.data.token )
+                    localStorage.setItem("userId", result.data.data.user._id)
+                    localStorage.setItem("token", result.data.token)
                     navigate('/register/signupOption')
                 })
             })
@@ -153,12 +157,12 @@ const PhoneReg = () => {
                                     autoFocus
                                     className="opt-container ml-6 mb-3 mt-7"
                                 ></OtpInput>
-                                <button
+                                <div
                                     onClick={onOTPVerify}
-                                    className="bg-[#F92739] w-full flex gap-1 items-center justify-center py-3 text-white rounded-xl"
+                                    className="bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl"
                                 >
                                     <span>Verify OTP</span>
-                                </button>
+                                </div>
                             </div>
                         </>
                     ) : (
@@ -216,7 +220,7 @@ const PhoneReg = () => {
                                         name="first-name"
                                         id="first-name"
                                         value={phone}
-                                        onChange={(e) => setPhone(`+${searchSelectedCountry.callingCodes}` + e.target.value)}
+                                        onChange={(e) => setPhone(e.target.value)}
                                         placeholder="Enter Your Number"
                                         autoComplete="given-name"
                                         className=" w-80 rounded-xl py-3 px-5 text-gray-900 shadow-sm border border-[#B8B8B8] placeholder:text-gray-400 sm:text-sm sm:leading-6"
@@ -225,9 +229,9 @@ const PhoneReg = () => {
 
                             </div>
 
-                            <button onClick={onSignup} className='bg-red-500 w-80 p-3 rounded-xl mt-12 mb-20 ml-8 text-white px-20'>
+                            <div onClick={onSignup} className='bg-red-500 w-80 p-3 rounded-xl mt-12 mb-20 ml-8 text-center cursor-pointer text-white px-20'>
                                 Verify Mobile
-                            </button>
+                            </div>
                             <div id="recaptcha-container"></div>
                         </>
                     )}
