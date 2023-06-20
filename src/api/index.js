@@ -55,3 +55,5 @@ export const getAllJobStreams = () => axios.get(`/api/data/general/getAllJobStre
 export const quickSignupAboutYou = (firstName, lastName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus) => axios.patch(`/register/${userId}/aboutYouQuick`, { firstName, lastName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus })
 
 export const quickSignupNative = (country, state, district, motherToungue, jobCategory, jobType, designation, stream, companyName, department) => axios.patch(`/register/${userId}/addNativeQuick`, { country, state, district, motherToungue, jobCategory, jobType, designation, stream, companyName, department })
+
+export const uploadImage = (imgAfterCrop) => axios.post(`/uploadImage/postImage?userId=${userId}`, { imgAfterCrop })

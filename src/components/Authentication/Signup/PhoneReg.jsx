@@ -8,7 +8,6 @@ import OtpInput from "otp-input-react";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router";
 import { registerUser } from "../../../api";
-import { Link } from "react-router-dom";
 
 const PhoneReg = () => {
     const [countryState, setCountryState] = useState({
