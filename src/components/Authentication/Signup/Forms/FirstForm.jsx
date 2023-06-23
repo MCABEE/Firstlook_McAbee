@@ -8,7 +8,8 @@ import boyImage from '../../../../assets/man.png';
 import girlImage from '../../../../assets/woman.png';
 import { useContext } from "react";
 import { registrationContext } from "../../../../context/formContext";
-import { registerAboutYou } from "../../../../api";
+import { getUserDetails, registerAboutYou } from "../../../../api";
+import { useEffect } from "react";
 
 const FirstForm = () => {
 
@@ -46,6 +47,17 @@ const FirstForm = () => {
         console.log(err)
       })
   }
+
+  const getUserDetails = async () => {
+    await getUserDetails().then((result) => {
+      console.log(result)
+    })
+  }
+
+  useEffect(() => {
+    getUserDetails()
+  }, [])
+  
 
   const formattedDate = selectedDate ? format(selectedDate, 'dd/MM/yyyy') : '';
   return (

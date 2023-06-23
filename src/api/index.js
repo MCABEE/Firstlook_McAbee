@@ -2,6 +2,8 @@ import axios from '../axios'
 
 const userId = localStorage.getItem("userId")
 
+export const getUserDetails = () => axios.post(`/api/v1/getUserData?userId=${userId}`)
+
 export const registerUser = (phone) => axios.post('/api/v1/register/mobile', { phone })
 
 export const registerAboutYou = (firstName, lastName, displayName, dob, gender) => axios.patch(`/api/v1/register/${userId}/aboutYou`, { firstName, lastName, displayName, dob, gender })
