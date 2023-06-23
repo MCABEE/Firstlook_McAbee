@@ -4,16 +4,19 @@ import { useContext } from "react";
 import { registrationContext } from "../../../../context/formContext";
 import { marriedStatus, typeBody } from "../../../../lib/constants";
 import { getAllCaste, getAllReligion, registerPersonalInfo } from "../../../../api";
+import { useSelector } from "react-redux";
 
 const ThirdForm = () => {
+  const userData = useSelector((state) => state.getUserFilledData.data)
+
   const [isOpen, setIsOpen] = useState("");
-  const [maritalStatus, setMaritalStatus] = useState("")
-  const [bodyType, setBodyType] = useState("")
-  const [physicalStatus, setPhysicalStatus] = useState("")
-  const [religion, setReligion] = useState("")
-  const [caste, setCaste] = useState("")
-  const [height, setHeight] = useState("")
-  const [weight, setWeight] = useState("")
+  const [maritalStatus, setMaritalStatus] = useState(userData?.personalInfo?.maritalStatus || "")
+  const [bodyType, setBodyType] = useState(userData?.personalInfo?.bodyType || "")
+  const [physicalStatus, setPhysicalStatus] = useState(userData?.personalInfo?.physicalStatus || "")
+  const [religion, setReligion] = useState(userData?.personalInfo?.religion || "")
+  const [caste, setCaste] = useState(userData?.personalInfo?.caste || "")
+  const [height, setHeight] = useState(userData?.personalInfo?.height || "")
+  const [weight, setWeight] = useState(userData?.personalInfo?.weight || "")
 
   const [nReligion, setNReligion] = useState([])
   const [nCaste, setNCaste] = useState([])

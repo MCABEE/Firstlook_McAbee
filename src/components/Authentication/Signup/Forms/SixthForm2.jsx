@@ -2,16 +2,18 @@ import { useContext, useEffect, useState } from "react";
 import { registrationContext } from "../../../../context/formContext";
 import { getAllHomeTown, getAllPincode, registerFamilyAddress } from "../../../../api";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import { useSelector } from "react-redux";
 
 const SixthForm2 = () => {
+  const userData = useSelector((state) => state.getUserFilledData.data)
 
   const [isOpen, setIsOpen] = useState("");
-  const [familyName, setFamilyName] = useState("")
-  const [homeTown, setHomeTown] = useState("")
-  const [pincode, setPincode] = useState("")
-  const [contactNumber, setContactNumber] = useState("")
-  const [homeContactNumber, setHomeContactNumber] = useState("")
-  const [diocese, setDiocese] = useState("")
+  const [familyName, setFamilyName] = useState(userData?.family?.houseName || "")
+  const [homeTown, setHomeTown] = useState(userData?.family?.homeTown || "")
+  const [pincode, setPincode] = useState(userData?.family?.pincode || "")
+  const [contactNumber, setContactNumber] = useState(userData?.family?.secondPhone || "")
+  const [homeContactNumber, setHomeContactNumber] = useState(userData?.family?.homePhone || "")
+  const [diocese, setDiocese] = useState(userData?.family?.diocese || "")
 
   const [nPincode, setNPincode] = useState("")
   const [nHomeTown, setNHomeTown] = useState("")

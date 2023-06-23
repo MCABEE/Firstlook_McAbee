@@ -4,15 +4,17 @@ import { registrationContext } from "../../../../context/formContext";
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { getAllCountries, getAllDistricts, getAllMotherToungues, getAllStates, registerNative } from '../../../../api';
+import { useSelector } from "react-redux";
 
 const SecondForm = () => {
+  const userData = useSelector((state) => state.getUserFilledData.data)
 
   const [isOpen, setIsOpen] = useState("");
-  const [country, setCountry] = useState("")
-  const [state, setState] = useState("")
+  const [country, setCountry] = useState(userData?.native?.country || "")
+  const [state, setState] = useState(userData?.native?.state || "")
   const [stateID, setStateID] = useState(null)
-  const [district, setDistrict] = useState("")
-  const [motherToungue, setMotherToungue] = useState("")
+  const [district, setDistrict] = useState(userData?.native?.district || "")
+  const [motherToungue, setMotherToungue] = useState(userData?.native?.motherTongue || "")
 
   const [nCountries, setNCountries] = useState([])
   const [nStates, setNStates] = useState([])

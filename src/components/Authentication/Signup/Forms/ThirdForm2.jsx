@@ -4,15 +4,18 @@ import { useContext } from 'react';
 import { registrationContext } from '../../../../context/formContext';
 import { registerAdditionalPersonalInfo } from '../../../../api';
 import { bloodGroups, diets, doDrink, doSmoke, financeStatus, userLicense } from '../../../../lib/constants';
+import { useSelector } from "react-redux";
 
 const ThirdForm2 = () => {
+  const userData = useSelector((state) => state.getUserFilledData.data)
+
   const [isOpen, setIsOpen] = useState("");
-  const [drink, setDrink] = useState("")
-  const [smoke, setSmoke] = useState("")
-  const [diet, setDiet] = useState("")
-  const [bloodGroup, setBloodGroup] = useState("")
-  const [license, setLicense] = useState("")
-  const [financialStatus, setFinancialStatus] = useState("")
+  const [drink, setDrink] = useState(userData?.personalInfo?.drinkingHabits || "")
+  const [smoke, setSmoke] = useState(userData?.personalInfo?.smokingHabits || "")
+  const [diet, setDiet] = useState(userData?.personalInfo?.foodHabits || "")
+  const [bloodGroup, setBloodGroup] = useState(userData?.personalInfo?.bloodGroup || "")
+  const [license, setLicense] = useState(userData?.personalInfo?.license || "")
+  const [financialStatus, setFinancialStatus] = useState(userData?.personalInfo?.financialStatus || "")
 
   const { page, setPage } = useContext(registrationContext)
 

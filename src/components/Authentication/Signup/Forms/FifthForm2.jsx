@@ -5,15 +5,18 @@ import { registrationContext } from "../../../../context/formContext";
 import { businessDesignations, jobCategories } from "../../../../lib/constants";
 import { useEffect } from "react";
 import { getAllDesignations, getAllJobStreams, registerOccupationCategory } from "../../../../api";
+import { useSelector } from "react-redux";
 
 const FifthForm2 = () => {
+  const userData = useSelector((state) => state.getUserFilledData.data)
+
   const [isOpen, setIsOpen] = useState("");
-  const [jobCategory, setJobCategory] = useState("")
-  const [jobType, setJobType] = useState("")
-  const [designation, setDesignation] = useState("")
-  const [stream, setStream] = useState("")
-  const [companyName, setCompanyName] = useState("")
-  const [department, setDepartment] = useState("")
+  const [jobCategory, setJobCategory] = useState(userData?.occupation?.jobCategory || "")
+  const [jobType, setJobType] = useState(userData?.occupation?.jobType || "")
+  const [designation, setDesignation] = useState(userData?.occupation?.designation || "")
+  const [stream, setStream] = useState(userData?.occupation?.jobStream || "")
+  const [companyName, setCompanyName] = useState(userData?.occupation?.companyName || "")
+  const [department, setDepartment] = useState(userData?.occupation?.department || "")
 
   const [nDesignation, setNDesignation] = useState([])
   const [nStream, setNStream] = useState([])

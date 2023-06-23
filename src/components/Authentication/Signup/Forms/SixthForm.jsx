@@ -3,17 +3,19 @@ import { useContext, useState } from "react";
 import { registrationContext } from "../../../../context/formContext";
 import { fatherOccupations, motherOccupations, parentEducations } from '../../../../lib/constants';
 import { registerFamily } from '../../../../api';
+import { useSelector } from "react-redux";
 
 const SixthForm = () => {
+  const userData = useSelector((state) => state.getUserFilledData.data)
 
   const [isOpen, setIsOpen] = useState("");
-  const [fatherName, setFatherName] = useState("")
-  const [motherName, setMotherName] = useState("")
-  const [fatherEducation, setFatherEducation] = useState("");
-  const [fatherOccupation, setFatherOccupation] = useState("");
-  const [motherEducation, setMotherEducation] = useState("");
-  const [motherOccupation, setMotherOccupation] = useState("");
-  const [siblings, setSiblings] = useState("How Many Siblings ?");
+  const [fatherName, setFatherName] = useState(userData?.family?.fatherName || "")
+  const [motherName, setMotherName] = useState(userData?.family?.motherName || "")
+  const [fatherEducation, setFatherEducation] = useState(userData?.family?.fatherEducation || "");
+  const [fatherOccupation, setFatherOccupation] = useState(userData?.family?.fatherOccupation || "");
+  const [motherEducation, setMotherEducation] = useState(userData?.family?.motherEducation || "");
+  const [motherOccupation, setMotherOccupation] = useState(userData?.family?.motherOccupation || "");
+  const [siblings, setSiblings] = useState(userData?.family?.siblings || "How Many Siblings ?");
 
   const { page, setPage } = useContext(registrationContext)
 

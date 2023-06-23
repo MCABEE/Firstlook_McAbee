@@ -5,18 +5,20 @@ import { registrationContext } from "../../../../context/formContext";
 import { annualIncomes } from "../../../../lib/constants";
 import { getAllCities, getAllCountries, getAllDistricts, getAllStates, registerOccupation } from "../../../../api";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const FifthForm = () => {
+  const userData = useSelector((state) => state.getUserFilledData.data)
 
   const [isOpen, setIsOpen] = useState("");
-  const [annualIncome, setAnnualIncome] = useState("")
+  const [annualIncome, setAnnualIncome] = useState(userData?.occupation?.annualIncome || "")
   const [selectedOption, setSelectedOption] = useState(false);
-  const [country, setCountry] = useState("")
-  const [state, setState] = useState("")
+  const [country, setCountry] = useState(userData?.occupation?.country || "")
+  const [state, setState] = useState(userData?.occupation?.state || "")
   const [stateID, setStateID] = useState(null)
-  const [district, setDistrict] = useState("")
-  const [city, setCity] = useState("")
-  const [option, setOption] = useState("No")
+  const [district, setDistrict] = useState(userData?.occupation?.district || "")
+  const [city, setCity] = useState(userData?.occupation?.city || "")
+  const [option, setOption] = useState(userData?.occupation?.hasJob || "No")
 
   const [nCountries, setNCountries] = useState([])
   const [nStates, setNStates] = useState([])

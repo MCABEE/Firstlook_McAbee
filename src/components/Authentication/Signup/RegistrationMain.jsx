@@ -12,12 +12,24 @@ import FourthForm from "./Forms/FourthForm";
 import ThirdForm2 from "./Forms/ThirdForm2";
 import FifthForm2 from "./Forms/FifthForm2";
 import SixthForm2 from "./Forms/SixthForm2";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { registrationContext } from "../../../context/formContext";
+import { getUserDetails } from "../../../api";
+import { setUserData } from "../../../Redux/Reducer/getUserData";
+import { useDispatch } from "react-redux";
 
 const RegistrationMain = () => {
 
     const { page, setPage } = useContext(registrationContext)
+    const dispatch = useDispatch()
+
+
+    const getUserDetail = async () => {
+        await getUserDetails().then((result) => {
+            console.log(result)
+            dispatch(setUserData(result?.data?.userData))
+        })
+    }
 
     const handleForms = () => {
         switch (page) {
@@ -109,6 +121,11 @@ const RegistrationMain = () => {
                 setPage(0);
         }
     };
+
+    useEffect(() => {
+        getUserDetail()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <>

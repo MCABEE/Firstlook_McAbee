@@ -3,19 +3,21 @@ import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownR
 import { useContext } from "react";
 import { registrationContext } from "../../../../context/formContext";
 import { getAllAcademicStream, getAllColleges, getAllCountries, getAllCourse, getAllInstitutes, getAllUniversities, registerAcademic } from "../../../../api";
+import { useSelector } from "react-redux";
 
 const FourthForm = () => {
+  const userData = useSelector((state) => state.getUserFilledData.data)
 
   const [selectedOption, setSelectedOption] = useState(false);
   const [isOpen, setIsOpen] = useState("");
-  const [passYear, setPassYear] = useState("")
-  const [option, setOption] = useState("No")
-  const [academicStream, setAcademicStream] = useState("")
-  const [courseName, setCourseName] = useState("")
-  const [country, setCountry] = useState("")
-  const [university, setUniversity] = useState("")
-  const [institute, setInstitute] = useState("")
-  const [college, setCollege] = useState([])
+  const [passYear, setPassYear] = useState(userData?.academic?.passOut || "")
+  const [option, setOption] = useState(userData?.academic?.pursueAny || "No")
+  const [academicStream, setAcademicStream] = useState(userData?.academic?.academicStream || "")
+  const [courseName, setCourseName] = useState(userData?.academic?.courseName || "")
+  const [country, setCountry] = useState(userData?.academic?.country || "")
+  const [university, setUniversity] = useState(userData?.academic?.university || "")
+  const [institute, setInstitute] = useState(userData?.academic?.institute || "")
+  const [college, setCollege] = useState(userData?.academic?.college || "")
   const [search, setSearch] = useState("");
 
   const [nAcademicStream, setNAcademicStream] = useState([])
