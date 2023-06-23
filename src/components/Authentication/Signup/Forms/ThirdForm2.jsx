@@ -101,7 +101,7 @@ const ThirdForm2 = () => {
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Diet")}
           >
-            <p className="w-44 truncate text-sm">{diet ? diet : "Do You Diet ?"}</p>
+            <p className="w-44 truncate text-sm">{diet ? diet : "Your Diet ?"}</p>
           </button>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
@@ -139,7 +139,7 @@ const ThirdForm2 = () => {
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen == 'Blood Group' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               {bloodGroups.map((group) => (
                 <>

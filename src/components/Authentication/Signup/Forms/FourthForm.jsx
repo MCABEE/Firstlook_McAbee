@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { useContext } from "react";
 import { registrationContext } from "../../../../context/formContext";
-import { getAllAcademicStream, getAllCountries, getAllCourse, getAllInstitutes, getAllUniversities, registerAcademic } from "../../../../api";
+import { getAllAcademicStream, getAllColleges, getAllCountries, getAllCourse, getAllInstitutes, getAllUniversities, registerAcademic } from "../../../../api";
 
 const FourthForm = () => {
 
@@ -15,6 +15,7 @@ const FourthForm = () => {
   const [country, setCountry] = useState("")
   const [university, setUniversity] = useState("")
   const [institute, setInstitute] = useState("")
+  const [college, setCollege] = useState([])
   const [search, setSearch] = useState("");
 
   const [nAcademicStream, setNAcademicStream] = useState([])
@@ -22,10 +23,12 @@ const FourthForm = () => {
   const [nCountries, setNCountries] = useState([])
   const [nUniversity, setNUniversity] = useState([])
   const [nInstitute, setNInstitute] = useState([])
+  const [nCollege, setNCollege] = useState([])
 
   const { page, setPage } = useContext(registrationContext)
   const tempUniversity = []
   const tempCollege = []
+  const tempInstitute = []
 
   nUniversity?.map((university) => (
     university?.institutions?.map((univ) => (
@@ -34,7 +37,13 @@ const FourthForm = () => {
   ))
 
   nInstitute?.map((institute) => (
-    institute?.institutions?.map((college) => (
+    institute?.institutions?.map((institute) => (
+      tempInstitute.push(institute?.name)
+    ))
+  ))
+
+  nCollege?.map((college) => (
+    college?.institutions?.map((college) => (
       tempCollege.push(college?.name)
     ))
   ))
@@ -46,7 +55,9 @@ const FourthForm = () => {
   };
 
   const universityData = tempUniversity.filter(searchData)
+  const instituteData = tempInstitute.filter(searchData)
   const collegeData = tempCollege.filter(searchData)
+
 
   const handleToggle = () => {
     setSelectedOption(!selectedOption);
@@ -124,9 +135,20 @@ const FourthForm = () => {
       })
   }
 
+  const getCollege = async () => {
+    await getAllColleges(country)
+      .then((result) => {
+        console.log(result);
+        setNCollege(result.data.institutions)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
   const handleData = async (e) => {
     e.preventDefault()
-    await registerAcademic(passYear, option, academicStream, courseName, country, university, institute)
+    await registerAcademic(passYear, option, academicStream, courseName, country, university, institute, college)
       .then(() => {
         setPage(page === 10 ? 0 : page + 1);
       })
@@ -145,6 +167,7 @@ const FourthForm = () => {
     getCountry()
     getUniversity()
     getInstitute()
+    getCollege()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [country])
 
@@ -268,75 +291,113 @@ const FourthForm = () => {
           ) : " "}
         </div>
 
-        <div className="mb-6 mt-5 flex">
-          <input type="text"
-            value={university}
-            onChange={(e) => {
-              let searchValue = e.target.value.toLocaleLowerCase();
-              setSearch(searchValue);
-              setUniversity(e.target.value)
-            }}
-            onClick={() => setIsOpen("University")}
-            placeholder="Enter University" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-            <KeyboardArrowDownRoundedIcon />
+        {academicStream === 'Certificate Courses' || academicStream === 'Plus Two / HSC / SSLC' || academicStream === 'Primary School' ?
+          <div className="mb-6 mt-5 flex">
+            <input type="text"
+              value={institute}
+              onChange={(e) => {
+                let searchValue = e.target.value.toLocaleLowerCase();
+                setSearch(searchValue);
+                setInstitute(e.target.value)
+              }}
+              onClick={() => setIsOpen("Institute")}
+              placeholder="Name of Institute / School" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+            <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+              <KeyboardArrowDownRoundedIcon />
+            </div>
+            {isOpen === 'Institute' ? (
+              <>
+                {instituteData.map((data) => (
+                  <>
+                    <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                      <li
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                        onClick={() => {
+                          setInstitute(data)
+                          setIsOpen("")
+                        }}
+                      >
+                        <p className="mr-2">{data}</p>
+                      </li>
+                    </ul >
+                  </>
+                ))}
+              </>
+            ) : " "}
           </div>
-          {isOpen === 'University' ? (
-            <>
-              {universityData.map((data) => (
+          : academicStream &&
+          <>
+            <div className="mb-6 mt-5 flex">
+              <input type="text"
+                value={university}
+                onChange={(e) => {
+                  let searchValue = e.target.value.toLocaleLowerCase();
+                  setSearch(searchValue);
+                  setUniversity(e.target.value);
+                }}
+                onClick={() => setIsOpen("University")}
+                placeholder="Enter University" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                <KeyboardArrowDownRoundedIcon />
+              </div>
+              {isOpen === 'University' ? (
                 <>
-                  <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-                    <li
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                      onClick={() => {
-                        setUniversity(data)
-                        setIsOpen("")
-                      }}
-                    >
-                      <p className="mr-2">{data}</p>
-                    </li>
-                  </ul >
+                  {universityData.map((data) => (
+                    <>
+                      <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        <li
+                          className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                          onClick={() => {
+                            setUniversity(data);
+                            setIsOpen("");
+                          }}
+                        >
+                          <p className="mr-2">{data}</p>
+                        </li>
+                      </ul>
+                    </>
+                  ))}
                 </>
-              ))}
-            </>
-          ) : " "}
-        </div>
+              ) : " "}
+            </div>
 
-        <div className="mb-6 mt-5 flex">
-        <input type="text"
-            value={institute}
-            onChange={(e) => {
-              let searchValue = e.target.value.toLocaleLowerCase();
-              setSearch(searchValue);
-              setInstitute(e.target.value)
-            }}
-            onClick={() => setIsOpen("Institute")}
-            placeholder="Name of College / Institute" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-            <KeyboardArrowDownRoundedIcon />
-          </div>
-          {isOpen === 'Institute' ? (
-            <>
-              {collegeData.map((data) => (
+            <div className="mb-6 mt-5 flex">
+              <input type="text"
+                value={college}
+                onChange={(e) => {
+                  let searchValue = e.target.value.toLocaleLowerCase();
+                  setSearch(searchValue);
+                  setCollege(e.target.value);
+                }}
+                onClick={() => setIsOpen("College")}
+                placeholder="Enter College" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                <KeyboardArrowDownRoundedIcon />
+              </div>
+              {isOpen === 'College' ? (
                 <>
-                  <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-                    <li
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                      onClick={() => {
-                        setInstitute(data)
-                        setIsOpen("")
-                      }}
-                    >
-                      <p className="mr-2">{data}</p>
-                    </li>
-                  </ul >
+                  {collegeData.map((data) => (
+                    <>
+                      <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        <li
+                          className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                          onClick={() => {
+                            setCollege(data);
+                            setIsOpen("");
+                          }}
+                        >
+                          <p className="mr-2">{data}</p>
+                        </li>
+                      </ul>
+                    </>
+                  ))}
                 </>
-              ))}
-            </>
-          ) : " "}
-        </div>
+              ) : " "}
+            </div>
+          </>
+        }
 
-        <div className="mb-6 flex">
+        <div className="mb-8 flex">
           <button
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white"

@@ -106,7 +106,7 @@ const ThirdForm = () => {
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Caste' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               {nCaste?.map((caste) => (
                 <>

@@ -4,8 +4,7 @@ import { useContext, useRef, useState } from "react";
 import { registrationContext } from "../../../../context/formContext";
 import FileInput from '../FileInput';
 import ImageCropper from '../ImageCropper';
-import axios from 'axios';
-import { uploadImage } from '../../../../api';
+import { uploadImage, uploadVideo } from '../../../../api';
 
 const SeventhForm = () => {
   const { page, setPage } = useContext(registrationContext)
@@ -104,8 +103,20 @@ const SeventhForm = () => {
     setImage("");
   };
 
-  const handleFileSelect = (event) => {
-    setSelectedFile(event.target.files[0]);
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    const video = document.createElement('video');
+
+    video.preload = 'metadata';
+    video.onloadedmetadata = () => {
+      if (video.duration > 60) {
+        alert('The video duration should be within 1 minute.');
+      } else {
+        setSelectedFile(file);
+      }
+    };
+
+    video.src = URL.createObjectURL(file);
   };
 
   const handleFileUpload = async (event) => {
@@ -116,7 +127,6 @@ const SeventhForm = () => {
         .then((response) => {
           console.log(response)
           setPage(page === 10 ? 0 : page + 1);
-
         })
         .catch((err) => {
           console.log(err)
@@ -125,12 +135,15 @@ const SeventhForm = () => {
 
     if (isOpen === 'video') {
       if (selectedFile) {
+
         const formData = new FormData();
         formData.append("video", selectedFile);
 
         try {
-          await axios.post("/upload", formData);
-          console.log("File uploaded successfully!");
+          await uploadVideo(formData).then((response) => {
+            console.log(response)
+            setPage(page === 10 ? 0 : page + 1);
+          })
         } catch (error) {
           console.error("Error uploading file:", error);
         }
@@ -182,7 +195,7 @@ const SeventhForm = () => {
                           <p className='mt-2 font-oxygen font-medium'>
                             {selectedFile?.name}
                           </p>
-                          <button className='text-[#A0A0A0] border border-[#D8D8D8] font-oxygen bg-white px-6 py-2 rounded-xl mt-5'>Upload</button>
+                          <div onClick="" className='text-[#A0A0A0] border border-[#D8D8D8] font-oxygen bg-white px-6 py-2 rounded-xl mt-5'>Uploading</div>
                         </button>
                       </div>
                     </>
@@ -191,7 +204,7 @@ const SeventhForm = () => {
                       <button type="button" className="border border-[#D8D8D8] rounded-2xl w-52 py-3 mt-8 ml-[2.4rem]">
                         <MovieCreationOutlinedIcon />
                         <button className="text-sm ml-3" onClick={onChooseVideo}>Upload from Gallery</button>
-                        <input type="file" accept="video/*" ref={inputVideoRef} onChange={handleFileSelect} style={{ display: "none" }} />
+                        <input type="file" accept="video/*" name='video' ref={inputVideoRef} onChange={handleFileChange} style={{ display: "none" }} />
                       </button>
                     </div>
                   }
@@ -246,7 +259,7 @@ const SeventhForm = () => {
                     <button type="button" className="border border-[#D8D8D8] rounded-2xl w-52 py-3 mt-8 ml-[2.4rem]">
                       <MovieCreationOutlinedIcon />
                       <span className="text-sm ml-3">Upload from Gallery</span>
-                      <input type="file" accept="video/*" onChange={handleFileSelect} />
+                      <input type="file" accept="video/*" onChange={handleFileChange} />
                       <button type="submit">Upload</button>
                     </button>
                   </div>
