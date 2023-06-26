@@ -15,7 +15,7 @@ const SixthForm = () => {
   const [fatherOccupation, setFatherOccupation] = useState(userData?.family?.fatherOccupation || "");
   const [motherEducation, setMotherEducation] = useState(userData?.family?.motherEducation || "");
   const [motherOccupation, setMotherOccupation] = useState(userData?.family?.motherOccupation || "");
-  const [siblings, setSiblings] = useState(userData?.family?.siblings || "How Many Siblings ?");
+  const [siblings, setSiblings] = useState(userData?.family?.siblings || null);
 
   const { page, setPage } = useContext(registrationContext)
 

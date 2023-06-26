@@ -134,14 +134,34 @@ const FifthForm2 = () => {
                 </ul>
               ) : " "}
             </div>
-            <div className="mb-6 mt-5">
-              <input
-                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
-                type="text"
-                placeholder="Company Name"
-                value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
-              ></input>
+            <div className="mb-6 mt-5 flex">
+              <div
+                className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+                onClick={() => setIsOpen("Job Stream")}
+              >
+                <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
+              </div>
+              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                <KeyboardArrowDownRoundedIcon />
+              </div>
+              {isOpen === 'Job Stream' ? (
+                <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+                  {nStream?.map((stream) => (
+                    <>
+                      <li
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                        onClick={() => {
+                          setStream(stream?.name)
+                          setIsOpen("")
+                        }}
+                      >
+                        <p className="mr-2">{stream?.name}</p>
+                      </li>
+                    </>
+                  ))}
+                </ul>
+              ) : " "}
             </div>
           </>
         ) : jobCategory === "Government" ? (
@@ -216,7 +236,7 @@ const FifthForm2 = () => {
               <input
                 className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
                 type="text"
-                placeholder="Department / Authority"
+                placeholder="Department / Employer"
                 value={department}
                 onChange={(e) => setDepartment(e.target.value)}
               ></input>
@@ -287,7 +307,7 @@ const FifthForm2 = () => {
               <input
                 className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
                 type="text"
-                placeholder="Company Name"
+                placeholder="Employer Name"
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
               ></input>

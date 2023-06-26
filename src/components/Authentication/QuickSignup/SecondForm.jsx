@@ -5,21 +5,23 @@ import { useEffect } from 'react';
 import { registrationContext } from '../../../context/formContext';
 import { getAllCountries, getAllDesignations, getAllDistricts, getAllJobStreams, getAllMotherToungues, getAllStates, quickSignupNative } from '../../../api';
 import { businessDesignations, jobCategories } from '../../../lib/constants';
+import { useSelector } from "react-redux";
 
 const SecondForm = () => {
+  const userData = useSelector((state) => state.getUserFilledData.data)
 
   const [isOpen, setIsOpen] = useState("");
-  const [country, setCountry] = useState("")
-  const [state, setState] = useState("")
+  const [country, setCountry] = useState(userData?.native?.country || "")
+  const [state, setState] = useState(userData?.native?.state || "")
   const [stateID, setStateID] = useState(null)
-  const [district, setDistrict] = useState("")
-  const [motherToungue, setMotherToungue] = useState("")
-  const [jobCategory, setJobCategory] = useState("")
-  const [jobType, setJobType] = useState("")
-  const [designation, setDesignation] = useState("")
-  const [stream, setStream] = useState("")
-  const [companyName, setCompanyName] = useState("")
-  const [department, setDepartment] = useState("")
+  const [district, setDistrict] = useState(userData?.native?.district || "")
+  const [motherToungue, setMotherToungue] = useState(userData?.native?.motherTongue || "")
+  const [jobCategory, setJobCategory] = useState(userData?.occupation?.jobCategory || "")
+  const [jobType, setJobType] = useState(userData?.occupation?.jobType || "")
+  const [designation, setDesignation] = useState(userData?.occupation?.designation || "")
+  const [stream, setStream] = useState(userData?.occupation?.jobStream || "")
+  const [companyName, setCompanyName] = useState(userData?.occupation?.companyName || "")
+  const [department, setDepartment] = useState(userData?.occupation?.department || "")
 
   const [nCountries, setNCountries] = useState([])
   const [nStates, setNStates] = useState([])
@@ -110,7 +112,7 @@ const SecondForm = () => {
   useEffect(() => {
     getJobStreams()
     getDesignations()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stream])
 
   useEffect(() => {

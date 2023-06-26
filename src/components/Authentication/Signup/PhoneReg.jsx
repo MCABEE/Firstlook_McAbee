@@ -20,6 +20,15 @@ const PhoneReg = () => {
     const [otp, setOtp] = useState("")
     const [phone, setPhone] = useState("")
     const [showOTP, setShowOTP] = useState(false);
+    const [search, setSearch] = useState("");
+
+    const tempCountry = []
+
+    const searchData = (tempProduct) => {
+        return search === ""
+            ? tempProduct
+            : tempProduct?.name.toLowerCase().includes(search)
+    };
 
     const navigate = useNavigate()
 
@@ -55,6 +64,14 @@ const PhoneReg = () => {
     const { loading, errorMessage, countries } = countryState;
     console.log("loading", loading);
     console.log("errorMessage", errorMessage);
+
+    countries?.map((country) => {
+        tempCountry.push(country)
+    })
+
+    const countryData = tempCountry?.filter(searchData)
+
+    console.log(countryData)
 
     //   find selected country data
     //search selected country
@@ -198,19 +215,27 @@ const PhoneReg = () => {
                                         <p className="w-44 truncate text-sm">{selectedCountry ? selectedCountry : "Select Your Country"}</p>
                                     </button>
                                     {isOpen && (
-                                        <ul className="absolute z-10 w-full mt-1 h-64 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-                                            {countries.map((item) => (
-                                                <li
-                                                    key={item.name.common}
-                                                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                                                    onClick={() => handleOptionClick(item.name)}
-                                                >
-                                                    <img src={item.flags.png} className="w-8 h-5 mr-2" alt="" />
-                                                    <p className="mr-2">{item.callingCodes}</p>
-                                                    <p className="truncate">{item.name}</p>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                        <>
+                                            <input type="text"
+                                                onChange={(e) => {
+                                                    let searchValue = e.target.value.toLocaleLowerCase();
+                                                    setSearch(searchValue);
+                                                }}
+                                                placeholder="Search Your Country" className="text-sm w-full h-12 text-left mt-1 border border-[#B8B8B8] rounded-t-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                                            <ul className="absolute z-10 w-full h-64 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-b-xl shadow-lg">
+                                                {countryData.map((item) => (
+                                                    <li
+                                                        key={item.name.common}
+                                                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                                                        onClick={() => handleOptionClick(item.name)}
+                                                    >
+                                                        <img src={item.flags.png} className="w-8 h-5 mr-2" alt="" />
+                                                        <p className="mr-2">{item.callingCodes}</p>
+                                                        <p className="truncate">{item.name}</p>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </>
                                     )}
                                 </div>
                                 <div className="relative">

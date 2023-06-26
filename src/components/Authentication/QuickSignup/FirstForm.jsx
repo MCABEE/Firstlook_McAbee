@@ -11,19 +11,21 @@ import { useContext } from "react";
 import { getAllCaste, getAllReligion, quickSignupAboutYou } from "../../../api";
 import { registrationContext } from "../../../context/formContext";
 import { marriedStatus } from "../../../lib/constants";
+import { useSelector } from "react-redux";
 
 const FirstForm = () => {
+  const userData = useSelector((state) => state.getUserFilledData.data)
 
-  const [selectedGender, setSelectedGender] = useState(null);
+  const [selectedGender, setSelectedGender] = useState(userData?.gender || null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [displayName, setDisplayName] = useState("")
+  const [firstName, setFirstName] = useState(userData?.firstName || "")
+  const [lastName, setLastName] = useState(userData?.lastName || "")
+  const [displayName, setDisplayName] = useState(userData?.displayName || "")
   const [isOpen, setIsOpen] = useState("");
-  const [maritalStatus, setMaritalStatus] = useState("")
-  const [religion, setReligion] = useState("")
-  const [caste, setCaste] = useState("")
+  const [maritalStatus, setMaritalStatus] = useState(userData?.personalInfo?.maritalStatus || "")
+  const [religion, setReligion] = useState(userData?.personalInfo?.religion || "")
+  const [caste, setCaste] = useState(userData?.personalInfo?.caste || "")
 
   const [nReligion, setNReligion] = useState([])
   const [nCaste, setNCaste] = useState([])

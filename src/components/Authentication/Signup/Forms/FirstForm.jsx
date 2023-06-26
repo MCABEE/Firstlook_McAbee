@@ -9,35 +9,19 @@ import girlImage from '../../../../assets/woman.png';
 import { useContext } from "react";
 import { registrationContext } from "../../../../context/formContext";
 import { registerAboutYou } from "../../../../api";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const FirstForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
 
-  const [selectedGender, setSelectedGender] = useState(null);
+  const [selectedGender, setSelectedGender] = useState(userData?.gender || null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [displayName, setDisplayName] = useState("")
+  const [firstName, setFirstName] = useState(userData?.firstName || "")
+  const [lastName, setLastName] = useState(userData?.lastName || "")
+  const [displayName, setDisplayName] = useState(userData?.displayName || "")
 
   const { page, setPage } = useContext(registrationContext)
-
-  const fillUserData = () => {
-    if(userData?.gender) {
-      setSelectedGender(userData?.gender);
-    }
-    if(userData?.firstName) {
-      setFirstName(userData?.firstName);
-    }
-    if(userData?.lastName) {
-      setLastName(userData?.lastName);
-    }
-    if(userData?.displayName) {
-      setDisplayName(userData?.displayName);
-    }
-  }
 
   const handleGenderClick = (gender) => {
     setSelectedGender(gender);
@@ -64,11 +48,6 @@ const FirstForm = () => {
         console.log(err)
       })
   }
-
-  useEffect(() => {
-    fillUserData()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   const formattedDate = selectedDate ? format(selectedDate, 'dd/MM/yyyy') : '';
   return (
