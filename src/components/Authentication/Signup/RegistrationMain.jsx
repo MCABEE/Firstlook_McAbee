@@ -130,7 +130,7 @@ const RegistrationMain = () => {
     return (
         <>
             <Navbar />
-            <div className="flex h-screen justify-center items-center mt-20">
+            <div className="flex h-screen justify-center items-center mt-20 ml-8 sm:ml-0">
                 <div className="w-full h-[55rem] max-w-sm bg-[#F2F2F2] rounded-2xl shadow-2xl mt-44">
                     <p className="font-oxygen font-bold flex justify-center mt-16 text-2xl">
                         Registration
