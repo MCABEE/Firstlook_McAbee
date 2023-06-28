@@ -181,7 +181,7 @@ const FourthForm = () => {
           <span className="text-sm font-oxygen mr-24">Are you still studying ? </span>
           <input type="checkbox" className="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}
             onChange={handleToggle} />
-          <span className="absolute font-medium text-xs uppercase right-1 text-white"> {selectedOption ? '' : 'NO'} </span>
+          <span className="absolute font-medium text-xs uppercase right-1 text-white"> {selectedOption ? '' : 'No'} </span>
           <span className="absolute font-medium text-xs uppercase right-8 text-white"> {selectedOption ? 'Yes' : ''} </span>
           <span className="w-5 h-5 right-8 absolute rounded-full transform transition-transform bg-gray-200" />
         </label>

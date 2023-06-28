@@ -37,9 +37,7 @@ const FirstForm = () => {
   };
 
   const handleData = async (e) => {
-
     e.preventDefault()
-
     await registerAboutYou(firstName, lastName, displayName, selectedDate, selectedGender).then((result) => {
         console.log(result);
         setPage(page === 10 ? 0 : page + 1);
@@ -55,27 +53,27 @@ const FirstForm = () => {
       <form onSubmit={handleData} className="-mt-8">
         <div className="flex justify-center space-x-20">
 
-          <button
+          <div
             className={`flex items-center justify-center rounded-full w-24 h-24 focus:outline-none ${selectedGender === 'male' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'
               }`}
             onClick={() => handleGenderClick('male')}
             disabled={selectedGender === 'male'}
           >
             <img src={boyImage} alt="Boy" className="w-24 h-24" />
-          </button>
-          <button
+          </div>
+          <div
             className={`flex items-center justify-center rounded-full w-24 h-24 focus:outline-none ${selectedGender === 'female' ? 'bg-pink-500 text-white' : 'bg-gray-300 text-gray-600'
               }`}
             onClick={() => handleGenderClick('female')}
             disabled={selectedGender === 'female'}
           >
             <img src={girlImage} alt="Girl" className="w-24 h-24" />
-          </button>
+          </div>
         </div>
 
         <div className="mb-6 mt-10">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-4 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="First Name"
             value={firstName}
@@ -85,7 +83,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-4 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Last Name"
             value={lastName}
@@ -95,7 +93,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-4 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Display Name"
             value={displayName}
@@ -110,7 +108,7 @@ const FirstForm = () => {
             placeholder="DOB"
             readOnly
             onClick={handleInputClick}
-            className="w-72 ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
+            className="w-72 ml-4 sm:ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
           />
           <span
             onClick={handleInputClick}
@@ -131,7 +129,7 @@ const FirstForm = () => {
 
         <button
           type="submit"
-          className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-48"
+          className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-40 sm:ml-48"
         >
           Continue
         </button>

@@ -130,13 +130,13 @@ const RegistrationMain = () => {
     return (
         <>
             <Navbar />
-            <div className="flex h-screen justify-center items-center mt-20 ml-8 sm:ml-0">
-                <div className="w-full h-[55rem] max-w-sm bg-[#F2F2F2] rounded-2xl shadow-2xl mt-44">
+            <div className="flex h-screen justify-center items-center mt-20 ml-3 sm:ml-0">
+                <div className="w-full h-[55rem] max-w-xs sm:max-w-sm bg-[#F2F2F2] rounded-2xl shadow-lg mt-44">
                     <p className="font-oxygen font-bold flex justify-center mt-16 text-2xl">
                         Registration
                     </p>
                     <div className="grid gap-4 mt-10">
-                        <ul className="gap-16 ml-8 mb-10 flex justify-between w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right">
+                        <ul className="gap-16 ml-7 sm:ml-[28px] mb-10 flex justify-between w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right">
                             <li
                                 onClick={setForm}
                                 className={
