@@ -1,9 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import OtpInput from "otp-input-react";
+import CircleIcon from '@mui/icons-material/Circle';
+import { registrationContext } from "../../../../context/formContext";
 
 const EighthForm = () => {
+  const { page } = useContext(registrationContext)
 
   const [aadhar, setAadhar] = useState("")
   const [otp, setOtp] = useState("")
@@ -63,7 +66,7 @@ const EighthForm = () => {
       <Toaster toastOptions={{ duration: 4000 }} />
       {showOTP ? (
         <>
-          <form onSubmit={onOTPVerify} className="w-72 ml-12">
+          <form onSubmit={onOTPVerify} className="w-72 ml-3.5 sm:ml-12">
             
             <p className=' mt-10 mb-14 text-justify text-sm font-medium'>
               An OTP send to your Aadhar linked mobile number.
@@ -92,7 +95,7 @@ const EighthForm = () => {
         </>
       ) : (
         <>
-          <form onSubmit={sendOtp} className="w-72 ml-12">
+          <form onSubmit={sendOtp} className="w-72 ml-3.5 sm:ml-12">
             <p className="text-sm font-medium mb-6">
               Verify your Account with Aadhar
             </p>
@@ -120,6 +123,64 @@ const EighthForm = () => {
               I don’t have Aadhar linked mobile with me
             </button>
           </form>
+          <div className="flex justify-center mt-[13.1rem] mb-10">
+        <div className={
+          page === 0
+            ? " text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 1
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 2 || page === 3
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 4
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 5 || page === 6
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 7 || page === 8
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 9
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 10
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+      </div>
         </>
       )}
     </>

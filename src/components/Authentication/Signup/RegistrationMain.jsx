@@ -130,13 +130,13 @@ const RegistrationMain = () => {
     return (
         <>
             <Navbar />
-            <div className="flex h-screen justify-center items-center mt-20 ml-3 sm:ml-0">
-                <div className="w-full h-[55rem] max-w-xs sm:max-w-sm bg-[#F2F2F2] rounded-2xl shadow-lg mt-44">
+            <div className="flex h-screen justify-center items-center mt-20 ml-0">
+                <div className="w-full h-[55rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-lg mt-44">
                     <p className="font-oxygen font-bold flex justify-center mt-16 text-2xl">
                         Registration
                     </p>
                     <div className="grid gap-4 mt-10">
-                        <ul className="gap-16 ml-7 sm:ml-[28px] mb-10 flex justify-between w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right">
+                        <ul className="gap-16 ml-4 sm:ml-[21px] mb-10 flex justify-between w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right-xs">
                             <li
                                 onClick={setForm}
                                 className={
@@ -309,64 +309,6 @@ const RegistrationMain = () => {
                         </ul>
                         <div className="flex-1">{handleForms()}</div>
                     </div>
-                </div>
-            </div>
-            <div className="flex justify-center mt-20 sm:mt-32 mb-20">
-                <div className={
-                    page === 0
-                        ? " text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
-                </div>
-                <div className={
-                    page === 1
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
-                </div>
-                <div className={
-                    page === 2 || page === 3
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
-                </div>
-                <div className={
-                    page === 4
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
-                </div>
-                <div className={
-                    page === 5 || page === 6
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
-                </div>
-                <div className={
-                    page === 7 || page === 8
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
-                </div>
-                <div className={
-                    page === 9
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
-                </div>
-                <div className={
-                    page === 10
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
                 </div>
             </div>
         </>

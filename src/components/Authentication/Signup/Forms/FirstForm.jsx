@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Calendar } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // Main style file
 import 'react-date-range/dist/theme/default.css'; // Theme CSS file
+import CircleIcon from '@mui/icons-material/Circle';
 import { format } from 'date-fns';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import boyImage from '../../../../assets/man.png';
@@ -39,9 +40,9 @@ const FirstForm = () => {
   const handleData = async (e) => {
     e.preventDefault()
     await registerAboutYou(firstName, lastName, displayName, selectedDate, selectedGender).then((result) => {
-        console.log(result);
-        setPage(page === 10 ? 0 : page + 1);
-      })
+      console.log(result);
+      setPage(page === 10 ? 0 : page + 1);
+    })
       .catch((err) => {
         console.log(err)
       })
@@ -73,7 +74,7 @@ const FirstForm = () => {
 
         <div className="mb-6 mt-10">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-4 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="First Name"
             value={firstName}
@@ -83,7 +84,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-4 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Last Name"
             value={lastName}
@@ -93,7 +94,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-4 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Display Name"
             value={displayName}
@@ -108,7 +109,7 @@ const FirstForm = () => {
             placeholder="DOB"
             readOnly
             onClick={handleInputClick}
-            className="w-72 ml-4 sm:ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
+            className="w-72 ml-3.5 sm:ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
           />
           <span
             onClick={handleInputClick}
@@ -121,7 +122,7 @@ const FirstForm = () => {
               <Calendar
                 date={selectedDate}
                 onChange={handleDateChange}
-                className="mb-10 border border-gray-400 rounded-xl ml-7 shadow-sm"
+                className="mb-10 border border-gray-400 rounded-xl ml-auto sm:ml-7 shadow-sm"
               />
             </div>
           )}
@@ -136,6 +137,64 @@ const FirstForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
+      <div className="flex justify-center mt-40 mb-10">
+        <div className={
+          page === 0
+            ? " text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 1
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 2 || page === 3
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 4
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 5 || page === 6
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 7 || page === 8
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 9
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 10
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+      </div>
     </>
   );
 };

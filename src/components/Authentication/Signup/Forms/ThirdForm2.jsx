@@ -5,6 +5,7 @@ import { registrationContext } from '../../../../context/formContext';
 import { registerAdditionalPersonalInfo } from '../../../../api';
 import { bloodGroups, diets, doDrink, doSmoke, financeStatus, userLicense } from '../../../../lib/constants';
 import { useSelector } from "react-redux";
+import CircleIcon from '@mui/icons-material/Circle';
 
 const ThirdForm2 = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -32,7 +33,7 @@ const ThirdForm2 = () => {
   }
   return (
     <>
-      <form onSubmit={handleData} className="w-72 ml-12">
+      <form onSubmit={handleData} className="w-72 ml-3.5 sm:ml-12">
 
         <div className="mb-6 flex ">
 
@@ -235,6 +236,64 @@ const ThirdForm2 = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
+      <div className="flex justify-center mt-28 mb-10">
+        <div className={
+          page === 0
+            ? " text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 1
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 2 || page === 3
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 4
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 5 || page === 6
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 7 || page === 8
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 9
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 10
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+      </div>
     </>
   );
 };

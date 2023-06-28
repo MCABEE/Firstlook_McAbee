@@ -7,6 +7,7 @@ import FileInput from '../FileInput';
 import ImageCropper from '../ImageCropper';
 import { uploadImage } from '../../../../api';
 import './style.css'
+import CircleIcon from '@mui/icons-material/Circle';
 
 const SeventhForm = () => {
   const { page, setPage } = useContext(registrationContext)
@@ -127,14 +128,14 @@ const SeventhForm = () => {
     if (filled < 100 && isRunning) {
       setTimeout(() => setFilled(prev => prev += 4), 50)
     }
-  }, [filled, isRunning])  
+  }, [filled, isRunning])
 
   const handleNext = () => {
     setPage(page === 10 ? 0 : page + 1);
   };
   return (
     <>
-      <form className="w-72 ml-12 mt-12">
+      <form className="w-72 ml-3.5 sm:ml-12 mt-12">
 
         {currentPage === "choose-img" ? (
           <>
@@ -168,21 +169,23 @@ const SeventhForm = () => {
             </div>
             {isOpen === "photo" ?
               <>
-                <div className='absolute w-96 -ml-12 py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-[#FE1940] h-16 -mt-6'>
-                  <p className='font-oxygen text-white text-[14px] text-center font-semibold'>
-                    Add Photo
-                  </p>
-                  <div onClick={() => setIsOpen(" ")} className='text-white ml-[21rem] -mt-6 cursor-pointer'>
-                    <KeyboardArrowDownOutlinedIcon />
-                  </div>
-                </div>
-                <div className='absolute w-96 -ml-12 py-3 rounded-b-xl mb-6 border border-[#D8D8D8] bg-white h-36 mt-6'>
-                  <button type="button" className="border border-[#D8D8D8] rounded-2xl w-52 py-3 mt-8 ml-[5.3rem] flex">
-                    <div className='mx-auto flex'>
-                      <LocalSeeOutlinedIcon />
-                      <FileInput setImage={setImage} onImageSelected={onImageSelected} />
+                <div className='mb-20'>
+                  <div className='absolute w-96 -ml-12 py-3 rounded-xl border border-[#D8D8D8] bg-[#FE1940] h-16 -mt-6'>
+                    <p className='font-oxygen text-white text-[14px] text-center font-semibold'>
+                      Add Photo
+                    </p>
+                    <div onClick={() => setIsOpen(" ")} className='text-white ml-[21rem] -mt-6 cursor-pointer'>
+                      <KeyboardArrowDownOutlinedIcon />
                     </div>
-                  </button>
+                  </div>
+                  <div className='absolute w-96 -ml-12 py-3 rounded-b-xl border border-[#D8D8D8] bg-white h-36 mt-6'>
+                    <button type="button" className="border border-[#D8D8D8] rounded-2xl w-52 py-3 mt-8 ml-[5.3rem] flex">
+                      <div className='mx-auto flex'>
+                        <LocalSeeOutlinedIcon />
+                        <FileInput setImage={setImage} onImageSelected={onImageSelected} />
+                      </div>
+                    </button>
+                  </div>
                 </div>
               </>
               : " "}
@@ -272,6 +275,64 @@ const SeventhForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
+      <div className="flex justify-center mt-[4.2rem] mb-10">
+        <div className={
+          page === 0
+            ? " text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 1
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 2 || page === 3
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 4
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 5 || page === 6
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 7 || page === 8
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 9
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 10
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+      </div>
     </>
   );
 };

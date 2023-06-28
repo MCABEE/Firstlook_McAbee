@@ -6,6 +6,7 @@ import { annualIncomes } from "../../../../lib/constants";
 import { getAllCities, getAllCountries, getAllDistricts, getAllStates, registerOccupation } from "../../../../api";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import CircleIcon from '@mui/icons-material/Circle';
 
 const FifthForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -112,7 +113,7 @@ const FifthForm = () => {
   }, [state])
   return (
     <>
-      <form className="w-72 ml-12">
+      <form className="w-72 ml-3.5 sm:ml-12">
 
         <label className="flex items-center relative w-max cursor-pointer select-none">
           <span className="text-sm font-oxygen mr-24">Are you working now ? </span>
@@ -317,6 +318,64 @@ const FifthForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form >
+      <div className={option === 'Yes' ? "flex justify-center mt-[85px] mb-10": "flex justify-center mt-[30.5rem] mb-10"}>
+        <div className={
+          page === 0
+            ? " text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 1
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 2 || page === 3
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 4
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 5 || page === 6
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 7 || page === 8
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 9
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 10
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+      </div>
     </>
   );
 };

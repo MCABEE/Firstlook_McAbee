@@ -1,3 +1,7 @@
 .clip-right {
   clip-path: polygon(0 0, 91.5% 0, 91.5% 100%, 0 100%);
 }
+
+.clip-right-xs {
+  clip-path: polygon(0 0, 94.5% 0, 94.5% 100%, 0 100%);
+}
