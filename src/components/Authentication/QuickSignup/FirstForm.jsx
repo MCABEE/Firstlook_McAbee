@@ -12,6 +12,7 @@ import { getAllCaste, getAllReligion, quickSignupAboutYou } from "../../../api";
 import { registrationContext } from "../../../context/formContext";
 import { marriedStatus } from "../../../lib/constants";
 import { useSelector } from "react-redux";
+import CircleIcon from '@mui/icons-material/Circle';
 
 const FirstForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -93,27 +94,27 @@ const FirstForm = () => {
       <form>
         <div className="flex justify-center space-x-20">
 
-          <button
+          <div
             className={`flex items-center justify-center rounded-full w-24 h-24 focus:outline-none ${selectedGender === 'male' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'
               }`}
             onClick={() => handleGenderClick('male')}
             disabled={selectedGender === 'male'}
           >
             <img src={boyImage} alt="Boy" className="w-24 h-24" />
-          </button>
-          <button
+          </div>
+          <div
             className={`flex items-center justify-center rounded-full w-24 h-24 focus:outline-none ${selectedGender === 'female' ? 'bg-pink-500 text-white' : 'bg-gray-300 text-gray-600'
               }`}
             onClick={() => handleGenderClick('female')}
             disabled={selectedGender === 'female'}
           >
             <img src={girlImage} alt="Girl" className="w-24 h-24" />
-          </button>
+          </div>
         </div>
 
         <div className="mb-6 mt-10">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="First Name"
             value={firstName}
@@ -123,7 +124,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Last Name"
             value={lastName}
@@ -133,7 +134,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Display Name"
             value={displayName}
@@ -148,7 +149,7 @@ const FirstForm = () => {
             placeholder="DOB"
             readOnly
             onClick={handleInputClick}
-            className="w-72 ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
+            className="w-72 ml-3.5 sm:ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
           />
           <span
             onClick={handleInputClick}
@@ -169,7 +170,7 @@ const FirstForm = () => {
 
         <div className="mb-6 flex">
           <div
-            className="w-72 ml-12 h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            className="w-72 ml-3.5 sm:ml-12 h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Religion")}
           >
             <p className="w-44 mt-3 ml-2 truncate text-sm">{religion ? religion : "Religion"}</p>
@@ -178,7 +179,7 @@ const FirstForm = () => {
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Religion' ? (
-            <ul className="absolute z-10 w-72 ml-12 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 ml-3.5 sm:ml-12 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               {nReligion?.map((religion) => (
                 <>
@@ -200,7 +201,7 @@ const FirstForm = () => {
 
         <div className="mb-6 flex">
           <div
-            className="w-72 ml-12 h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            className="w-72 ml-3.5 sm:ml-12 h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Caste")}
           >
             <p className="w-44 mt-3 ml-2 truncate text-sm">{caste ? caste : "Caste"}</p>
@@ -209,7 +210,7 @@ const FirstForm = () => {
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Caste' ? (
-            <ul className="absolute z-10 w-72 ml-12 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 ml-3.5 sm:ml-12 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               {nCaste?.map((caste) => (
                 <>
@@ -232,7 +233,7 @@ const FirstForm = () => {
         <div className="mb-8 flex">
           <button
             type="button"
-            className="w-72 ml-12 h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            className="w-72 ml-3.5 sm:ml-12 h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen("Marital Status")}
           >
             <p className="w-44 truncate text-sm">{maritalStatus ? maritalStatus : "Marital Status"}</p>
@@ -241,7 +242,7 @@ const FirstForm = () => {
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen == 'Marital Status' ? (
-            <ul className="absolute z-10 w-72 ml-12 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 ml-3.5 sm:ml-12 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
               {marriedStatus.map((status) => (
                 <>
                   <li
@@ -263,13 +264,36 @@ const FirstForm = () => {
 
         <button
           onClick={handleData}
-          className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-48"
+          className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-40 sm:ml-48"
         >
           Continue
         </button>
 
         <div className="flex items-center justify-between"></div>
       </form>
+      <div className="flex justify-center mt-9 mb-10">
+                <div className={
+                    page === 0
+                        ? " text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "8px" }} />
+                </div>
+                <div className={
+                    page === 1
+                        ? "text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "8px" }} />
+                </div>
+                <div className={
+                    page === 2
+                        ? "text-[#F92739] font-medium"
+                        : "text-gray-300 cursor-pointer"
+                } >
+                    <CircleIcon sx={{ height: "8px" }} />
+                </div>
+            </div>
     </>
   );
 };

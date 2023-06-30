@@ -1,17 +1,22 @@
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
+import { useContext, useEffect, useState } from "react";
 import LocalSeeOutlinedIcon from '@mui/icons-material/LocalSeeOutlined';
-import { useContext, useState } from "react";
 import { registrationContext } from '../../../context/formContext';
 import { uploadImage } from '../../../api';
 import FileInput from '../Signup/FileInput';
 import ImageCropper from './ImageCropper';
+import CircleIcon from '@mui/icons-material/Circle';
 
 const SeventhForm = () => {
-  const {page, setPage} = useContext(registrationContext)
+  const { page, setPage } = useContext(registrationContext)
   const [isOpen, setIsOpen] = useState("");
 
   const [image, setImage] = useState("");
   const [currentPage, setCurrentPage] = useState("choose-img");
   const [imgAfterCrop, setImgAfterCrop] = useState("");
+  const [filled, setFilled] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
 
   // Invoked when new image file is selected
   const onImageSelected = (selectedImg) => {
@@ -59,7 +64,6 @@ const SeventhForm = () => {
     });
   };
 
-
   // Generating Cropped Image When Done Button Clicked
   const onCropDone = (imgCroppedArea) => {
     const canvasEle = document.createElement("canvas");
@@ -99,9 +103,16 @@ const SeventhForm = () => {
 
   const handleFileUpload = async (event) => {
     event.preventDefault();
+    setIsRunning(true)
 
     if (isOpen === 'photo') {
-      await uploadImage(imgAfterCrop)
+      await uploadImage(imgAfterCrop, {
+        onUploadProgress: (progressEvent) => {
+          const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
+          setFilled(progress);
+          console.log(progress)
+        },
+      })
         .then((response) => {
           console.log(response)
           setPage(page === 10 ? 0 : page + 1);
@@ -110,29 +121,66 @@ const SeventhForm = () => {
           console.log(err)
         })
     }
-  }
-
-  const handleNext = () => {
-    setPage(page === 10 ? 0 : page + 1);
   };
+
+  useEffect(() => {
+    if (filled < 100 && isRunning) {
+      setTimeout(() => setFilled(prev => prev += 4), 50)
+    }
+  }, [filled, isRunning])
   return (
     <>
-      <form className="w-72 ml-12 mt-16">
+      <form className="w-72 ml-3.5 sm:ml-12 mt-16">
 
         {currentPage === "choose-img" ? (
           <>
             <div onClick={() => setIsOpen("photo")} className="bg-[#F92739] text-center cursor-pointer text-white w-full py-3 rounded-xl mb-6">
               Upload Photos
             </div>
+            <div className="w-full py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-white h-fit mt-16">
+              <div className='font-oxygen text-[12px] text-justify p-4'>
+                <p className='font-bold'>
+                  Guidelines to add Pictures
+                </p>
+                <p className='mt-4'>
+                  Celebrity images, wallpapers, screenshots are not allowed. This activity will lead to permanent termination of profile.
+                </p>
+                <p className='mt-2'>
+                  Group photos are not allowed.
+                </p>
+                <p className='mt-2'>
+                  Text’s, Graphics, Watermark are not allowed in photos.
+                </p>
+                <p className='mt-2'>
+                  Add your latest pictures with good quality.
+                </p>
+                <p className='mt-2'>
+                  We recommend 1000 x 1000 pixel resolution square size photos for better visibility.
+                </p>
+                <p className='mt-2'>
+                  You can add more photos from your profile, after complete the registration.
+                </p>
+              </div>
+            </div>
             {isOpen === "photo" ?
               <>
-                <div className="w-full py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-white h-36">
-                  <button type="button" className="border border-[#D8D8D8] rounded-2xl w-52 py-3 mt-8 ml-[2.4rem] flex">
-                    <div className='mx-auto flex'>
-                      <LocalSeeOutlinedIcon />
-                      <FileInput setImage={setImage} onImageSelected={onImageSelected} />
+                <div className='mt-[78px] mb-80'>
+                  <div className='absolute w-96 -ml-12 py-3 rounded-xl border border-[#D8D8D8] bg-[#FE1940] h-16 -mt-6'>
+                    <p className='font-oxygen text-white text-[14px] text-center font-semibold'>
+                      Add Photo
+                    </p>
+                    <div onClick={() => setIsOpen(" ")} className='text-white ml-[21rem] -mt-6 cursor-pointer'>
+                      <KeyboardArrowDownOutlinedIcon />
                     </div>
-                  </button>
+                  </div>
+                  <div className='absolute w-96 -ml-12 py-3 rounded-b-xl border border-[#D8D8D8] bg-white h-36 mt-6'>
+                    <button type="button" className="border border-[#D8D8D8] rounded-2xl w-52 py-3 mt-8 ml-[5.3rem] flex">
+                      <div className='mx-auto flex'>
+                        <LocalSeeOutlinedIcon />
+                        <FileInput setImage={setImage} onImageSelected={onImageSelected} />
+                      </div>
+                    </button>
+                  </div>
                 </div>
               </>
               : " "}
@@ -145,62 +193,100 @@ const SeventhForm = () => {
               onCropCancel={onCropCancel}
             />
           </div>
+
         ) : (
           <>
             {isOpen === "photo" ?
               <>
-                <div className="w-full py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-white h-72">
-                  <button type="button" className="rounded-2xl w-52 py-3 mt-8 ml-[2.4rem] flex">
+                <div className="absolute -ml-12 w-[24rem] py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-black h-[54.9rem] -mt-[193px]">
+                  <button className="rounded-2xl py-3 mt-8 ml-[2rem] flex">
                     <div className='mx-auto'>
-                      <div>
-                        <img src={imgAfterCrop} className="mx-auto rounded-xl h-28 w-28" />
+                      <div className='mt-40'>
+                        <img src={imgAfterCrop} className="mx-auto rounded-xl h-80 w-80" />
+                      </div>
+
+                      <div
+                        onClick={() => {
+                          setCurrentPage("crop-img");
+                          setIsRunning(false)
+                          setFilled(0)
+                        }}
+                        className="text-white -mt-[31.5rem] -ml-[300px]"
+                      >
+                        <KeyboardBackspaceOutlinedIcon />
+                      </div>
+                    </div>
+                  </button>
+
+                  {isRunning &&
+                    <>
+                      <div className="progressbar mt-[32rem] ml-16">
+                        <div style={{
+                          height: "100%",
+                          width: `${filled}%`,
+                          backgroundColor: "#F92739",
+                          transition: "width 0.5s"
+                        }}></div>
+                        <span className="progressPercent text-red-300">{filled}%</span>
                       </div>
 
                       <button
-                        onClick={() => {
-                          setCurrentPage("crop-img");
-                        }}
-                        className="text-[#A0A0A0] border border-[#D8D8D8] font-oxygen bg-white px-6 py-2 rounded-xl mt-9"
+                        onClick={handleFileUpload}
+                        className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-44 mt-16"
                       >
-                        Crop
+                        Continue
                       </button>
-
-                      <button
-                        onClick={() => {
-                          setCurrentPage("choose-img");
-                          setImage("");
-                        }}
-                        className="text-[#A0A0A0] border border-[#D8D8D8] font-oxygen bg-white px-3 py-2 rounded-xl ml-3"
-                      >
-                        New Image
-                      </button>
-                    </div>
+                    </>
+                  }
+                  <button
+                    onClick={handleFileUpload}
+                    className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-44 mt-[36rem]"
+                  >
+                    Continue
                   </button>
                 </div>
               </>
               : " "}
           </>
         )}
-        {currentPage != "crop-img" ?
+        {currentPage != "crop-img" && isOpen != 'photo' ?
           <div className="flex mt-10">
             <button
-              onClick={handleNext}
-              className="rounded-xl text-[#A0A0A0] px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"
-            >
-              Skip
-            </button>
-
-            <button
               onClick={handleFileUpload}
-              className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
+              className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
             >
               Continue
             </button>
           </div>
           : " "
         }
+
         <div className="flex items-center justify-between"></div>
       </form>
+      {isOpen != "photo" ? <div className="flex justify-center mt-[7.8rem] mb-10">
+        <div className={
+          page === 0
+            ? " text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 1
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 2
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+      </div>
+        : " "}
     </>
   );
 };

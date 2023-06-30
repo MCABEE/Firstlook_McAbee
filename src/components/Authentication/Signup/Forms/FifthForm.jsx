@@ -82,7 +82,11 @@ const FifthForm = () => {
   };
 
   const handleNext = () => {
-    setPage(page === 10 ? 0 : page + 1);
+    if (option === 'No') {
+      setPage(page === 10 ? 0 : page + 2);
+    } else {
+      setPage(page === 10 ? 0 : page + 1);
+    }
   };
 
   const handleData = async (e) => {

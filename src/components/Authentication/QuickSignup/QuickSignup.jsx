@@ -1,5 +1,4 @@
 import Navbar from "../../Home/Navbar";
-import CircleIcon from '@mui/icons-material/Circle';
 import { useContext } from "react";
 import { registrationContext } from "../../../context/formContext";
 import FirstForm from "./FirstForm";
@@ -37,7 +36,7 @@ const QuickSignup = () => {
         <>
             <Navbar />
             <div className="flex h-screen justify-center items-center mt-20">
-                <div className="w-full h-[55rem] max-w-sm bg-[#F2F2F2] rounded-2xl shadow-2xl mt-44">
+                <div className="w-full h-[55rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-lg mt-44">
                     <p className="font-oxygen font-bold flex justify-center mt-16 text-[16px]">
                         Quick Signup
                     </p>
@@ -46,29 +45,7 @@ const QuickSignup = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex justify-center mt-20 sm:mt-32 mb-20">
-                <div className={
-                    page === 0
-                        ? " text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
-                </div>
-                <div className={
-                    page === 1
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
-                </div>
-                <div className={
-                    page === 2
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "10px" }} />
-                </div>
-            </div>
+            
         </>
     );
 };

@@ -6,6 +6,7 @@ import { registrationContext } from '../../../context/formContext';
 import { getAllCountries, getAllDesignations, getAllDistricts, getAllJobStreams, getAllMotherToungues, getAllStates, quickSignupNative } from '../../../api';
 import { businessDesignations, jobCategories } from '../../../lib/constants';
 import { useSelector } from "react-redux";
+import CircleIcon from '@mui/icons-material/Circle';
 
 const SecondForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -129,7 +130,7 @@ const SecondForm = () => {
 
   return (
     <>
-      <form className="w-72 ml-12">
+      <form className="w-72 ml-3.5 sm:ml-12">
 
         <div className="mb-6 flex">
           <div
@@ -270,7 +271,7 @@ const SecondForm = () => {
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Job Category' ? (
-            <ul className="absolute z-10 w-72 ml-12 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
               {jobCategories.map((category) => (
                 <>
                   <li
@@ -553,6 +554,35 @@ const SecondForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
+      <div className={
+        jobCategory === 'Business' ? "flex justify-center mt-[9.5rem] mb-10" :
+          jobCategory === "Government" ? "flex justify-center mt-[5rem] mb-10"
+            : jobCategory === "Private" ? "flex justify-center mt-[5rem] mb-10"
+              : jobCategory === "Self Employed" ? "flex justify-center mt-[9.5rem] mb-10"
+                : "flex justify-center mt-[18.5rem] mb-10"
+      }>
+        <div className={
+          page === 0
+            ? " text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 1
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 2
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+      </div>
     </>
   );
 };

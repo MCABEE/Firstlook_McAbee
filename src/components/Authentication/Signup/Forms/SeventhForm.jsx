@@ -129,10 +129,6 @@ const SeventhForm = () => {
       setTimeout(() => setFilled(prev => prev += 4), 50)
     }
   }, [filled, isRunning])
-
-  const handleNext = () => {
-    setPage(page === 10 ? 0 : page + 1);
-  };
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12 mt-12">
@@ -216,7 +212,7 @@ const SeventhForm = () => {
                           setIsRunning(false)
                           setFilled(0)
                         }}
-                        className="text-white -mt-[32.5rem] -ml-80"
+                        className="text-white -mt-[32.5rem] -ml-72"
                       >
                         <KeyboardBackspaceOutlinedIcon />
                       </div>
@@ -257,15 +253,8 @@ const SeventhForm = () => {
         {currentPage != "crop-img" && isOpen != 'photo' ?
           <div className="flex mt-10">
             <button
-              onClick={handleNext}
-              className="rounded-xl text-[#A0A0A0] px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"
-            >
-              Skip
-            </button>
-
-            <button
               onClick={handleFileUpload}
-              className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
+              className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
             >
               Continue
             </button>

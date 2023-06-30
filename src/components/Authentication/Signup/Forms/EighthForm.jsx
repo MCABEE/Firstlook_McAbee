@@ -4,9 +4,10 @@ import { Toaster, toast } from "react-hot-toast";
 import OtpInput from "otp-input-react";
 import CircleIcon from '@mui/icons-material/Circle';
 import { registrationContext } from "../../../../context/formContext";
+import { Link } from "react-router-dom";
 
 const EighthForm = () => {
-  const { page } = useContext(registrationContext)
+  const { page, setPage } = useContext(registrationContext)
 
   const [aadhar, setAadhar] = useState("")
   const [otp, setOtp] = useState("")
@@ -61,13 +62,17 @@ const EighthForm = () => {
       })
   }
 
+  const handleNext = () => {
+    setPage(page === 11 ? 0 : page + 1);
+  };
+
   return (
     <>
       <Toaster toastOptions={{ duration: 4000 }} />
       {showOTP ? (
         <>
           <form onSubmit={onOTPVerify} className="w-72 ml-3.5 sm:ml-12">
-            
+
             <p className=' mt-10 mb-14 text-justify text-sm font-medium'>
               An OTP send to your Aadhar linked mobile number.
               Please enter the OTP below to verify your account.
@@ -119,11 +124,23 @@ const EighthForm = () => {
               Do it Later
             </button>
 
-            <button className="bg-white text-black w-full py-3 border border-[#B8B8B8] rounded-xl mb-10 text-[10px]">
-              I don’t have Aadhar linked mobile with me
-            </button>
+            <div onClick={handleNext} className="bg-white cursor-pointer text-black w-full text-center py-3 border border-[#B8B8B8] rounded-xl mb-10 text-[10px]">
+              I don’t have Aadhar linked mobile. ?
+            </div>
+
+            <div className="p-4 border border-[#F92739] rounded-2xl mt-2">
+              <p className="text-center text-[12px]">
+                Requesting ID is only for account verification, and also to avoid fake profiles. We do not show your ID or address details to any other users.  Its 100% Assured !
+
+              </p>
+              <p className="text-center text-[12px]">
+                Read our <Link className="text-[#0949C4] font-medium">Privacy Policy</Link> before Proceed.
+              </p>
+            </div>
           </form>
-          <div className="flex justify-center mt-[13.1rem] mb-10">
+        </>
+      )}
+      <div className="flex justify-center mt-[4.7rem] mb-10">
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"
@@ -174,15 +191,13 @@ const EighthForm = () => {
           <CircleIcon sx={{ height: "8px" }} />
         </div>
         <div className={
-          page === 10
+          page === 10 || page === 11
             ? "text-[#F92739] font-medium"
             : "text-gray-300 cursor-pointer"
         } >
           <CircleIcon sx={{ height: "8px" }} />
         </div>
       </div>
-        </>
-      )}
     </>
   );
 };

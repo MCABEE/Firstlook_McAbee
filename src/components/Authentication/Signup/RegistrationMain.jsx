@@ -2,7 +2,6 @@ import Navbar from "../../Home/Navbar";
 import './RegistrationMain.css'
 import FirstForm from "./Forms/FirstForm";
 import SecondForm from "./Forms/SecondForm";
-import CircleIcon from '@mui/icons-material/Circle';
 import ThirdForm from "./Forms/ThirdForm";
 import EighthForm from "./Forms/EighthForm";
 import SeventhForm from "./Forms/SeventhForm";
@@ -17,6 +16,7 @@ import { registrationContext } from "../../../context/formContext";
 import { getUserDetails } from "../../../api";
 import { setUserData } from "../../../Redux/Reducer/getUserData";
 import { useDispatch } from "react-redux";
+import AadharForm from "./Forms/AadharForm";
 
 const RegistrationMain = () => {
 
@@ -83,6 +83,11 @@ const RegistrationMain = () => {
             case 10: {
                 return (
                     <EighthForm></EighthForm>
+                );
+            }
+            case 11: {
+                return (
+                    <AadharForm></AadharForm>
                 );
             }
             default:
@@ -273,13 +278,13 @@ const RegistrationMain = () => {
                             <li
                                 onClick={setForm}
                                 className={
-                                    page === 10 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 10 || page === 11 ? " w-2/6 rounded-lg  " : "bg: transparent"
                                 }
                             >
                                 <div className="flex items-center ">
                                     <span
                                         className={
-                                            page === 10
+                                            page === 10 || page === 11
                                                 ? "ml-2 text-[#F92739] font-medium"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
@@ -292,13 +297,13 @@ const RegistrationMain = () => {
                             <li
                                 onClick={setForm}
                                 className={
-                                    page === 11 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 12 ? " w-2/6 rounded-lg  " : "bg: transparent"
                                 }
                             >
                                 <div className="flex items-center ">
                                     <span
                                         className={
-                                            page === 11
+                                            page === 12
                                                 ? "ml-2 text-[#F92739] font-medium"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
