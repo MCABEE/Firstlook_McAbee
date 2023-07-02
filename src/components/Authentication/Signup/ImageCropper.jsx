@@ -31,21 +31,21 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
                     style={{
                         containerStyle: {
                             borderRadius: "0.85rem",
-                            top: "70%",
+                            top: "34rem",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
                             margin: "auto",
-                            width: "380px",
-                            height: "910px",
+                            width: "300px",
+                            height: "410px",
                             backgroundColor: "black",
                         },
                     }}
                 />
                 <div className="w-28 flex">
-                    <div className={page === 9 ? "absolute text-white -mt-[42.3rem] -ml-3.5 cursor-pointer"
-                        : page === 11 ? "absolute text-white -mt-[42.3rem] ml-4 cursor-pointer"
-                            : "absolute text-white -mt-[42.3rem] -ml-3.5 cursor-pointer"} onClick={onCropCancel}>
+                    <div className={page === 9 ? "absolute text-black -mt-[42.3rem] -ml-3.5 cursor-pointer"
+                        : page === 11 ? "absolute text-black -mt-[42.3rem] ml-4 cursor-pointer"
+                            : "absolute text-black -mt-[42.3rem] -ml-3.5 cursor-pointer"} onClick={onCropCancel}>
                         <KeyboardBackspaceOutlinedIcon />
                     </div>
                     <div

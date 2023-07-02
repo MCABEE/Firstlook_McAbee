@@ -328,7 +328,7 @@ const AadharForm = () => {
                         : " "}
                 </>
             )}
-            <div className="flex justify-center mt-[3.8rem] mb-10">
+            <div className={currentPage === "crop-img" ? "flex justify-center mt-[7.8rem] mb-10" : "flex justify-center mt-[3.8rem] mb-10"}>
                 <div className={
                     page === 0
                         ? " text-[#F92739] font-medium"

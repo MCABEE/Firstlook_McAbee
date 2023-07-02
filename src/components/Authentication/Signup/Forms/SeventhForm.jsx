@@ -212,7 +212,7 @@ const SeventhForm = () => {
                           setIsRunning(false)
                           setFilled(0)
                         }}
-                        className="text-white -mt-[32.5rem] -ml-72"
+                        className="text-white -mt-[30.5rem] -ml-72"
                       >
                         <KeyboardBackspaceOutlinedIcon />
                       </div>
@@ -264,7 +264,7 @@ const SeventhForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
-      <div className="flex justify-center mt-[4.2rem] mb-10">
+      <div className={currentPage === "crop-img" ? "flex justify-center mt-[8rem] mb-10" : "flex justify-center mt-[4.2rem] mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

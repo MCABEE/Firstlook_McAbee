@@ -105,6 +105,7 @@ const FifthForm = () => {
   }
 
   useEffect(() => {
+    setOption("No")
     getCountry()
     getStates()
     // eslint-disable-next-line react-hooks/exhaustive-deps
