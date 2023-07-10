@@ -49,6 +49,9 @@ const FirstForm = () => {
   }
 
   const formattedDate = selectedDate ? format(selectedDate, 'dd/MM/yyyy') : '';
+  const dateString = `${userData?.dob}`;
+  const date = new Date(dateString);
+  const dob = date.toLocaleDateString('en-GB');
   return (
     <>
       <form onSubmit={handleData} className="-mt-8">
@@ -78,6 +81,9 @@ const FirstForm = () => {
             type="text"
             placeholder="First Name"
             value={firstName}
+            required
+            pattern="[A-Za-z]+"
+            title="Fist Name is not valid"
             onChange={(e) => setFirstName(e.target.value)}
           ></input>
         </div>
@@ -87,6 +93,9 @@ const FirstForm = () => {
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Last Name"
+            required
+            pattern="[A-Za-z]+"
+            title="Last Name is not valid"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
           ></input>
@@ -98,6 +107,9 @@ const FirstForm = () => {
             type="text"
             placeholder="Display Name"
             value={displayName}
+            required
+            pattern="[A-Za-z]+"
+            title="Display Name is not valid"
             onChange={(e) => setDisplayName(e.target.value)}
           ></input>
         </div>
@@ -105,9 +117,9 @@ const FirstForm = () => {
         <div className="relative inline-block mb-10">
           <input
             type="text"
-            value={formattedDate}
-            placeholder="DOB"
+            value={formattedDate || dob || "DOB"}
             readOnly
+            required
             onClick={handleInputClick}
             className="w-72 ml-3.5 sm:ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
           />
@@ -121,6 +133,7 @@ const FirstForm = () => {
             <div className="absolute z-10">
               <Calendar
                 date={selectedDate}
+                required
                 onChange={handleDateChange}
                 className="mb-10 border border-gray-400 rounded-xl ml-auto sm:ml-7 shadow-sm"
               />

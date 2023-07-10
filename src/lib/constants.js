@@ -137,15 +137,3 @@ export const motherOccupations = [
     { id: 21, name: "BUSINESS WOMEN" },
 ];
 
-export const businessDesignations = [
-    { id: 1, name: "Founder" },
-    { id: 2, name: "Proprietor" },
-    { id: 3, name: "Chairman" },
-    { id: 4, name: "Managing Partner" },
-    { id: 5, name: "Managing Director" },
-    { id: 6, name: "Director" },
-    { id: 7, name: "CEO" },
-    { id: 8, name: "President / Vice-President" },
-    { id: 9, name: "COO/CFO/CTO/CMO" },
-];
-

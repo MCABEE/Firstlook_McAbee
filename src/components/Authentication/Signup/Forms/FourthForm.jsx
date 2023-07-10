@@ -32,6 +32,7 @@ const FourthForm = () => {
   const tempUniversity = []
   const tempCollege = []
   const tempInstitute = []
+  const tempCourse = []
 
   nUniversity?.map((university) => (
     university?.institutions?.map((univ) => (
@@ -51,6 +52,10 @@ const FourthForm = () => {
     ))
   ))
 
+  nCourseName?.map((course) => {
+    tempCourse.push(course?.name)
+  })
+
   const searchData = (tempProduct) => {
     return search === ""
       ? tempProduct
@@ -60,7 +65,7 @@ const FourthForm = () => {
   const universityData = tempUniversity.filter(searchData)
   const instituteData = tempInstitute.filter(searchData)
   const collegeData = tempCollege.filter(searchData)
-
+  const courseData = tempCourse.filter(searchData)
 
   const handleToggle = () => {
     setSelectedOption(!selectedOption);
@@ -215,17 +220,17 @@ const FourthForm = () => {
             <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
               {nAcademicStream?.map((stream) => (
-                <>
-                  <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                    onClick={() => {
-                      setAcademicStream(stream?.name)
-                      setIsOpen("")
-                    }}
-                  >
-                    <p className="mr-2">{stream?.name}</p>
-                  </li>
-                </>
+
+                <li
+                  key={stream?._id}
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                  onClick={() => {
+                    setAcademicStream(stream?.name)
+                    setIsOpen("")
+                  }}
+                >
+                  <p className="mr-2">{stream?.name}</p>
+                </li>
               ))}
 
             </ul>
@@ -233,33 +238,35 @@ const FourthForm = () => {
         </div>
 
         <div className="mb-6 mt-5 flex">
-          <div
-            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Course Name")}
-          >
-            <p className="w-44 mt-3 ml-2 truncate text-sm">{courseName ? courseName : "Enter Course Name"}</p>
-          </div>
+          <input type="text"
+            value={courseName}
+            onChange={(e) => {
+              let searchValue = e.target.value.toLocaleLowerCase();
+              setSearch(searchValue);
+              setCourseName(e.target.value);
+            }}
+            onClick={() => setIsOpen("courseDetails")}
+            placeholder="Enter Course Name" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
-          {isOpen === 'Course Name' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
-              {nCourseName?.map((course) => (
-                <>
+          {isOpen === 'courseDetails' ? (
+            <>
+              <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                {courseData.map((data) => (
                   <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                    key={data?._id}
+                    className="px-4 py-2 cursor-pointer flex"
                     onClick={() => {
-                      setCourseName(course?.name)
-                      setIsOpen("")
+                      setCourseName(data);
+                      setIsOpen("");
                     }}
                   >
-                    <p className="mr-2">{course?.name}</p>
+                    <p className="mr-2">{data}</p>
                   </li>
-                </>
-              ))}
-
-            </ul>
+                ))}
+              </ul>
+            </>
           ) : " "}
         </div>
 
@@ -310,21 +317,20 @@ const FourthForm = () => {
             </div>
             {isOpen === 'Institute' ? (
               <>
-                {instituteData.map((data) => (
-                  <>
-                    <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-                      <li
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                        onClick={() => {
-                          setInstitute(data)
-                          setIsOpen("")
-                        }}
-                      >
-                        <p className="mr-2">{data}</p>
-                      </li>
-                    </ul >
-                  </>
-                ))}
+                <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                  {instituteData.map((data) => (
+                    <li
+                      key={data?._id}
+                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                      onClick={() => {
+                        setInstitute(data)
+                        setIsOpen("")
+                      }}
+                    >
+                      <p className="mr-2">{data}</p>
+                    </li>
+                  ))}
+                </ul >
               </>
             ) : " "}
           </div>
@@ -345,9 +351,9 @@ const FourthForm = () => {
               </div>
               {isOpen === 'University' ? (
                 <>
-                  {universityData.map((data) => (
-                    <>
-                      <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                  <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                    {universityData.map((data) => (
+                      <>
                         <li
                           className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                           onClick={() => {
@@ -357,9 +363,9 @@ const FourthForm = () => {
                         >
                           <p className="mr-2">{data}</p>
                         </li>
-                      </ul>
-                    </>
-                  ))}
+                      </>
+                    ))}
+                  </ul>
                 </>
               ) : " "}
             </div>
@@ -379,9 +385,9 @@ const FourthForm = () => {
               </div>
               {isOpen === 'College' ? (
                 <>
-                  {collegeData.map((data) => (
-                    <>
-                      <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                  <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                    {collegeData.map((data) => (
+                      <>
                         <li
                           className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                           onClick={() => {
@@ -391,9 +397,9 @@ const FourthForm = () => {
                         >
                           <p className="mr-2">{data}</p>
                         </li>
-                      </ul>
-                    </>
-                  ))}
+                      </>
+                    ))}
+                  </ul>
                 </>
               ) : " "}
             </div>
@@ -451,9 +457,9 @@ const FourthForm = () => {
         <div className="flex items-center justify-between"></div>
       </form >
       <div className={
-        academicStream === 'Certificate Courses' || academicStream === 'Plus Two / HSC / SSLC' || academicStream === 'Primary School' ? "flex justify-center mt-[100px] mb-10" 
-        : academicStream && " "
-        ? "flex justify-center mt-[28px] mb-10" : "flex justify-center mt-[170px] mb-10"}>
+        academicStream === 'Certificate Courses' || academicStream === 'Plus Two / HSC / SSLC' || academicStream === 'Primary School' ? "flex justify-center mt-[100px] mb-10"
+          : academicStream && " "
+            ? "flex justify-center mt-[28px] mb-10" : "flex justify-center mt-[170px] mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

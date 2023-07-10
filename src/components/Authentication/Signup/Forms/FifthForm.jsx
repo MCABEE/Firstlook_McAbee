@@ -20,13 +20,28 @@ const FifthForm = () => {
   const [district, setDistrict] = useState(userData?.occupation?.district || "")
   const [city, setCity] = useState(userData?.occupation?.city || "")
   const [option, setOption] = useState(userData?.occupation?.hasJob || "No")
+  const [search, setSearch] = useState("");
 
   const [nCountries, setNCountries] = useState([])
   const [nStates, setNStates] = useState([])
   const [nDistricts, setNDistricts] = useState([])
   const [nCity, setNCity] = useState([])
 
+  const tempCity = []
+
   const { page, setPage } = useContext(registrationContext)
+
+  const searchData = (tempProduct) => {
+    return search === ""
+      ? tempProduct
+      : tempProduct?.toLowerCase().includes(search)
+  };
+
+  nCity.map((data) => {
+    tempCity.push(data?.name)
+  })
+
+  const cityData = tempCity.filter(searchData)
 
   const getCountry = async () => {
     await getAllCountries()
@@ -91,7 +106,7 @@ const FifthForm = () => {
 
   const handleData = async (e) => {
     e.preventDefault()
-    await registerOccupation(annualIncome, option, country, state, district, city)
+    await registerOccupation(annualIncome, option, country, state, district, city, stateID)
       .then(() => {
         if (option === 'No') {
           setPage(page === 10 ? 0 : page + 2);
@@ -240,33 +255,36 @@ const FifthForm = () => {
             </div>
 
             <div className="mb-6 mt-5 flex">
-              <div
-                className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+              <input type="text"
+                value={city}
+                onChange={(e) => {
+                  let searchValue = e.target.value.toLocaleLowerCase();
+                  setSearch(searchValue);
+                  setCity(e.target.value);
+                }}
                 onClick={() => setIsOpen("City")}
-              >
-                <p className="w-44 mt-3 ml-2 truncate text-sm">{city ? city : "City"}</p>
-              </div>
+                placeholder="Enter City" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
               {isOpen === 'City' ? (
-                <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
-                  {nCity?.map((city) => (
-                    <>
-                      <li
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                        onClick={() => {
-                          setCity(city?.name)
-                          setIsOpen("")
-                        }}
-                      >
-                        <p className="mr-2">{city?.name}</p>
-                      </li>
-                    </>
-                  ))}
-
-                </ul>
+                <>
+                  <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                    {cityData.map((data) => (
+                      <>
+                        <li
+                          className="px-4 py-2 cursor-pointer flex"
+                          onClick={() => {
+                            setCity(data);
+                            setIsOpen("");
+                          }}
+                        >
+                          <p className="mr-2">{data}</p>
+                        </li>
+                      </>
+                    ))}
+                  </ul>
+                </>
               ) : " "}
             </div>
 
@@ -323,7 +341,7 @@ const FifthForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form >
-      <div className={option === 'Yes' ? "flex justify-center mt-[85px] mb-10": "flex justify-center mt-[30.5rem] mb-10"}>
+      <div className={option === 'Yes' ? "flex justify-center mt-[85px] mb-10" : "flex justify-center mt-[30.5rem] mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

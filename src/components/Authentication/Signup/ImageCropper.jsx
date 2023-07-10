@@ -10,7 +10,13 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [zoom, setZoom] = useState(1);
     const [croppedArea, setCroppedArea] = useState(null);
-    const aspect = 1 / 1;
+
+    let aspect = 0
+    if(page === 11) { 
+        aspect = 4.2 / 2.6;
+    } else {
+        aspect = 4 / 5
+    }
 
     const onCropComplete = (croppedAreaPercentage, croppedAreaPixels) => {
         setCroppedArea(croppedAreaPixels);
@@ -49,8 +55,8 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
                         <KeyboardBackspaceOutlinedIcon />
                     </div>
                     <div
-                        className={page === 9 ? "absolute mt-14 font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-44 cursor-pointer"
-                            : page === 11 ? "absolute mt-14 font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-60 cursor-pointer"
+                        className={page === 9 ? "absolute mt-8 font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-44 cursor-pointer"
+                            : page === 11 ? "absolute mt-8 font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-[13rem] sm:ml-60 cursor-pointer"
                                 : "absolute mt-14 font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-60 cursor-pointer"}
                         onClick={() => {
                             onCropDone(croppedArea);

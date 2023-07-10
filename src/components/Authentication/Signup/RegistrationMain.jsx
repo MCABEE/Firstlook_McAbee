@@ -11,7 +11,7 @@ import FourthForm from "./Forms/FourthForm";
 import ThirdForm2 from "./Forms/ThirdForm2";
 import FifthForm2 from "./Forms/FifthForm2";
 import SixthForm2 from "./Forms/SixthForm2";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { registrationContext } from "../../../context/formContext";
 import { getUserDetails } from "../../../api";
 import { setUserData } from "../../../Redux/Reducer/getUserData";
@@ -20,13 +20,14 @@ import AadharForm from "./Forms/AadharForm";
 
 const RegistrationMain = () => {
 
+    const [status, setStatus] = useState([])
+
     const { page, setPage } = useContext(registrationContext)
     const dispatch = useDispatch()
 
-
     const getUserDetail = async () => {
         await getUserDetails().then((result) => {
-            console.log(result)
+            setStatus(result?.data?.userData?.registartionStatus[0])
             dispatch(setUserData(result?.data?.userData))
         })
     }
@@ -96,7 +97,7 @@ const RegistrationMain = () => {
     };
 
     const setForm = (e) => {
-        const name = e.target.innerText;
+        const name = e?.target?.innerText || e;
         switch (name) {
             case "About You": {
                 return setPage(0);
@@ -107,20 +108,32 @@ const RegistrationMain = () => {
             case "Personal Info": {
                 return setPage(2);
             }
+            case "Personal Info2": {
+                return setPage(3);
+            }
             case "Academic": {
                 return setPage(4);
             }
             case "Occupation": {
                 return setPage(5);
             }
+            case "Occupation2": {
+                return setPage(6);
+            }
             case "Family": {
                 return setPage(7);
+            }
+            case "Family2": {
+                return setPage(8);
             }
             case "Upload": {
                 return setPage(9);
             }
             case "Verification": {
                 return setPage(10);
+            }
+            case "Verification2": {
+                return setPage(11);
             }
             default:
                 setPage(0);
@@ -129,8 +142,9 @@ const RegistrationMain = () => {
 
     useEffect(() => {
         getUserDetail()
+        setForm(status)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [status])
 
     return (
         <>

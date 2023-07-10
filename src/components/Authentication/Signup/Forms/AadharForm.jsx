@@ -7,7 +7,7 @@ import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspace
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import FileInput from "../FileInput";
 import ImageCropper from "../ImageCropper";
-import { uploadImage } from "../../../../api";
+import { uploadAadharImage } from "../../../../api";
 import { registrationContext } from "../../../../context/formContext";
 
 const AadharForm = () => {
@@ -95,7 +95,7 @@ const AadharForm = () => {
             const dataURL = canvasEle.toDataURL("image/jpeg");
             const compressedDataURL = await compressImage(dataURL, 1); // Maximum size set to 1 MB
 
-            if(count === 0) {
+            if (count === 0) {
                 setImgFrontAfterCrop(compressedDataURL);
                 setCurrentPage("img-cropped");
                 setCount(count + 1)
@@ -117,7 +117,7 @@ const AadharForm = () => {
         setIsRunning(true)
 
         if (isOpen === 'photo') {
-            await uploadImage(imgFrontAfterCrop, {
+            await uploadAadharImage(imgFrontAfterCrop, imgBackAfterCrop, {
                 onUploadProgress: (progressEvent) => {
                     const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
                     setFilled(progress);
@@ -219,18 +219,19 @@ const AadharForm = () => {
                 <>
                     {isOpen === "photo" ?
                         <>
-                            <div className="absolute w-[24rem] py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-black h-[54.9rem] -mt-60">
+                            <div className="absolute -ml-12 w-[24rem] py-3 rounded-xl mb-6 -mt-72">
                                 <button className="rounded-2xl py-3 mt-8 ml-[2rem] flex">
                                     <div className='mx-auto'>
-                                        <div className='mt-40'>
-                                            <img src={imgFrontAfterCrop} className="mx-auto rounded-xl h-80 w-80" />
+                                        <div className='mt-[19rem]'>
+                                            <img src={imgFrontAfterCrop} className="rounded-xl h-[13rem] w-[20rem] ml-7 sm:ml-12" />
                                         </div>
 
                                         <div
                                             onClick={() => {
                                                 setCurrentPage("crop-img");
+                                                setCount(0)
                                             }}
-                                            className="text-white -mt-[31rem] -ml-72"
+                                            className="text-black -mt-[33rem] sm:-mt-[30.5rem] -ml-[18rem] sm:-ml-60"
                                         >
                                             <KeyboardBackspaceOutlinedIcon />
                                         </div>
@@ -241,14 +242,14 @@ const AadharForm = () => {
                                     onClick={() => {
                                         setImageSide("photoBack")
                                     }}
-                                    className="bg-[#F92739] cursor-pointer rounded-xl w-40 text-[14px] text-center text-white py-2 ml-44 mt-[36rem]"
+                                    className="bg-[#F92739] cursor-pointer rounded-xl w-40 text-[14px] text-center text-white py-2 ml-[13.5rem] sm:ml-[15rem] mt-[36rem]"
                                 >
                                     Continue
                                 </div>
                                 {imageSide === "photoBack" ?
                                     <>
-                                        <div className='mb-20'>
-                                            <div className='absolute w-96 py-3 rounded-xl bg-[#FE1940] h-16 -mt-2'>
+                                        <div className='mb-20 ml-12'>
+                                            <div className='absolute w-96 py-3 rounded-xl bg-[#FE1940] h-16 '>
                                                 <p className='font-oxygen text-white text-[14px] text-center font-semibold'>
                                                     Add Photo (Back Side)
                                                 </p>
@@ -256,7 +257,7 @@ const AadharForm = () => {
                                                     <KeyboardArrowDownOutlinedIcon />
                                                 </div>
                                             </div>
-                                            <div className='absolute w-96 py-3 rounded-b-xl bg-white h-36 mt-[42px]'>
+                                            <div className='absolute w-96 py-3 rounded-b-xl bg-white h-36 mt-[3rem]'>
                                                 <button type="button" className="border border-[#D8D8D8] rounded-2xl w-52 py-3 mt-8 ml-[5.3rem] flex">
                                                     <div className='mx-auto flex'>
                                                         <LocalSeeOutlinedIcon />
@@ -276,10 +277,10 @@ const AadharForm = () => {
                 <>
                     {isOpen === "photo" ?
                         <>
-                            <div className="absolute w-[24rem] py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-black h-[54.9rem] -mt-60">
-                                <button className="rounded-2xl py-3 mt-8 ml-[2rem] flex">
+                            <div className="absolute w-[24rem] py-3 rounded-xl mb-6 bg-white h-[54.9rem] -mt-64">
+                                <button className="rounded-2xl py-3 mt-8 ml-4 sm:ml-[2rem] flex">
                                     <div className='mx-auto'>
-                                        <div className='mt-24'>
+                                        <div className='mt-[5rem]'>
                                             <img src={imgFrontAfterCrop} className="rounded-xl h-56 w-[318px]" />
                                             <img src={imgBackAfterCrop} className="rounded-xl h-56 w-[318px] mt-5" />
                                         </div>
@@ -290,7 +291,7 @@ const AadharForm = () => {
                                                 setIsRunning(false)
                                                 setFilled(0)
                                             }}
-                                            className="text-white -mt-[34rem] -ml-[260px]"
+                                            className="text-black -mt-[34rem] -ml-[290px]"
                                         >
                                             <KeyboardBackspaceOutlinedIcon />
                                         </div>
@@ -298,28 +299,18 @@ const AadharForm = () => {
                                 </button>
 
                                 {isRunning &&
-                                    <>
-                                        <div className="progressbar mt-[32rem] ml-16">
-                                            <div style={{
-                                                height: "100%",
-                                                width: `${filled}%`,
-                                                backgroundColor: "#F92739",
-                                                transition: "width 0.5s"
-                                            }}></div>
-                                            <span className="progressPercent text-red-300">{filled}%</span>
-                                        </div>
-
-                                        <button
-                                            onClick={handleFileUpload}
-                                            className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-44 mt-16"
-                                        >
-                                            Continue
-                                        </button>
-                                    </>
+                                    <div className="progressbar mt-[36rem] ml-[3.3rem] sm:ml-[4.2rem]">
+                                        <div style={{
+                                            height: "100%",
+                                            width: `${filled}%`,
+                                            backgroundColor: "#F92739",
+                                            transition: "width 0.5s"
+                                        }}></div>
+                                    </div>
                                 }
                                 <button
                                     onClick={handleFileUpload}
-                                    className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-44 mt-[36rem]"
+                                    className={isRunning ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[12rem] sm:ml-[13rem] mt-[3.8rem]" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[12rem] sm:ml-[13rem] mt-[37rem]"}
                                 >
                                     Continue
                                 </button>

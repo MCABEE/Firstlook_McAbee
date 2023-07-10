@@ -19,54 +19,52 @@ export const registerAdditionalPersonalInfo = (drinkingHabits, smokingHabits, fo
 
 export const registerAcademic = (passYear, option, academicStream, courseName, country, university, institute, college) => axios.patch(`/user/v1/register/${userId}/academic`, { passYear, option, academicStream, courseName, country, university, institute, college }, tokenHeader)
 
-export const registerOccupation = (annualIncome, option, country, state, district, city) => axios.patch(`/user/v1/register/${userId}/occupation`, { annualIncome, option, country, state, district, city }, tokenHeader)
+export const registerOccupation = (annualIncome, option, country, state, district, city, stateID) => axios.patch(`/user/v1/register/${userId}/occupation`, { annualIncome, option, country, state, district, city, stateID }, tokenHeader)
 
-export const registerOccupationCategory = (jobCategory, jobType, designation, stream, companyName, department) => axios.patch(`/user/v1/register/${userId}/occupationCategory`, { jobCategory, jobType, designation, stream, companyName, department }, tokenHeader)
+export const registerOccupationCategory = (jobCategory, jobType, designation, stream, companyName, employerName) => axios.patch(`/user/v1/register/${userId}/occupationCategory`, { jobCategory, jobType, designation, stream, companyName, employerName }, tokenHeader)
 
 export const registerFamily = (fatherName, motherName, fatherEducation, motherEducation, fatherOccupation, motherOccupation, siblings) => axios.patch(`/user/v1/register/${userId}/family`, { fatherName, motherName, fatherEducation, motherEducation, fatherOccupation, motherOccupation, siblings }, tokenHeader)
 
-export const registerFamilyAddress = (familyName, homeTown, pincode, contactNumber, homeContactNumber, diocese) => axios.patch(`/user/v1/register/${userId}/familyAddress`, { familyName, homeTown, pincode, contactNumber, homeContactNumber, diocese }, tokenHeader)
+export const registerFamilyAddress = (familyName, homeTown, pincode, contactNumber, homeContactNumber) => axios.patch(`/user/v1/register/${userId}/familyAddress`, { familyName, homeTown, pincode, contactNumber, homeContactNumber }, tokenHeader)
 
-export const getAllCountries = () => axios.get('/data/general/getAllCountries', tokenHeader)
+export const getAllCountries = () => axios.get('/data/general/getAllCountries')
 
-export const getAllStates = (country) => axios.get(`/data/general/state?country=${country}`, tokenHeader)
+export const getAllStates = (country) => axios.get(`/data/general/state?country=${country}`)
 
-export const getAllDistricts = (state) => axios.get(`/data/general/district?state=${state}`, tokenHeader)
+export const getAllDistricts = (state) => axios.get(`/data/general/district?state=${state}`)
 
-export const getAllMotherToungues = (state) => axios.get(`/data/general/motherToungue?state=${state}`, tokenHeader)
+export const getAllMotherToungues = (state) => axios.get(`/data/general/motherToungue?state=${state}`)
 
-export const getAllReligion = () => axios.get('/data/general/getAllReligion', tokenHeader)
+export const getAllReligion = () => axios.get('/data/general/getAllReligion')
 
-export const getAllCaste = (religion) => axios.get(`/data/general/caste?religion=${religion}`, tokenHeader)
+export const getAllCaste = (religion) => axios.get(`/data/general/caste?religion=${religion}`)
 
-export const getAllAcademicStream = () => axios.get('/data/general/getAllAcademicStream', tokenHeader)
+export const getAllAcademicStream = () => axios.get('/data/general/getAllAcademicStream')
 
-export const getAllCourse = (stream) => axios.get(`/data/general/course?stream=${stream}`, tokenHeader)
+export const getAllCourse = (stream) => axios.get(`/data/general/course?stream=${stream}`)
 
-export const getAllPincode = () => axios.get('/data/general/getAllPincode', tokenHeader)
+export const getAllPincode = () => axios.get('/data/general/getAllPincode')
 
-export const getAllHomeTown = () => axios.get('/data/general/getAllHomeTown', tokenHeader)
+export const getAllHomeTown = () => axios.get('/data/general/getAllHomeTown')
 
-export const getAllCities = (state) => axios.get(`/data/general/city?state=${state}`, tokenHeader)
+export const getAllCities = (state) => axios.get(`/data/general/city?state=${state}`)
 
-export const getAllUniversities = (country) => axios.get(`/data/general/getAllUniversities?country=${country}`, tokenHeader)
+export const getAllUniversities = (country) => axios.get(`/data/general/getAllUniversities?country=${country}`)
 
-export const getAllInstitutes = (country) => axios.get(`/data/general/getAllInstitutes?country=${country}`, tokenHeader)
+export const getAllInstitutes = (country) => axios.get(`/data/general/getAllInstitutes?country=${country}`)
 
-export const getAllColleges = (country) => axios.get(`/data/general/getAllColleges?country=${country}`, tokenHeader)
+export const getAllColleges = (country) => axios.get(`/data/general/getAllColleges?country=${country}`)
 
-export const getAllDesignations = (stream) => axios.get(`/data/general/getAllDesignations?stream=${stream}`, tokenHeader)
+export const getAllDesignations = (category) => axios.get(`/data/general/getAllDesignations?category=${category}`)
 
-export const getAllJobStreams = () => axios.get(`/data/general/getAllJobStreams`, tokenHeader)
+export const getAllJobStreams = (category) => axios.get(`/data/general/getAllJobStreams?category=${category}`)
+
+export const getEmployerDetails = (category) => axios.get(`/data/general/getEmployerDetails?category=${category}`)
 
 export const quickSignupAboutYou = (firstName, lastName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus) => axios.patch(`/user/v1/register/${userId}/aboutYouQuick`, { firstName, lastName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus }, tokenHeader)
 
 export const quickSignupNative = (country, state, district, motherToungue, jobCategory, jobType, designation, stream, companyName, department) => axios.patch(`/user/v1/register/${userId}/addNativeQuick`, { country, state, district, motherToungue, jobCategory, jobType, designation, stream, companyName, department }, tokenHeader)
 
-export const uploadImage = (imgAfterCrop) => axios.post(`/user/v1/uploadImage/postImage?userId=${userId}`, { imgAfterCrop }, tokenHeader)
+export const uploadImage = (imgAfterCrop) => axios.post(`/user/v1/register/uploadImage?userId=${userId}`, { imgAfterCrop }, tokenHeader)
 
-export const uploadVideo = (formData) => axios.post(`/user/v1/uploadVideo/postVideo?userId=${userId}`, formData, {
-    headers: {
-        'Content-Type': 'multipart/form-data',
-    },
-})
+export const uploadAadharImage = (imgFrontAfterCrop, imgBackAfterCrop) => axios.post(`/user/v1/register/uploadAadharImage`, { imgFrontAfterCrop, imgBackAfterCrop }, tokenHeader)

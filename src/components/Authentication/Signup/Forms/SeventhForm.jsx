@@ -199,11 +199,11 @@ const SeventhForm = () => {
           <>
             {isOpen === "photo" ?
               <>
-                <div className="absolute -ml-12 w-[24rem] py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-black h-[54.9rem] -mt-72">
+                <div className="absolute -ml-12 w-[24rem] py-3 rounded-xl mb-6 -mt-72">
                   <button className="rounded-2xl py-3 mt-8 ml-[2rem] flex">
                     <div className='mx-auto'>
-                      <div className='mt-40'>
-                        <img src={imgAfterCrop} className="mx-auto rounded-xl h-80 w-80" />
+                      <div className='mt-[13rem]'>
+                        <img src={imgAfterCrop} className="mx-auto rounded-xl h-[22.5rem] w-72 ml-4" />
                       </div>
 
                       <div
@@ -212,7 +212,7 @@ const SeventhForm = () => {
                           setIsRunning(false)
                           setFilled(0)
                         }}
-                        className="text-white -mt-[30.5rem] -ml-72"
+                        className="text-black -mt-[37rem] -ml-72"
                       >
                         <KeyboardBackspaceOutlinedIcon />
                       </div>
@@ -220,28 +220,18 @@ const SeventhForm = () => {
                   </button>
 
                   {isRunning &&
-                    <>
-                      <div className="progressbar mt-[32rem] ml-16">
-                        <div style={{
-                          height: "100%",
-                          width: `${filled}%`,
-                          backgroundColor: "#F92739",
-                          transition: "width 0.5s"
-                        }}></div>
-                        <span className="progressPercent text-red-300">{filled}%</span>
-                      </div>
-
-                      <button
-                        onClick={handleFileUpload}
-                        className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-44 mt-16"
-                      >
-                        Continue
-                      </button>
-                    </>
+                    <div className="progressbar mt-[38.5rem] ml-[4.2rem]">
+                      <div style={{
+                        height: "100%",
+                        width: `${filled}%`,
+                        backgroundColor: "#F92739",
+                        transition: "width 0.5s"
+                      }}></div>
+                    </div>
                   }
                   <button
                     onClick={handleFileUpload}
-                    className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-44 mt-[36rem]"
+                    className={isRunning ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-48 mt-[3.8rem]" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-44 mt-[40rem]"}
                   >
                     Continue
                   </button>

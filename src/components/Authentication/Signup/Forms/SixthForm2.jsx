@@ -14,18 +14,38 @@ const SixthForm2 = () => {
   const [pincode, setPincode] = useState(userData?.family?.pincode || "")
   const [contactNumber, setContactNumber] = useState(userData?.family?.secondPhone || "")
   const [homeContactNumber, setHomeContactNumber] = useState(userData?.family?.homePhone || "")
-  const [diocese, setDiocese] = useState(userData?.family?.diocese || "")
+  const [search, setSearch] = useState("");
 
-  const [nPincode, setNPincode] = useState("")
-  const [nHomeTown, setNHomeTown] = useState("")
+  const [nPincode, setNPincode] = useState([])
+  const [nHomeTown, setNHomeTown] = useState([])
+
+  const tempPincode = []
+  const tempHomeTown = []
 
   const { page, setPage } = useContext(registrationContext)
+
+  const searchData = (tempProduct) => {
+    return search === ""
+      ? tempProduct
+      : tempProduct?.toLowerCase().includes(search)
+  };
+
+  nPincode?.map((data) => {
+    tempPincode.push(data?.code)
+  })
+
+  nHomeTown?.map((data) => {
+    tempHomeTown.push(data?.name)
+  })
+
+  const homeTownData = tempHomeTown.filter(searchData)
+  const pincodeData = tempPincode.filter(searchData)
 
   const getPincode = async () => {
     await getAllPincode()
       .then((result) => {
         console.log(result);
-        setNPincode(result.data.pincode)
+        setNPincode(result.data?.pincode)
       })
       .catch((err) => {
         console.log(err);
@@ -36,7 +56,7 @@ const SixthForm2 = () => {
     await getAllHomeTown()
       .then((result) => {
         console.log(result);
-        setNHomeTown(result.data.homeTown)
+        setNHomeTown(result.data?.homeTown)
       })
       .catch((err) => {
         console.log(err);
@@ -45,7 +65,7 @@ const SixthForm2 = () => {
 
   const handleData = async (e) => {
     e.preventDefault()
-    await registerFamilyAddress(familyName, homeTown, pincode, contactNumber, homeContactNumber, diocese)
+    await registerFamilyAddress(familyName, homeTown, pincode, contactNumber, homeContactNumber)
       .then(() => {
         setPage(page === 10 ? 0 : page + 1);
       })
@@ -78,65 +98,71 @@ const SixthForm2 = () => {
           ></input>
         </div>
 
-        <div className="mb-6 flex">
-          <button
-            type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+        <div className="mb-6 mt-5 flex">
+          <input type="text"
+            value={homeTown}
+            onChange={(e) => {
+              let searchValue = e.target.value.toLocaleLowerCase();
+              setSearch(searchValue);
+              setHomeTown(e.target.value);
+            }}
             onClick={() => setIsOpen("Home Town")}
-          >
-            <p className="w-44 truncate text-sm">{homeTown ? homeTown : "Home Town"}</p>
-          </button>
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
+            placeholder="Enter Your Home Town" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
-          {isOpen == 'Home Town' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-              {nHomeTown.map((town) => (
-                <>
-                  <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                    onClick={() => {
-                      setHomeTown(town?.name)
-                      setIsOpen("")
-                    }}
-                  >
-                    <p className="mr-2" >{town?.name}</p>
-                  </li>
-                </>
-              ))}
-
-            </ul>
+          {isOpen === 'Home Town' ? (
+            <>
+              <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                {homeTownData?.map((data) => (
+                  <>
+                    <li
+                      className="px-4 py-2 cursor-pointer flex"
+                      onClick={() => {
+                        setHomeTown(data);
+                        setIsOpen("");
+                      }}
+                    >
+                      <p className="mr-2">{data}</p>
+                    </li>
+                  </>
+                ))}
+              </ul>
+            </>
           ) : " "}
         </div>
 
-        <div className="mb-6 flex">
-          <button
-            type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+        <div className="mb-6 mt-5 flex">
+          <input type="text"
+            value={pincode}
+            onChange={(e) => {
+              let searchValue = e.target.value.toLocaleLowerCase();
+              setSearch(searchValue);
+              setPincode(e.target.value);
+            }}
             onClick={() => setIsOpen("Pincode")}
-          >
-            <p className="w-44 truncate text-sm">{pincode ? pincode : "Pincode"}</p>
-          </button>
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
+            placeholder="Enter Your Pincode" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
-          {isOpen == 'Pincode' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-              {nPincode.map((pincode) => (
-                <>
-                  <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                    onClick={() => {
-                      setPincode(pincode?.code)
-                      setIsOpen("")
-                    }}
-                  >
-                    <p className="mr-2" >{pincode?.code}</p>
-                  </li>
-                </>
-              ))}
-
-            </ul>
+          {isOpen === 'Pincode' ? (
+            <>
+              <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                {pincodeData?.map((data) => (
+                  <>
+                    <li
+                      className="px-4 py-2 cursor-pointer flex"
+                      onClick={() => {
+                        setPincode(data);
+                        setIsOpen("");
+                      }}
+                    >
+                      <p className="mr-2">{data}</p>
+                    </li>
+                  </>
+                ))}
+              </ul>
+            </>
           ) : " "}
         </div>
 
@@ -150,23 +176,13 @@ const SixthForm2 = () => {
           ></input>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-10">
           <input
             className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
             type="text"
             placeholder="Home Contact Number"
             value={homeContactNumber}
             onChange={(e) => setHomeContactNumber(e.target.value)}
-          ></input>
-        </div>
-
-        <div className="mb-10">
-          <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
-            type="text"
-            placeholder="Diocese Name (for Christian’s)"
-            value={diocese}
-            onChange={(e) => setDiocese(e.target.value)}
           ></input>
         </div>
 
@@ -179,7 +195,7 @@ const SixthForm2 = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
-      <div className="flex justify-center mt-[5.5rem] mb-10">
+      <div className="flex justify-center mt-[9.6rem] mb-10">
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

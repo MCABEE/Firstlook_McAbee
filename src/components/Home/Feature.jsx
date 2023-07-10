@@ -4,6 +4,7 @@ import Diversity1OutlinedIcon from '@mui/icons-material/Diversity1Outlined';
 import ShoppingCartCheckoutOutlinedIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
 import Mobileimage from '../../assets/Index_Model_002.png'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom';
 
 const Feature = () => {
     return (
@@ -96,7 +97,7 @@ const Feature = () => {
                                 </div>
                                 <div className="w-full md:w-full px-4">
                                     <div className='relative flex flex-col min-w-0'>
-                                        <button className='bg-[#FC3657] text-white hover:bg-black w-full lg:w-36 h-10 rounded-lg md:ml-3 transform transition hover:scale-95 duration-300 ease-in-out'>Let’s Start</button>
+                                        <Link to='/register' className='bg-[#FC3657] flex justify-center items-center text-white hover:bg-black w-full lg:w-36 h-10 rounded-lg md:ml-3 transform transition hover:scale-95 duration-300 ease-in-out'>Let’s Start</Link>
                                     </div>
                                 </div>
                             </div>

@@ -2,6 +2,7 @@ import Mobileimage from '../../assets/mobIndex.png'
 import msgIcon from '../../assets/icon_message.png'
 import { motion } from 'framer-motion'
 import KeyboardDoubleArrowRightOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowRightOutlined';
+import { Link } from 'react-router-dom';
 
 const JoinSection = () => {
     return (
@@ -23,12 +24,12 @@ const JoinSection = () => {
                                 className="text-[16px] font-oxygen text-gray-500">Experience how quickly you can find a life partner, <br /> through Firstlook ... </motion.p>
 
                             <div className="mt-10 flex items-center gap-x-6 justify-start">
-                                <a
-                                    href="#"
+                                <Link
+                                    to='/register'
                                     className="transform transition hover:scale-95 duration-300 ease-in-out rounded-xl bg-[#FC3657] text-white hover:bg-black px-3.5 py-2.5 text-sm font-semibold shadow-sm w-32"
                                 >
                                     <span className='ml-5'>Let’s Start</span>
-                                </a>
+                                </Link>
                             </div>
 
                             <a
