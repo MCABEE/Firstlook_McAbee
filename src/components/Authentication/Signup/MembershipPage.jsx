@@ -32,7 +32,7 @@ const MembershipPage = () => {
             <Navbar />
             <div className="flex h-screen justify-center items-center mt-36 mb-36">
 
-                <div className="w-full max-w-md  bg-white rounded-xl shadow-2xl h-[115vh] sm:h-[117vh]">
+                <div className="w-full max-w-md bg-white rounded-xl shadow-md h-[870px] sm:h-[840px] mt-[100px]">
                     <p className='font-oxygen font-bold text-2xl ml-10 mt-20'>
                         Membership Policy and <br />
                         Terms of Use
@@ -167,7 +167,7 @@ const MembershipPage = () => {
                         </p>
                     </div>
                     {showAcceptButton && (
-                        <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-12 sm:ml-20 text-white px-20'>
+                        <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-14 sm:ml-14 text-white w-3/4'>
                             <Link to='/register/verify'>
                                 I Accept, Let’s Go
                             </Link>

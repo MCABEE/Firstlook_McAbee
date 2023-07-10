@@ -147,7 +147,7 @@ const PhoneReg = () => {
             <div className="flex h-screen justify-center items-center mb-36">
                 <Toaster toastOptions={{ duration: 4000 }} />
 
-                <div className="w-full h-[45rem] mt-44 max-w-sm bg-[#F2F2F2] rounded-2xl shadow-2xl">
+                <div className="w-full h-[45rem] mt-44 max-w-sm bg-[#F2F2F2] rounded-2xl shadow-md">
                     {showOTP ? (
                         <>
                             <p className='font-oxygen font-bold text-center text-2xl mt-16'>

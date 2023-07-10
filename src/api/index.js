@@ -25,7 +25,7 @@ export const registerOccupationCategory = (jobCategory, jobType, designation, st
 
 export const registerFamily = (fatherName, motherName, fatherEducation, motherEducation, fatherOccupation, motherOccupation, siblings) => axios.patch(`/user/v1/register/${userId}/family`, { fatherName, motherName, fatherEducation, motherEducation, fatherOccupation, motherOccupation, siblings }, tokenHeader)
 
-export const registerFamilyAddress = (familyName, homeTown, pincode, contactNumber, homeContactNumber) => axios.patch(`/user/v1/register/${userId}/familyAddress`, { familyName, homeTown, pincode, contactNumber, homeContactNumber }, tokenHeader)
+export const registerFamilyAddress = (familyName, homeTown, pincode, contactNumber, homeContactNumber, district) => axios.patch(`/user/v1/register/${userId}/familyAddress`, { familyName, homeTown, pincode, contactNumber, homeContactNumber, district }, tokenHeader)
 
 export const getAllCountries = () => axios.get('/data/general/getAllCountries')
 

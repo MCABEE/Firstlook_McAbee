@@ -63,9 +63,11 @@ const SixthForm2 = () => {
       })
   }
 
+  const district = userData?.native?.district
+
   const handleData = async (e) => {
     e.preventDefault()
-    await registerFamilyAddress(familyName, homeTown, pincode, contactNumber, homeContactNumber)
+    await registerFamilyAddress(familyName, homeTown, pincode, contactNumber, homeContactNumber, district)
       .then(() => {
         setPage(page === 10 ? 0 : page + 1);
       })
@@ -78,7 +80,6 @@ const SixthForm2 = () => {
     getPincode()
     getHomeTown()
   }, [])
-
 
   return (
     <>

@@ -5,11 +5,13 @@ import { registrationContext } from "../../../../context/formContext";
 import { jobCategories } from "../../../../lib/constants";
 import { useEffect } from "react";
 import { getAllDesignations, getAllJobStreams, getEmployerDetails, registerOccupationCategory } from "../../../../api";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
+import { setUserData } from "../../../../Redux/Reducer/getUserData";
 
 const FifthForm2 = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
+  const dispatch = useDispatch()
 
   const [isOpen, setIsOpen] = useState("");
   const [jobCategory, setJobCategory] = useState(userData?.occupation?.jobCategory || "")
@@ -86,7 +88,8 @@ const FifthForm2 = () => {
   const handleData = async (e) => {
     e.preventDefault()
     await registerOccupationCategory(jobCategory, jobType, designation, stream, companyName, employerName)
-      .then(() => {
+      .then((data) => {
+        dispatch(setUserData(data?.data?.userData))
         setPage(page === 10 ? 0 : page + 1);
       })
       .catch((err) => {

@@ -11,6 +11,7 @@ import { registrationContext } from './context/formContext';
 import { useState } from 'react';
 import QuickSignup from './components/Authentication/QuickSignup/QuickSignup';
 import SignupOption from './components/Authentication/QuickSignup/SignupOption';
+import LandingPage from './components/LandingPage/LandingPage';
 
 function App() {
   const [page, setPage] = useState(0)
@@ -34,6 +35,7 @@ function App() {
         <Route path='/termsofuse' element={<TermsOfUse />} />
         <Route path='/membership/policy' element={<MembershipPolicy />} />
         <Route path='/refund/policy' element={<RefundPolicy />} />
+        <Route path='/home' element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
   )
