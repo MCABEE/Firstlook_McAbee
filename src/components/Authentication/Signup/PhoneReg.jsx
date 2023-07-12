@@ -119,7 +119,7 @@ const PhoneReg = () => {
             .then((confirmationResult) => {
                 window.confirmationResult = confirmationResult;
                 setShowOTP(true);
-                toast.success("OTP sended successfully!");
+                toast.success("OTP send successfully!");
             })
             .catch((error) => {
                 console.log(error);
@@ -137,6 +137,7 @@ const PhoneReg = () => {
                 })
             })
             .catch((err) => {
+                toast.error("Invalid OTP")
                 console.log(err);
             });
     }

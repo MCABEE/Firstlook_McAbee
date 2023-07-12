@@ -12,6 +12,10 @@ import { useState } from 'react';
 import QuickSignup from './components/Authentication/QuickSignup/QuickSignup';
 import SignupOption from './components/Authentication/QuickSignup/SignupOption';
 import LandingPage from './components/LandingPage/LandingPage';
+import SignupRedirect from './components/Authentication/SignupRedirect';
+import FeaturePage from './components/FeaturePage/FeaturePage';
+import PageConstruct from './components/PageUnderConstruction/PageConstruct';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 
 function App() {
   const [page, setPage] = useState(0)
@@ -21,6 +25,7 @@ function App() {
 
         <Route path='/' element={<Home />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/Signup' element={<SignupRedirect />} />
         <Route path='/register' element={<MembershipPage />} />
         <Route path='/register/verify' element={<PhoneReg />} />
         <Route path='/register/signupOption' element={<SignupOption />} />
@@ -36,6 +41,13 @@ function App() {
         <Route path='/membership/policy' element={<MembershipPolicy />} />
         <Route path='/refund/policy' element={<RefundPolicy />} />
         <Route path='/home' element={<LandingPage />} />
+        <Route path='/firstlookFeatures' element={<FeaturePage />} />
+        <Route path='/stories' element={<PageConstruct />} />
+        <Route path='/faq' element={<PageConstruct />} />
+        <Route path='/pricing' element={<PageConstruct />} />
+        <Route path='/about' element={<PageConstruct />} />
+        <Route path='/mediaCentre' element={<PageConstruct />} />
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   )

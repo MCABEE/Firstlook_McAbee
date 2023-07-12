@@ -174,7 +174,7 @@ const FourthForm = () => {
       toast.error("select Country")
     }
 
-    else if (university === '' || institute === '' || college === '') {
+    else if (university === '' && college === '' && institute === '') {
       toast.error("select any University, Institute or College")
     }
 

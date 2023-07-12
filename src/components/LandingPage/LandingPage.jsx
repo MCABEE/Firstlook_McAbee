@@ -1,7 +1,9 @@
 import Navbar from "../Home/Navbar"
 import logo from '../../assets/firstlookLogo.png'
+import { useSelector } from "react-redux"
 
 const LandingPage = () => {
+  const userData = useSelector((state) => state.getUserFilledData.data)
     return (
         <>
             <Navbar />
@@ -19,7 +21,7 @@ const LandingPage = () => {
                             Welcomes you
                         </p>
                         <p className="font-bold text-[1.5rem]">
-                            Mr. Joe Martin,
+                            { userData?.gender === 'male' ? `Mr. ${userData?.displayName}` : `Mrs. ${userData?.displayName}` }
                         </p>
                         <p className="mt-4 font-medium">
                             Your profile has been registered with us.

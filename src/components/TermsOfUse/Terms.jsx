@@ -4,12 +4,9 @@ const Terms = () => {
     return (
         <>
             <div className='w-11/12 mx-auto h-fit'>
-                <p className="text-[24px] flex justify-center font-oxygen font-bold mt-16">
-                    TERMS OF USE &amp; PRIVACY POLICY
-                </p>
                 <div className="sm:ml-16">
                     <p className="text-[24px] font-oxygen font-bold mt-20">
-                        Introduction
+                        T & C Introduction
                     </p>
                     <p className="text-[16px] mt-6 text-justify">
                         You must read and understand these terms and conditions before using our matchmaking

@@ -81,12 +81,8 @@ const SixthForm2 = () => {
       toast.error("select Pincode")
     }
 
-    else if (contactNumber === '') {
+    else if (contactNumber === '' && homeContactNumber === '') {
       toast.error("Enter Contact Number")
-    }
-
-    else if (homeContactNumber === '') {
-      toast.error("Enter Home Contact Number")
     }
 
     else if (district === '') {

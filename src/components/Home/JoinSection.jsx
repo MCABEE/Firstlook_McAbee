@@ -7,11 +7,18 @@ import { Link } from 'react-router-dom';
 const JoinSection = () => {
     return (
         <>
-            <div className="max-w-screen-xl mx-auto py-16">
+            <div className="max-w-screen-xl mx-auto">
                 <div className="container m-auto px-6">
 
                     <div className="md:flex justify-between items-center">
-                        <div className="lg:w-6/12 lg:p-0 p-7">
+                        <motion.div
+                            initial={{ y: "-10vw", opacity: 0 }}
+                            whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
+                            viewport={{ once: true, amount: 0.8 }}
+                            className="lg:w-6/12 lg:p-0 p-7">
+                            <img src={Mobileimage} alt="" />
+                        </motion.div>
+                        <div className="md:w-6/12 order-2">
                             <motion.h1
                                 initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
@@ -34,7 +41,6 @@ const JoinSection = () => {
 
                             <a
                                 className="block rounded-xl bg-[#D8E8FE] p-4 shadow-xl sm:p-6 lg:p-8 mt-8 md:mt-20 md:w-3/4"
-                                href=""
                             >
                                 <div className='flex'>
                                     <h3 className="font-semibold text-black text-[24px]">
@@ -53,13 +59,6 @@ const JoinSection = () => {
                             </a>
 
                         </div>
-                        <motion.div
-                            initial={{ y: "-10vw", opacity: 0 }}
-                            whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
-                            viewport={{ once: true, amount: 0.8 }}
-                            className="md:w-6/12 order-2">
-                            <img src={Mobileimage} alt="" />
-                        </motion.div>
                     </div>
                 </div>
             </div>

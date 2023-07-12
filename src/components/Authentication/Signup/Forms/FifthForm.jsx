@@ -109,11 +109,7 @@ const FifthForm = () => {
     e.preventDefault()
 
     if (option === 'Yes') {
-      if (annualIncome === '') {
-        toast.error("select Annual Income")
-      }
-
-      else if (country === '') {
+      if (country === '') {
         toast.error("select Country")
       }
 
@@ -127,6 +123,10 @@ const FifthForm = () => {
 
       else if (city === '') {
         toast.error("select City")
+      }
+
+      else if (annualIncome === '') {
+        toast.error("select Annual Income")
       }
 
       else {
@@ -145,7 +145,13 @@ const FifthForm = () => {
   }
 
   useEffect(() => {
-    setOption("No")
+
+    if (option === 'Yes') {
+      setOption("Yes")
+    } else {
+      setOption("No")
+    }
+
     getCountry()
     getStates()
     // eslint-disable-next-line react-hooks/exhaustive-deps
