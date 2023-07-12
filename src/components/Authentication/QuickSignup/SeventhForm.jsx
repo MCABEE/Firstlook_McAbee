@@ -8,9 +8,11 @@ import FileInput from '../Signup/FileInput';
 import ImageCropper from './ImageCropper';
 import CircleIcon from '@mui/icons-material/Circle';
 import { Toaster, toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const SeventhForm = () => {
-  const { page, setPage } = useContext(registrationContext)
+  const navigate = useNavigate()
+  const { page } = useContext(registrationContext)
   const [isOpen, setIsOpen] = useState("");
 
   const [image, setImage] = useState("");
@@ -109,7 +111,7 @@ const SeventhForm = () => {
     if (imgAfterCrop === "") {
       toast.error("Upload Image")
     }
-    
+
     else {
       if (isOpen === 'photo') {
         await uploadImage(imgAfterCrop, {
@@ -119,9 +121,8 @@ const SeventhForm = () => {
             console.log(progress)
           },
         })
-          .then((response) => {
-            console.log(response)
-            setPage(page === 10 ? 0 : page + 1);
+          .then(() => {
+            navigate('/home')
           })
           .catch((err) => {
             console.log(err)
@@ -209,7 +210,7 @@ const SeventhForm = () => {
                   <button className="rounded-2xl py-3 mt-8 ml-[2rem] flex">
                     <div className='mx-auto'>
                       <div className='mt-40'>
-                        <img src={imgAfterCrop} className="mx-auto rounded-xl h-72 w-72 ml-4" />
+                        <img src={imgAfterCrop} className="mx-auto rounded-xl h-[22rem] w-72 ml-4" />
                       </div>
 
                       <div
@@ -218,7 +219,7 @@ const SeventhForm = () => {
                           setIsRunning(false)
                           setFilled(0)
                         }}
-                        className="-mt-[29.6rem] text-black -ml-[290px]"
+                        className="-mt-[34rem] text-black -ml-[290px]"
                       >
                         <KeyboardBackspaceOutlinedIcon />
                       </div>

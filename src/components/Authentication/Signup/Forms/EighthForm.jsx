@@ -137,11 +137,11 @@ const EighthForm = () => {
               Request OTP
             </button>
 
-            <button className="bg-[#B5B5B5] text-white w-full py-3 rounded-xl mb-20 text-sm">
+            <Link to='/home' className="bg-[#B5B5B5] text-white px-[111.5px] py-3 rounded-xl text-sm">
               Do it Later
-            </button>
+            </Link>
 
-            <div onClick={handleNext} className="bg-white cursor-pointer text-black w-full text-center py-3 border border-[#B8B8B8] rounded-xl mb-10 text-[10px]">
+            <div onClick={handleNext} className="bg-white cursor-pointer mt-28 text-black w-full text-center py-3 border border-[#B8B8B8] rounded-xl mb-10 text-[10px]">
               I don’t have Aadhar linked mobile. ?
             </div>
 

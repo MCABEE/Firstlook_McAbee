@@ -145,17 +145,24 @@ const FifthForm = () => {
   }
 
   useEffect(() => {
-
-    if (option === 'Yes') {
-      setOption("Yes")
-    } else {
-      setOption("No")
-    }
-
     getCountry()
     getStates()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [country])
+
+  useEffect(() => {
+
+    if (option === 'Yes') {
+      if(userData?.occupation?.hasJob === 'Yes') {
+        setOption('Yes')
+        setSelectedOption(!selectedOption)
+      }
+    } else {
+      setOption("No")
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     getDistricts()

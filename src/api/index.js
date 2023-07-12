@@ -5,7 +5,7 @@ const token = localStorage.getItem("token")
 
 const tokenHeader = { headers: { Authorization: `Bearer ${token}` } }
 
-export const getUserDetails = () => axios.get(`/user/v1/getUserData?userId=${userId}`, tokenHeader)
+export const getUserDetails = () => axios.get(`/user/v1/getUserData/${userId}`, tokenHeader)
 
 export const registerUser = (phone) => axios.post('/auth/v1/register/mobile', { phone })
 
