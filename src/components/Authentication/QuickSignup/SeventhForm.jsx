@@ -7,6 +7,7 @@ import { uploadImage } from '../../../api';
 import FileInput from '../Signup/FileInput';
 import ImageCropper from './ImageCropper';
 import CircleIcon from '@mui/icons-material/Circle';
+import { Toaster, toast } from 'react-hot-toast';
 
 const SeventhForm = () => {
   const { page, setPage } = useContext(registrationContext)
@@ -105,21 +106,26 @@ const SeventhForm = () => {
     event.preventDefault();
     setIsRunning(true)
 
-    if (isOpen === 'photo') {
-      await uploadImage(imgAfterCrop, {
-        onUploadProgress: (progressEvent) => {
-          const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
-          setFilled(progress);
-          console.log(progress)
-        },
-      })
-        .then((response) => {
-          console.log(response)
-          setPage(page === 10 ? 0 : page + 1);
+    if (imgAfterCrop === "") {
+      toast.error("Upload Image")
+    }
+    else {
+      if (isOpen === 'photo') {
+        await uploadImage(imgAfterCrop, {
+          onUploadProgress: (progressEvent) => {
+            const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
+            setFilled(progress);
+            console.log(progress)
+          },
         })
-        .catch((err) => {
-          console.log(err)
-        })
+          .then((response) => {
+            console.log(response)
+            setPage(page === 10 ? 0 : page + 1);
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
     }
   };
 
@@ -131,7 +137,7 @@ const SeventhForm = () => {
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12 mt-16">
-
+        <Toaster />
         {currentPage === "choose-img" ? (
           <>
             <div onClick={() => setIsOpen("photo")} className="bg-[#F92739] text-center cursor-pointer text-white w-full py-3 rounded-xl mb-6">
