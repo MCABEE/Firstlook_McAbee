@@ -68,3 +68,5 @@ export const quickSignupNative = (country, state, district, motherToungue, jobCa
 export const uploadImage = (imgAfterCrop) => axios.post(`/user/v1/register/uploadImage?userId=${userId}`, { imgAfterCrop }, tokenHeader)
 
 export const uploadAadharImage = (imgFrontAfterCrop, imgBackAfterCrop) => axios.post(`/user/v1/register/uploadAadharImage`, { imgFrontAfterCrop, imgBackAfterCrop }, tokenHeader)
+
+export const uploadAadharDetails = (careOf, fullName, aadhar, dob, pincode, houseName) => axios.post(`/user/v1/register/uploadAadhar`, { careOf, fullName, aadhar, dob, pincode, houseName }, tokenHeader)

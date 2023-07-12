@@ -5,6 +5,7 @@ import { fatherOccupations, motherOccupations, parentEducations } from '../../..
 import { registerFamily } from '../../../../api';
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
+import { Toaster, toast } from 'react-hot-toast';
 
 const SixthForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -22,23 +23,49 @@ const SixthForm = () => {
 
   const handleData = async (e) => {
     e.preventDefault()
-    await registerFamily(fatherName, motherName, fatherEducation, motherEducation, fatherOccupation, motherOccupation, siblings)
-      .then(() => {
-        setPage(page === 10 ? 0 : page + 1);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+
+    if (fatherEducation === '') {
+      toast.error("select Father's Education")
+    }
+
+    else if (motherEducation === '') {
+      toast.error("select Mother's Education")
+    }
+
+    else if (fatherOccupation === '') {
+      toast.error("select Father's Occupation")
+    }
+
+    else if (motherOccupation === '') {
+      toast.error("select Mother's Occupation")
+    }
+
+    else if (siblings === '') {
+      toast.error("select no. of Siblings")
+    }
+
+    else {
+      await registerFamily(fatherName, motherName, fatherEducation, motherEducation, fatherOccupation, motherOccupation, siblings)
+        .then(() => {
+          setPage(page === 10 ? 0 : page + 1);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
   }
 
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
-
+        <Toaster />
         <div className="mb-6">
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
             type="text"
+            required
+            pattern="[A-Za-z]+"
+            title="Father Name is not valid"
             placeholder="Father Name"
             value={fatherName}
             onChange={(e) => setFatherName(e.target.value)}
@@ -112,6 +139,9 @@ const SixthForm = () => {
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
             type="text"
+            required
+            pattern="[A-Za-z]+"
+            title="Mother Name is not valid"
             placeholder="Mother Name"
             value={motherName}
             onChange={(e) => setMotherName(e.target.value)}
@@ -206,6 +236,7 @@ const SixthForm = () => {
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
             type="number"
+            required
             placeholder="How Many Siblings ?"
             value={siblings}
             onChange={(e) => setSiblings(e.target.value)}

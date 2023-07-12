@@ -6,6 +6,7 @@ import { registerAdditionalPersonalInfo } from '../../../../api';
 import { bloodGroups, diets, doDrink, doSmoke, financeStatus, userLicense } from '../../../../lib/constants';
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
+import { Toaster, toast } from 'react-hot-toast';
 
 const ThirdForm2 = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -22,21 +23,47 @@ const ThirdForm2 = () => {
 
   const handleData = async (e) => {
     e.preventDefault()
-    await registerAdditionalPersonalInfo(drink, smoke, diet, bloodGroup, license, financialStatus)
-      .then((result) => {
-        console.log(result)
-        setPage(page === 10 ? 0 : page + 1);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+
+    if (drink === '') {
+      toast.error("select Drink")
+    }
+
+    else if (smoke === '') {
+      toast.error("select Smoke")
+    }
+
+    else if (diet === '') {
+      toast.error("select Diet")
+    }
+
+    else if (bloodGroup === '') {
+      toast.error("select Blood Group")
+    }
+
+    else if (license === '') {
+      toast.error("select License")
+    }
+
+    else if (financialStatus === '') {
+      toast.error("select Financial Status")
+    }
+
+    else {
+      await registerAdditionalPersonalInfo(drink, smoke, diet, bloodGroup, license, financialStatus)
+        .then((result) => {
+          console.log(result)
+          setPage(page === 10 ? 0 : page + 1);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
   }
   return (
     <>
       <form onSubmit={handleData} className="w-72 ml-3.5 sm:ml-12">
-
+        <Toaster />
         <div className="mb-6 flex ">
-
           <button
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"

@@ -7,6 +7,7 @@ import { getAllCountries, getAllDesignations, getAllDistricts, getAllJobStreams,
 import { jobCategories } from '../../../lib/constants';
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
+import { Toaster, toast } from 'react-hot-toast';
 
 const SecondForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -112,13 +113,32 @@ const SecondForm = () => {
 
   const handleData = async (e) => {
     e.preventDefault()
-    await quickSignupNative(country, state, district, motherToungue, jobCategory, jobType, designation, stream, companyName, employerName)
-      .then(() => {
-        setPage(page === 10 ? 0 : page + 1);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+
+    if (country === "") {
+      toast.error("select country")
+    }
+
+    else if (state === "") {
+      toast.error("select State")
+    }
+
+    else if (district === "") {
+      toast.error("select District")
+    }
+
+    else if (motherToungue === "") {
+      toast.error("select Mother Toungue")
+    }
+    
+    else {
+      await quickSignupNative(country, state, district, motherToungue, jobCategory, jobType, designation, stream, companyName, employerName)
+        .then(() => {
+          setPage(page === 10 ? 0 : page + 1);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
   }
 
   const getDesignations = async () => {
@@ -165,7 +185,7 @@ const SecondForm = () => {
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
-
+        <Toaster />
         <div className="mb-6 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"

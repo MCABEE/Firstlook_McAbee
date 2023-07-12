@@ -7,6 +7,7 @@ import { getAllCities, getAllCountries, getAllDistricts, getAllStates, registerO
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
+import { Toaster, toast } from "react-hot-toast";
 
 const FifthForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -106,17 +107,41 @@ const FifthForm = () => {
 
   const handleData = async (e) => {
     e.preventDefault()
-    await registerOccupation(annualIncome, option, country, state, district, city, stateID)
-      .then(() => {
-        if (option === 'No') {
-          setPage(page === 10 ? 0 : page + 2);
-        } else {
-          setPage(page === 10 ? 0 : page + 1);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+
+    if (option === 'Yes') {
+      if (annualIncome === '') {
+        toast.error("select Annual Income")
+      }
+
+      else if (country === '') {
+        toast.error("select Country")
+      }
+
+      else if (state === '') {
+        toast.error("select State")
+      }
+
+      else if (district === '') {
+        toast.error("select District")
+      }
+
+      else if (city === '') {
+        toast.error("select City")
+      }
+
+      else {
+        await registerOccupation(annualIncome, option, country, state, district, city, stateID)
+          .then(() => {
+            setPage(page === 10 ? 0 : page + 1);
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      }
+    }
+    else {
+      setPage(page === 10 ? 0 : page + 2);
+    }
   }
 
   useEffect(() => {
@@ -134,7 +159,7 @@ const FifthForm = () => {
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
-
+        <Toaster />
         <label className="flex items-center relative w-max cursor-pointer select-none">
           <span className="text-sm font-oxygen mr-24">Are you working now ? </span>
           <input type="checkbox" className="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}

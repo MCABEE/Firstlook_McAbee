@@ -4,16 +4,24 @@ import { Toaster, toast } from "react-hot-toast";
 import OtpInput from "otp-input-react";
 import CircleIcon from '@mui/icons-material/Circle';
 import { registrationContext } from "../../../../context/formContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { uploadAadharDetails } from "../../../../api";
 
 const EighthForm = () => {
   const { page, setPage } = useContext(registrationContext)
+  const navigate = useNavigate()
 
   const [aadhar, setAadhar] = useState("")
   const [otp, setOtp] = useState("")
   const [shareCode, setShareCode] = useState("")
   const [transactionId, setTransactionId] = useState("")
   const [showOTP, setShowOTP] = useState(false);
+  const [careOf, setCareOf] = useState("")
+  const [fullName, setFullName] = useState("")
+  const [dob, setDob] = useState("")
+  const [pincode, setPincode] = useState("")
+  const [houseName, setHouseName] = useState("")
+
 
   const sendOtp = async (e) => {
     e.preventDefault()
@@ -53,9 +61,18 @@ const EighthForm = () => {
     const data = { otp: otp, include_xml: true, share_code: shareCode }
 
     await axios.post(`https://api.gridlines.io/aadhaar-api/boson/submit-otp`, data, { headers })
-      .then((response) => {
+      .then(async (response) => {
         toast.success("OTP verified successfully!");
-        console.log(response);
+
+        setCareOf(response?.data?.data?.aadhaar_data?.care_of)
+        setDob(response?.data?.data?.aadhaar_data?.date_of_birth)
+        setFullName(response?.data?.data?.aadhaar_data?.name)
+        setPincode(response?.data?.data?.aadhaar_data?.pincode)
+        setHouseName(response?.data?.data?.aadhaar_data?.house)
+
+        await uploadAadharDetails(careOf, fullName, aadhar, dob, pincode, houseName).then(() => {
+          navigate('/home')
+        })
       })
       .catch((err) => {
         toast.error(err)

@@ -13,6 +13,7 @@ import { registrationContext } from "../../../context/formContext";
 import { marriedStatus } from "../../../lib/constants";
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
+import { Toaster, toast } from "react-hot-toast";
 
 const FirstForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -50,13 +51,27 @@ const FirstForm = () => {
 
     e.preventDefault()
 
-    await quickSignupAboutYou(firstName, lastName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus).then((result) => {
+    if (religion === '') {
+      toast.error("select Religion")
+    }
+
+    else if (caste === '') {
+      toast.error("select Caste")
+    }
+
+    else if (maritalStatus === '') {
+      toast.error("select Marital Status")
+    }
+
+    else {
+      await quickSignupAboutYou(firstName, lastName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus).then((result) => {
         console.log(result);
         setPage(page === 10 ? 0 : page + 1);
       })
-      .catch((err) => {
-        console.log(err)
-      })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   }
 
   const getReligion = async () => {
@@ -84,16 +99,16 @@ const FirstForm = () => {
   useEffect(() => {
     getReligion()
     getCaste()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [religion])
-  
+
 
   const formattedDate = selectedDate ? format(selectedDate, 'dd/MM/yyyy') : '';
   return (
     <>
       <form>
+        <Toaster />
         <div className="flex justify-center space-x-20">
-
           <div
             className={`flex items-center justify-center rounded-full w-24 h-24 focus:outline-none ${selectedGender === 'male' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'
               }`}
@@ -118,6 +133,9 @@ const FirstForm = () => {
             type="text"
             placeholder="First Name"
             value={firstName}
+            required
+            pattern="[A-Za-z]+"
+            title="First Name is not valid"
             onChange={(e) => setFirstName(e.target.value)}
           ></input>
         </div>
@@ -128,6 +146,9 @@ const FirstForm = () => {
             type="text"
             placeholder="Last Name"
             value={lastName}
+            required
+            pattern="[A-Za-z]+"
+            title="Last Name is not valid"
             onChange={(e) => setLastName(e.target.value)}
           ></input>
         </div>
@@ -138,6 +159,9 @@ const FirstForm = () => {
             type="text"
             placeholder="Display Name"
             value={displayName}
+            required
+            pattern="[A-Za-z]+"
+            title="Display Name is not valid"
             onChange={(e) => setDisplayName(e.target.value)}
           ></input>
         </div>
@@ -148,6 +172,7 @@ const FirstForm = () => {
             value={formattedDate}
             placeholder="DOB"
             readOnly
+            required
             onClick={handleInputClick}
             className="w-72 ml-3.5 sm:ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
           />
@@ -272,28 +297,28 @@ const FirstForm = () => {
         <div className="flex items-center justify-between"></div>
       </form>
       <div className="flex justify-center mt-9 mb-10">
-                <div className={
-                    page === 0
-                        ? " text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "8px" }} />
-                </div>
-                <div className={
-                    page === 1
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "8px" }} />
-                </div>
-                <div className={
-                    page === 2
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
-                } >
-                    <CircleIcon sx={{ height: "8px" }} />
-                </div>
-            </div>
+        <div className={
+          page === 0
+            ? " text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 1
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 2
+            ? "text-[#F92739] font-medium"
+            : "text-gray-300 cursor-pointer"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+      </div>
     </>
   );
 };

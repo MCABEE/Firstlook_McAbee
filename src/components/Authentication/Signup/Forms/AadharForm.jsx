@@ -9,12 +9,14 @@ import FileInput from "../FileInput";
 import ImageCropper from "../ImageCropper";
 import { uploadAadharImage } from "../../../../api";
 import { registrationContext } from "../../../../context/formContext";
+import { useNavigate } from "react-router-dom";
 
 const AadharForm = () => {
-    const { page, setPage } = useContext(registrationContext)
+    const { page } = useContext(registrationContext)
+    const navigate = useNavigate()
+
     const [isOpen, setIsOpen] = useState("");
     const [imageSide, setImageSide] = useState("");
-
     const [image, setImage] = useState("");
     const [currentPage, setCurrentPage] = useState("choose-img");
     const [imgFrontAfterCrop, setImgFrontAfterCrop] = useState("");
@@ -124,9 +126,8 @@ const AadharForm = () => {
                     console.log(progress)
                 },
             })
-                .then((response) => {
-                    console.log(response)
-                    setPage(page === 10 ? 0 : page + 1);
+                .then(() => {
+                    navigate('/home')
                 })
                 .catch((err) => {
                     console.log(err)

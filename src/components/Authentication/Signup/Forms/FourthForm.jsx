@@ -5,6 +5,7 @@ import { registrationContext } from "../../../../context/formContext";
 import { getAllAcademicStream, getAllColleges, getAllCountries, getAllCourse, getAllInstitutes, getAllUniversities, registerAcademic } from "../../../../api";
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
+import { Toaster, toast } from "react-hot-toast";
 
 const FourthForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -156,13 +157,36 @@ const FourthForm = () => {
 
   const handleData = async (e) => {
     e.preventDefault()
-    await registerAcademic(passYear, option, academicStream, courseName, country, university, institute, college)
-      .then(() => {
-        setPage(page === 10 ? 0 : page + 1);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+
+    if (passYear === '') {
+      toast.error("select Pass Year")
+    }
+
+    else if (academicStream === '') {
+      toast.error("select Academic Stream")
+    }
+
+    else if (courseName === '') {
+      toast.error("select CourseName")
+    }
+
+    else if (country === '') {
+      toast.error("select Country")
+    }
+
+    else if (university === '' || institute === '' || college === '') {
+      toast.error("select any University, Institute or College")
+    }
+
+    else {
+      await registerAcademic(passYear, option, academicStream, courseName, country, university, institute, college)
+        .then(() => {
+          setPage(page === 10 ? 0 : page + 1);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
   }
 
   useEffect(() => {
@@ -182,7 +206,7 @@ const FourthForm = () => {
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
-
+        <Toaster />
         <label className="flex items-center relative w-max cursor-pointer select-none">
           <span className="text-sm font-oxygen mr-24">Are you still studying ? </span>
           <input type="checkbox" className="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}

@@ -4,6 +4,7 @@ import { getAllHomeTown, getAllPincode, registerFamilyAddress } from "../../../.
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
+import { Toaster, toast } from "react-hot-toast";
 
 const SixthForm2 = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -67,13 +68,40 @@ const SixthForm2 = () => {
 
   const handleData = async (e) => {
     e.preventDefault()
-    await registerFamilyAddress(familyName, homeTown, pincode, contactNumber, homeContactNumber, district)
-      .then(() => {
-        setPage(page === 10 ? 0 : page + 1);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+
+    if (familyName === '') {
+      toast.error("Enter Family Name")
+    }
+
+    else if (homeTown === '') {
+      toast.error("select Home Town")
+    }
+
+    else if (pincode === '') {
+      toast.error("select Pincode")
+    }
+
+    else if (contactNumber === '') {
+      toast.error("Enter Contact Number")
+    }
+
+    else if (homeContactNumber === '') {
+      toast.error("Enter Home Contact Number")
+    }
+
+    else if (district === '') {
+      toast.error("select District")
+    }
+
+    else {
+      await registerFamilyAddress(familyName, homeTown, pincode, contactNumber, homeContactNumber, district)
+        .then(() => {
+          setPage(page === 10 ? 0 : page + 1);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
   }
 
   useEffect(() => {
@@ -84,7 +112,7 @@ const SixthForm2 = () => {
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
-
+        <Toaster />
         <p className="mb-3 text-sm font-medium">
           Your Residential Address
         </p>

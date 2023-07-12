@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { getAllCountries, getAllDistricts, getAllMotherToungues, getAllStates, registerNative } from '../../../../api';
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
+import { Toaster, toast } from 'react-hot-toast';
 
 const SecondForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -70,13 +71,30 @@ const SecondForm = () => {
 
   const handleData = async (e) => {
     e.preventDefault()
-    await registerNative(country, state, district, motherToungue)
-      .then(() => {
-        setPage(page === 10 ? 0 : page + 1);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+    if (country === "") {
+      toast.error("select country")
+    }
+
+    else if (state === "") {
+      toast.error("select State")
+    }
+
+    else if (district === "") {
+      toast.error("select District")
+    }
+
+    else if (motherToungue === "") {
+      toast.error("select Mother Toungue")
+    }
+    else {
+      await registerNative(country, state, district, motherToungue)
+        .then(() => {
+          setPage(page === 10 ? 0 : page + 1);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
   }
 
   useEffect(() => {
@@ -96,7 +114,7 @@ const SecondForm = () => {
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
-
+        <Toaster />
         <div className="mb-6 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"

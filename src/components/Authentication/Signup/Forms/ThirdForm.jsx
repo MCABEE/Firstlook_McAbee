@@ -6,6 +6,7 @@ import { marriedStatus, typeBody } from "../../../../lib/constants";
 import { getAllCaste, getAllReligion, registerPersonalInfo } from "../../../../api";
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
+import { Toaster, toast } from "react-hot-toast";
 
 const ThirdForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -48,13 +49,44 @@ const ThirdForm = () => {
 
   const handleData = async (e) => {
     e.preventDefault()
-    await registerPersonalInfo(maritalStatus, bodyType, physicalStatus, religion, caste, height, weight)
-      .then(() => {
-        setPage(page === 10 ? 0 : page + 1);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+
+    if (religion === '') {
+      toast.error("select Religion")
+    }
+
+    else if (caste === '') {
+      toast.error("select Caste")
+    }
+
+    else if (maritalStatus === '') {
+      toast.error("select Marital Status")
+    }
+
+    else if (bodyType === '') {
+      toast.error("select Body Type")
+    }
+
+    else if (physicalStatus === '') {
+      toast.error("select Physical Status")
+    }
+
+    else if (height === '') {
+      toast.error("select Height")
+    }
+
+    else if (weight === '') {
+      toast.error("select Weight")
+    }
+
+    else {
+      await registerPersonalInfo(maritalStatus, bodyType, physicalStatus, religion, caste, height, weight)
+        .then(() => {
+          setPage(page === 10 ? 0 : page + 1);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
   }
 
   useEffect(() => {
@@ -67,7 +99,7 @@ const ThirdForm = () => {
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
-
+        <Toaster />
         <div className="mb-6 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
