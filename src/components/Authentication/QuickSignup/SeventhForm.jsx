@@ -125,6 +125,7 @@ const SeventhForm = () => {
             navigate('/home')
           })
           .catch((err) => {
+            toast.error("Image Upload Failed")
             console.log(err)
           })
       }

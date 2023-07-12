@@ -120,11 +120,11 @@ const SeventhForm = () => {
             console.log(progress)
           },
         })
-          .then((response) => {
-            console.log(response)
+          .then(() => {
             setPage(page === 10 ? 0 : page + 1);
           })
           .catch((err) => {
+            toast.error("Image Upload Failed")
             console.log(err)
           })
       }
