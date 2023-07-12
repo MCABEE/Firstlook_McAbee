@@ -51,7 +51,27 @@ const FirstForm = () => {
 
     e.preventDefault()
 
-    if (religion === '') {
+    if (selectedGender === null) {
+      toast.error("Select your Gender")
+    }
+
+    else if (firstName === "") {
+      toast.error("Enter your First Name")
+    }
+
+    else if (lastName === "") {
+      toast.error("Enter your Last Name")
+    }
+
+    else if (displayName === "") {
+      toast.error("Enter your Display Name")
+    }
+
+    else if (selectedDate === null) {
+      toast.error("Enter your DOB")
+    }
+
+    else if (religion === '') {
       toast.error("select Religion")
     }
 

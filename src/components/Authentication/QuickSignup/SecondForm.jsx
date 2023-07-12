@@ -25,6 +25,8 @@ const SecondForm = () => {
   const [companyName, setCompanyName] = useState(userData?.occupation?.companyName || "")
   const [employerName, setEmployerName] = useState(userData?.occupation?.employerName || "")
   const [search, setSearch] = useState("");
+  const [option, setOption] = useState(userData?.occupation?.hasJob || "No")
+  const [selectedOption, setSelectedOption] = useState(false);
 
   const [nCountries, setNCountries] = useState([])
   const [nStates, setNStates] = useState([])
@@ -111,6 +113,15 @@ const SecondForm = () => {
       })
   }
 
+  const handleToggle = () => {
+    setSelectedOption(!selectedOption);
+    if (!selectedOption) {
+      setOption("Yes")
+    } else {
+      setOption("No")
+    }
+  };
+
   const handleData = async (e) => {
     e.preventDefault()
 
@@ -129,7 +140,7 @@ const SecondForm = () => {
     else if (motherToungue === "") {
       toast.error("select Mother Toungue")
     }
-    
+
     else {
       await quickSignupNative(country, state, district, motherToungue, jobCategory, jobType, designation, stream, companyName, employerName)
         .then(() => {
@@ -186,6 +197,26 @@ const SecondForm = () => {
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
         <Toaster />
+
+        <label className="flex items-center relative w-max cursor-pointer select-none mb-10">
+          <span className="text-sm font-oxygen mr-24">Are you working now ? </span>
+          <input type="checkbox" className="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}
+            onChange={handleToggle} />
+          <span className="absolute font-medium text-xs uppercase right-1 text-white"> {selectedOption ? '' : 'No'} </span>
+          <span className="absolute font-medium text-xs uppercase right-8 text-white"> {selectedOption ? 'Yes' : ''} </span>
+          <span className="w-5 h-5 right-8 absolute rounded-full transform transition-transform bg-gray-200" />
+        </label>
+
+        <style>{`
+        input:checked {
+          background-color: #22c55e;
+        }
+
+        input:checked ~ span:last-child {
+          --tw-translate-x: 1.75rem;
+        }
+      `}</style>
+
         <div className="mb-6 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
@@ -313,352 +344,356 @@ const SecondForm = () => {
           ) : " "}
         </div>
 
-        <div className="mb-6 mt-4 flex">
-          <button
-            type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Job Category")}
-          >
-            <p className="w-44 truncate text-sm">{jobCategory ? jobCategory : "Job Category ?"}</p>
-          </button>
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
-            <KeyboardArrowDownRoundedIcon />
-          </div>
-          {isOpen === 'Job Category' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-              {jobCategories.map((category) => (
-                <>
-                  <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                    onClick={() => {
-                      setJobCategory(category.name)
-                      setIsOpen("")
-                    }}
-                  >
-                    <p className="mr-2" >{category.name}</p>
-                  </li>
-                </>
-              ))}
-
-            </ul>
-          ) : " "}
-        </div>
-
-        {jobCategory === 'Business' ? (
+        {option === 'Yes' ?
           <>
-            <div className="mb-6 mt-5 flex">
-              <input type="text"
-                value={designation}
-                onChange={(e) => {
-                  let searchValue = e.target.value.toLocaleLowerCase();
-                  setSearch(searchValue);
-                  setDesignation(e.target.value);
-                }}
-                onClick={() => setIsOpen("Designation")}
-                placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
-              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-                <KeyboardArrowDownRoundedIcon />
-              </div>
-              {isOpen === 'Designation' ? (
-                <>
-                  <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-                    {designationData.map((data) => (
-                      <>
-                        <li
-                          className="px-4 py-2 cursor-pointer flex"
-                          onClick={() => {
-                            setDesignation(data);
-                            setIsOpen("");
-                          }}
-                        >
-                          <p className="mr-2">{data}</p>
-                        </li>
-                      </>
-                    ))}
-                  </ul>
-                </>
-              ) : " "}
-            </div>
-
-            <div className="mb-6 mt-5 flex">
-              <input
-                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
-                type="text"
-                placeholder="Company Name"
-                value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
-              ></input>
-            </div>
-          </>
-        ) : jobCategory === "Government" ? (
-          <>
-            <div className="mb-6 mt-5 flex">
-              <input type="text"
-                value={designation}
-                onChange={(e) => {
-                  let searchValue = e.target.value.toLocaleLowerCase();
-                  setSearch(searchValue);
-                  setDesignation(e.target.value);
-                }}
-                onClick={() => setIsOpen("Designation")}
-                placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
-              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-                <KeyboardArrowDownRoundedIcon />
-              </div>
-              {isOpen === 'Designation' ? (
-                <>
-                  <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-                    {designationData.map((data) => (
-                      <>
-                        <li
-                          className="px-4 py-2 cursor-pointer flex"
-                          onClick={() => {
-                            setDesignation(data);
-                            setIsOpen("");
-                          }}
-                        >
-                          <p className="mr-2">{data}</p>
-                        </li>
-                      </>
-                    ))}
-                  </ul>
-                </>
-              ) : " "}
-            </div>
-            <div className="mb-6 mt-5 flex">
+            <div className="mb-6 mt-4 flex">
               <button
                 type="button"
                 className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-                onClick={() => setIsOpen("Job Type")}
+                onClick={() => setIsOpen("Job Category")}
               >
-                <p className="w-44 truncate text-sm">{jobType ? jobType : "Job Type"}</p>
+                <p className="w-44 truncate text-sm">{jobCategory ? jobCategory : "Job Category ?"}</p>
               </button>
               <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
                 <KeyboardArrowDownRoundedIcon />
               </div>
-              {isOpen === 'Job Type' ? (
+              {isOpen === 'Job Category' ? (
                 <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
-                  <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                    onClick={() => {
-                      setJobType("Permanent")
-                      setIsOpen("")
-                    }}
-                  >
-                    <p className="mr-2" >Permanent</p>
-                  </li>
-                  <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                    onClick={() => {
-                      setJobType("Temporary")
-                      setIsOpen("")
-                    }}
-                  >
-                    <p className="mr-2">Temporary</p>
-                  </li>
-
-                </ul>
-              ) : " "}
-            </div>
-            <div className="mb-6 mt-5 flex">
-              <input type="text"
-                value={employerName}
-                onChange={(e) => {
-                  let searchValue = e.target.value.toLocaleLowerCase();
-                  setSearch(searchValue);
-                  setEmployerName(e.target.value);
-                }}
-                onClick={() => setIsOpen("Employer")}
-                placeholder="Department / Employer / Authority" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
-              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-                <KeyboardArrowDownRoundedIcon />
-              </div>
-              {isOpen === 'Employer' ? (
-                <>
-                  <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-                    {employerData.map((data) => (
-                      <>
-                        <li
-                          className="px-4 py-2 cursor-pointer flex"
-                          onClick={() => {
-                            setEmployerName(data);
-                            setIsOpen("");
-                          }}
-                        >
-                          <p className="mr-2">{data}</p>
-                        </li>
-                      </>
-                    ))}
-                  </ul>
-                </>
-              ) : " "}
-            </div>
-          </>
-        ) : jobCategory === "Private" ? (
-          <>
-            <div className="mb-6 mt-5 flex">
-              <div
-                className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-                onClick={() => setIsOpen("Job Stream")}
-              >
-                <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
-              </div>
-              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-                <KeyboardArrowDownRoundedIcon />
-              </div>
-              {isOpen === 'Job Stream' ? (
-                <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
-                  {nStream?.map((stream) => (
+                  {jobCategories.map((category) => (
                     <>
                       <li
                         className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                         onClick={() => {
-                          setStream(stream?.name)
+                          setJobCategory(category.name)
                           setIsOpen("")
                         }}
                       >
-                        <p className="mr-2">{stream?.name}</p>
+                        <p className="mr-2" >{category.name}</p>
                       </li>
                     </>
                   ))}
+
                 </ul>
               ) : " "}
             </div>
-            <div className="mb-6 mt-5 flex">
-              <input type="text"
-                value={designation}
-                onChange={(e) => {
-                  let searchValue = e.target.value.toLocaleLowerCase();
-                  setSearch(searchValue);
-                  setDesignation(e.target.value);
-                }}
-                onClick={() => setIsOpen("Designation")}
-                placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
-              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-                <KeyboardArrowDownRoundedIcon />
-              </div>
-              {isOpen === 'Designation' ? (
-                <>
-                  <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-                    {designationData.map((data) => (
-                      <>
-                        <li
-                          className="px-4 py-2 cursor-pointer flex"
-                          onClick={() => {
-                            setDesignation(data);
-                            setIsOpen("");
-                          }}
-                        >
-                          <p className="mr-2">{data}</p>
-                        </li>
-                      </>
-                    ))}
-                  </ul>
-                </>
-              ) : " "}
-            </div>
-            <div className="mb-6 mt-5 flex">
-              <input type="text"
-                value={employerName}
-                onChange={(e) => {
-                  let searchValue = e.target.value.toLocaleLowerCase();
-                  setSearch(searchValue);
-                  setEmployerName(e.target.value);
-                }}
-                onClick={() => setIsOpen("Employer")}
-                placeholder="Employer / Company  Name" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
-              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-                <KeyboardArrowDownRoundedIcon />
-              </div>
-              {isOpen === 'Employer' ? (
-                <>
-                  <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-                    {employerData.map((data) => (
-                      <>
-                        <li
-                          className="px-4 py-2 cursor-pointer flex"
-                          onClick={() => {
-                            setEmployerName(data);
-                            setIsOpen("");
-                          }}
-                        >
-                          <p className="mr-2">{data}</p>
-                        </li>
-                      </>
-                    ))}
-                  </ul>
-                </>
-              ) : " "}
-            </div>
-          </>
-        ) : jobCategory === "Self Employed" ? (
-          <>
-            <div className="mb-6 mt-5 flex">
-              <div
-                className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-                onClick={() => setIsOpen("Job Stream")}
-              >
-                <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
-              </div>
-              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-                <KeyboardArrowDownRoundedIcon />
-              </div>
-              {isOpen === 'Job Stream' ? (
-                <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
 
-                  {nStream?.map((stream) => (
+            {jobCategory === 'Business' ? (
+              <>
+                <div className="mb-6 mt-5 flex">
+                  <input type="text"
+                    value={designation}
+                    onChange={(e) => {
+                      let searchValue = e.target.value.toLocaleLowerCase();
+                      setSearch(searchValue);
+                      setDesignation(e.target.value);
+                    }}
+                    onClick={() => setIsOpen("Designation")}
+                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                  <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                    <KeyboardArrowDownRoundedIcon />
+                  </div>
+                  {isOpen === 'Designation' ? (
                     <>
+                      <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        {designationData.map((data) => (
+                          <>
+                            <li
+                              className="px-4 py-2 cursor-pointer flex"
+                              onClick={() => {
+                                setDesignation(data);
+                                setIsOpen("");
+                              }}
+                            >
+                              <p className="mr-2">{data}</p>
+                            </li>
+                          </>
+                        ))}
+                      </ul>
+                    </>
+                  ) : " "}
+                </div>
+
+                <div className="mb-6 mt-5 flex">
+                  <input
+                    className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
+                    type="text"
+                    placeholder="Company Name"
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
+                  ></input>
+                </div>
+              </>
+            ) : jobCategory === "Government" ? (
+              <>
+                <div className="mb-6 mt-5 flex">
+                  <input type="text"
+                    value={designation}
+                    onChange={(e) => {
+                      let searchValue = e.target.value.toLocaleLowerCase();
+                      setSearch(searchValue);
+                      setDesignation(e.target.value);
+                    }}
+                    onClick={() => setIsOpen("Designation")}
+                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                  <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                    <KeyboardArrowDownRoundedIcon />
+                  </div>
+                  {isOpen === 'Designation' ? (
+                    <>
+                      <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        {designationData.map((data) => (
+                          <>
+                            <li
+                              className="px-4 py-2 cursor-pointer flex"
+                              onClick={() => {
+                                setDesignation(data);
+                                setIsOpen("");
+                              }}
+                            >
+                              <p className="mr-2">{data}</p>
+                            </li>
+                          </>
+                        ))}
+                      </ul>
+                    </>
+                  ) : " "}
+                </div>
+                <div className="mb-6 mt-5 flex">
+                  <button
+                    type="button"
+                    className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+                    onClick={() => setIsOpen("Job Type")}
+                  >
+                    <p className="w-44 truncate text-sm">{jobType ? jobType : "Job Type"}</p>
+                  </button>
+                  <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
+                    <KeyboardArrowDownRoundedIcon />
+                  </div>
+                  {isOpen === 'Job Type' ? (
+                    <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
                       <li
                         className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                         onClick={() => {
-                          setStream(stream?.name)
+                          setJobType("Permanent")
                           setIsOpen("")
                         }}
                       >
-                        <p className="mr-2">{stream?.name}</p>
+                        <p className="mr-2" >Permanent</p>
                       </li>
+                      <li
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                        onClick={() => {
+                          setJobType("Temporary")
+                          setIsOpen("")
+                        }}
+                      >
+                        <p className="mr-2">Temporary</p>
+                      </li>
+
+                    </ul>
+                  ) : " "}
+                </div>
+                <div className="mb-6 mt-5 flex">
+                  <input type="text"
+                    value={employerName}
+                    onChange={(e) => {
+                      let searchValue = e.target.value.toLocaleLowerCase();
+                      setSearch(searchValue);
+                      setEmployerName(e.target.value);
+                    }}
+                    onClick={() => setIsOpen("Employer")}
+                    placeholder="Department / Employer / Authority" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                  <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                    <KeyboardArrowDownRoundedIcon />
+                  </div>
+                  {isOpen === 'Employer' ? (
+                    <>
+                      <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        {employerData.map((data) => (
+                          <>
+                            <li
+                              className="px-4 py-2 cursor-pointer flex"
+                              onClick={() => {
+                                setEmployerName(data);
+                                setIsOpen("");
+                              }}
+                            >
+                              <p className="mr-2">{data}</p>
+                            </li>
+                          </>
+                        ))}
+                      </ul>
                     </>
-                  ))}
-                </ul>
-              ) : " "}
-            </div>
-            <div className="mb-6 mt-5 flex">
-              <input type="text"
-                value={designation}
-                onChange={(e) => {
-                  let searchValue = e.target.value.toLocaleLowerCase();
-                  setSearch(searchValue);
-                  setDesignation(e.target.value);
-                }}
-                onClick={() => setIsOpen("Designation")}
-                placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
-              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-                <KeyboardArrowDownRoundedIcon />
-              </div>
-              {isOpen === 'Designation' ? (
-                <>
-                  <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-                    {designationData.map((data) => (
-                      <>
-                        <li
-                          className="px-4 py-2 cursor-pointer flex"
-                          onClick={() => {
-                            setDesignation(data);
-                            setIsOpen("");
-                          }}
-                        >
-                          <p className="mr-2">{data}</p>
-                        </li>
-                      </>
-                    ))}
-                  </ul>
-                </>
-              ) : " "}
-            </div>
+                  ) : " "}
+                </div>
+              </>
+            ) : jobCategory === "Private" ? (
+              <>
+                <div className="mb-6 mt-5 flex">
+                  <div
+                    className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+                    onClick={() => setIsOpen("Job Stream")}
+                  >
+                    <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
+                  </div>
+                  <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                    <KeyboardArrowDownRoundedIcon />
+                  </div>
+                  {isOpen === 'Job Stream' ? (
+                    <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+                      {nStream?.map((stream) => (
+                        <>
+                          <li
+                            className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                            onClick={() => {
+                              setStream(stream?.name)
+                              setIsOpen("")
+                            }}
+                          >
+                            <p className="mr-2">{stream?.name}</p>
+                          </li>
+                        </>
+                      ))}
+                    </ul>
+                  ) : " "}
+                </div>
+                <div className="mb-6 mt-5 flex">
+                  <input type="text"
+                    value={designation}
+                    onChange={(e) => {
+                      let searchValue = e.target.value.toLocaleLowerCase();
+                      setSearch(searchValue);
+                      setDesignation(e.target.value);
+                    }}
+                    onClick={() => setIsOpen("Designation")}
+                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                  <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                    <KeyboardArrowDownRoundedIcon />
+                  </div>
+                  {isOpen === 'Designation' ? (
+                    <>
+                      <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        {designationData.map((data) => (
+                          <>
+                            <li
+                              className="px-4 py-2 cursor-pointer flex"
+                              onClick={() => {
+                                setDesignation(data);
+                                setIsOpen("");
+                              }}
+                            >
+                              <p className="mr-2">{data}</p>
+                            </li>
+                          </>
+                        ))}
+                      </ul>
+                    </>
+                  ) : " "}
+                </div>
+                <div className="mb-6 mt-5 flex">
+                  <input type="text"
+                    value={employerName}
+                    onChange={(e) => {
+                      let searchValue = e.target.value.toLocaleLowerCase();
+                      setSearch(searchValue);
+                      setEmployerName(e.target.value);
+                    }}
+                    onClick={() => setIsOpen("Employer")}
+                    placeholder="Employer / Company  Name" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                  <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                    <KeyboardArrowDownRoundedIcon />
+                  </div>
+                  {isOpen === 'Employer' ? (
+                    <>
+                      <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        {employerData.map((data) => (
+                          <>
+                            <li
+                              className="px-4 py-2 cursor-pointer flex"
+                              onClick={() => {
+                                setEmployerName(data);
+                                setIsOpen("");
+                              }}
+                            >
+                              <p className="mr-2">{data}</p>
+                            </li>
+                          </>
+                        ))}
+                      </ul>
+                    </>
+                  ) : " "}
+                </div>
+              </>
+            ) : jobCategory === "Self Employed" ? (
+              <>
+                <div className="mb-6 mt-5 flex">
+                  <div
+                    className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+                    onClick={() => setIsOpen("Job Stream")}
+                  >
+                    <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
+                  </div>
+                  <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                    <KeyboardArrowDownRoundedIcon />
+                  </div>
+                  {isOpen === 'Job Stream' ? (
+                    <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+
+                      {nStream?.map((stream) => (
+                        <>
+                          <li
+                            className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                            onClick={() => {
+                              setStream(stream?.name)
+                              setIsOpen("")
+                            }}
+                          >
+                            <p className="mr-2">{stream?.name}</p>
+                          </li>
+                        </>
+                      ))}
+                    </ul>
+                  ) : " "}
+                </div>
+                <div className="mb-6 mt-5 flex">
+                  <input type="text"
+                    value={designation}
+                    onChange={(e) => {
+                      let searchValue = e.target.value.toLocaleLowerCase();
+                      setSearch(searchValue);
+                      setDesignation(e.target.value);
+                    }}
+                    onClick={() => setIsOpen("Designation")}
+                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                  <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                    <KeyboardArrowDownRoundedIcon />
+                  </div>
+                  {isOpen === 'Designation' ? (
+                    <>
+                      <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        {designationData.map((data) => (
+                          <>
+                            <li
+                              className="px-4 py-2 cursor-pointer flex"
+                              onClick={() => {
+                                setDesignation(data);
+                                setIsOpen("");
+                              }}
+                            >
+                              <p className="mr-2">{data}</p>
+                            </li>
+                          </>
+                        ))}
+                      </ul>
+                    </>
+                  ) : " "}
+                </div>
+              </>
+            ) : ""}
           </>
-        ) : ""}
+          : null}
 
         <button
           onClick={handleData}

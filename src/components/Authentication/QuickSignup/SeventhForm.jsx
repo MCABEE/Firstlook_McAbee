@@ -109,6 +109,7 @@ const SeventhForm = () => {
     if (imgAfterCrop === "") {
       toast.error("Upload Image")
     }
+    
     else {
       if (isOpen === 'photo') {
         await uploadImage(imgAfterCrop, {
