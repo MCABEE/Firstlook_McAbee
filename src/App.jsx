@@ -37,9 +37,9 @@ function App() {
           <registrationContext.Provider value={{ page, setPage }}>
             <QuickSignup />
           </registrationContext.Provider>} />
-        <Route path='/termsofuse' element={<TermsOfUse />} />
-        <Route path='/membership/policy' element={<MembershipPolicy />} />
-        <Route path='/refund/policy' element={<RefundPolicy />} />
+        <Route path='/privacypolicy' element={<TermsOfUse />} />
+        <Route path='/membershippolicy' element={<MembershipPolicy />} />
+        <Route path='/refundpolicy' element={<RefundPolicy />} />
         <Route path='/home' element={<LandingPage />} />
         <Route path='/firstlookFeatures' element={<FeaturePage />} />
         <Route path='/stories' element={<PageConstruct />} />

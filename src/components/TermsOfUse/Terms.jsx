@@ -5,6 +5,9 @@ const Terms = () => {
         <>
             <div className='w-11/12 mx-auto h-fit'>
                 <div className="sm:ml-16">
+                    <p className="text-[24px] flex justify-center font-oxygen font-bold mt-16">
+                        TERMS OF USE
+                    </p>
                     <p className="text-[24px] font-oxygen font-bold mt-20">
                         T & C Introduction
                     </p>

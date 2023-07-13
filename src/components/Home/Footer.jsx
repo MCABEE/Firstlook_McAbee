@@ -36,7 +36,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             className="text-gray-700 transition hover:text-gray-700/75"
-                                            to="/termsofuse"
+                                            to="/privacypolicy"
                                         >
                                             T&C, Privacy
                                         </Link>
@@ -45,7 +45,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             className="text-gray-700 transition hover:text-gray-700/75"
-                                            to="/membership/policy"
+                                            to="/membershippolicy"
                                         >
                                             Membership Policy
                                         </Link>
@@ -54,7 +54,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             className="text-gray-700 transition hover:text-gray-700/75"
-                                            to="/refund/policy"
+                                            to="/refundpolicy"
                                         >
                                             Refund Policy
                                         </Link>
