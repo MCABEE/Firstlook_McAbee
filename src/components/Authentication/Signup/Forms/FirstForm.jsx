@@ -11,7 +11,7 @@ import { useContext } from "react";
 import { registrationContext } from "../../../../context/formContext";
 import { registerAboutYou } from "../../../../api";
 import { useSelector } from "react-redux";
-import { toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 const FirstForm = () => {
   const userData = useSelector((state) => state.getUserFilledData?.data)
@@ -45,7 +45,7 @@ const FirstForm = () => {
       toast.error("Select your Gender")
     }
 
-    else if (selectedDate === null) {
+    else if (selectedDate === null || selectedDate === 'DOB') {
       toast.error("Enter your DOB")
     }
 
@@ -67,6 +67,7 @@ const FirstForm = () => {
   return (
     <>
       <form onSubmit={handleData} className="-mt-8">
+        <Toaster/>
         <div className="flex justify-center space-x-20">
 
           <div

@@ -188,7 +188,7 @@ const Footer = () => {
                                     <ul className="flex justify-center gap-6 md:justify-start lg:justify-start">
                                         <li>
                                             <Link
-                                                to="/"
+                                                to="/https://facebook.com/firstlookmatchmaking"
                                                 rel="noreferrer"
                                                 target="_blank"
                                                 className="text-rose-600 transition hover:text-rose-600/75"
@@ -211,7 +211,7 @@ const Footer = () => {
 
                                         <li>
                                             <Link
-                                                to="/"
+                                                to="/https://instagram.com/firstlook_app"
                                                 rel="noreferrer"
                                                 target="_blank"
                                                 className="text-rose-600 transition hover:text-rose-600/75"
@@ -234,7 +234,7 @@ const Footer = () => {
 
                                         <li>
                                             <Link
-                                                to="/"
+                                                to="/https://twitter.com/firstlook_app"
                                                 rel="noreferrer"
                                                 target="_blank"
                                                 className="text-rose-600 transition hover:text-rose-600/75"
