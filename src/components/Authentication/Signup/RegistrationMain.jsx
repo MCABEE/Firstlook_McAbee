@@ -149,8 +149,8 @@ const RegistrationMain = () => {
     return (
         <>
             <Navbar />
-            <div className="flex h-screen justify-center items-center mt-20 ml-0">
-                <div className="w-full h-[55rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md mt-44">
+            <div className="flex justify-center items-center mt-10 ml-0">
+                <div className="w-full h-[55rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md">
                     <p className="font-oxygen font-bold flex justify-center mt-16 text-2xl">
                         Registration
                     </p>
@@ -166,7 +166,7 @@ const RegistrationMain = () => {
                                     <span
                                         className={
                                             page === 0
-                                                ? "ml-2 text-[#F92739] font-medium"
+                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >
@@ -185,7 +185,7 @@ const RegistrationMain = () => {
                                     <span
                                         className={
                                             page === 1
-                                                ? "ml-2 text-[#F92739] font-medium"
+                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >
@@ -204,7 +204,7 @@ const RegistrationMain = () => {
                                     <span
                                         className={
                                             page === 2 || page === 3
-                                                ? "ml-2 text-[#F92739] font-medium"
+                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >
@@ -223,7 +223,7 @@ const RegistrationMain = () => {
                                     <span
                                         className={
                                             page === 4
-                                                ? "ml-2 text-[#F92739] font-medium"
+                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >
@@ -242,7 +242,7 @@ const RegistrationMain = () => {
                                     <span
                                         className={
                                             page === 5 || page === 6
-                                                ? "ml-2 text-[#F92739] font-medium"
+                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >
@@ -261,7 +261,7 @@ const RegistrationMain = () => {
                                     <span
                                         className={
                                             page === 7 || page === 8
-                                                ? "ml-2 text-[#F92739] font-medium"
+                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >
@@ -280,7 +280,7 @@ const RegistrationMain = () => {
                                     <span
                                         className={
                                             page === 9
-                                                ? "ml-2 text-[#F92739] font-medium"
+                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >
@@ -299,7 +299,7 @@ const RegistrationMain = () => {
                                     <span
                                         className={
                                             page === 10 || page === 11
-                                                ? "ml-2 text-[#F92739] font-medium"
+                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >
@@ -318,7 +318,7 @@ const RegistrationMain = () => {
                                     <span
                                         className={
                                             page === 12
-                                                ? "ml-2 text-[#F92739] font-medium"
+                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
                                                 : "ml-2 text-[#807D7D] cursor-pointer"
                                         }
                                     >

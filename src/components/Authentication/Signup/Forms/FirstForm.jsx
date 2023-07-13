@@ -129,7 +129,7 @@ const FirstForm = () => {
         <div className="relative inline-block mb-10">
           <input
             type="text"
-            value={formattedDate || dob !== 'Invalid Date' ? dob : "DOB" || "DOB"}
+            value={formattedDate || dob || "DOB"}
             readOnly
             onClick={handleInputClick}
             className="w-72 ml-3.5 sm:ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"

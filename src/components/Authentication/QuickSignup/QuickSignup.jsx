@@ -35,8 +35,8 @@ const QuickSignup = () => {
     return (
         <>
             <Navbar />
-            <div className="flex h-screen justify-center items-center mt-20">
-                <div className="w-full h-[55rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-lg mt-44">
+            <div className="flex justify-center items-center">
+                <div className="w-full h-[55rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-lg">
                     <p className="font-oxygen font-bold flex justify-center mt-16 text-[16px]">
                         Quick Signup
                     </p>

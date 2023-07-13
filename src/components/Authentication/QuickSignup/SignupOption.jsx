@@ -19,11 +19,11 @@ const SignupOption = () => {
                             <p className="text-white text-[12px] ml-10 w-3/4 text-justify mt-5">
                                 While choosing this option, you can easily launch profile. But will have to provide complete information about yourself before doing any activity on your profile.
                             </p>
-                            <button className="text-[14px] font-semibold bg-white ml-[4.35rem] w-56 mt-6 py-3 rounded-xl">
-                                <Link to="/register/quickSignup">
+                            <Link to="/register/quickSignup">
+                                <button className="text-[14px] font-semibold bg-white ml-[4.35rem] w-56 mt-6 py-3 rounded-xl">
                                     Let’s Start
-                                </Link>
-                            </button>
+                                </button>
+                            </Link>
                             <p className="ml-10 text-[14px] font-semibold mt-20">
                                 Or
                             </p>
@@ -33,11 +33,11 @@ const SignupOption = () => {
                             <p className="ml-10 text-[12px] mt-4 w-3/4 text-justify">
                                 If you choose the <span className="font-semibold">’Standard Signup’</span> option, enter the complete information now and start search without any hassles further.
                             </p>
-                            <button className="text-[14px] font-semibold bg-white border border-[#F92739] ml-[4.35rem] w-56 mt-9 py-3 rounded-xl mb-28">
-                                <Link to="/register/signup">
+                            <Link to="/register/signup">
+                                <button className="text-[14px] font-semibold bg-white border border-[#F92739] ml-[4.35rem] w-56 mt-9 py-3 rounded-xl mb-28">
                                     I Select this
-                                </Link>
-                            </button>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

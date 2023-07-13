@@ -16,12 +16,6 @@ const EighthForm = () => {
   const [shareCode, setShareCode] = useState("")
   const [transactionId, setTransactionId] = useState("")
   const [showOTP, setShowOTP] = useState(false);
-  const [careOf, setCareOf] = useState("")
-  const [fullName, setFullName] = useState("")
-  const [dob, setDob] = useState("")
-  const [pincode, setPincode] = useState("")
-  const [houseName, setHouseName] = useState("")
-
 
   const sendOtp = async (e) => {
     e.preventDefault()
@@ -36,7 +30,7 @@ const EighthForm = () => {
 
     await axios.post(`https://api.gridlines.io/aadhaar-api/boson/generate-otp`, data, { headers })
       .then((response) => {
-        toast.success("OTP sended successfully!");
+        toast.success("OTP send successfully!");
         setShowOTP(true)
         setTransactionId(response?.data?.data?.transaction_id)
         setShareCode(response?.data?.data?.code)
@@ -64,18 +58,19 @@ const EighthForm = () => {
       .then(async (response) => {
         toast.success("OTP verified successfully!");
 
-        setCareOf(response?.data?.data?.aadhaar_data?.care_of)
-        setDob(response?.data?.data?.aadhaar_data?.date_of_birth)
-        setFullName(response?.data?.data?.aadhaar_data?.name)
-        setPincode(response?.data?.data?.aadhaar_data?.pincode)
-        setHouseName(response?.data?.data?.aadhaar_data?.house)
-
-        await uploadAadharDetails(careOf, fullName, aadhar, dob, pincode, houseName).then(() => {
+        await uploadAadharDetails(
+          response?.data?.data?.aadhaar_data?.care_of, 
+          response?.data?.data?.aadhaar_data?.name, 
+          aadhar, 
+          response?.data?.data?.aadhaar_data?.date_of_birth, 
+          response?.data?.data?.aadhaar_data?.pincode, 
+          response?.data?.data?.aadhaar_data?.house
+          ).then(() => {
           navigate('/home')
         })
       })
-      .catch((err) => {
-        toast.error(err)
+      .catch(() => {
+        toast.error("Invalid OTP")
       })
   }
 
@@ -157,7 +152,7 @@ const EighthForm = () => {
           </form>
         </>
       )}
-      <div className="flex justify-center mt-[4.7rem] mb-10">
+      <div className={showOTP ? "flex justify-center mt-[16rem] mb-10" : "flex justify-center mt-[4.7rem] mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

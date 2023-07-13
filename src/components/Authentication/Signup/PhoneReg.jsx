@@ -115,15 +115,22 @@ const PhoneReg = () => {
         const number = `+${searchSelectedCountry.callingCodes}` + phone
         console.log(number);
 
-        signInWithPhoneNumber(auth, number, appVerifier)
-            .then((confirmationResult) => {
-                window.confirmationResult = confirmationResult;
-                setShowOTP(true);
-                toast.success("OTP send successfully!");
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        if (phone === " ") {
+            toast.error("Enter your Phone Number")
+        }
+
+        else {
+            signInWithPhoneNumber(auth, number, appVerifier)
+                .then((confirmationResult) => {
+                    window.confirmationResult = confirmationResult;
+                    setShowOTP(true);
+                    toast.success("OTP send successfully!");
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+
     }
 
     function onOTPVerify() {
@@ -241,7 +248,7 @@ const PhoneReg = () => {
                                 </div>
                                 <div className="relative">
                                     <input
-                                        type="text"
+                                        type="number"
                                         name="first-name"
                                         id="first-name"
                                         value={phone}

@@ -21,7 +21,7 @@ const LandingPage = () => {
                             Welcomes you
                         </p>
                         <p className="font-bold text-[1.5rem]">
-                            { userData?.gender === 'male' ? `Mr. ${userData?.displayName}` : `Mrs. ${userData?.displayName}` }
+                            { userData?.gender === 'Male' ? `Mr. ${userData?.firstName} ${userData?.lastName}` : `Mrs. ${userData?.firstName} ${userData?.lastName}` }
                         </p>
                         <p className="mt-4 font-medium">
                             Your profile has been registered with us.

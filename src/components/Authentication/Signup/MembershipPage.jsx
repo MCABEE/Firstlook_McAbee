@@ -167,11 +167,11 @@ const MembershipPage = () => {
                         </p>
                     </div>
                     {showAcceptButton && (
-                        <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-14 sm:ml-14 text-white w-3/4'>
-                            <Link to='/register/verify'>
+                        <Link to='/register/verify'>
+                            <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-14 sm:ml-14 text-white w-3/4'>
                                 I Accept, Let’s Go
-                            </Link>
-                        </button>
+                            </button>
+                        </Link>
                     )}
                 </div>
             </div>
