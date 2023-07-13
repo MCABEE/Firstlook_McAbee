@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 
 const FirstForm = () => {
-  const userData = useSelector((state) => state.getUserFilledData.data)
+  const userData = useSelector((state) => state.getUserFilledData?.data)
 
   const [selectedGender, setSelectedGender] = useState(userData?.gender || null);
   const [showCalendar, setShowCalendar] = useState(false);

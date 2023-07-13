@@ -73,12 +73,12 @@ const Banner = () => {
                             </p>
                             <div className='flex'>
                                 <button
-                                    className="mt-4 border border-gray-400 h-[75px] w-[75px] flex justify-center items-center rounded-lg"
+                                    className={ isHovered1 ? "mt-4 h-[75px] w-[75px] flex justify-center items-center rounded-lg" : "mt-4 border border-gray-400 h-[75px] w-[75px] flex justify-center items-center rounded-lg" }
                                     onMouseEnter={handleMouseEnter1}
                                     onMouseLeave={handleMouseLeave1}
                                 >
                                     {isHovered1 ? (
-                                        <button className="border border-[#FC3158] h-[75px] w-[75px] flex justify-center items-center rounded-lg bg-gradient-to-r from-[#FF944E] to-[#FC3158]">
+                                        <button className="h-[75px] w-[75px] flex justify-center items-center rounded-lg transition bg-gradient-to-r from-[#FF944E] to-[#FC3158]">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="24" viewBox="0 0 11 24" fill="none">
                                                 <path d="M1 10.6441L6.35586 15.9999L11.7117 10.6441M6.35593 1V15.85M1 17.9999H12" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
                                             </svg>
@@ -94,12 +94,12 @@ const Banner = () => {
                                 </button>
 
                                 <button
-                                    className="mt-4 border border-gray-400 h-[75px] w-[75px] flex justify-center items-center rounded-lg ml-4"
+                                    className={ isHovered2 ? "mt-4 h-[75px] w-[75px] flex justify-center items-center rounded-lg ml-4" : "mt-4 border border-gray-400 h-[75px] w-[75px] flex justify-center items-center rounded-lg ml-4" }
                                     onMouseEnter={handleMouseEnter2}
                                     onMouseLeave={handleMouseLeave2}
                                 >
                                     {isHovered2 ? (
-                                        <button className="border border-[#FC3158] h-[75px] w-[75px] flex justify-center items-center rounded-lg bg-gradient-to-r from-[#FF944E] to-[#FC3158]">
+                                        <button className="h-[75px] w-[75px] flex justify-center items-center rounded-lg bg-gradient-to-r from-[#FF944E] to-[#FC3158]">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="24" viewBox="0 0 11 24" fill="none">
                                                 <path d="M1 10.6441L6.35586 15.9999L11.7117 10.6441M6.35593 1V15.85M1 17.9999H12" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
                                             </svg>
@@ -115,12 +115,12 @@ const Banner = () => {
                                 </button>
 
                                 <button
-                                    className="mt-4 border border-gray-400 h-[75px] w-[75px] flex justify-center items-center rounded-lg ml-4"
+                                    className={ isHovered3 ? "mt-4 h-[75px] w-[75px] flex justify-center items-center rounded-lg ml-4" : "mt-4 border border-gray-400 h-[75px] w-[75px] flex justify-center items-center rounded-lg ml-4" }
                                     onMouseEnter={handleMouseEnter3}
                                     onMouseLeave={handleMouseLeave3}
                                 >
                                     {isHovered3 ? (
-                                        <button className="border border-[#FC3158] h-[75px] w-[75px] flex justify-center items-center rounded-lg bg-gradient-to-r from-[#FF944E] to-[#FC3158]">
+                                        <button className="h-[75px] w-[75px] flex justify-center items-center rounded-lg bg-gradient-to-r from-[#FF944E] to-[#FC3158]">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="24" viewBox="0 0 11 24" fill="none">
                                                 <path d="M1 10.6441L6.35586 15.9999L11.7117 10.6441M6.35593 1V15.85M1 17.9999H12" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
                                             </svg>

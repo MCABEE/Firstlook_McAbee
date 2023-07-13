@@ -61,17 +61,15 @@ const PhoneReg = () => {
         fetchData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    // eslint-disable-next-line no-unused-vars
     const { loading, errorMessage, countries } = countryState;
-    console.log("loading", loading);
-    console.log("errorMessage", errorMessage);
+    
 
     countries?.map((country) => {
         tempCountry.push(country)
     })
 
     const countryData = tempCountry?.filter(searchData)
-
-    console.log(countryData)
 
     //   find selected country data
     //search selected country
@@ -113,7 +111,6 @@ const PhoneReg = () => {
         const appVerifier = window.recaptchaVerifier;
 
         const number = `+${searchSelectedCountry.callingCodes}` + phone
-        console.log(number);
 
         if (phone === " ") {
             toast.error("Enter your Phone Number")
@@ -143,9 +140,8 @@ const PhoneReg = () => {
                     navigate('/register/signupOption')
                 })
             })
-            .catch((err) => {
+            .catch(() => {
                 toast.error("Invalid OTP")
-                console.log(err);
             });
     }
 

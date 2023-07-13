@@ -10,7 +10,7 @@ const getUserData = createSlice({
   reducers: {
     setUserData: (state, data) => {
       state.data = data.payload
-    },
+    }
   }
 })
 

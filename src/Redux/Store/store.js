@@ -3,6 +3,6 @@ import getUserData from '../Reducer/getUserData'
 
 export const store = configureStore({
     reducer: {
-        getUserFilledData: getUserData
+        getUserFilledData: getUserData,
     },
 })

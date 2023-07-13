@@ -264,7 +264,7 @@ const Footer = () => {
 
                         <div>
                             <p className='text-gray-700 mt-20 font-thin text-justify'>
-                                A social network for Matchmaking, listed in Firstlook and find life partner’s for Indian’s Globally. Before registering or using this web / mobile application, everyone should read our <Link className='text-rose-600 font-normal'> Membership Policy, Terms of Use</Link> and <Link className='text-rose-600 font-normal'>Refund / Cancellation Policy</Link>  in detail.
+                                A social network for Matchmaking, listed in Firstlook and find life partner’s for Indian’s Globally. Before registering or using this web / mobile application, everyone should read our <Link to='/membershippolicy' className='text-rose-600 font-normal'> Membership Policy</Link>,<Link to='/privacypolicy' className='text-rose-600 font-normal'> Terms of Use</Link> and <Link to='/refundpolicy' className='text-rose-600 font-normal'>Refund / Cancellation Policy</Link>  in detail.
                                 We invite peoples who are legally eligible for marriage under the rules of Govt. of India. Any kind of misuse / malpractice’s should be offensive and legally punishable.
                                 Firstlook is owned, operated and maintained by MCABEE. For more details <Link to='/contact' className='text-rose-600 font-normal'>Connect </Link>with us.
                             </p>

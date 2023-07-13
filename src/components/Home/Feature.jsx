@@ -18,43 +18,43 @@ const Feature = () => {
                     <div className="flex flex-col items-center p-4">
                         <img src={feed} className='h-[159px] w-[223px]' alt="" />
                         <h3 className="my-3 text-3xl font-semibold">Feed</h3>
-                        <div className="space-y-1 text-justify w-2/3">
-                            <p>A feed where you get profiles of people based on your interests and what we recommend for you. It will contain their profile details, photos and video reels.</p>
+                        <div className="space-y-1 text-justify w-9/12">
+                            <p>A feed where you get profiles of people based on your interests and what we recommend for you.</p>
                         </div>
                     </div>
                     <div className="flex flex-col items-center p-4">
                         <img src={photos} className='h-[159px] w-[223px]' alt="" />
                         <h3 className="my-3 text-3xl font-semibold">Photos</h3>
-                        <div className="space-y-1 text-justify w-2/3">
-                            <p>Photos are mandatory and we present it in front of you in a most beautiful way. These photos will help you get interested in a profile at first glance.</p>
+                        <div className="space-y-1 text-justify w-9/12">
+                            <p>Photos are mandatory and these photos will help you get interested in a profile at first glance.</p>
                         </div>
                     </div>
                     <div className="flex flex-col items-center p-4">
                         <img src={reels} className='h-[159px] w-[223px]' alt="" />
                         <h3 className="my-3 text-3xl font-semibold">Reels</h3>
-                        <div className="space-y-1 text-justify w-2/3">
-                            <p>We believe that a video is a better communication tool than a still photo. Facial expressions, movements and smiles are all communicated through a video.</p>
+                        <div className="space-y-1 text-justify w-9/12">
+                            <p> Expressions are communicated through a video. So we believe that a video is a better than a still photo.</p>
                         </div>
                     </div>
                     <div className="flex flex-col items-center p-4">
                         <img src={propose} className='h-[159px] w-[223px]' alt="" />
                         <h3 className="my-3 text-3xl font-semibold">Proposals</h3>
-                        <div className="space-y-1 text-justify w-2/3">
-                            <p>Once you find someone you are interested in, you can add them to your favorite list. Then you will get all their updates.  You can propose them with a single click.</p>
+                        <div className="space-y-1 text-justify w-9/12">
+                            <p>Once you find someone you are interested in, you can add them to favorites. Then you will get all their updates. </p>
                         </div>
                     </div>
                     <div className="flex flex-col items-center p-4">
                         <img src={chat} className='h-[159px] w-[223px]' alt="" />
                         <h3 className="my-3 text-3xl font-semibold">Chat</h3>
-                        <div className="space-y-1 text-justify w-2/3">
-                            <p>you can talk to anyone you loved via this chat feature. you can chat here as easy as other messenger services. Images and smileys can also be used.</p>
+                        <div className="space-y-1 text-justify w-9/12">
+                            <p>you can talk to anyone you loved via this chat feature. Images and smileys can also be used.</p>
                         </div>
                     </div>
                     <div className="flex flex-col items-center p-4">
                         <img src={verify} className='h-[159px] w-[223px]' alt="" />
                         <h3 className="my-3 text-3xl font-semibold">Verified Data</h3>
-                        <div className="space-y-1 text-justify w-2/3">
-                            <p>We require each to verify ID. This will help us provide only genuine profiles. We will never publish your ID anywhere, it is only used to verify your profile.</p>
+                        <div className="space-y-1 text-justify w-9/12">
+                            <p>ID verification will help us provide only genuine profiles. It never publish and your privacy assured.</p>
                         </div>
                     </div>
                 </div>

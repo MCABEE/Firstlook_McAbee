@@ -22,7 +22,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
         <Route path='/' element={<Home />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/Signup' element={<SignupRedirect />} />
