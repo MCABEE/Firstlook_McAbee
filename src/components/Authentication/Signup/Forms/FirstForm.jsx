@@ -61,9 +61,9 @@ const FirstForm = () => {
   }
 
   const formattedDate = selectedDate ? format(selectedDate, 'dd/MM/yyyy') : '';
-  const dateString = `${userData?.dob}`;
-  const date = new Date(dateString);
-  const dob = date.toLocaleDateString('en-GB');
+  // const dateString = `${userData?.dob}`;
+  // const date = new Date(dateString);
+  // const dob = date.toLocaleDateString('en-GB');
   return (
     <>
       <form onSubmit={handleData} className="-mt-8">
@@ -129,7 +129,7 @@ const FirstForm = () => {
         <div className="relative inline-block mb-10">
           <input
             type="text"
-            value={formattedDate || dob || "DOB"}
+            value={formattedDate || "DOB"}
             readOnly
             onClick={handleInputClick}
             className="w-72 ml-3.5 sm:ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
