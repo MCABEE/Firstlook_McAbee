@@ -17,13 +17,16 @@ import { getUserDetails } from "../../../api";
 import { setUserData } from "../../../Redux/Reducer/getUserData";
 import { useDispatch } from "react-redux";
 import AadharForm from "./Forms/AadharForm";
+import { useRef } from "react";
 
 const RegistrationMain = () => {
-
     const [status, setStatus] = useState([])
 
     const { page, setPage } = useContext(registrationContext)
     const dispatch = useDispatch()
+    const listRef = useRef(null); // Reference to the list element
+    const activePage = page; // Replace with your active page logic
+    const [scrollEnabled, setScrollEnabled] = useState(true);
 
     const getUserDetail = async () => {
         await getUserDetails().then((result) => {
@@ -146,6 +149,24 @@ const RegistrationMain = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [status])
 
+    useEffect(() => {
+        const listElement = listRef.current;
+        const activeElement = listElement.children[activePage];
+
+        if (activeElement && scrollEnabled) {
+            activeElement.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "center",
+            });
+        }
+
+        if (activePage === 3 || activePage === 6 || activePage === 8 || activePage === 11) {
+            setScrollEnabled(false);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [activePage, scrollEnabled]);
+
     return (
         <>
             <Navbar />
@@ -155,175 +176,77 @@ const RegistrationMain = () => {
                         Registration
                     </p>
                     <div className="grid gap-4 mt-10">
-                        <ul className="gap-16 ml-4 sm:ml-[21px] mb-10 flex justify-between w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right-xs">
+                        <ul ref={listRef} className="gap-16 ml-4 sm:ml-[21px] mb-10 flex justify-between w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right-xs">
                             <li
-                                onClick={setForm}
                                 className={
-                                    page === 0 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 0 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent ml-2 flex items-center text-[#807D7D] cursor-pointer"
                                 }
                             >
-                                <div className="flex items-center ">
-                                    <span
-                                        className={
-                                            page === 0
-                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
-                                                : "ml-2 text-[#807D7D] cursor-pointer"
-                                        }
-                                    >
-                                        About You
-                                    </span>
-                                </div>
+                                About You
                             </li>
 
                             <li
-                                onClick={setForm}
                                 className={
-                                    page === 1 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 1 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent flex items-center ml-2 text-[#807D7D] cursor-pointer"
                                 }
                             >
-                                <div className="flex items-center ">
-                                    <span
-                                        className={
-                                            page === 1
-                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
-                                                : "ml-2 text-[#807D7D] cursor-pointer"
-                                        }
-                                    >
-                                        Native
-                                    </span>
-                                </div>
+                                Native
                             </li>
 
                             <li
-                                onClick={setForm}
                                 className={
-                                    page === 2 || page === 3 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 2 || page === 3 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent flex items-center ml-2 text-[#807D7D] cursor-pointer"
                                 }
                             >
-                                <div className="flex items-center ">
-                                    <span
-                                        className={
-                                            page === 2 || page === 3
-                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
-                                                : "ml-2 text-[#807D7D] cursor-pointer"
-                                        }
-                                    >
-                                        Personal Info
-                                    </span>
-                                </div>
+                                Personal Info
                             </li>
 
                             <li
-                                onClick={setForm}
                                 className={
-                                    page === 4 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 4 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent flex items-center ml-2 text-[#807D7D] cursor-pointer"
                                 }
                             >
-                                <div className="flex items-center ">
-                                    <span
-                                        className={
-                                            page === 4
-                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
-                                                : "ml-2 text-[#807D7D] cursor-pointer"
-                                        }
-                                    >
-                                        Academic
-                                    </span>
-                                </div>
+                                Academic
                             </li>
 
                             <li
-                                onClick={setForm}
                                 className={
-                                    page === 5 || page === 6 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 5 || page === 6 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent flex items-center ml-2 text-[#807D7D] cursor-pointer"
                                 }
                             >
-                                <div className="flex items-center ">
-                                    <span
-                                        className={
-                                            page === 5 || page === 6
-                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
-                                                : "ml-2 text-[#807D7D] cursor-pointer"
-                                        }
-                                    >
-                                        Occupation
-                                    </span>
-                                </div>
+                                Occupation
                             </li>
 
                             <li
-                                onClick={setForm}
                                 className={
-                                    page === 7 || page === 8 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 7 || page === 8 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent flex items-center ml-2 text-[#807D7D] cursor-pointer"
                                 }
                             >
-                                <div className="flex items-center ">
-                                    <span
-                                        className={
-                                            page === 7 || page === 8
-                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
-                                                : "ml-2 text-[#807D7D] cursor-pointer"
-                                        }
-                                    >
-                                        Family
-                                    </span>
-                                </div>
+                                Family
                             </li>
 
                             <li
-                                onClick={setForm}
                                 className={
-                                    page === 9 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 9 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent flex items-center ml-2 text-[#807D7D] cursor-pointer"
                                 }
                             >
-                                <div className="flex items-center ">
-                                    <span
-                                        className={
-                                            page === 9
-                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
-                                                : "ml-2 text-[#807D7D] cursor-pointer"
-                                        }
-                                    >
-                                        Upload
-                                    </span>
-                                </div>
+                                Upload
                             </li>
 
                             <li
-                                onClick={setForm}
                                 className={
-                                    page === 10 || page === 11 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 10 || page === 11 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent flex items-center ml-2 text-[#807D7D] cursor-pointer"
                                 }
                             >
-                                <div className="flex items-center ">
-                                    <span
-                                        className={
-                                            page === 10 || page === 11
-                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
-                                                : "ml-2 text-[#807D7D] cursor-pointer"
-                                        }
-                                    >
-                                        Verification
-                                    </span>
-                                </div>
+                                Verification
                             </li>
 
                             <li
-                                onClick={setForm}
                                 className={
-                                    page === 12 ? " w-2/6 rounded-lg  " : "bg: transparent"
+                                    page === 12 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent flex items-center ml-2 text-[#807D7D] cursor-pointer"
                                 }
                             >
-                                <div className="flex items-center ">
-                                    <span
-                                        className={
-                                            page === 12
-                                                ? "ml-2 text-[#F92739] font-medium cursor-pointer"
-                                                : "ml-2 text-[#807D7D] cursor-pointer"
-                                        }
-                                    >
-                                    </span>
-                                </div>
+
                             </li>
                         </ul>
                         <div className="flex-1">{handleForms()}</div>
