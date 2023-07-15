@@ -65,8 +65,8 @@ const Banner = () => {
                             <img className="absolute h-[5vw] w-[12.5vw] mt-[14vw] animate-wiggle" src={cloud} alt="" />
                             <img className="absolute h-[4vw] w-[11vw] ml-[79vw] mt-[5vw] animate-wiggle" src={cloud} alt="" />
                             <img className="absolute h-[2.8vw] w-[3.1vw] ml-[84vw] mt-[31vw] animate-moveToCloud_sm" src={heart} alt="" />
-                            <img className="absolute h-[3.4vw] w-[3.5vw] ml-[82vw] mt-[53vw] animate-moveToCloud" src={heart} alt="" />
-                            <img className="absolute h-[8.8vw] w-[8.8vw] ml-[68vw] mt-[80vw] animate-bounce" src={chat} alt="" />
+                            <img className="absolute h-[3.4vw] w-[3.5vw] ml-[82vw] mt-[53vw] animate-moveToCloud_heart" src={heart} alt="" />
+                            <img className="absolute h-[8.8vw] w-[8.8vw] ml-[77vw] mt-[80vw] animate-bounce" src={chat} alt="" />
                         </div>
                         <div className="mt-[4vw]">
                             <img alt="..." src={MobileImage} className="h-full w-[80vw] ml-5" />

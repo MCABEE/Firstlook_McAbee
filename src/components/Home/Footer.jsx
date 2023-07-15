@@ -296,7 +296,7 @@ const Footer = () => {
                                 <img src={firstLook} className='h-10' alt="" />
                             </div>
 
-                            <p className='text-center text-gray-500 flex mt-2'>
+                            <p className='text-center text-gray-500 flex mt-2 justify-center'>
                                 from &nbsp; <img src={mcabee} className='h-6 w-20 mt-1' alt="" />
                             </p>
 

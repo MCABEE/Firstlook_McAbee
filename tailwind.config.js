@@ -22,7 +22,8 @@ export default {
         wiggle: 'wiggle 1s infinite',
         bounce: 'bounce 1s infinite',
         moveToCloud: 'moveToCloud 1s infinite',
-        moveToCloud_sm: 'moveToCloud_sm 1s infinite'
+        moveToCloud_sm: 'moveToCloud_sm 1s infinite',
+        moveToCloud_heart: 'moveToCloud_heart 1s infinite',
       },
       keyframes: {
         wiggle: {
@@ -40,6 +41,10 @@ export default {
         moveToCloud_sm: {
           '0%, 100%': { transform: 'translateY(-900%)', opacity: "0" },
           '50%': { transform: 'translateY(0%)', opacity: "1" },
+        },
+        moveToCloud_heart: {
+          '0%, 100%': { transform: 'translateY(-1400%)', opacity: "0" },
+          '50%': { transform: 'translateY(900%)', opacity: "1" },
         }
       }
   }
