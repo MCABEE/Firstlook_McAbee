@@ -1,4 +1,9 @@
+import { useEffect } from "react"
+
 const PageNotFound = () => {
+    useEffect(() => {
+        window.scrollTo(0,0)
+      }, [])
     return (
         <>
             <div className="grid h-screen px-4 bg-white place-content-center">

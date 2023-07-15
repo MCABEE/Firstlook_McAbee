@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../Home/Navbar";
+import { useEffect } from "react";
 
 const SignupOption = () => {
+    useEffect(() => {
+        window.scrollTo(0,0)
+      }, [])
     return (
         <>
             <Navbar />
-            <div className="flex h-screen justify-center items-center mt-20">
-                <div className="w-full h-fit max-w-sm bg-[#F2F2F2] rounded-2xl mt-20 shadow-2xl bg-bg_signup bg-no-repeat bg-contain">
+            <div className="flex justify-center items-center mb-20">
+                <div className="w-full h-fit max-w-sm bg-[#F2F2F2] rounded-2xl shadow-lg bg-bg_signup bg-no-repeat bg-contain">
                     <p className="font-oxygen font-bold flex justify-center text-white mt-16 text-[16px]">
                         Signup
                     </p>

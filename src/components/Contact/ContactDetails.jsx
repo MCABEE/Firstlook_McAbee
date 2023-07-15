@@ -1,9 +1,13 @@
 import Navbar from '../Home/Navbar';
 import bgContact from '../../assets/contactBg.png'
 import iconMsg from '../../assets/icon_msg.png'
+import { useEffect } from 'react';
 
 
 const ContactDetails = () => {
+    useEffect(() => {
+        window.scrollTo(0,0)
+      }, [])
     return (
         <>
 
@@ -22,7 +26,7 @@ const ContactDetails = () => {
                         <p className="mb-14 text-base text-gray-700 md:text-[16px] md:text-start">
                             You have the power to make us better, and of course, we consider the words of encouragement as well. Our customer support team is always available to attend you.
                         </p>
-                        <h2 className="mb-12 font-sans text-[24px] font-semibold tracking-tight text-gray-900 sm:text-[24px] md:text-start">
+                        <h2 className="mb-8 font-sans text-[24px] font-semibold tracking-tight text-gray-900 sm:text-[24px] md:text-start">
                             Say hello to us !
                         </h2>
                         <div className='flex flex-col sm:flex-row mb-10'>
@@ -63,7 +67,7 @@ const ContactDetails = () => {
                                 </div>
                             </div>
 
-                            <div className="col-span-2 lg:col-span-2 lg:flex lg:items-end">
+                            <div className="col-span-3 lg:col-span-2 lg:flex lg:items-end">
                                 <form className="w-full">
                                     <label htmlFor="UserEmail"></label>
                                     <div
@@ -77,7 +81,7 @@ const ContactDetails = () => {
                                         />
 
                                         <button
-                                            className=" w-2/4 bg-[#FC4055] cursor-pointer rounded-br-xl rounded-tr-xl px-6 py-2 text-[14px] text-white transition-none sm:mt-0"
+                                            className="w-2/4 bg-[#FC4055] cursor-pointer rounded-br-xl rounded-tr-xl sm:px-6 py-2 text-[14px] text-white transition-none sm:mt-0"
                                         >
                                             Ready
                                         </button>

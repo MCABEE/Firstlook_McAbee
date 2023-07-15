@@ -1,9 +1,13 @@
 import Navbar from "../Home/Navbar"
 import logo from '../../assets/firstlookLogo.png'
 import { useSelector } from "react-redux"
+import { useEffect } from "react"
 
 const LandingPage = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
     return (
         <>
             <Navbar />

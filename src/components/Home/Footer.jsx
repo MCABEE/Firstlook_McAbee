@@ -1,29 +1,50 @@
 import firstLook from '../../assets/firstLook.png'
+import mcabee from '../../assets/mcblogo.png'
 import { Link } from 'react-router-dom'
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import { useState } from 'react';
 
 const Footer = () => {
+    const [country, setCountry] = useState("")
+    const [isOpen, setIsOpen] = useState("");
     return (
         <>
             <footer aria-label="Site Footer" className="bg-white">
                 <div
 
-                    className="mx-auto w-11/12 px-4 py-16 sm:px-6 lg:px-8">
+                    className="mx-auto w-10/12 px-4 py-16 sm:px-6 lg:px-10">
 
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
                         <div className="text-center sm:text-left">
-                            <p className="text-[21px] lg:mt-24 font-oxygen font-bold text-gray-900">Country</p>
+                            <p className="text-[21px] lg:mt-20 font-oxygen font-bold text-gray-900">Country</p>
 
                             <nav aria-label="Footer About Nav" className="mt-8 sm:mt-16 lg:mt-6">
 
-                                <div>
-                                    <select
-                                        id="country"
-                                        name="country"
-                                        autoComplete="country-name"
-                                        className="block w-56 mx-auto sm:mx-0 sm:w-4/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                <div className="mb-6 mt-4 flex">
+                                    <div
+                                        className="w-full h-10 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+                                        onClick={() => setIsOpen("Country")}
                                     >
-                                        <option>India</option>
-                                    </select>
+                                        <p className="w-44 mt-2 truncate text-sm">{country ? country : "Country"}</p>
+                                    </div>
+                                    <div className="-ml-8 mt-1.5 text-[#B8B8B8] pointer-events-none">
+                                        <KeyboardArrowDownRoundedIcon />
+                                    </div>
+                                    {isOpen === 'Country' ? (
+                                        <ul className="absolute z-10 w-[11.2rem] mt-12 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                                            <>
+                                                <li
+                                                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                                                    onClick={() => {
+                                                        setCountry("India")
+                                                        setIsOpen("")
+                                                    }}
+                                                >
+                                                    <p className="mr-2">India</p>
+                                                </li>
+                                            </>
+                                        </ul>
+                                    ) : " "}
                                 </div>
                             </nav>
                         </div>
@@ -275,12 +296,12 @@ const Footer = () => {
                                 <img src={firstLook} className='h-10' alt="" />
                             </div>
 
-                            <p className='text-center text-gray-500'>
-                                from <br /><span className='font-bold text-black'>MCABEE</span>
+                            <p className='text-center text-gray-500 flex mt-2'>
+                                from &nbsp; <img src={mcabee} className='h-6 w-20 mt-1' alt="" />
                             </p>
 
-                            <p className="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-right">
-                                Copyright &copy; Firstlook 2023.
+                            <p className="mt-4 text-center text-sm text-gray-500 sm:mt-2 sm:text-right">
+                                Copyright 2023 &copy; <span className='font-semibold text-black'>FIRSTLOOK</span>
                             </p>
                         </div>
                     </div>
