@@ -22,7 +22,6 @@ const JoinSection = () => {
                             className="lg:w-6/12 lg:p-0 p-7 sm:block hidden">
                             <img src={Mobileimage} alt="" />
                         </motion.div>
-                        <hr className='sm:hidden block border-t-1 border-gray-400 mt-4 mb-6'/>
                         <div className="md:w-6/12 order-2 xl:ml-20 sm:px-0 px-6">
                             <motion.h1
                                 initial={{ y: "-10vw", opacity: 0 }}
