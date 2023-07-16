@@ -113,7 +113,7 @@ const ContactDetails = () => {
                             src={bgContact}
                             alt=""
                         />
-                        <p className='-mt-72 text-[24px] text-white text-end font-oxygen'>
+                        <p className='-mt-72 text-[24px] text-white text-end font-oxygen mr-5'>
                             We always love to <br />
                             hear from the community
 

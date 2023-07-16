@@ -8,6 +8,8 @@ import OtpInput from "otp-input-react";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router";
 import { registerUser } from "../../../api";
+import { Link } from "react-router-dom";
+import firstLook from '../../../assets/firstLook.png'
 
 const PhoneReg = () => {
     const [countryState, setCountryState] = useState({
@@ -63,7 +65,7 @@ const PhoneReg = () => {
     }, []);
     // eslint-disable-next-line no-unused-vars
     const { loading, errorMessage, countries } = countryState;
-    
+
 
     countries?.map((country) => {
         tempCountry.push(country)
@@ -146,16 +148,39 @@ const PhoneReg = () => {
     }
 
     useEffect(() => {
-        window.scrollTo(0,0)
-      }, [])
+        window.scrollTo(0, 0)
+    }, [])
 
+    const token = localStorage.getItem("token")
     return (
         <>
-            <Navbar />
-            <div className="flex justify-center items-center mb-20">
+            <div className="sm:block hidden">
+                <Navbar />
+            </div>
+            <div className="flex justify-center items-center sm:mb-20 mt-2">
                 <Toaster toastOptions={{ duration: 4000 }} />
 
-                <div className="w-full h-[45rem] max-w-sm bg-[#F2F2F2] rounded-2xl shadow-md">
+                <div className="w-full h-screen sm:h-[45rem] sm:max-w-sm bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md">
+                    <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
+                        <div>
+                            <nav className="flex h-9 items-center justify-between" aria-label="Global">
+                                <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+                                    <Link to="/" className="">
+                                        <span className="sr-only">Your Company</span>
+                                        <img className="h-10" src={firstLook} alt="Alt" />
+                                    </Link>
+                                </div>
+                                <div className="lg:flex lg:min-w-0 lg:flex-1 mr-5 sm:mr-0 lg:justify-end">
+                                    {token && <Link
+                                        to='/Signup'
+                                        className="inline-block rounded-lg px-6 py-1.5 text-sm font-semibold leading-6 bg-[#FC3657] shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
+                                    >
+                                        Signup
+                                    </Link>}
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
                     {showOTP ? (
                         <>
                             <p className='font-oxygen font-bold text-center text-2xl mt-16'>
@@ -170,7 +195,7 @@ const PhoneReg = () => {
                                 Please Enter the OTP received in your mobile
                             </p>
 
-                            <div className="grid justify-center mt-7 rounded-2xl mx-10 space-y-10">
+                            <div className="grid justify-center mt-7 rounded-2xl mx-10">
 
                                 <OtpInput
                                     value={otp}
@@ -183,7 +208,7 @@ const PhoneReg = () => {
                                 ></OtpInput>
                                 <div
                                     onClick={onOTPVerify}
-                                    className="bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl"
+                                    className="bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-8"
                                 >
                                     <span>Verify OTP</span>
                                 </div>
@@ -199,7 +224,7 @@ const PhoneReg = () => {
                                 Select Country Code
                             </p>
 
-                            <div className="grid justify-center mt-7 rounded-2xl mx-10 space-y-10">
+                            <div className="grid justify-center mt-7 rounded-2xl mx-10">
 
                                 <div className="relative w-80">
                                     {searchSelectedCountry &&
@@ -246,7 +271,7 @@ const PhoneReg = () => {
                                         </>
                                     )}
                                 </div>
-                                <div className="relative">
+                                <div className="relative mt-5">
                                     <input
                                         type="number"
                                         name="first-name"
@@ -261,7 +286,7 @@ const PhoneReg = () => {
 
                             </div>
 
-                            <div onClick={onSignup} className='bg-red-500 w-80 p-3 rounded-xl mt-12 mb-20 ml-8 text-center cursor-pointer text-white px-20'>
+                            <div onClick={onSignup} className='bg-red-500 w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20'>
                                 Verify Mobile
                             </div>
                             <div id="recaptcha-container"></div>

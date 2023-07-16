@@ -207,7 +207,7 @@ const FirstForm = () => {
               <Calendar
                 date={selectedDate}
                 onChange={handleDateChange}
-                className="mb-10 border border-gray-400 rounded-xl ml-7 shadow-sm"
+                className="mb-10 border border-gray-400 rounded-xl -ml-2.5 sm:ml-7 shadow-sm"
               />
             </div>
           )}
@@ -308,7 +308,8 @@ const FirstForm = () => {
         </div>
 
         <button
-          onClick={handleData}
+        
+        onClick={handleData}
           className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-40 sm:ml-48"
         >
           Continue
@@ -316,7 +317,7 @@ const FirstForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
-      <div className="flex justify-center mt-9 mb-10">
+      <div className="flex justify-center mt-9 mb-3 sm:mb-10">
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

@@ -476,11 +476,11 @@ const FifthForm2 = () => {
         <div className="flex items-center justify-between"></div>
       </form >
       <div className={
-        jobCategory === 'Business' ? "flex justify-center mt-[20.4rem] mb-10" :
-          jobCategory === "Government" ? "flex justify-center mt-[16rem] mb-10"
-            : jobCategory === "Private" ? "flex justify-center mt-[16rem] mb-10"
-              : jobCategory === "Self Employed" ? "flex justify-center mt-[20.4rem] mb-10"
-                : "flex justify-center mt-[29.4rem] mb-10"
+        jobCategory === 'Business' ? "flex justify-center mt-[20.4rem] mb-3 sm:mb-10" :
+          jobCategory === "Government" ? "flex justify-center mt-[16rem] mb-3 sm:mb-10"
+            : jobCategory === "Private" ? "flex justify-center mt-[16rem] mb-3 sm:mb-10"
+              : jobCategory === "Self Employed" ? "flex justify-center mt-[20.4rem] mb-3 sm:mb-10"
+                : "flex justify-center mt-[29.4rem] mb-3 sm:mb-10"
       }>
         <div className={
           page === 0

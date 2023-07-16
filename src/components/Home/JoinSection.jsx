@@ -19,10 +19,11 @@ const JoinSection = () => {
                             initial={{ y: "-10vw", opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
                             viewport={{ once: true, amount: 0.8 }}
-                            className="lg:w-6/12 lg:p-0 p-7">
+                            className="lg:w-6/12 lg:p-0 p-7 sm:block hidden">
                             <img src={Mobileimage} alt="" />
                         </motion.div>
-                        <div className="md:w-6/12 order-2 xl:ml-20">
+                        <hr className='sm:hidden block border-t-1 border-gray-400 mt-4 mb-6'/>
+                        <div className="md:w-6/12 order-2 xl:ml-20 sm:px-0 px-6">
                             <motion.h1
                                 initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.3 } }}
@@ -65,8 +66,14 @@ const JoinSection = () => {
                                     View FAQ <span aria-hidden="true"> <KeyboardDoubleArrowRightOutlinedIcon sx={{ color: "gray" }} /></span>
                                 </p>
                             </motion.a>
-
                         </div>
+                        <motion.div
+                            initial={{ y: "-10vw", opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
+                            viewport={{ once: true, amount: 0.8 }}
+                            className="lg:w-6/12 lg:p-0 p-7 sm:hidden block">
+                            <img src={Mobileimage} alt="" />
+                        </motion.div>
                     </div>
                 </div>
             </div>

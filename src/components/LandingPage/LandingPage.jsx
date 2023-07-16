@@ -2,18 +2,44 @@ import Navbar from "../Home/Navbar"
 import logo from '../../assets/firstlookLogo.png'
 import { useSelector } from "react-redux"
 import { useEffect } from "react"
+import firstLook from '../../assets/firstLook.png'
+import { Link } from "react-router-dom"
 
 const LandingPage = () => {
-  const userData = useSelector((state) => state.getUserFilledData.data)
-  useEffect(() => {
-    window.scrollTo(0,0)
-  }, [])
+    const userData = useSelector((state) => state.getUserFilledData.data)
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    const token = localStorage.getItem("token")
     return (
         <>
-            <Navbar />
-            <div className="flex h-screen justify-center items-center mt-20 ml-0">
-                <div className="w-full h-[50rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md mt-44">
-                    <p className="font-oxygen font-bold flex justify-center mt-16 text-[1rem]">
+            <div className="sm:block hidden">
+                <Navbar />
+            </div>
+            <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
+                <div>
+                    <nav className="flex h-9 items-center justify-between" aria-label="Global">
+                        <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+                            <Link to="/" className="">
+                                <span className="sr-only">Your Company</span>
+                                <img className="h-10" src={firstLook} alt="Alt" />
+                            </Link>
+                        </div>
+                        <div className="lg:flex lg:min-w-0 lg:flex-1 mr-5 sm:mr-0 lg:justify-end">
+                            {token && <Link
+                                to='/Signup'
+                                className="inline-block rounded-lg px-6 py-1.5 text-sm font-semibold leading-6 bg-[#FC3657] shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
+                            >
+                                Signup
+                            </Link>}
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div className="flex h-screen sm:justify-center sm:items-center ml-5 sm:ml-0">
+                <div className="w-full sm:h-[50rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md mt-10">
+                    <p className="font-oxygen font-bold flex justify-center sm:mt-16 text-[1rem]">
                         Welcome
                     </p>
                     <img src={logo} alt="" className="mt-24 mx-auto" />
@@ -25,7 +51,7 @@ const LandingPage = () => {
                             Welcomes you
                         </p>
                         <p className="font-bold text-[1.5rem]">
-                            { userData?.gender === 'Male' ? `Mr. ${userData?.firstName} ${userData?.lastName}` : `Mrs. ${userData?.firstName} ${userData?.lastName}` }
+                            {userData?.gender === 'Male' ? `Mr. ${userData?.firstName} ${userData?.lastName}` : `Mrs. ${userData?.firstName} ${userData?.lastName}`}
                         </p>
                         <p className="mt-4 font-medium">
                             Your profile has been registered with us.

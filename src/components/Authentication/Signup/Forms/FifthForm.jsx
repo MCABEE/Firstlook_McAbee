@@ -29,6 +29,7 @@ const FifthForm = () => {
   const [nCity, setNCity] = useState([])
 
   const tempCity = []
+  const tempCountry = []
 
   const { page, setPage } = useContext(registrationContext)
 
@@ -41,6 +42,12 @@ const FifthForm = () => {
   nCity.map((data) => {
     tempCity.push(data?.name)
   })
+
+  nCountries.map((data) => {
+    tempCountry.push(data?.name)
+  })
+
+  const countryData = tempCountry.filter(searchData)
 
   const cityData = tempCity.filter(searchData)
 
@@ -153,7 +160,7 @@ const FifthForm = () => {
   useEffect(() => {
 
     if (option === 'Yes') {
-      if(userData?.occupation?.hasJob === 'Yes') {
+      if (userData?.occupation?.hasJob === 'Yes') {
         setOption('Yes')
         setSelectedOption(!selectedOption)
       }
@@ -198,34 +205,37 @@ const FifthForm = () => {
               Add your Work Location
             </p>
 
-            <div className="mb-6 mt-4 flex">
-              <div
-                className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            <div className="mb-6 mt-5 flex">
+              <input type="text"
+                value={country}
+                onChange={(e) => {
+                  let searchValue = e.target.value.toLocaleLowerCase();
+                  setSearch(searchValue);
+                  setCountry(e.target.value);
+                }}
                 onClick={() => setIsOpen("Country")}
-              >
-                <p className="w-44 mt-3 ml-2 truncate text-sm">{country ? country : "Country"}</p>
-              </div>
+                placeholder="Enter Country" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
               {isOpen === 'Country' ? (
-                <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
-                  {nCountries.map((country) => (
-                    <>
-                      <li
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                        onClick={() => {
-                          setCountry(country?.name)
-                          setIsOpen("")
-                        }}
-                      >
-                        <p className="mr-2">{country?.name}</p>
-                      </li>
-                    </>
-                  ))}
-
-                </ul>
+                <>
+                  <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                    {countryData.map((data) => (
+                      <>
+                        <li
+                          className="px-4 py-2 cursor-pointer flex"
+                          onClick={() => {
+                            setCountry(data);
+                            setIsOpen("");
+                          }}
+                        >
+                          <p className="mr-2">{data}</p>
+                        </li>
+                      </>
+                    ))}
+                  </ul>
+                </>
               ) : " "}
             </div>
 
@@ -379,7 +389,7 @@ const FifthForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form >
-      <div className={option === 'Yes' ? "flex justify-center mt-[85px] mb-10" : "flex justify-center mt-[30.5rem] mb-10"}>
+      <div className={option === 'Yes' ? "flex justify-center mt-[85px] mb-3 sm:mb-10" : "flex justify-center mt-[30.5rem] mb-3 sm:mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

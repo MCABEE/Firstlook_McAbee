@@ -9,6 +9,7 @@ import ImageCropper from './ImageCropper';
 import CircleIcon from '@mui/icons-material/Circle';
 import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import ImageCropperMobile from './ImageCropperMobile';
 
 const SeventhForm = () => {
   const navigate = useNavigate()
@@ -139,14 +140,14 @@ const SeventhForm = () => {
   }, [filled, isRunning])
   return (
     <>
-      <form className="w-72 ml-3.5 sm:ml-12 mt-16">
+      <form className="w-72 ml-3.5 sm:ml-12 sm:mt-4">
         <Toaster />
         {currentPage === "choose-img" ? (
           <>
             <div onClick={() => setIsOpen("photo")} className="bg-[#F92739] text-center cursor-pointer text-white w-full py-3 rounded-xl mb-6">
               Upload Photos
             </div>
-            <div className="w-full py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-white h-fit mt-16">
+            <div className="w-full py-3 rounded-xl border border-[#D8D8D8] bg-white h-fit sm:mt-16">
               <div className='font-oxygen text-[12px] text-justify p-4'>
                 <p className='font-bold'>
                   Guidelines to add Pictures
@@ -173,7 +174,7 @@ const SeventhForm = () => {
             </div>
             {isOpen === "photo" ?
               <>
-                <div className='mt-[78px] mb-80'>
+                <div className='mt-[78px] sm:mt-[130px]'>
                   <div className='absolute w-96 -ml-12 py-3 rounded-xl border border-[#D8D8D8] bg-[#FE1940] h-16 -mt-6'>
                     <p className='font-oxygen text-white text-[14px] text-center font-semibold'>
                       Add Photo
@@ -195,13 +196,20 @@ const SeventhForm = () => {
               : " "}
           </>
         ) : currentPage === "crop-img" ? (
-          <div className='mt-[29rem]'>
-            <ImageCropper
-              image={image}
-              onCropDone={onCropDone}
-              onCropCancel={onCropCancel}
-            />
-          </div>
+          <>
+            <div className='mt-[29rem] sm:block hidden'>
+              <ImageCropper
+                image={image}
+                onCropDone={onCropDone}
+                onCropCancel={onCropCancel} />
+            </div>
+            <div className='mt-[29rem] sm:hidden block'>
+              <ImageCropperMobile
+                image={image}
+                onCropDone={onCropDone}
+                onCropCancel={onCropCancel} />
+            </div>
+          </>
 
         ) : (
           <>
@@ -220,7 +228,7 @@ const SeventhForm = () => {
                           setIsRunning(false)
                           setFilled(0)
                         }}
-                        className="-mt-[34rem] text-black -ml-[290px]"
+                        className="-mt-[27.5rem] sm:-mt-[28.5rem] text-black -ml-[290px]"
                       >
                         <KeyboardBackspaceOutlinedIcon />
                       </div>
@@ -228,7 +236,7 @@ const SeventhForm = () => {
                   </button>
 
                   {isRunning &&
-                    <div className="progressbar mt-[34rem] ml-[4.2rem]">
+                    <div className="progressbar sm:mt-[30rem] mt-[28rem] ml-[4.2rem]">
                       <div style={{
                         height: "100%",
                         width: `${filled}%`,
@@ -239,7 +247,7 @@ const SeventhForm = () => {
                   }
                   <button
                     onClick={handleFileUpload}
-                    className={isRunning ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-44 mt-[3.8rem]" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-44 mt-[38rem]"}
+                    className={isRunning ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-48 sm:ml-44 sm:mt-[3.8rem] mt-[3rem]" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-44 sm:mt-[34rem] mt-[30rem]"}
                   >
                     Continue
                   </button>
@@ -262,7 +270,7 @@ const SeventhForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
-      {isOpen != "photo" ? <div className="flex justify-center mt-[7.8rem] mb-10">
+      {isOpen != "photo" ? <div className="flex justify-center mt-[8.8rem] sm:mt-[10.8rem] sm:mb-10">
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

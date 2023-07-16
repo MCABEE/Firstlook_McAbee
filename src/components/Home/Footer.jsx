@@ -12,11 +12,11 @@ const Footer = () => {
             <footer aria-label="Site Footer" className="bg-white">
                 <div
 
-                    className="mx-auto w-10/12 px-4 py-16 sm:px-6 lg:px-10">
+                    className="mx-auto w-10/12 px-4 sm:py-6 sm:px-6 lg:px-10">
 
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
                         <div className="text-center sm:text-left">
-                            <p className="text-[21px] lg:mt-20 font-oxygen font-bold text-gray-900">Country</p>
+                            <p className="text-[21px] lg:mt-20 font-oxygen font-bold text-gray-900">Region</p>
 
                             <nav aria-label="Footer About Nav" className="mt-8 sm:mt-16 lg:mt-6">
 
@@ -25,7 +25,7 @@ const Footer = () => {
                                         className="w-full h-10 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                                         onClick={() => setIsOpen("Country")}
                                     >
-                                        <p className="w-44 mt-2 truncate text-sm">{country ? country : "Country"}</p>
+                                        <p className="w-44 mt-2 truncate text-sm">{country ? country : "Region"}</p>
                                     </div>
                                     <div className="-ml-8 mt-1.5 text-[#B8B8B8] pointer-events-none">
                                         <KeyboardArrowDownRoundedIcon />
@@ -209,7 +209,7 @@ const Footer = () => {
                                     <ul className="flex justify-center gap-6 md:justify-start lg:justify-start">
                                         <li>
                                             <Link
-                                                to="/https://facebook.com/firstlookmatchmaking"
+                                                to="https://facebook.com/firstlookmatchmaking"
                                                 rel="noreferrer"
                                                 target="_blank"
                                                 className="text-rose-600 transition hover:text-rose-600/75"
@@ -232,7 +232,7 @@ const Footer = () => {
 
                                         <li>
                                             <Link
-                                                to="/https://instagram.com/firstlook_app"
+                                                to="https://instagram.com/firstlook_app"
                                                 rel="noreferrer"
                                                 target="_blank"
                                                 className="text-rose-600 transition hover:text-rose-600/75"
@@ -255,7 +255,7 @@ const Footer = () => {
 
                                         <li>
                                             <Link
-                                                to="/https://twitter.com/firstlook_app"
+                                                to="https://twitter.com/firstlook_app"
                                                 rel="noreferrer"
                                                 target="_blank"
                                                 className="text-rose-600 transition hover:text-rose-600/75"

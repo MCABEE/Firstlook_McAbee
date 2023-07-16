@@ -220,7 +220,7 @@ const SixthForm2 = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
-      <div className="flex justify-center mt-[9.6rem] mb-10">
+      <div className="flex justify-center mt-[9.6rem] mb-3 sm:mb-10">
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

@@ -4,7 +4,7 @@ import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspace
 import { registrationContext } from "../../../context/formContext";
 
 // eslint-disable-next-line react/prop-types
-function ImageCropper({ image, onCropDone, onCropCancel }) {
+function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
     const { page } = useContext(registrationContext)
     console.log(page)
     const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -31,7 +31,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
                     style={{
                         containerStyle: {
                             borderRadius: "0.85rem",
-                            top: "24rem",
+                            top: "3rem",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
@@ -61,4 +61,4 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
     );
 }
 
-export default ImageCropper;
+export default ImageCropperMobile;

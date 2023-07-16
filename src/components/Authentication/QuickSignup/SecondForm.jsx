@@ -198,14 +198,16 @@ const SecondForm = () => {
       <form className="w-72 ml-3.5 sm:ml-12">
         <Toaster />
 
-        <label className="flex items-center relative w-max cursor-pointer select-none mb-10">
-          <span className="text-sm font-oxygen mr-24">Are you working now ? </span>
-          <input type="checkbox" className="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}
+        <div className='flex'>
+          <label className=" relative w-max cursor-pointer select-none mb-7">
+            <span className="text-sm font-oxygen">Are you working now ? </span>
+          </label>
+          <input type="checkbox" className="ml-[5.8rem] appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}
             onChange={handleToggle} />
-          <span className="absolute font-medium text-xs uppercase right-1 text-white"> {selectedOption ? '' : 'No'} </span>
-          <span className="absolute font-medium text-xs uppercase right-8 text-white"> {selectedOption ? 'Yes' : ''} </span>
-          <span className="w-5 h-5 right-8 absolute rounded-full transform transition-transform bg-gray-200" />
-        </label>
+          <span className="pointer-events-none absolute font-medium text-xs uppercase ml-[16.2rem] mt-1.5 text-white"> {selectedOption ? '' : 'No'} </span>
+          <span className="pointer-events-none absolute font-medium text-xs uppercase ml-[14.8rem] mt-1.5 text-white"> {selectedOption ? 'Yes' : ''} </span>
+          <span className="pointer-events-none w-5 h-5 ml-[14.7rem] mt-1 absolute rounded-full transform transition-transform bg-gray-200" />
+        </div>
 
         <style>{`
         input:checked {
@@ -704,35 +706,63 @@ const SecondForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
-      <div className={
-        jobCategory === 'Business' ? "flex justify-center mt-[9.5rem] mb-10" :
-          jobCategory === "Government" ? "flex justify-center mt-[5rem] mb-10"
-            : jobCategory === "Private" ? "flex justify-center mt-[5rem] mb-10"
-              : jobCategory === "Self Employed" ? "flex justify-center mt-[9.5rem] mb-10"
-                : "flex justify-center mt-[18.5rem] mb-10"
-      }>
-        <div className={
-          page === 0
-            ? " text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
-        } >
-          <CircleIcon sx={{ height: "8px" }} />
+      {option === 'No' ?
+        <div className="flex justify-center mb-3 sm:mb-10 mt-[19.8rem]">
+          <div className={
+            page === 0
+              ? " text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
+          <div className={
+            page === 1
+              ? "text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
+          <div className={
+            page === 2
+              ? "text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
         </div>
+        : ""
+      }
+      {
         <div className={
-          page === 1
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
-        } >
-          <CircleIcon sx={{ height: "8px" }} />
+          jobCategory === 'Business' ? "flex justify-center mt-[6.2rem] mb-3" :
+            jobCategory === "Government" ? "flex justify-center mt-[1.8rem] mb-3"
+              : jobCategory === "Private" ? "flex justify-center mt-[1.8rem] mb-3"
+                : jobCategory === "Self Employed" ? "flex justify-center mt-[6.2rem] mb-3"
+                  : "flex justify-center mt-[15rem] mb-3"
+        }>
+          <div className={
+            page === 0
+              ? " text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
+          <div className={
+            page === 1
+              ? "text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
+          <div className={
+            page === 2
+              ? "text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
         </div>
-        <div className={
-          page === 2
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
-        } >
-          <CircleIcon sx={{ height: "8px" }} />
-        </div>
-      </div>
+      }
     </>
   );
 };

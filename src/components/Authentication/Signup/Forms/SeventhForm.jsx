@@ -9,6 +9,7 @@ import { uploadImage } from '../../../../api';
 import './style.css'
 import CircleIcon from '@mui/icons-material/Circle';
 import { Toaster, toast } from 'react-hot-toast';
+import ImageCropperMobile from '../ImageCropperMobile';
 
 const SeventhForm = () => {
   const { page, setPage } = useContext(registrationContext)
@@ -194,14 +195,20 @@ const SeventhForm = () => {
               : " "}
           </>
         ) : currentPage === "crop-img" ? (
-          <div className='mt-[29rem]'>
-            <ImageCropper
-              image={image}
-              onCropDone={onCropDone}
-              onCropCancel={onCropCancel}
-            />
-          </div>
-
+          <>
+            <div className='mt-[29rem] sm:block hidden'>
+              <ImageCropper
+                image={image}
+                onCropDone={onCropDone}
+                onCropCancel={onCropCancel} />
+            </div>
+            <div className='mt-[29rem] sm:hidden block'>
+              <ImageCropperMobile
+                image={image}
+                onCropDone={onCropDone}
+                onCropCancel={onCropCancel} />
+            </div>
+          </>
         ) : (
           <>
             {isOpen === "photo" ?
@@ -261,7 +268,7 @@ const SeventhForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
-      <div className={currentPage === "crop-img" ? "flex justify-center mt-[8rem] mb-10" : "flex justify-center mt-[4.2rem] mb-10"}>
+      <div className={currentPage === "crop-img" ? "flex justify-center sm:mt-[8rem] mt-[16rem] mb-3 sm:mb-10" : "flex justify-center mt-[4.2rem] sm:mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

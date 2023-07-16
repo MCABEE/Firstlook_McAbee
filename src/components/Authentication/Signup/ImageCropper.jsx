@@ -51,13 +51,13 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
                 <div className="w-28 flex">
                     <div className={page === 9 ? "absolute text-black -mt-[42.3rem] -ml-3.5 cursor-pointer"
                         : page === 11 ? "absolute text-black -mt-[42.3rem] ml-4 cursor-pointer"
-                            : "absolute text-black -mt-[42.3rem] -ml-3.5 cursor-pointer"} onClick={onCropCancel}>
+                            : "absolute text-black -mt-[40rem] ml-4 cursor-pointer"} onClick={onCropCancel}>
                         <KeyboardBackspaceOutlinedIcon />
                     </div>
                     <div
-                        className={page === 9 ? "absolute mt-8 font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-44 cursor-pointer"
+                        className={page === 9 ? "absolute mt-8 font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-48 cursor-pointer"
                             : page === 11 ? "absolute mt-8 font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-[13rem] sm:ml-60 cursor-pointer"
-                                : "absolute mt-14 font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-60 cursor-pointer"}
+                                : "absolute mt-14 font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-48 cursor-pointer"}
                         onClick={() => {
                             onCropDone(croppedArea);
                         }}

@@ -4,7 +4,7 @@ import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspace
 import { registrationContext } from "../../../context/formContext";
 
 // eslint-disable-next-line react/prop-types
-function ImageCropper({ image, onCropDone, onCropCancel }) {
+function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
     const { page } = useContext(registrationContext)
     console.log(page)
     const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -31,7 +31,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
                     style={{
                         containerStyle: {
                             borderRadius: "0.85rem",
-                            top: "24rem",
+                            top: "25rem",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
@@ -43,11 +43,15 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
                     }}
                 />
                 <div className="w-28 flex">
-                    <div className="absolute text-black -mt-[33rem] -ml-3.5 cursor-pointer" onClick={onCropCancel}>
+                    <div className={page === 9 ? "absolute text-black -mt-[40rem] -ml-3.5 cursor-pointer"
+                        : page === 11 ? "absolute text-black -mt-[40rem] -ml-3.5 cursor-pointer"
+                            : "absolute text-black -mt-[40rem] -ml-3.5 cursor-pointer"} onClick={onCropCancel}>
                         <KeyboardBackspaceOutlinedIcon />
                     </div>
                     <div
-                        className="absolute mt-20 font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-48 cursor-pointer"
+                        className={page === 9 ? "absolute mt-[16vw] font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-48 cursor-pointer"
+                            : page === 11 ? "absolute mt-[16vw] font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-[13rem] sm:ml-60 cursor-pointer"
+                                : "absolute mt-[16vw] font-oxygen bg-[#F92739] py-2 rounded-xl text-white px-8 ml-48 cursor-pointer"}
                         onClick={() => {
                             onCropDone(croppedArea);
                         }}
@@ -61,4 +65,4 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
     );
 }
 
-export default ImageCropper;
+export default ImageCropperMobile;

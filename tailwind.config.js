@@ -21,9 +21,9 @@ export default {
       animation: {
         wiggle: 'wiggle 1s infinite',
         bounce: 'bounce 1s infinite',
-        moveToCloud: 'moveToCloud 1s infinite',
-        moveToCloud_sm: 'moveToCloud_sm 1s infinite',
-        moveToCloud_heart: 'moveToCloud_heart 1s infinite',
+        moveToCloud: 'moveToCloud 5s infinite',
+        moveToCloud_sm: 'moveToCloud_sm 5s infinite',
+        moveToCloud_heart: 'moveToCloud_heart 5s infinite',
       },
       keyframes: {
         wiggle: {
@@ -35,16 +35,16 @@ export default {
           '50%': { transform: 'translateY(0)' },
         },
         moveToCloud: {
-          '0%, 100%': { transform: 'translateY(-1400%)', opacity: "0" },
-          '50%': { transform: 'translateY(1300%)', opacity: "1" },
+          '0%, 100%': { transform: 'translateY(1250%)', opacity: "1" },
+          '50%': { transform: 'translateY(-1400%)', opacity: "0" },
         },
         moveToCloud_sm: {
-          '0%, 100%': { transform: 'translateY(-900%)', opacity: "0" },
-          '50%': { transform: 'translateY(0%)', opacity: "1" },
+          '0%, 100%': { transform: 'translateY(0%)', opacity: "1" },
+          '50%': { transform: 'translateY(-900%)', opacity: "0" },
         },
         moveToCloud_heart: {
-          '0%, 100%': { transform: 'translateY(-1400%)', opacity: "0" },
-          '50%': { transform: 'translateY(900%)', opacity: "1" },
+          '0%, 100%': { transform: 'translateY(900%)', opacity: "1" },
+          '50%': { transform: 'translateY(-1400%)', opacity: "0" },
         }
       }
   }

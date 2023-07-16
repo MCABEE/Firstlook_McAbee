@@ -170,8 +170,8 @@ const RegistrationMain = () => {
     return (
         <>
             <Navbar />
-            <div className="flex justify-center items-center mb-20">
-                <div className="w-full h-[55rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md">
+            <div className="flex justify-center items-center sm:mb-20">
+                <div className="w-full sm:h-[55rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md">
                     <p className="font-oxygen font-bold flex justify-center sm:mt-16 text-2xl">
                         Registration
                     </p>

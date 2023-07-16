@@ -152,7 +152,7 @@ const EighthForm = () => {
           </form>
         </>
       )}
-      <div className={showOTP ? "flex justify-center mt-[16rem] mb-10" : "flex justify-center mt-[4.7rem] mb-10"}>
+      <div className={showOTP ? "flex justify-center mt-[16rem] mb-3 sm:mb-10" : "flex justify-center mt-[4.7rem] mb-3 sm:mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

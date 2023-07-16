@@ -10,6 +10,7 @@ import ImageCropper from "../ImageCropper";
 import { uploadAadharImage } from "../../../../api";
 import { registrationContext } from "../../../../context/formContext";
 import { useNavigate } from "react-router-dom";
+import ImageCropperMobile from "../ImageCropperMobile";
 
 const AadharForm = () => {
     const { page } = useContext(registrationContext)
@@ -208,14 +209,20 @@ const AadharForm = () => {
                     }
                 </form>
             ) : currentPage === "crop-img" ? (
-                <div className='mt-[29rem]'>
-                    <ImageCropper
-                        image={image}
-                        onCropDone={onCropDone}
-                        onCropCancel={onCropCancel}
-                    />
-                </div>
-
+                <>
+                    <div className='mt-[29rem] sm:block hidden'>
+                        <ImageCropper
+                            image={image}
+                            onCropDone={onCropDone}
+                            onCropCancel={onCropCancel} />
+                    </div>
+                    <div className='mt-[29rem] sm:hidden block'>
+                        <ImageCropperMobile
+                            image={image}
+                            onCropDone={onCropDone}
+                            onCropCancel={onCropCancel} />
+                    </div>
+                </>
             ) : currentPage === "img-cropped" ? (
                 <>
                     {isOpen === "photo" ?
@@ -320,7 +327,7 @@ const AadharForm = () => {
                         : " "}
                 </>
             )}
-            <div className={currentPage === "crop-img" ? "flex justify-center mt-[7.8rem] mb-10" : "flex justify-center mt-[3.8rem] mb-10"}>
+            <div className={currentPage === "crop-img" ? "flex justify-center mt-[7.8rem] mb-3 sm:mb-10" : "flex justify-center mt-[3.8rem] sm:mb-10"}>
                 <div className={
                     page === 0
                         ? " text-[#F92739] font-medium"

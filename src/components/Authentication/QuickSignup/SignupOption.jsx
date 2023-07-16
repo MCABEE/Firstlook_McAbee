@@ -1,19 +1,47 @@
 import { Link } from "react-router-dom";
-import Navbar from "../../Home/Navbar";
 import { useEffect } from "react";
+import firstLook from '../../../assets/firstLook.png'
+import Navbar from "../../Home/Navbar";
 
 const SignupOption = () => {
     useEffect(() => {
-        window.scrollTo(0,0)
-      }, [])
+        window.scrollTo(0, 0)
+    }, [])
+
+    const token = localStorage.getItem("token")
+
     return (
         <>
-            <Navbar />
-            <div className="flex justify-center items-center mb-20">
-                <div className="w-full h-fit max-w-sm bg-[#F2F2F2] rounded-2xl shadow-lg bg-bg_signup bg-no-repeat bg-contain">
-                    <p className="font-oxygen font-bold flex justify-center text-white mt-16 text-[16px]">
-                        Signup
-                    </p>
+            <div className="sm:block hidden">
+                <Navbar />
+            </div>
+            <div className="flex justify-center items-center sm:mb-20">
+                <div className="w-full h-fit sm:max-w-sm sm:rounded-2xl sm:shadow-md bg-bg_signup bg-no-repeat bg-contain">
+                    <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
+                        <div>
+                            <nav className="flex h-9 items-center justify-between" aria-label="Global">
+                                <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+                                    <Link to="/" className="">
+                                        <span className="sr-only">Your Company</span>
+                                        <img className="h-10" src={firstLook} alt="Alt" />
+                                    </Link>
+                                </div>
+                                <div className="lg:flex lg:min-w-0 lg:flex-1 mr-5 sm:mr-0 lg:justify-end">
+                                    {token && <Link
+                                        to='/Signup'
+                                        className="inline-block rounded-lg px-6 py-1.5 text-sm font-semibold leading-6 bg-[#FC3657] shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
+                                    >
+                                        Signup
+                                    </Link>}
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div className="sm:block hidden">
+                        <p className=" font-oxygen font-bold flex justify-center text-white sm:mt-16 mt-4 text-[16px]">
+                            Signup
+                        </p>
+                    </div>
                     <div className="grid gap-4 mt-10">
                         <div className="flex-1">
                             <p className="text-white text-[24px] ml-10">
