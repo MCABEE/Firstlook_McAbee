@@ -48,7 +48,7 @@ const Banner = () => {
                             </Link>
                         </div>
                         <div className="lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
-                            {token && <Link
+                            {!token && <Link
                                 to='/Signup'
                                 className="inline-block rounded-lg px-6 py-1.5 text-sm font-semibold leading-6 bg-[#FC3657] shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
                             >
