@@ -8,7 +8,7 @@ const PageUnderConstruction = () => {
   }, [])
   return (
     <>
-      <div className="text-gray-900 mb-36">
+      <div className="text-gray-900 mb-20">
         <div className="grid grid-cols-12 mx-auto max-w-7xl">
           <div className="justify-center items-end col-span-12 lg:col-span-6 lg:h-auto block lg:hidden">
             <img src={coding} className='w-[500px] h-[350px]' alt="" />
