@@ -19,8 +19,8 @@ export default {
           }
       },
       animation: {
-        wiggle: 'wiggle 1s infinite',
-        bounce: 'bounce 1s infinite',
+        wiggle: 'wiggle 4s infinite',
+        bounce: 'bounce 4s infinite',
         moveToCloud: 'moveToCloud 5s infinite',
         moveToCloud_sm: 'moveToCloud_sm 5s infinite',
         moveToCloud_heart: 'moveToCloud_heart 5s infinite',
