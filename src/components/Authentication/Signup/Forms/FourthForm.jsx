@@ -207,14 +207,17 @@ const FourthForm = () => {
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
         <Toaster />
-        <label className="flex items-center relative w-max cursor-pointer select-none">
-          <span className="text-sm font-oxygen mr-24">Are you still studying ? </span>
-          <input type="checkbox" className="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}
+
+        <div className='flex'>
+          <label className=" relative w-max cursor-pointer select-none mb-7">
+            <span className="text-sm font-oxygen">Are you still studying ? </span>
+          </label>
+          <input type="checkbox" className="ml-[5.8rem] appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}
             onChange={handleToggle} />
-          <span className="absolute font-medium text-xs uppercase right-1 text-white"> {selectedOption ? '' : 'No'} </span>
-          <span className="absolute font-medium text-xs uppercase right-8 text-white"> {selectedOption ? 'Yes' : ''} </span>
-          <span className="w-5 h-5 right-8 absolute rounded-full transform transition-transform bg-gray-200" />
-        </label>
+          <span className="pointer-events-none absolute font-medium text-xs uppercase ml-[16.2rem] mt-1.5 text-white"> {selectedOption ? '' : 'No'} </span>
+          <span className="pointer-events-none absolute font-medium text-xs uppercase ml-[14.8rem] mt-1.5 text-white"> {selectedOption ? 'Yes' : ''} </span>
+          <span className="pointer-events-none w-5 h-5 ml-[14.7rem] mt-1 absolute rounded-full transform transition-transform bg-gray-200" />
+        </div>
 
         <style>{`
         input:checked {
