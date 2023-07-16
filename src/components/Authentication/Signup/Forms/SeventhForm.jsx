@@ -226,7 +226,7 @@ const SeventhForm = () => {
                           setIsRunning(false)
                           setFilled(0)
                         }}
-                        className="text-black -mt-[37rem] -ml-72"
+                        className="text-black -mt-[35rem] -ml-72"
                       >
                         <KeyboardBackspaceOutlinedIcon />
                       </div>

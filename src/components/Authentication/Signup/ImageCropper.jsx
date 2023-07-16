@@ -50,7 +50,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
                 />
                 <div className="w-28 flex">
                     <div className={page === 9 ? "absolute text-black -mt-[42.3rem] -ml-3.5 cursor-pointer"
-                        : page === 11 ? "absolute text-black -mt-[42.3rem] ml-4 cursor-pointer"
+                        : page === 11 ? "absolute text-black -mt-[40rem] ml-4 cursor-pointer"
                             : "absolute text-black -mt-[40rem] ml-4 cursor-pointer"} onClick={onCropCancel}>
                         <KeyboardBackspaceOutlinedIcon />
                     </div>

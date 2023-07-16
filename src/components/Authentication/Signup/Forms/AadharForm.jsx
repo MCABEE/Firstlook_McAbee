@@ -239,7 +239,7 @@ const AadharForm = () => {
                                                 setCurrentPage("crop-img");
                                                 setCount(0)
                                             }}
-                                            className="text-black -mt-[33rem] sm:-mt-[30.5rem] -ml-[18rem] sm:-ml-60"
+                                            className="text-black -mt-[28.5rem] -ml-[18rem] sm:-ml-60"
                                         >
                                             <KeyboardBackspaceOutlinedIcon />
                                         </div>
@@ -285,7 +285,7 @@ const AadharForm = () => {
                 <>
                     {isOpen === "photo" ?
                         <>
-                            <div className="absolute w-[24rem] py-3 rounded-xl mb-6 bg-white h-[54.9rem] -mt-64">
+                            <div className="absolute w-[24rem] py-3 rounded-xl mb-6 bg-white sm:bg-[#F2F2F2] sm:h-[55rem] -mt-64">
                                 <button className="rounded-2xl py-3 mt-8 ml-4 sm:ml-[2rem] flex">
                                     <div className='mx-auto'>
                                         <div className='mt-[5rem]'>
@@ -318,7 +318,7 @@ const AadharForm = () => {
                                 }
                                 <button
                                     onClick={handleFileUpload}
-                                    className={isRunning ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[12rem] sm:ml-[13rem] mt-[3.8rem]" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[12rem] sm:ml-[13rem] mt-[37rem]"}
+                                    className={isRunning ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[12rem] sm:ml-[13rem] mt-[3.8rem] mb-4" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[12rem] sm:ml-[13rem] mt-[37rem] mb-4"}
                                 >
                                     Continue
                                 </button>
