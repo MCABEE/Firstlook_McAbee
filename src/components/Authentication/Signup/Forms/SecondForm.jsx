@@ -270,7 +270,7 @@ const SecondForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
-      <div className="flex justify-center mt-64 sm:mt-64 mb-3 sm:mb-10">
+      <div className="flex justify-center mt-64 sm:mt-[14.5rem] mb-3 sm:mb-10">
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

@@ -392,7 +392,7 @@ const FifthForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form >
-      <div className={option === 'Yes' ? "flex justify-center mt-[85px] mb-3 sm:mb-10" : "flex justify-center mt-[30.5rem] mb-3 sm:mb-10"}>
+      <div className={option === 'Yes' ? "flex justify-center mt-[60px] mb-3 sm:mb-10" : "flex justify-center mt-[29rem] mb-3 sm:mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

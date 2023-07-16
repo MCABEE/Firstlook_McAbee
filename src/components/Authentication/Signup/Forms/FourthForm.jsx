@@ -484,9 +484,9 @@ const FourthForm = () => {
         <div className="flex items-center justify-between"></div>
       </form >
       <div className={
-        academicStream === 'Certificate Courses' || academicStream === 'Plus Two / HSC / SSLC' || academicStream === 'Primary School' ? "flex justify-center mt-[100px] mb-10"
+        academicStream === 'Certificate Courses' || academicStream === 'Plus Two / HSC / SSLC' || academicStream === 'Primary School' ? "flex justify-center mt-[70px] mb-10"
           : academicStream && " "
-            ? "flex justify-center mt-[28px] mb-3 sm:mb-10" : "flex justify-center mt-[170px] mb-3 sm:mb-10"}>
+            ? "flex justify-center mt-[5px] mb-3 sm:mb-10" : "flex justify-center mt-[140px] mb-3 sm:mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"
