@@ -85,10 +85,6 @@ const SixthForm2 = () => {
       toast.error("Enter Contact Number")
     }
 
-    else if (district === '') {
-      toast.error("select District")
-    }
-
     else {
       await registerFamilyAddress(familyName, homeTown, pincode, contactNumber, homeContactNumber, district)
         .then(() => {
