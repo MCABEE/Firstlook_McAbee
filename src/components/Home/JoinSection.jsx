@@ -45,10 +45,18 @@ const JoinSection = () => {
                                 </Link>
                             </motion.div>
 
+                            <motion.div
+                                initial={{ y: "-10vw", opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
+                                viewport={{ once: true, amount: 0.8 }}
+                                className="lg:w-6/12 lg:p-0 p-7 sm:hidden block">
+                                <img src={Mobileimage} alt="" />
+                            </motion.div>
+
                             <motion.a initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.7 } }}
                                 viewport={{ once: true, amount: 0.8 }}
-                                className="block rounded-xl bg-[#D8E8FE] p-4 shadow-xl sm:p-6 lg:p-8 mt-8 md:mt-20 md:w-4/4"
+                                className="block rounded-xl bg-[#D8E8FE] p-4 shadow-xl sm:p-6 lg:p-8 mt-8 md:mt-20 md:w-4/4 sm:mb-0 mb-14"
                             >
                                 <div className='flex'>
                                     <h3 className="font-semibold text-black text-[24px]">
@@ -66,13 +74,6 @@ const JoinSection = () => {
                                 </p>
                             </motion.a>
                         </div>
-                        <motion.div
-                            initial={{ y: "-10vw", opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
-                            viewport={{ once: true, amount: 0.8 }}
-                            className="lg:w-6/12 lg:p-0 p-7 sm:hidden block">
-                            <img src={Mobileimage} alt="" />
-                        </motion.div>
                     </div>
                 </div>
             </div>

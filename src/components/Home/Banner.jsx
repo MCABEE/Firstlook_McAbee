@@ -248,7 +248,7 @@ const Banner = () => {
                         <div>
                             <img className="absolute h-[3vw] w-[7.5vw] mt-[7vw] animate-wiggle" src={cloud} alt="" />
                             <img className="absolute h-[2vw] w-[5vw] ml-[37vw] mt-[2vw] animate-wiggle" src={cloud} alt="" />
-                            <img className="absolute h-[0.8vw] w-[0.9vw] ml-[38.5vw] mt-[14vw] animate-moveToCloud" src={heart} alt="" />
+                            <img className="absolute h-[0.8vw] w-[0.9vw] ml-[38.5vw] mt-[14vw] animate-moveToCloud direction-normal" src={heart} alt="" />
                             <img className="absolute h-[1vw] w-[1.1vw] ml-[37.5vw] mt-[21.5vw] animate-moveToCloud" src={heart} alt="" />
                             <img className="absolute h-[3.8vw] w-[3.8vw] ml-[35vw] mt-[32vw] animate-bounce" src={chat} alt="" />
                         </div>

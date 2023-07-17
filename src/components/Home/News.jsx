@@ -6,7 +6,7 @@ import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 const News = () => {
     return (
         <>
-            <div className="max-w-screen-xl mx-auto mt-10">
+            <div className="max-w-screen-xl mx-auto sm:mt-10">
                 <div className="container m-auto px-6">
 
                     <div className="md:flex justify-between items-center">
@@ -14,7 +14,7 @@ const News = () => {
                         <div className="lg:w-6/12 lg:p-0 p-7">
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
-                                viewport={{ once: true, amount: 0.8 }} className="pt-6 pb-4 space-y-2">
+                                viewport={{ once: true, amount: 0.8 }} className="sm:pt-6 pb-4 space-y-2">
                                 <h1 className="text-5xl font-bold">News</h1>
                                 <p className="text-base text-[#545454]">See, what’s new from Firstlook. <br />
                                     News and updates from us.

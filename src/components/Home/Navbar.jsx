@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import firstLook from '../../assets/firstLook.png'
 
 const Navbar = () => {
-    const token = localStorage.getItem("token")
     return (
         <>
             <div className="relative z-10 bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5 mb-20">
@@ -40,12 +39,12 @@ const Navbar = () => {
                         </div> */}
 
                         <div className="lg:flex lg:min-w-0 lg:flex-1 mr-5 sm:mr-0 lg:justify-end">
-                            {!token && <Link
+                            <Link
                                 to='/Signup'
                                 className="inline-block rounded-lg px-6 py-1.5 text-sm font-semibold leading-6 bg-[#FC3657] shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
                             >
                                 Signup
-                            </Link>}
+                            </Link>
                         </div>
                     </nav>
                     {/* <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
