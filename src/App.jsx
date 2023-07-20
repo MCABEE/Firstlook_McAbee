@@ -16,6 +16,7 @@ import SignupRedirect from './components/Authentication/SignupRedirect';
 import FeaturePage from './components/FeaturePage/FeaturePage';
 import PageConstruct from './components/PageUnderConstruction/PageConstruct';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import AppInstallPage from './components/AppInstallPage/AppInstallPage';
 
 function App() {
   const [page, setPage] = useState(0)
@@ -47,6 +48,7 @@ function App() {
         <Route path='/about' element={<PageConstruct />} />
         <Route path='/mediaCentre' element={<PageConstruct />} />
         <Route path='*' element={<PageNotFound />} />
+        <Route path='/installapp' element={<AppInstallPage />} />
       </Routes>
     </BrowserRouter>
   )

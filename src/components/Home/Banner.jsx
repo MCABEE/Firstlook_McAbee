@@ -8,7 +8,6 @@ import MobileImage from '../../assets/Index_Model_New.png'
 import { Link } from "react-router-dom"
 
 const Banner = () => {
-    const token = localStorage.getItem("token")
     const [isHovered1, setIsHovered1] = useState(false);
     const [isHovered2, setIsHovered2] = useState(false);
     const [isHovered3, setIsHovered3] = useState(false);
@@ -38,7 +37,7 @@ const Banner = () => {
     };
     return (
         <>
-            <div className="relative z-10 bg-white px-6 pt-4 pb-4 lg:px-8 border-2 shadow-md rounded-2xl w-11/12 mx-auto mt-5">
+            <div className="relative z-10 bg-white px-6 pt-4 pb-4 lg:px-8 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
                 <div>
                     <nav className="flex h-9 items-center justify-between" aria-label="Global">
                         <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
@@ -48,12 +47,12 @@ const Banner = () => {
                             </Link>
                         </div>
                         <div className="lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
-                            {!token && <Link
+                            <Link
                                 to='/Signup'
                                 className="inline-block rounded-lg px-6 py-1.5 text-sm font-semibold leading-6 bg-[#FC3657] shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
                             >
                                 Signup
-                            </Link>}
+                            </Link>
                         </div>
                     </nav>
                 </div>

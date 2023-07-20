@@ -16,6 +16,8 @@ export default {
         'bg_pay': "url(https://imagetolink.com/ib/yOtxG2AUsh.png)",
         'bg_contact': "url(https://imagetolink.com/ib/RDwZV22a69.png)",
         'bg_signup': "url(https://imagetolink.com/ib/f9SGiHQ1TE.png)",
+        'bg_eclipse': "url(https://imagetolink.com/ib/bJGB0XQ72l.png)",
+
       }
     },
     animation: {

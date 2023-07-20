@@ -39,7 +39,7 @@ const QuickSignup = () => {
             <div className="sm:block hidden">
                 <Navbar />
             </div>
-            <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
+            <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
                 <div>
                     <nav className="flex h-9 items-center justify-between" aria-label="Global">
                         <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">

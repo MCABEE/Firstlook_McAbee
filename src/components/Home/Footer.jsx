@@ -3,6 +3,7 @@ import mcabee from '../../assets/mcblogo.png'
 import { Link } from 'react-router-dom'
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { useState } from 'react';
+import { regions } from '../../lib/constants';
 
 const Footer = () => {
     const [country, setCountry] = useState("")
@@ -31,17 +32,21 @@ const Footer = () => {
                                         <KeyboardArrowDownRoundedIcon />
                                     </div>
                                     {isOpen === 'Country' ? (
-                                        <ul className="absolute z-10 w-[11.2rem] mt-12 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                                        <ul className="absolute z-10 lg:w-[14%] sm:w-[37.5%] w-[75%] mt-12 h-40 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg">
                                             <>
-                                                <li
-                                                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                                                    onClick={() => {
-                                                        setCountry("India")
-                                                        setIsOpen("")
-                                                    }}
-                                                >
-                                                    <p className="mr-2">India</p>
-                                                </li>
+                                                {regions.map((status) => (
+                                                    <>
+                                                        <li
+                                                            className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                                                            onClick={() => {
+                                                                setCountry(status?.name)
+                                                                setIsOpen("")
+                                                            }}
+                                                        >
+                                                            <p className="mr-2" >{status?.name}</p>
+                                                        </li>
+                                                    </>
+                                                ))}
                                             </>
                                         </ul>
                                     ) : " "}

@@ -3,8 +3,8 @@ import CircleIcon from '@mui/icons-material/Circle';
 const Terms = () => {
     return (
         <>
-            <div className='w-11/12 mx-auto h-fit'>
-                <div className="sm:ml-16">
+            <div className='w-[78%] mx-auto h-fit'>
+                <div>
                     <p className="text-[24px] flex justify-center font-oxygen font-bold mt-16">
                         TERMS OF USE
                     </p>

@@ -137,3 +137,12 @@ export const motherOccupations = [
     { id: 21, name: "BUSINESS WOMEN" },
 ];
 
+export const regions = [
+    { id: 1, name: "Asia" },
+    { id: 2, name: "GCC" },
+    { id: 3, name: "Europe" },
+    { id: 4, name: "Africa" },
+    { id: 5, name: "Oceania" },
+    { id: 6, name: "South America" },
+    { id: 7, name: "North America" }
+];
