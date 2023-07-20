@@ -15,7 +15,7 @@ const ContactDetails = () => {
                 <div className="absolute inset-0">
                     <Navbar />
                 </div>
-                <div className="w-full max-w-xl px-4 mx-auto md:px-20 lg:px-20 xl:px-20 lg:py-20 lg:max-w-screen-xl">
+                <div className="w-full max-w-xl px-4 sm:mx-auto lg:mx-0 md:px-20 lg:px-20 xl:px-36 lg:py-20 lg:max-w-screen-xl">
                     <div className="mb-0 lg:max-w-lg lg:pr-8 xl:pr-6 mt-24">
                         <h2 className="mb-5 font-sans text-[24px] font-semibold tracking-tight text-gray-900 sm:text-[24px] md:text-start">
                             Have something you want to share with us?
