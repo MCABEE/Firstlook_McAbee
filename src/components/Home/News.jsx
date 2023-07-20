@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import news from '../../assets/news.jpg'
 import { motion } from 'framer-motion'
-import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 
 const News = () => {
     return (
