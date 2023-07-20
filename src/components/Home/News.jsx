@@ -31,12 +31,12 @@ const News = () => {
                                 viewport={{ once: true, amount: 0.8 }} className='border-t-1 border-gray-300 sm:mt-3 mt-6 sm:w-[435px]' />
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.6 } }}
-                                viewport={{ once: true, amount: 0.8 }} className="pt-3 sm:pt-10 pb-4 space-y-2">
+                                viewport={{ once: true, amount: 0.8 }} className="pt-3 sm:pt-6 space-y-2">
                                 <span className="text-[12px]">13 JULY 2023</span>
-                                <h1 className="text-[21px] font-bold sm:pt-3 sm:w-[337px]">‘Firstlook’ introduced the web version in India</h1>
-                                <p className='sm:pt-3 sm:w-[435px] text-justify'>Launched ‘Firstlook’ a social netwrok for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro</p>
-                                <Link className="inline-flex items-center py-2 sm:pt-7 space-x-2 text-gray-600">
-                                    <EastOutlinedIcon />
+                                <h1 className="text-[21px] font-bold sm:w-[337px]">‘Firstlook’ introduced the web version in India</h1>
+                                <p className='sm:pt-3 sm:w-[435px] text-justify sm:pb-4'>Launched ‘Firstlook’ a social netwrok for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro</p>
+                                <Link className="inline-flex items-center py-2 space-x-2 bg-[#FC3657] text-[12px] px-5 rounded-md text-white">
+                                    MORE NEWS
                                 </Link>
                             </motion.div>
                         </div>
@@ -44,7 +44,7 @@ const News = () => {
                             whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.8 } }}
                             viewport={{ once: true, amount: 0.8 }}
                             className="md:w-6/12 order-2 xl:ml-20 sm:block hidden">
-                            <img src={news} alt="" />
+                            <img src={news} className='border-2' alt="" />
                         </motion.div>
                     </div>
                 </div>
