@@ -17,9 +17,9 @@ const Feature = () => {
             <section className="sm:max-w-7xl px-2.5 max-w-sm mx-auto text-gray-800">
                 <motion.div initial={{ y: "-10vw", opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
-                    viewport={{ once: true, amount: 0.8 }} className="container mx-auto p-4 my-6 text-center mt-20">
+                    viewport={{ once: true, amount: 0.8 }} className="container mx-auto p-4 my-6 text-center mt-5 sm:mt-10">
                     <h2 className="text-3xl sm:text-5xl font-bold">Highlights of Firstlook</h2>
-                    <p className="text-gray-60 text-sm sm:text-base text-center mt-5">Find a partner here as easy as using a social app, bypassing the traditional formalities.</p>
+                    <p className="text-gray-60 text-sm sm:text-base text-center mt-7 sm:mt-5">Find a partner here as easy as using a social app, bypassing the traditional formalities.</p>
                     <p className="text-gray-600 text-sm sm:text-base text-center">These features will make your search & communication easy and fun. </p>
                 </motion.div>
                 <div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">

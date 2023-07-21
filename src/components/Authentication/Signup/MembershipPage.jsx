@@ -34,16 +34,16 @@ const MembershipPage = () => {
     return (
         <>
             <Navbar />
-            <div className="flex justify-center items-center mb-20">
-                <div className="w-full max-w-md bg-white rounded-xl shadow-md h-[870px] sm:h-[840px] ">
-                    <p className='font-oxygen font-bold text-2xl ml-10 sm:mt-10'>
+            <div className="flex justify-center items-center sm:mb-10 mt-10 sm:ml-0 ml-7">
+                <div className="w-full max-w-md bg-white rounded-xl sm:shadow-lg sm:h-[840px] sm:pl-9">
+                    <p className='font-oxygen font-bold text-2xl sm:mt-10'>
                         Membership Policy and <br />
                         Terms of Use
                     </p>
-                    <p className='font-oxygen font-bold text-sm mt-4 ml-10'>
+                    <p className='font-oxygen font-bold text-sm mt-4'>
                         Please read carefully and accept before you <br /> proceed.
                     </p>
-                    <div ref={termsAndConditionsRef} style={{ maxHeight: '800px' }} className='w-11/12 h-[30rem] p-4 overflow-y-auto bg-[#F2F2F2] rounded-lg ml-5 mt-10'>
+                    <div ref={termsAndConditionsRef} style={{ maxHeight: '800px' }} className='w-11/12 h-[30rem] p-4 overflow-y-auto bg-[#F2F2F2] rounded-lg mt-10'>
                         <p className='font-oxygen font-bold mt-10'>
                             Membership Policy
                         </p>
@@ -171,7 +171,7 @@ const MembershipPage = () => {
                     </div>
                     {showAcceptButton && (
                         <Link to='/register/verify'>
-                            <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-14 sm:ml-14 text-white w-3/4'>
+                            <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-8 text-white w-3/4'>
                                 I Accept, Let’s Go
                             </button>
                         </Link>

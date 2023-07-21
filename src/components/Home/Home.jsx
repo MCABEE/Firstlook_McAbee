@@ -9,7 +9,6 @@ const Home = () => {
     <div>
       <Banner />
       <Feature />
-      <hr className='sm:hidden block border-t-1 border-gray-300 mt-4 w-10/12 ml-8' />
       <News />
       <Media/>
       <Footer />

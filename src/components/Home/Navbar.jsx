@@ -4,7 +4,7 @@ import firstLook from '../../assets/firstLook.png'
 const Navbar = () => {
     return (
         <>
-            <div className="relative z-10 bg-white pt-4 pb-4 sm:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5 mb-20">
+            <div className="relative z-10 bg-white pt-4 pb-4 sm:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
                 <div>
                     <nav className="flex h-9 items-center justify-between" aria-label="Global">
                         <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">

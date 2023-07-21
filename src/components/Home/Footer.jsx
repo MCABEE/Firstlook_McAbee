@@ -13,7 +13,7 @@ const Footer = () => {
             <footer aria-label="Site Footer" className="bg-white">
                 <div
 
-                    className="mx-auto w-10/12 px-4 sm:py-6 sm:px-6 lg:px-10">
+                    className="mx-auto w-10/12 px-4 sm:py-6 mt-10 sm:px-6 lg:px-10">
 
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
                         <div className="text-center sm:text-left">
@@ -21,7 +21,7 @@ const Footer = () => {
 
                             <nav aria-label="Footer About Nav" className="mt-8 sm:mt-16 lg:mt-6">
 
-                                <div className="mb-6 mt-4 flex">
+                                <div className="sm:mb-6 mb-2 sm:mt-4 mt-6 flex">
                                     <div
                                         className="w-full h-10 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                                         onClick={() => setIsOpen("Country")}
@@ -101,7 +101,7 @@ const Footer = () => {
                         <div className="text-center lg:ml-24 sm:text-left lg:text-start">
                             <p className="text-lg font-medium text-white">.</p>
 
-                            <nav aria-label="Footer Resources Nav" className="mt-8">
+                            <nav aria-label="Footer Resources Nav" className="-mt-10 sm:mt-8">
                                 <ul className="space-y-4 text-sm">
 
                                     <li>
@@ -145,32 +145,32 @@ const Footer = () => {
                         </div>
 
                         <div className="text-center lg:ml-auto sm:text-left lg:text-start">
-                            <p className="text-base font-oxygen font-extrabold text-gray-900">Connect Us</p>
+                            <p className="text-base font-oxygen font-extrabold text-gray-900 mt-5 sm:mt-0">Connect Us</p>
 
                             <nav aria-label="Footer Helpful Nav" className="mt-8">
                                 <ul className="space-y-4 text-sm">
                                     <li>
-                                        <span className="text-gray-700 transition">
-                                            Customer Care ( Toll-Free )
+                                        <span className="text-gray-500 transition">
+                                            Support ( Toll Free - India )
                                         </span>
                                     </li>
 
                                     <li>
-                                        <span className="text-rose-600 transition hover:text-gray-700/75">
+                                        <span className="text-rose-600">
                                             1800 270 1431
                                         </span>
                                     </li>
 
                                     <li>
                                         <span
-                                            className="text-gray-700 transition"
+                                            className="text-gray-500 transition"
                                         >
                                             Write to us
                                         </span>
                                     </li>
 
                                     <li>
-                                        <span className="text-rose-600 transition hover:text-gray-700/75">
+                                        <span className="text-rose-600">
                                             support@firstlook.pro
                                         </span>
                                     </li>
@@ -181,7 +181,7 @@ const Footer = () => {
                         <div className="text-center lg:ml-auto sm:text-left lg:text-start">
                             <p className="text-lg font-medium text-white">.</p>
 
-                            <nav aria-label="Footer Resources Nav" className="mt-8">
+                            <nav aria-label="Footer Resources Nav" className="-mt-10 sm:mt-8">
                                 <ul className="space-y-4 text-sm">
 
                                     <li>
@@ -211,10 +211,10 @@ const Footer = () => {
                                         </Link>
                                     </li>
 
-                                    <ul className="flex justify-center gap-6 md:justify-start lg:justify-start">
+                                    <ul className="flex justify-center gap-4 md:justify-start lg:justify-start">
                                         <li>
                                             <Link
-                                                to="https://facebook.com/firstlookmatchmaking"
+                                                to="https://www.facebook.com/firstlookappofficial"
                                                 rel="noreferrer"
                                                 target="_blank"
                                                 className="text-rose-600 transition hover:text-rose-600/75"
@@ -278,6 +278,20 @@ const Footer = () => {
                                                 </svg>
                                             </Link>
                                         </li>
+
+                                        <li>
+                                            <Link
+                                                to="https://www.youtube.com/@firstlook_app"
+                                                rel="noreferrer"
+                                                target="_blank"
+                                                className="text-rose-600 transition hover:text-rose-600/75"
+                                            >
+                                                <span className="sr-only">Youtube</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="21" viewBox="0 0 25 21" fill="none">
+                                                    <path d="M18.8697 0.581543H6.60892C2.93068 0.581543 0.478516 3.0337 0.478516 6.71195V14.0684C0.478516 17.7467 2.93068 20.1988 6.60892 20.1988H18.8697C22.548 20.1988 25.0001 17.7467 25.0001 14.0684V6.71195C25.0001 3.0337 22.548 0.581543 18.8697 0.581543ZM15.0566 11.653L12.0282 13.4676C10.8021 14.2033 9.7967 13.6393 9.7967 12.2048V8.56333C9.7967 7.12883 10.8021 6.56483 12.0282 7.30048L15.0566 9.11506C16.2214 9.82619 16.2214 10.9542 15.0566 11.653Z" fill="#FC3657" />
+                                                </svg>
+                                            </Link>
+                                        </li>
                                     </ul>
 
                                 </ul>
@@ -289,7 +303,7 @@ const Footer = () => {
 
 
                         <div>
-                            <p className='text-gray-700 mt-20 font-thin text-justify'>
+                            <p className='text-gray-700 sm:mt-20 mt-14 font-thin text-justify'>
                                 A social network for Matchmaking, listed in Firstlook and find life partner’s for Indian’s Globally. Before registering or using this web / mobile application, everyone should read our <Link to='/membershippolicy' className='text-rose-600 font-normal'> Membership Policy</Link>,<Link to='/privacypolicy' className='text-rose-600 font-normal'> Terms of Use</Link> and <Link to='/refundpolicy' className='text-rose-600 font-normal'>Refund / Cancellation Policy</Link>  in detail.
                                 We invite peoples who are legally eligible for marriage under the rules of Govt. of India. Any kind of misuse / malpractice’s should be offensive and legally punishable.
                                 Firstlook is owned, operated and maintained by MCABEE. For more details <Link to='/contact' className='text-rose-600 font-normal'>Connect </Link>with us.
@@ -301,11 +315,11 @@ const Footer = () => {
                                 <img src={firstLook} className='h-10' alt="" />
                             </div>
 
-                            <p className='text-center text-gray-500 flex mt-2 justify-center items-center'>
+                            <p className='text-center text-gray-500 flex mt-6 sm:mt-2 justify-center items-center'>
                                 from &nbsp; <img src={mcabee} className='h-6 w-20' alt="" />
                             </p>
 
-                            <p className="mt-4 text-center text-sm text-gray-500 sm:mt-2 sm:text-right">
+                            <p className="mt-6 mb-10 sm:mb-0 text-center text-sm text-gray-500 sm:mt-3 sm:text-right">
                                 Copyright 2023 &copy; <span className='font-semibold text-black'>FIRSTLOOK</span>
                             </p>
                         </div>

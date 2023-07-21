@@ -8,11 +8,11 @@ const Refund = () => {
     return (
         <>
             <div className='w-[78%] mx-auto h-fit'>
-                <p className="text-[24px] flex justify-center font-oxygen font-bold mt-16">
+                <p className="text-[24px] flex justify-center font-oxygen font-bold mt-10">
                     REFUND AND CANCELLATION POLICY
                 </p>
                 <div>
-                    <p className="text-[24px] font-oxygen font-bold mt-20">
+                    <p className="text-[24px] font-oxygen font-bold sm:mt-16 mt-10">
                         Regarding Payment
                     </p>
                     <p className="text-[16px] mt-6 text-justify">

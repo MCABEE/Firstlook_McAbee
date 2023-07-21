@@ -51,3 +51,8 @@
 ::-webkit-scrollbar-thumb {
   border-radius: 0.25rem;
 }
+
+input:focus {
+    outline: none;
+    border: none; 
+}

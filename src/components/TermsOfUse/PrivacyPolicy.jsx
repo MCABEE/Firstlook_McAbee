@@ -6,11 +6,11 @@ const PrivacyPolicy = () => {
       }, [])
     return (
         <div className='w-[78%] mx-auto h-fit'>
-            <p className="text-[24px] flex justify-center font-oxygen font-bold mt-16">
+            <p className="text-[24px] flex justify-center font-oxygen font-bold mt-10">
                 TERMS OF USE &amp; PRIVACY POLICY
             </p>
             <div>
-                <p className="text-[24px] font-oxygen font-bold mt-20">
+                <p className="text-[24px] font-oxygen font-bold sm:mt-16 mt-10">
                     Firstlook Privacy Policy
                 </p>
                 <p className="text-[16px] mt-6 text-justify">

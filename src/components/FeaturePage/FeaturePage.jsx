@@ -8,7 +8,6 @@ const FeaturePage = () => {
         <>
             <Navbar />
             <Feature />
-            <hr className='sm:hidden block border-t-1 border-gray-400 mt-4 mb-6 w-10/12 ml-8' />
             <JoinSection />
             <Footer />
         </>

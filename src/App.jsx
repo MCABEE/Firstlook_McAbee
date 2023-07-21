@@ -47,6 +47,7 @@ function App() {
         <Route path='/pricing' element={<PageConstruct />} />
         <Route path='/about' element={<PageConstruct />} />
         <Route path='/mediaCentre' element={<PageConstruct />} />
+        <Route path='/news' element={<PageConstruct />} />
         <Route path='*' element={<PageNotFound />} />
         <Route path='/installapp' element={<AppInstallPage />} />
       </Routes>

@@ -77,7 +77,7 @@ const ContactDetails = () => {
                                             type="email"
                                             id="UserEmail"
                                             placeholder="Email ID"
-                                            className="w-full text-sm px-3 py-2 rounded-xl"
+                                            className="w-full text-sm px-3 border-none py-2 rounded-xl"
                                         />
 
                                         <button
