@@ -17,6 +17,8 @@ import FeaturePage from './components/FeaturePage/FeaturePage';
 import PageConstruct from './components/PageUnderConstruction/PageConstruct';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import AppInstallPage from './components/AppInstallPage/AppInstallPage';
+import NewsPage from './components/News/NewsPage';
+import AboutUsPage from './components/AboutUs/AboutUsPage';
 
 function App() {
   const [page, setPage] = useState(0)
@@ -47,7 +49,8 @@ function App() {
         <Route path='/pricing' element={<PageConstruct />} />
         <Route path='/about' element={<PageConstruct />} />
         <Route path='/mediaCentre' element={<PageConstruct />} />
-        <Route path='/news' element={<PageConstruct />} />
+        <Route path='/news' element={<NewsPage />} />
+        <Route path='/aboutus' element={<AboutUsPage />} />
         <Route path='*' element={<PageNotFound />} />
         <Route path='/installapp' element={<AppInstallPage />} />
       </Routes>

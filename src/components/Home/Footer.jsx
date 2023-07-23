@@ -109,7 +109,7 @@ const Footer = () => {
                                             className="text-gray-700 transition hover:text-gray-700/75"
                                             to="/stories"
                                         >
-                                            Stories
+                                            News
                                         </Link>
                                     </li>
 
@@ -118,7 +118,7 @@ const Footer = () => {
                                             className="text-gray-700 transition hover:text-gray-700/75"
                                             to="/faq"
                                         >
-                                            FAQs
+                                            Help Centre
                                         </Link>
                                     </li>
 

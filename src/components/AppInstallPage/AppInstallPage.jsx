@@ -175,9 +175,6 @@ const AppInstallPage = () => {
                         </Link>
                     </div>
                 </div>
-                <p className="text-[24px] font-oxygen font-bold ml-[51vw] -mt-[22rem]">
-                    App Install
-                </p>
             </div>
             <div className="block lg:hidden">
                 <div className="relative bg-white h-16 pt-4 pb-4 sm:px-3 border border-gray-100 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
