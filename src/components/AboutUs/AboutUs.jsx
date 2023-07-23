@@ -15,12 +15,16 @@ const AboutUs = () => {
                 And make this network as a space for mingle with each other, chat, share pics, videos and propose.
             </p>
 
-            <div className="grid w-full mt-20 mb-[25rem]">
+            <div className="flex justify-center mt-8 mb-6">
+                <img src="https://imagetolink.com/ib/G5XfwmytBS.png" className="h-[28rem] w-[50rem]" alt="" />
+            </div>
+
+            {/* <div className="grid w-full mt-20 mb-[25rem]">
                 <div className="absolute left-1/2 top-[38.5rem] h-96 w-[760px] -translate-x-1/2 -translate-y-1/2 -rotate-6 rounded-2xl bg-[#472C4C]"></div>
                 <div className="absolute left-1/2 top-[38rem] h-96 w-[800px] -translate-x-1/2 -translate-y-1/2 space-y-6 rounded-2xl p-6 transition duration-300 rotate-0">
                     <img src="https://imagetolink.com/ib/ZJNkHM64Eo.png" className="h-96 w-[800px]" alt="" />
                 </div>
-            </div>
+            </div> */}
 
             <p className="flex justify-center text-[36px] font-oxygen font-bold text-center">
                 Our Story
@@ -121,12 +125,12 @@ const AboutUs = () => {
             <div className="flex justify-center space-x-20 mt-10">
                 <img src="https://imagetolink.com/ib/uZtFnLDC7S.png" className="h-[69px] w-[92px]" alt="" />
                 <img src="https://imagetolink.com/ib/k7DL3M9UUl.png" className="h-[25px] w-[105px] mt-5" alt="" />
-                <img src="https://imagetolink.com/ib/gsKHxgLKQ5.png" className="h-[69px] w-[92px]" alt="" />
+                <img src="https://imagetolink.com/ib/gsKHxgLKQ5.png" className="h-[69px] w-[78px]" alt="" />
                 <img src="https://imagetolink.com/ib/WEayTYvVPt.png" className="h-[29px] w-[105px] mt-5" alt="" />
                 <img src="https://imagetolink.com/ib/bGwaQ5EefU.png" className="h-[69px] w-[92px]" alt="" />
-                <img src="https://imagetolink.com/ib/Kve1jiqMZo.png" className="h-[69px] w-[92px]" alt="" />
-                <img src="https://imagetolink.com/ib/X3oXxIihq4.png" className="h-[69px] w-[92px]" alt="" />
-                <img src="https://imagetolink.com/ib/L96F3ms432.png" className="h-[69px] w-[92px]" alt="" />
+                <img src="https://imagetolink.com/ib/Kve1jiqMZo.png" className="h-[62px] w-[70px]" alt="" />
+                <img src="https://imagetolink.com/ib/X3oXxIihq4.png" className="h-[66px] w-[61px]" alt="" />
+                <img src="https://imagetolink.com/ib/L96F3ms432.png" className="h-[52px] w-[86px]" alt="" />
             </div>
             <hr className="mt-6" />
 
