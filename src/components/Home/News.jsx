@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const News = () => {
     return (
         <>
-            <div className="max-w-screen-xl lg:px-6 mx-auto mt-4 sm:mt-16 sm:mb-8">
+            <div className="max-w-screen-xl lg:px-6 mx-auto mt-8 sm:mt-16 sm:mb-8">
                 <div className="container m-auto">
 
                     <div className="md:flex justify-between items-center">
