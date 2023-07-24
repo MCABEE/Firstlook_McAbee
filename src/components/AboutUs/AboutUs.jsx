@@ -130,7 +130,7 @@ const AboutUs = () => {
                 </div>
 
                 <hr className="mt-10 " />
-                <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-20 mt-10">
+                <div className="flex flex-col flex-wrap md:space-y-10 md:flex-row justify-center items-center md:space-x-20 mt-10">
                     <img src="https://imagetolink.com/ib/uZtFnLDC7S.png" className="sm:mt-0 mt-10 h-[69px] w-[92px]" alt="" />
                     <img src="https://imagetolink.com/ib/k7DL3M9UUl.png" className="sm:mt-5 mt-10 h-[25px] w-[105px]" alt="" />
                     <img src="https://imagetolink.com/ib/gsKHxgLKQ5.png" className="sm:mt-0 mt-10 h-[69px] w-[78px]" alt="" />
