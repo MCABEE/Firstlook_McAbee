@@ -14,7 +14,7 @@ const Feature = () => {
 
     return (
         <>
-            <section className="sm:max-w-7xl px-2.5 max-w-sm mx-auto text-gray-800">
+            <section className="sm:max-w-screen-xl px-2.5 max-w-sm mx-auto text-gray-800">
                 <motion.div initial={{ y: "-10vw", opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
                     viewport={{ once: true, amount: 0.8 }} className="container mx-auto p-4 my-6 text-center mt-5 sm:mt-10">
