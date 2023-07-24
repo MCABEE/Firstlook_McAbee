@@ -47,10 +47,9 @@ function App() {
         <Route path='/stories' element={<PageConstruct />} />
         <Route path='/faq' element={<PageConstruct />} />
         <Route path='/pricing' element={<PageConstruct />} />
-        <Route path='/about' element={<PageConstruct />} />
         <Route path='/mediaCentre' element={<PageConstruct />} />
         <Route path='/news' element={<NewsPage />} />
-        <Route path='/aboutus' element={<AboutUsPage />} />
+        <Route path='/about' element={<AboutUsPage />} />
         <Route path='*' element={<PageNotFound />} />
         <Route path='/installapp' element={<AppInstallPage />} />
       </Routes>

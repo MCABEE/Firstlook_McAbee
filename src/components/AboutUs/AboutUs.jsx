@@ -11,7 +11,7 @@ const AboutUs = () => {
                     a group of people <br />
                     who love’s ‘Firstlook’ the most.
                 </p>
-                
+
                 <p className="flex justify-center mt-4 sm:text-[21px] text-center">
                     Our mission is to connect people who are planning to marry or wish to find life partner. <br className="lg:block hidden" />
                     And make this network as a space for mingle with each other, chat, share pics, videos and propose.
@@ -41,7 +41,7 @@ const AboutUs = () => {
                     </p>
                 </div>
                 <div className="flex justify-center">
-                    <button className="mt-10 px-28 py-2 rounded-lg font-semibold bg-[#C8E9A0] text-[10px] sm:text-[14px]">
+                    <button className="mt-10 px-[20vw] sm:px-28 py-2 rounded-lg font-semibold bg-[#C8E9A0] text-[10px] sm:text-[14px]">
                         DOWLOAD MEDIA KIT FOR MORE DETAILS
                     </button>
                 </div>
@@ -78,22 +78,48 @@ const AboutUs = () => {
                 </div>
 
                 <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-0">
-                    <div className="grid grid-cols-2 sm:grid-cols-5">
-                        <div className="text-center">
-                            <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">18</h6>
-                            <p className="text-[#525252] sm:text-[21px]">COUNTRIES</p>
+                    <div className="sm:block hidden">
+                        <div className="grid sm:grid-cols-5">
+                            <div className="text-center">
+                                <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">18</h6>
+                                <p className="text-[#525252] sm:text-[21px]">COUNTRIES</p>
+                            </div>
+                            <div className="text-center">
+                                <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">24k</h6>
+                                <p className="text-[#525252] sm:text-[21px]">USERS</p>
+                            </div>
+                            <div className="text-center">
+                                <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">72k</h6>
+                                <p className="text-[#525252] sm:text-[21px]">PHOTO’S</p>
+                            </div>
+                            <div className="text-center">
+                                <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">18k</h6>
+                                <p className="text-[#525252] sm:text-[21px]">VIDEO’S</p>
+                            </div>
+                            <div className="text-center">
+                                <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">100K</h6>
+                                <p className="text-[#525252] sm:text-[21px]">PROPOSAL’S</p>
+                            </div>
                         </div>
-                        <div className="text-center">
-                            <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">24k</h6>
-                            <p className="text-[#525252] sm:text-[21px]">USERS</p>
-                        </div>
-                        <div className="text-center">
-                            <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">72k</h6>
-                            <p className="text-[#525252] sm:text-[21px]">PHOTO’S</p>
-                        </div>
-                        <div className="text-center">
-                            <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">18k</h6>
-                            <p className="text-[#525252] sm:text-[21px]">VIDEO’S</p>
+                    </div>
+                    <div className="sm:hidden block">
+                        <div className="grid grid-cols-2">
+                            <div className="text-center">
+                                <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">18</h6>
+                                <p className="text-[#525252] sm:text-[21px]">COUNTRIES</p>
+                            </div>
+                            <div className="text-center">
+                                <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">24k</h6>
+                                <p className="text-[#525252] sm:text-[21px]">USERS</p>
+                            </div>
+                            <div className="text-center">
+                                <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">72k</h6>
+                                <p className="text-[#525252] sm:text-[21px]">PHOTO’S</p>
+                            </div>
+                            <div className="text-center">
+                                <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">18k</h6>
+                                <p className="text-[#525252] sm:text-[21px]">VIDEO’S</p>
+                            </div>
                         </div>
                         <div className="text-center">
                             <h6 className="text-[20px] sm:text-[36px] mt-6 sm:mt-0 font-bold">100K</h6>
@@ -113,7 +139,7 @@ const AboutUs = () => {
                     </p>
                 </div>
                 <div className="flex justify-center">
-                    <Link className="mt-10 px-28 py-2 rounded-lg font-semibold bg-[#77867F] text-white text-[14px]">
+                    <Link className="mt-10 px-[20vw] sm:px-28 py-2 rounded-lg font-semibold bg-[#77867F] text-white text-[14px]">
                         www.mcabee.in
                     </Link>
                 </div>
@@ -130,15 +156,38 @@ const AboutUs = () => {
                 </div>
 
                 <hr className="mt-10 " />
-                <div className="flex flex-col flex-wrap md:space-y-10 md:flex-row justify-center items-center md:space-x-20 mt-10">
-                    <img src="https://imagetolink.com/ib/uZtFnLDC7S.png" className="sm:mt-0 mt-10 h-[69px] w-[92px]" alt="" />
-                    <img src="https://imagetolink.com/ib/k7DL3M9UUl.png" className="sm:mt-5 mt-10 h-[25px] w-[105px]" alt="" />
-                    <img src="https://imagetolink.com/ib/gsKHxgLKQ5.png" className="sm:mt-0 mt-10 h-[69px] w-[78px]" alt="" />
-                    <img src="https://imagetolink.com/ib/WEayTYvVPt.png" className="sm:mt-5 mt-10 h-[29px] w-[105px]" alt="" />
-                    <img src="https://imagetolink.com/ib/bGwaQ5EefU.png" className="sm:mt-0 mt-10 h-[69px] w-[92px]" alt="" />
-                    <img src="https://imagetolink.com/ib/Kve1jiqMZo.png" className="sm:mt-0 mt-10 h-[62px] w-[70px]" alt="" />
-                    <img src="https://imagetolink.com/ib/X3oXxIihq4.png" className="sm:mt-0 mt-10 h-[66px] w-[61px]" alt="" />
-                    <img src="https://imagetolink.com/ib/L96F3ms432.png" className="sm:mt-0 mt-10 h-[52px] w-[86px]" alt="" />
+                <div className="md:block hidden">
+                    <div className="flex flex-wrap md:space-y-10 md:flex-row justify-center items-center md:space-x-20 mt-10">
+                        <img src="https://imagetolink.com/ib/uZtFnLDC7S.png" className="sm:mt-0 mt-10 h-[69px] w-[92px]" alt="" />
+                        <img src="https://imagetolink.com/ib/k7DL3M9UUl.png" className="sm:mt-5 mt-10 h-[25px] w-[105px]" alt="" />
+                        <img src="https://imagetolink.com/ib/gsKHxgLKQ5.png" className="sm:mt-0 mt-10 h-[69px] w-[78px]" alt="" />
+                        <img src="https://imagetolink.com/ib/WEayTYvVPt.png" className="sm:mt-5 mt-10 h-[29px] w-[105px]" alt="" />
+                        <img src="https://imagetolink.com/ib/bGwaQ5EefU.png" className="sm:mt-0 mt-10 h-[69px] w-[92px]" alt="" />
+                        <img src="https://imagetolink.com/ib/Kve1jiqMZo.png" className="sm:mt-0 mt-10 h-[62px] w-[70px]" alt="" />
+                        <img src="https://imagetolink.com/ib/X3oXxIihq4.png" className="sm:mt-0 mt-10 h-[66px] w-[61px]" alt="" />
+                        <img src="https://imagetolink.com/ib/L96F3ms432.png" className="sm:mt-0 mt-10 h-[52px] w-[86px]" alt="" />
+                    </div>
+                </div>
+
+                <div className="md:hidden block">
+                    <div className="flex flex-wrap justify-center items-center mt-3">
+                        <img src="https://imagetolink.com/ib/uZtFnLDC7S.png" className="sm:mt-0 mt-10 h-[69px] w-[92px]" alt="" />
+                        <img src="https://imagetolink.com/ib/k7DL3M9UUl.png" className="sm:mt-5 mt-10 h-[25px] w-[105px] ml-10" alt="" />
+                    </div>
+                    <div className="flex flex-wrap justify-center items-center mt-3">
+                        <img src="https://imagetolink.com/ib/gsKHxgLKQ5.png" className="sm:mt-0 mt-10 h-[69px] w-[78px]" alt="" />
+                        <img src="https://imagetolink.com/ib/WEayTYvVPt.png" className="sm:mt-5 mt-10 h-[29px] w-[105px] ml-12" alt="" />
+
+                    </div>
+                    <div className="flex flex-wrap justify-center items-center mt-3">
+                        <img src="https://imagetolink.com/ib/bGwaQ5EefU.png" className="sm:mt-0 mt-10 h-[69px] w-[92px]" alt="" />
+                        <img src="https://imagetolink.com/ib/Kve1jiqMZo.png" className="sm:mt-0 mt-10 h-[62px] w-[70px] ml-14" alt="" />
+
+                    </div>
+                    <div className="flex flex-wrap justify-center items-center mt-3">
+                        <img src="https://imagetolink.com/ib/X3oXxIihq4.png" className="sm:mt-0 mt-10 h-[66px] w-[61px]" alt="" />
+                        <img src="https://imagetolink.com/ib/L96F3ms432.png" className="sm:mt-0 mt-10 h-[52px] w-[86px] ml-16" alt="" />
+                    </div>
                 </div>
                 <hr className="mt-6" />
 
