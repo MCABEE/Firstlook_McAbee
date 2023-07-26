@@ -19,6 +19,7 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import AppInstallPage from './components/AppInstallPage/AppInstallPage';
 import NewsPage from './components/News/NewsPage';
 import AboutUsPage from './components/AboutUs/AboutUsPage';
+import PricingPage from './components/Pricing/PricingPage';
 
 function App() {
   const [page, setPage] = useState(0)
@@ -46,7 +47,7 @@ function App() {
         <Route path='/firstlookFeatures' element={<FeaturePage />} />
         <Route path='/stories' element={<PageConstruct />} />
         <Route path='/faq' element={<PageConstruct />} />
-        <Route path='/pricing' element={<PageConstruct />} />
+        <Route path='/pricing' element={<PricingPage />} />
         <Route path='/mediaCentre' element={<PageConstruct />} />
         <Route path='/news' element={<NewsPage />} />
         <Route path='/about' element={<AboutUsPage />} />

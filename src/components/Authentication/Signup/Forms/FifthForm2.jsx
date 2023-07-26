@@ -361,7 +361,7 @@ const FifthForm2 = () => {
                 onChange={(e) => {
                   let searchValue = e.target.value.toLocaleLowerCase();
                   setSearch(searchValue);
-                  setEmployerName(e.target.value);
+                  setCompanyName(e.target.value);
                 }}
                 onClick={() => setIsOpen("Employer")}
                 placeholder="Employer / Company  Name" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
@@ -376,7 +376,7 @@ const FifthForm2 = () => {
                         <li
                           className="px-4 py-2 cursor-pointer flex"
                           onClick={() => {
-                            setEmployerName(data);
+                            setCompanyName(data);
                             setIsOpen("");
                           }}
                         >
