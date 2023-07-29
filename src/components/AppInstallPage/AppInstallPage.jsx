@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom"
 import firstLook from '../../assets/firstLook.png'
 import { useState } from "react";
+import { useEffect } from "react";
 
 const AppInstallPage = () => {
+    useEffect(() => {
+        window.scrollTo(0,0)
+      }, []) 
+
     const [isHovered1, setIsHovered1] = useState(false);
     const [isHovered2, setIsHovered2] = useState(false);
 

@@ -1,6 +1,10 @@
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
 const AboutUs = () => {
+    useEffect(() => {
+        window.scrollTo(0,0)
+      }, [])
     return (
         <>
             <div className="w-[89%] mx-auto">
