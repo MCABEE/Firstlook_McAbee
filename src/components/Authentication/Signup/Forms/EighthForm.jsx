@@ -6,6 +6,7 @@ import CircleIcon from '@mui/icons-material/Circle';
 import { registrationContext } from "../../../../context/formContext";
 import { Link, useNavigate } from "react-router-dom";
 import { uploadAadharDetails } from "../../../../api";
+import { useEffect } from "react";
 
 const EighthForm = () => {
   const { page, setPage } = useContext(registrationContext)
@@ -77,6 +78,10 @@ const EighthForm = () => {
   const handleNext = () => {
     setPage(page === 11 ? 0 : page + 1);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+}, [])
 
   return (
     <>

@@ -203,6 +203,10 @@ const FourthForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [country])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12">

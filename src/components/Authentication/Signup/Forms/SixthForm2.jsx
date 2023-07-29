@@ -101,6 +101,10 @@ const SixthForm2 = () => {
     getHomeTown()
   }, [])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12">

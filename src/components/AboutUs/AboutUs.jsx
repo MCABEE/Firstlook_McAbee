@@ -22,7 +22,7 @@ const AboutUs = () => {
                 </p>
 
                 <div className="flex justify-center mt-8 mb-6">
-                    <img src="https://imagetolink.com/ib/G5XfwmytBS.png" className="sm:h-[28rem] w-[50rem]" alt="" />
+                    <img src="https://imagetolink.com/ib/LbMT7IeJ5h.png" className="sm:h-[28rem] w-[50rem]" alt="" />
                 </div>
 
                 {/* <div className="grid w-full mt-20 mb-[25rem]">
@@ -45,12 +45,12 @@ const AboutUs = () => {
                     </p>
                 </div>
                 <div className="flex justify-center">
-                    <button className="mt-10 px-[20vw] sm:px-28 py-2 rounded-lg font-semibold bg-[#C8E9A0] text-[10px] sm:text-[14px]">
+                    <button className="mt-10 px-[10vw] sm:px-28 py-3 rounded-lg font-semibold bg-[#C8E9A0] text-[10px] sm:text-[14px]">
                         DOWLOAD MEDIA KIT FOR MORE DETAILS
                     </button>
                 </div>
 
-                <p className="flex justify-center text-[28px] sm:text-[36px] font-oxygen font-bold text-center mt-16">
+                <p className="flex justify-center text-[28px] sm:text-[36px] font-oxygen font-bold text-center mt-10 sm:mt-16">
                     Our Community
                 </p>
                 <div className="flex flex-col justify-center items-center h-full py-8 duration-300 sm:items-stretch sm:space-x-8 sm:flex-row">

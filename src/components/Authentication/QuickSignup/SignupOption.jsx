@@ -1,19 +1,26 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import firstLook from '../../../assets/firstLook.png'
-import Navbar from "../../Home/Navbar";
 
 const SignupOption = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
     return (
         <>
-            <div className="sm:block hidden">
-                <Navbar />
+            <div className="sm:block hidden bg-white pt-4 pb-4 sm:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
+                <div>
+                    <nav className="flex h-9 items-center justify-between" aria-label="Global">
+                        <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+                            <Link to="/" className="">
+                                <span className="sr-only">Your Company</span>
+                                <img className="h-10" src={firstLook} alt="Alt" />
+                            </Link>
+                        </div>
+                    </nav>
+                </div>
             </div>
-            <div className="flex justify-center items-center sm:mb-20">
+            <div className="flex justify-center items-center sm:mb-10 sm:mt-10">
                 <div className="w-full h-fit sm:max-w-sm sm:rounded-2xl sm:shadow-md bg-bg_signup bg-no-repeat bg-contain">
                     <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
                         <div>

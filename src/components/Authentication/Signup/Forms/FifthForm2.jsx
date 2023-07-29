@@ -104,6 +104,9 @@ const FifthForm2 = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [jobCategory])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+}, [])
 
   return (
     <>

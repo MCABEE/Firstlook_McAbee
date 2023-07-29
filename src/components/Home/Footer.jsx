@@ -7,7 +7,11 @@ import { regions } from '../../lib/constants';
 
 const Footer = () => {
     const [country, setCountry] = useState("")
-    const [isOpen, setIsOpen] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleDropdown = () => {
+        setIsOpen(!isOpen)
+    }
     return (
         <>
             <footer aria-label="Site Footer" className="bg-white">
@@ -24,14 +28,14 @@ const Footer = () => {
                                 <div className="sm:mb-6 mb-2 sm:mt-4 mt-6 flex">
                                     <div
                                         className="w-full h-10 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-                                        onClick={() => setIsOpen("Country")}
+                                        onClick={() => handleDropdown()}
                                     >
                                         <p className="w-44 mt-2 truncate text-sm">{country ? country : "Region"}</p>
                                     </div>
                                     <div className="-ml-8 mt-1.5 text-[#B8B8B8] pointer-events-none">
                                         <KeyboardArrowDownRoundedIcon />
                                     </div>
-                                    {isOpen === 'Country' ? (
+                                    {isOpen ? (
                                         <ul className="absolute z-10 lg:w-[14%] sm:w-[37.5%] w-[75%] mt-12 h-40 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg">
                                             <>
                                                 {regions.map((status) => (
@@ -41,6 +45,7 @@ const Footer = () => {
                                                             onClick={() => {
                                                                 setCountry(status?.name)
                                                                 setIsOpen("")
+                                                                window.location.reload()
                                                             }}
                                                         >
                                                             <p className="mr-2" >{status?.name}</p>

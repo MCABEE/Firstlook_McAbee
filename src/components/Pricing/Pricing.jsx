@@ -36,42 +36,39 @@ const Pricing = () => {
                             whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.2 } }}
                             viewport={{ once: true, amount: 0.8 }}
                         >
-                            <div className="w-6/12 h-8 bg-[#FC3E56] rounded-t-xl">
-                                <p className="text-base h-full flex justify-center items-center font-oxygen text-white">
+                            <div className="w-full h-12 bg-[#8B8F86] rounded-t-xl flex">
+                                <p className="text-[22px] h-full flex justify-start ml-8 items-center font-oxygen font-semibold text-white">
                                     Basic
                                 </p>
+                                <p className="text-[22px] h-full flex items-center ml-auto mr-8 font-oxygen font-semibold text-white line-through">
+                                    3599.00
+                                </p>
                             </div>
-                            <div className="p-8 bg-white shadow-md rounded-b-xl rounded-tr-xl">
-                                <div className="w-4/12 h-10 bg-[#2B9AF3] rounded-b-lg -mt-8 ml-auto">
-                                    <p className="text-base h-full flex justify-center items-center font-oxygen text-white line-through">
-                                        3599.00
-                                    </p>
-                                </div>
+                            <div className="p-8 bg-white shadow-gray-400 shadow-md rounded-b-xl border-2 border-gray-300">
                                 <div className="text-start">
                                     <p className='font-bold text-[#747474] mt-2 mb-1'>
                                         LAUNCHING OFFER
                                     </p>
                                     <div className="flex items-start justify-start">
-                                        <p className="mr-2 text-[30px] sm:text-[36px] font-semibold text-black">
-                                            ₹999
+                                        <p className="mr-2 text-[30px] sm:text-[36px] font-bold text-black">
+                                            ₹1490<span className='text-[14px]'>.00</span>
                                         </p>
-                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6">/ Year</p>
-                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6 ml-auto">+ GST</p>
+                                        <p className="text-[14px] text-[#585858] font-semibold mt-4 sm:mt-6"> &nbsp;Annually</p>
                                     </div>
                                     <hr className='w-full mt-2 bg-black' />
                                 </div>
                                 <ul className="mb-8 mt-8 space-y-4">
                                     <li className="flex items-center">
                                         <div className="mr-3 text-[#747474]">
-                                            <UpdateOutlinedIcon />
-                                        </div>
-                                        <p className="font-medium text-[#585858]">One year validity</p>
-                                    </li>
-                                    <li className="flex items-center">
-                                        <div className="mr-3 text-[#747474]">
                                             <SensorOccupiedOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-[#585858]">24 Connection’s</p>
+                                    </li>
+                                    <li className="flex items-center">
+                                        <div className="mr-3 text-[#747474]">
+                                            <UpdateOutlinedIcon />
+                                        </div>
+                                        <p className="font-medium text-[#585858]">One year validity</p>
                                     </li>
                                     <li className="flex items-center">
                                         <div className="mr-3 text-[#747474]">
@@ -111,42 +108,39 @@ const Pricing = () => {
                             whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.3 } }}
                             viewport={{ once: true, amount: 0.8 }}
                         >
-                            <div className="w-6/12 h-8 bg-[#FC3E56] rounded-t-xl">
-                                <p className="text-base h-full flex justify-center items-center font-oxygen tracking-wide text-white">
+                            <div className="w-full h-12 bg-[#8B8F86] rounded-t-xl flex">
+                                <p className="text-[22px] h-full flex justify-start ml-8 items-center font-oxygen font-semibold text-white">
                                     Pro
                                 </p>
+                                <p className="text-[22px] h-full flex items-center ml-auto mr-8 font-oxygen font-semibold text-white line-through">
+                                    5999.00
+                                </p>
                             </div>
-                            <div className="p-8 bg-white shadow-md rounded-b-xl rounded-tr-xl">
-                                <div className="w-4/12 h-10 bg-[#2B9AF3] rounded-b-lg -mt-8 ml-auto">
-                                    <p className="text-base h-full flex justify-center items-center font-oxygen text-white line-through">
-                                        5999.00
-                                    </p>
-                                </div>
+                            <div className="p-8 bg-white shadow-gray-400 shadow-md rounded-b-xl border-2 border-gray-300">
                                 <div className="text-start">
                                     <p className='font-bold text-[#747474] mt-2 mb-1'>
                                         LAUNCHING OFFER
                                     </p>
                                     <div className="flex items-start justify-start">
-                                        <p className="mr-2 text-[30px] sm:text-[36px] font-semibold text-black">
-                                            ₹2499
+                                        <p className="mr-2 text-[30px] sm:text-[36px] font-bold text-black">
+                                            ₹2980<span className='text-[14px]'>.00</span>
                                         </p>
-                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6">/ Year</p>
-                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6 ml-auto">+ GST</p>
+                                        <p className="text-[14px] text-[#585858] font-semibold mt-4 sm:mt-6"> &nbsp;Annually</p>
                                     </div>
                                     <hr className='w-full mt-2 bg-black' />
                                 </div>
                                 <ul className="mb-8 mt-8 space-y-4">
                                     <li className="flex items-center">
                                         <div className="mr-3 text-[#747474]">
-                                            <UpdateOutlinedIcon />
-                                        </div>
-                                        <p className="font-medium text-[#585858]">One year validity</p>
-                                    </li>
-                                    <li className="flex items-center">
-                                        <div className="mr-3 text-[#747474]">
                                             <SensorOccupiedOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-[#585858]">Unlimited Connections</p>
+                                    </li>
+                                    <li className="flex items-center">
+                                        <div className="mr-3 text-[#747474]">
+                                            <UpdateOutlinedIcon />
+                                        </div>
+                                        <p className="font-medium text-[#585858]">One year validity</p>
                                     </li>
                                     <li className="flex items-center">
                                         <div className="mr-3 text-[#747474]">
@@ -186,42 +180,39 @@ const Pricing = () => {
                             whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
                             viewport={{ once: true, amount: 0.8 }}
                         >
-                            <div className="w-6/12 h-8 bg-[#8B8F86] rounded-t-xl">
-                                <p className="text-base h-full flex justify-center items-center font-oxygen text-white">
+                            <div className="w-full h-12 bg-[#8B8F86] rounded-t-xl flex">
+                                <p className="text-[22px] h-full flex justify-start ml-8 items-center font-oxygen font-semibold text-white">
                                     Top Up
                                 </p>
+                                <p className="text-[22px] h-full flex items-center ml-auto mr-8 font-oxygen font-semibold text-white line-through">
+                                    299.00
+                                </p>
                             </div>
-                            <div className="p-8 bg-white shadow-md rounded-b-xl rounded-tr-xl">
-                                <div className="w-4/12 h-10 bg-[#2B9AF3] rounded-b-lg -mt-8 ml-auto">
-                                    <p className="text-base h-full flex justify-center items-center font-oxygen text-white line-through">
-                                        299.00
-                                    </p>
-                                </div>
+                            <div className="p-8 bg-white shadow-gray-400 shadow-md rounded-b-xl border-2 border-gray-300">
                                 <p className='font-bold text-[#747474] mt-2 mb-1'>
-                                        LAUNCHING OFFER
-                                    </p>
+                                    LAUNCHING OFFER
+                                </p>
                                 <div className="text-start">
                                     <div className="flex items-start justify-start">
-                                        <p className="mr-2 text-[30px] sm:text-[36px] font-semibold text-black">
-                                            ₹99
+                                        <p className="mr-2 text-[30px] sm:text-[36px] font-bold text-black">
+                                            ₹149<span className='text-[14px]'>.00</span>
                                         </p>
-                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6">/ Connection</p>
-                                        <p className="text-[14px] text-gray-900 mt-4 sm:mt-6 ml-auto"> + GST</p>
+                                        <p className="text-[14px] text-[#585858] font-semibold mt-4 sm:mt-6"> &nbsp;Per Connection</p>
                                     </div>
                                     <hr className='w-full mt-2 bg-black' />
                                 </div>
                                 <ul className="mb-8 mt-8 space-y-4">
                                     <li className="flex items-center">
                                         <div className="mr-3 text-[#747474]">
-                                            <UpdateOutlinedIcon />
-                                        </div>
-                                        <p className="font-medium text-[#585858]">Validity as per Basic Plan</p>
-                                    </li>
-                                    <li className="flex items-center">
-                                        <div className="mr-3 text-[#747474]">
                                             <SensorOccupiedOutlinedIcon />
                                         </div>
                                         <p className="font-medium text-[#585858]">01 Connection</p>
+                                    </li>
+                                    <li className="flex items-center">
+                                        <div className="mr-3 text-[#747474]">
+                                            <UpdateOutlinedIcon />
+                                        </div>
+                                        <p className="font-medium text-[#585858]">Validity as per Basic Plan</p>
                                     </li>
                                     <li className="flex items-center">
                                         <div className="mr-3 text-[#747474]">

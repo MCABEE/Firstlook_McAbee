@@ -4,14 +4,9 @@ import propose from '../../assets/propose.png'
 import reels from '../../assets/reels.png'
 import verify from '../../assets/verify.png'
 import chat from '../../assets/chatImg.png'
-import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const Feature = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
-
     return (
         <>
             <section className="sm:max-w-screen-xl px-2.5 max-w-sm mx-auto text-gray-800">

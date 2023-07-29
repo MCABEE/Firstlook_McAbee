@@ -176,6 +176,11 @@ const FifthForm = () => {
     getCity()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+}, [])
+
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12">

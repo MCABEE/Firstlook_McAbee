@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import Navbar from '../../Home/Navbar'
+import firstLook from '../../../assets/firstLook.png'
 import CircleIcon from '@mui/icons-material/Circle';
 import { Link } from 'react-router-dom';
 
@@ -29,13 +29,24 @@ const MembershipPage = () => {
     }, []);
 
     useEffect(() => {
-        window.scrollTo(0,0)
-      }, [])
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
-            <Navbar />
-            <div className="flex justify-center items-center sm:mb-10 mt-10 sm:ml-0 ml-7">
-                <div className="w-full max-w-md bg-white rounded-xl sm:shadow-lg sm:h-[840px] sm:pl-9">
+            <div className="bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
+                <div>
+                    <nav className="flex h-9 items-center justify-between" aria-label="Global">
+                        <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+                            <Link to="/" className="">
+                                <span className="sr-only">Your Company</span>
+                                <img className="h-10" src={firstLook} alt="Alt" />
+                            </Link>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div className="flex justify-center items-center sm:mb-10 sm:mt-16 mt-10 sm:ml-0 ml-7">
+                <div className="w-full max-w-md bg-white rounded-xl sm:shadow-lg sm:h-[810px] sm:pl-9">
                     <p className='font-oxygen font-bold text-2xl sm:mt-10'>
                         Membership Policy and <br />
                         Terms of Use

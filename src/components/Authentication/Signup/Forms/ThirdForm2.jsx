@@ -7,6 +7,7 @@ import { bloodGroups, diets, doDrink, doSmoke, financeStatus, userLicense } from
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
 import { Toaster, toast } from 'react-hot-toast';
+import { useEffect } from 'react';
 
 const ThirdForm2 = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -59,6 +60,11 @@ const ThirdForm2 = () => {
         })
     }
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <form onSubmit={handleData} className="w-72 ml-3.5 sm:ml-12">

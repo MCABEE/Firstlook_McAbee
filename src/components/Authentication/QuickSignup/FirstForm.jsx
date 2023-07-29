@@ -122,8 +122,12 @@ const FirstForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [religion])
 
-
   const formattedDate = selectedDate ? format(selectedDate, 'dd/MM/yyyy') : '';
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
   return (
     <>
       <form>

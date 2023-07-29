@@ -1,4 +1,3 @@
-import Navbar from "../../Home/Navbar";
 import { useContext } from "react";
 import { registrationContext } from "../../../context/formContext";
 import FirstForm from "./FirstForm";
@@ -36,10 +35,7 @@ const QuickSignup = () => {
 
     return (
         <>
-            <div className="sm:block hidden">
-                <Navbar />
-            </div>
-            <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
+            <div className="bg-white pt-4 pb-4 sm:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
                 <div>
                     <nav className="flex h-9 items-center justify-between" aria-label="Global">
                         <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
@@ -51,7 +47,7 @@ const QuickSignup = () => {
                     </nav>
                 </div>
             </div>
-            <div className="flex justify-center items-center sm:mb-20">
+            <div className="flex justify-center items-center sm:mb-10 sm:mt-10">
                 <div className="w-full sm:h-[55rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-lg">
                     <p className="font-oxygen font-bold flex justify-center mt-8 sm:mt-16 text-[16px]">
                         Quick Signup
@@ -61,7 +57,6 @@ const QuickSignup = () => {
                     </div>
                 </div>
             </div>
-
         </>
     );
 };

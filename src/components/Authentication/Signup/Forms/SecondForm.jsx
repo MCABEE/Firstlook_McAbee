@@ -124,7 +124,9 @@ const SecondForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state])
 
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <>

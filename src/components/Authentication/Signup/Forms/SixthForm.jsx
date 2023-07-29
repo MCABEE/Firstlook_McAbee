@@ -6,6 +6,7 @@ import { registerFamily } from '../../../../api';
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
 import { Toaster, toast } from 'react-hot-toast';
+import { useEffect } from 'react';
 
 const SixthForm = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -54,6 +55,10 @@ const SixthForm = () => {
         })
     }
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <>

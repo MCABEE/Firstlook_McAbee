@@ -138,7 +138,7 @@ export const motherOccupations = [
 ];
 
 export const regions = [
-    { id: 1, name: "Asia" },
+    { id: 1, name: "Asia ( Non - GCC )" },
     { id: 2, name: "GCC" },
     { id: 3, name: "Europe" },
     { id: 4, name: "Africa" },

@@ -95,6 +95,9 @@ const ThirdForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [religion])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <>

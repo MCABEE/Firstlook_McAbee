@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "../../Home/Navbar";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { auth } from "../../../config/Firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "@firebase/auth";
@@ -153,13 +152,22 @@ const PhoneReg = () => {
 
     return (
         <>
-            <div className="sm:block hidden">
-                <Navbar />
+            <div className="sm:block hidden bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
+                <div>
+                    <nav className="flex h-9 items-center justify-between" aria-label="Global">
+                        <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+                            <Link to="/" className="">
+                                <span className="sr-only">Your Company</span>
+                                <img className="h-10" src={firstLook} alt="Alt" />
+                            </Link>
+                        </div>
+                    </nav>
+                </div>
             </div>
-            <div className="flex justify-center items-center sm:mb-20 mt-2">
+            <div className="flex justify-center items-center sm:mb-10 mt-2 sm:mt-10">
                 <Toaster toastOptions={{ duration: 4000 }} />
 
-                <div className="w-full h-screen sm:h-[45rem] sm:max-w-sm bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md">
+                <div className="w-full h-screen sm:h-[45rem] sm:max-w-sm bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md -mt-2">
                     <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
                         <div>
                             <nav className="flex h-9 items-center justify-between" aria-label="Global">

@@ -142,6 +142,10 @@ const AadharForm = () => {
         }
     }, [filled, isRunning])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <>
             {currentPage === "choose-img" ? (

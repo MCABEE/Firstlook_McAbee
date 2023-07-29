@@ -6,8 +6,8 @@ import { useEffect } from 'react';
 
 const ContactDetails = () => {
     useEffect(() => {
-        window.scrollTo(0,0)
-      }, [])
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
 
@@ -29,7 +29,7 @@ const ContactDetails = () => {
                         <h2 className="mb-8 font-sans text-[24px] font-semibold tracking-tight text-gray-900 sm:text-[24px] md:text-start">
                             Say hello to us !
                         </h2>
-                        <div className='flex flex-col sm:flex-row mb-10'>
+                        <div className='flex flex-col sm:flex-row mb-8'>
                             <div className="p-4 rounded-2xl border border-[#DDDCDC] md:w-56 md:p-7">
                                 <h2 className="text-base font-medium text-[16px] text-[#FC3657]">Address</h2>
                                 <p className="mt-3 text-sm text-[14px] text-black">7th Floor, Spencer Plaza</p>
@@ -45,12 +45,21 @@ const ContactDetails = () => {
                                 <p className="mt-0 text-sm text-[14px] text-black">support@firstlook.pro</p>
                             </div>
                         </div>
-                        <h2 className="ml-5 mb-2 font-sans text-[16px] font-semibold tracking-tight text-gray-900 sm:text-[16px] sm:leading-none md:text-start">
+                        <h2 className="ml-5 mb-2 font-sans text-[16px] font-semibold tracking-tight text-gray-900 sm:text-[16px] sm:leading-none md:text-start md:block hidden">
                             For Business
                         </h2>
-                        <p className="ml-5 mb-5 text-sm text-gray-700 md:text-[14px] md:text-start w-auto md:w-[600px]">
+                        <p className="ml-5 mb-5 text-sm text-gray-700 md:text-[14px] md:text-start w-auto md:w-[600px] md:block hidden">
                             Please connect us through - Email [ <span className='font-bold'>mail@firstlook.pro</span>  ], Tel [ <span className='font-bold'>91 - 9946 - 250 - 333</span> ]
                         </p>
+
+                        <div className="sm:ml-10 md:hidden block ml-5">
+                            <h2 className="text-base font-medium text-[16px]">For Business</h2>
+                            <h2 className="text-sm mt-3">Please connect us through</h2>
+                            <p className="mt-3 text-sm font-semibold text-[14px] text-black">Email</p>
+                            <p className="mt-0 text-sm text-[14px] text-black">mail@firstlook.pro</p>
+                            <p className="mt-3 text-sm font-semibold text-[14px] text-black">Tel</p>
+                            <p className="mt-0 text-sm text-[14px] text-black">91 - 9946 - 250 - 333</p>
+                        </div>
 
                         <div
                             className="mt-8 grid grid-cols-2 gap-8 lg:grid-cols-5 lg:gap-y-16 rounded-xl bg-[#D8E8FE] bg-opacity-40 p-4 border border-[#DDDCDC] shadow-sm sm:p-6 lg:p-8 md:mt-14 lg:w-[900px]"

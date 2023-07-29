@@ -12,6 +12,7 @@ import { registrationContext } from "../../../../context/formContext";
 import { registerAboutYou } from "../../../../api";
 import { useSelector } from "react-redux";
 import { Toaster, toast } from "react-hot-toast";
+import { useEffect } from "react";
 
 const FirstForm = () => {
   const userData = useSelector((state) => state.getUserFilledData?.data)
@@ -64,10 +65,15 @@ const FirstForm = () => {
   // const dateString = `${userData?.dob}`;
   // const date = new Date(dateString);
   // const dob = date.toLocaleDateString('en-GB');
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <form onSubmit={handleData} className="-mt-8">
-        <Toaster/>
+        <Toaster />
         <div className="flex justify-center space-x-20">
 
           <div
