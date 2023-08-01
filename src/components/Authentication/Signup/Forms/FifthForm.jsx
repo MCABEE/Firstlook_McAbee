@@ -260,7 +260,8 @@ const FifthForm = () => {
               <div
                 className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "State" ? "" : "State"))}
-              >onBlur={() => setIsOpen(null)}
+                onBlur={() => setIsOpen(null)}
+              >
 
                 <p className="w-44 mt-3  truncate text-sm">{state ? state : "State / Province"}</p>
               </div>
@@ -300,7 +301,8 @@ const FifthForm = () => {
                 <div
                   className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                   onClick={() => setIsOpen((prev) => (prev === "District" ? "" : "District"))}
-                >onBlur={() => setIsOpen(null)}
+                  onBlur={() => setIsOpen(null)}
+                >
 
                   <p className="w-44 mt-3  truncate text-sm">{district ? district : "District / Area"}</p>
                 </div>
@@ -382,7 +384,8 @@ const FifthForm = () => {
                 type="button"
                 className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Annual Income" ? "" : "Annual Income"))}
-              >onBlur={() => setIsOpen(null)}
+                onBlur={() => setIsOpen(null)}
+              >
 
                 <p className="w-44 truncate text-sm">{annualIncome ? annualIncome : "Annual Income (Approx.)"}</p>
               </button>
@@ -429,7 +432,7 @@ const FifthForm = () => {
 
           <button
             onClick={handleData}
-            className={ country === 'India' ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20 mb-[4.4rem]" }
+            className={country === 'India' ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20 mb-[4.4rem]"}
           >
             Continue
           </button>

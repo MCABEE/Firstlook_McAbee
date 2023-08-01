@@ -10,7 +10,7 @@ import './style.css'
 const SixthForm2 = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
   const district = userData?.native?.district
-console.log(userData)
+
   const [isOpen, setIsOpen] = useState("");
   const [familyName, setFamilyName] = useState(userData?.familyAddress?.houseName || "")
   const [homeTown, setHomeTown] = useState(userData?.familyAddress?.homeTown || "")

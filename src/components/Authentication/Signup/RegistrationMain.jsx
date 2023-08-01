@@ -26,8 +26,7 @@ const RegistrationMain = () => {
     const { page, setPage } = useContext(registrationContext)
     const dispatch = useDispatch()
     const listRef = useRef(null); // Reference to the list element
-    const activePage = page; // Replace with your active page logic
-    const [scrollEnabled, setScrollEnabled] = useState(true);
+    const [activePage, setActivePage] = useState(0)
 
     const getUserDetail = async () => {
         await getUserDetails().then((result) => {
@@ -39,7 +38,6 @@ const RegistrationMain = () => {
     const handleForms = () => {
         switch (page) {
             case 0: {
-
                 return (
                     <FirstForm></FirstForm>
                 );
@@ -147,6 +145,7 @@ const RegistrationMain = () => {
     useEffect(() => {
         getUserDetail()
         setForm(status)
+        setActivePage(page)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [status])
 
@@ -154,19 +153,16 @@ const RegistrationMain = () => {
         const listElement = listRef.current;
         const activeElement = listElement.children[activePage];
 
-        if (activeElement && scrollEnabled) {
+        if (activeElement) {
             activeElement.scrollIntoView({
                 behavior: "smooth",
                 block: "center",
                 inline: "center",
             });
         }
-
-        if (activePage === 3 || activePage === 6 || activePage === 8 || activePage === 11) {
-            setScrollEnabled(false);
-        }
+        
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [activePage, scrollEnabled]);
+    }, [activePage]);
 
     useEffect(() => {
         window.scrollTo(0, 0)

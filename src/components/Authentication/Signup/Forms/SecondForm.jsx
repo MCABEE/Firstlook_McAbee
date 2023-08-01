@@ -116,7 +116,7 @@ const SecondForm = () => {
 
   useEffect(() => {
     getCountry()
-    getStates()  
+    getStates()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [country])
 
@@ -180,7 +180,8 @@ const SecondForm = () => {
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "State" ? "" : "State"))}
-          >onBlur={() => setIsOpen(null)}
+            onBlur={() => setIsOpen(null)}
+          >
 
             <p className="w-44 mt-3 ml-2 truncate text-sm">{state ? state : "State"}</p>
           </div>
@@ -218,7 +219,8 @@ const SecondForm = () => {
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "District" ? "" : "District"))}
-          >onBlur={() => setIsOpen(null)}
+            onBlur={() => setIsOpen(null)}
+          >
 
             <p className="w-44 mt-3 ml-2 truncate text-sm">{district ? district : "District"}</p>
           </div>
@@ -255,7 +257,8 @@ const SecondForm = () => {
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Mother Toungue" ? "" : "Mother Toungue"))}
-          >onBlur={() => setIsOpen(null)}
+            onBlur={() => setIsOpen(null)}
+          >
 
             <p className="w-44 mt-3 ml-2 truncate text-sm">{motherToungue ? motherToungue : "Mother Toungue"}</p>
           </div>

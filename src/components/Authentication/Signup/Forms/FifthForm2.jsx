@@ -117,7 +117,8 @@ const FifthForm2 = () => {
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Job Category" ? "" : "Job Category"))}
-          >onBlur={() => setIsOpen(null)}
+            onBlur={() => setIsOpen(null)}
+          >
 
             <p className="w-44 truncate text-sm">{jobCategory ? jobCategory : "Job Category ?"}</p>
           </button>
@@ -255,7 +256,8 @@ const FifthForm2 = () => {
                 type="button"
                 className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Job Type" ? "" : "Job Type"))}
-              >onBlur={() => setIsOpen(null)}
+                onBlur={() => setIsOpen(null)}
+              >
 
                 <p className="w-44 truncate text-sm">{jobType ? jobType : "Job Type"}</p>
               </button>
@@ -340,7 +342,8 @@ const FifthForm2 = () => {
               <div
                 className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Job Stream" ? "" : "Job Stream"))}
-              >onBlur={() => setIsOpen(null)}
+                onBlur={() => setIsOpen(null)}
+              >
 
                 <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
               </div>
@@ -459,7 +462,8 @@ const FifthForm2 = () => {
               <div
                 className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Job Stream" ? "" : "Job Stream"))}
-              >onBlur={() => setIsOpen(null)}
+                onBlur={() => setIsOpen(null)}
+              >
 
                 <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
               </div>
