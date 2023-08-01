@@ -74,8 +74,9 @@ export const userLicense = [
 export const financeStatus = [
     { id: 1, name: "Average" },
     { id: 2, name: "Middle Class" },
-    { id: 3, name: "Rich" },
-    { id: 4, name: "HNI (High Net-worth)" },
+    { id: 3, name: "Upper Middle Class" },
+    { id: 4, name: "Rich" },
+    { id: 5, name: "HNI (High Net-worth)" },
 ];
 
 export const parentEducations = [

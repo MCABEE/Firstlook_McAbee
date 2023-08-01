@@ -135,13 +135,15 @@ const PhoneReg = () => {
         window.confirmationResult
             .confirm(otp)
             .then(async () => {
+                toast.success("OTP Successfully Verified!");
                 await registerUser(phone).then((result) => {
                     localStorage.setItem("userId", result.data.data.user._id)
                     localStorage.setItem("token", result.data.token)
                     navigate('/register/signupOption')
                 })
             })
-            .catch(() => {
+            .catch((error) => {
+                console.log(error);
                 toast.error("Invalid OTP")
             });
     }

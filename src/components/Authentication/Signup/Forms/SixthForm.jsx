@@ -45,6 +45,14 @@ const SixthForm = () => {
       toast.error("select no. of Siblings")
     }
 
+    else if (siblings > 12) {
+      toast.error("Siblings limited to a maximum of 12")
+    }
+
+    else if (siblings < 0) {
+      toast.error("Siblings must be a non-negative number")
+    }
+
     else {
       await registerFamily(fatherName, motherName, fatherEducation, motherEducation, fatherOccupation, motherOccupation, siblings)
         .then(() => {
@@ -81,7 +89,8 @@ const SixthForm = () => {
           <button
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Fathers Education")}
+            onClick={() => setIsOpen((prev) => (prev === "Fathers Education" ? "" : "Fathers Education"))}
+            onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{fatherEducation ? fatherEducation : "Father's Education"}</p>
           </button>
@@ -90,6 +99,12 @@ const SixthForm = () => {
           </div>
           {isOpen == 'Fathers Education' ? (
             <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Father’s Education</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {parentEducations.map((education) => (
                 <>
                   <li
@@ -113,7 +128,8 @@ const SixthForm = () => {
           <button
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Father’s Occupation")}
+            onClick={() => setIsOpen((prev) => (prev === "Father’s Occupation" ? "" : "Father’s Occupation"))}
+            onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{fatherOccupation ? fatherOccupation : "Father’s Occupation"}</p>
           </button>
@@ -122,6 +138,12 @@ const SixthForm = () => {
           </div>
           {isOpen == 'Father’s Occupation' ? (
             <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Father’s Occupation</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {fatherOccupations.map((occupation) => (
                 <>
                   <li
@@ -157,7 +179,8 @@ const SixthForm = () => {
           <button
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Mother Education")}
+            onClick={() => setIsOpen((prev) => (prev === "Mother Education" ? "" : "Mother Education"))}
+            onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{motherEducation ? motherEducation : "Mother's Education"}</p>
           </button>
@@ -166,6 +189,12 @@ const SixthForm = () => {
           </div>
           {isOpen == 'Mother Education' ? (
             <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Mother’s Education</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {parentEducations.map((education) => (
                 <>
                   <li
@@ -189,7 +218,8 @@ const SixthForm = () => {
           <button
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Mother Occupation")}
+            onClick={() => setIsOpen((prev) => (prev === "Mother Occupation" ? "" : "Mother Occupation"))}
+            onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{motherOccupation ? motherOccupation : "Mother's Occupation"}</p>
           </button>
@@ -198,6 +228,12 @@ const SixthForm = () => {
           </div>
           {isOpen == 'Mother Occupation' ? (
             <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Mother’s Occupation</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {motherOccupations.map((occupation) => (
                 <>
                   <li

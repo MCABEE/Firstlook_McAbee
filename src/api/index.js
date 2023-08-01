@@ -55,7 +55,7 @@ export const getAllAcademicStream = () => axios.get('/data/general/getAllAcademi
 
 export const getAllCourse = (stream) => axios.get(`/data/general/course?stream=${stream}`)
 
-export const getAllPincode = () => axios.get('/data/general/getAllPincode')
+export const getAllPincode = (district) => axios.get(`/data/general/getAllPincode?district=${district}`)
 
 export const getAllHomeTown = () => axios.get('/data/general/getAllHomeTown')
 

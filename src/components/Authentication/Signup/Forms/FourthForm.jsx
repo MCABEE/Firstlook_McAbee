@@ -34,6 +34,7 @@ const FourthForm = () => {
   const tempCollege = []
   const tempInstitute = []
   const tempCourse = []
+  const tempCountry = []
 
   nUniversity?.map((university) => (
     university?.institutions?.map((univ) => (
@@ -57,6 +58,10 @@ const FourthForm = () => {
     tempCourse.push(course?.name)
   })
 
+  nCountries.map((data) => {
+    tempCountry.push(data?.name)
+  })
+
   const searchData = (tempProduct) => {
     return search === ""
       ? tempProduct
@@ -66,6 +71,7 @@ const FourthForm = () => {
   const universityData = tempUniversity.filter(searchData)
   const instituteData = tempInstitute.filter(searchData)
   const collegeData = tempCollege.filter(searchData)
+  const countryData = tempCountry.filter(searchData)
   const courseData = tempCourse.filter(searchData)
 
   const handleToggle = () => {
@@ -204,6 +210,20 @@ const FourthForm = () => {
   }, [country])
 
   useEffect(() => {
+
+    if (option === 'Yes') {
+      if (userData?.occupation?.hasJob === 'Yes') {
+        setOption('Yes')
+        setSelectedOption(!selectedOption)
+      }
+    } else {
+      setOption("No")
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
@@ -213,7 +233,7 @@ const FourthForm = () => {
         <Toaster />
 
         <div className='flex'>
-          <label className=" relative w-max cursor-pointer select-none mb-7">
+          <label className=" relative w-max select-none mb-7">
             <span className="text-sm font-oxygen">Are you still studying ? </span>
           </label>
           <input type="checkbox" className="ml-[5.8rem] appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}
@@ -234,13 +254,14 @@ const FourthForm = () => {
       `}</style>
 
         <p className="font-medium text-sm mt-8">
-          Add your Highest Qualification
+          {option === 'Yes' ? 'Add your Course Details' : 'Add your Highest Qualification'}
         </p>
 
         <div className="mb-6 mt-4 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Academic Stream")}
+            onClick={() => setIsOpen((prev) => (prev === "Academic Stream" ? "" : "Academic Stream"))}
+            onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 mt-3 ml-2 truncate text-sm">{academicStream ? academicStream : "Select Academic Stream"}</p>
           </div>
@@ -249,6 +270,12 @@ const FourthForm = () => {
           </div>
           {isOpen === 'Academic Stream' ? (
             <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Academic Stream</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
 
               {nAcademicStream?.map((stream) => (
 
@@ -276,14 +303,21 @@ const FourthForm = () => {
               setSearch(searchValue);
               setCourseName(e.target.value);
             }}
-            onClick={() => setIsOpen("courseDetails")}
-            placeholder="Enter Course Name" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+            onClick={() => setIsOpen((prev) => (prev === "courseDetails" ? "" : "courseDetails"))}
+            onBlur={() => setIsOpen(null)}
+            placeholder="Enter Course Name" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'courseDetails' ? (
             <>
               <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                <li
+                  className="px-4 py-2 cursor-pointer flex"
+                >
+                  <p className="mr-2 font-semibold">Select Your Course Name</p>
+                </li>
+                <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                 {courseData.map((data) => (
                   <li
                     key={data?._id}
@@ -301,34 +335,44 @@ const FourthForm = () => {
           ) : " "}
         </div>
 
-        <div className="mb-6 flex">
-          <div
-            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Country")}
-          >
-            <p className="w-44 mt-3 ml-2 truncate text-sm">{country ? country : "Country"}</p>
-          </div>
+        <div className="mb-6 mt-5 flex">
+          <input type="text"
+            value={country}
+            onChange={(e) => {
+              let searchValue = e.target.value.toLocaleLowerCase();
+              setSearch(searchValue);
+              setCountry(e.target.value);
+            }}
+            onClick={() => setIsOpen((prev) => (prev === "Country" ? "" : "Country"))}
+            onBlur={() => setIsOpen(null)}
+            placeholder="Enter Country" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Country' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
-              {nCountries.map((country) => (
-                <>
-                  <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                    onClick={() => {
-                      setCountry(country?.name)
-                      setIsOpen("")
-                    }}
-                  >
-                    <p className="mr-2">{country?.name}</p>
-                  </li>
-                </>
-              ))}
-
-            </ul>
+            <>
+              <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                <li
+                  className="px-4 py-2 cursor-pointer flex"
+                >
+                  <p className="mr-2 font-semibold">Select Your Country</p>
+                </li>
+                <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
+                {countryData.map((data) => (
+                  <>
+                    <li
+                      className="px-4 py-2 cursor-pointer flex"
+                      onClick={() => {
+                        setCountry(data);
+                        setIsOpen("");
+                      }}
+                    >
+                      <p className="mr-2">{data}</p>
+                    </li>
+                  </>
+                ))}
+              </ul>
+            </>
           ) : " "}
         </div>
 
@@ -341,14 +385,21 @@ const FourthForm = () => {
                 setSearch(searchValue);
                 setInstitute(e.target.value)
               }}
-              onClick={() => setIsOpen("Institute")}
-              placeholder="Name of Institute / School" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+              onClick={() => setIsOpen((prev) => (prev === "Institute" ? "" : "Institute"))}
+              onBlur={() => setIsOpen(null)}
+              placeholder="Name of Institute / School" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
             <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
               <KeyboardArrowDownRoundedIcon />
             </div>
             {isOpen === 'Institute' ? (
               <>
                 <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                  <li
+                    className="px-4 py-2 cursor-pointer flex"
+                  >
+                    <p className="mr-2 font-semibold">Select Your Institute / School</p>
+                  </li>
+                  <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                   {instituteData.map((data) => (
                     <li
                       key={data?._id}
@@ -375,14 +426,21 @@ const FourthForm = () => {
                   setSearch(searchValue);
                   setUniversity(e.target.value);
                 }}
-                onClick={() => setIsOpen("University")}
-                placeholder="Enter University" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                onClick={() => setIsOpen((prev) => (prev === "University" ? "" : "University"))}
+                onBlur={() => setIsOpen(null)}
+                placeholder="Enter University" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
               {isOpen === 'University' ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                    <li
+                      className="px-4 py-2 cursor-pointer flex"
+                    >
+                      <p className="mr-2 font-semibold">Select Your University</p>
+                    </li>
+                    <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                     {universityData.map((data) => (
                       <>
                         <li
@@ -409,14 +467,21 @@ const FourthForm = () => {
                   setSearch(searchValue);
                   setCollege(e.target.value);
                 }}
-                onClick={() => setIsOpen("College")}
-                placeholder="Enter College" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                onClick={() => setIsOpen((prev) => (prev === "College" ? "" : "College"))}
+                onBlur={() => setIsOpen(null)}
+                placeholder="Enter College" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
               {isOpen === 'College' ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                    <li
+                      className="px-4 py-2 cursor-pointer flex"
+                    >
+                      <p className="mr-2 font-semibold">Select Your College</p>
+                    </li>
+                    <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                     {collegeData.map((data) => (
                       <>
                         <li
@@ -437,11 +502,12 @@ const FourthForm = () => {
           </>
         }
 
-        <div className="mb-8 flex">
+        {option === 'No' ? <div className="mb-8 flex">
           <button
             type="button"
-            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Pass-out Year")}
+            className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            onClick={() => setIsOpen((prev) => (prev === "Pass-out Year" ? "" : "Pass-out Year"))}
+            onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{passYear ? passYear : "Pass-out Year"}</p>
           </button>
@@ -450,6 +516,12 @@ const FourthForm = () => {
           </div>
           {isOpen === 'Pass-out Year' ? (
             <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Pass-out Year</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
 
               {passOutYear.map((year) => (
                 <>
@@ -467,7 +539,8 @@ const FourthForm = () => {
 
             </ul>
           ) : " "}
-        </div>
+        </div> : " "}
+
         <div className="flex">
           <button
             onClick={handleNext}
@@ -478,7 +551,7 @@ const FourthForm = () => {
 
           <button
             onClick={handleData}
-            className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
+            className={option === 'No' ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20 mb-[0.1rem]" : " bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20 mb-[4.9rem]"}
           >
             Continue
           </button>
@@ -488,9 +561,9 @@ const FourthForm = () => {
         <div className="flex items-center justify-between"></div>
       </form >
       <div className={
-        academicStream === 'Certificate Courses' || academicStream === 'Plus Two / HSC / SSLC' || academicStream === 'Primary School' ? "flex justify-center mt-[70px] mb-10"
+        academicStream === 'Certificate Courses' || academicStream === 'Plus Two / HSC / SSLC' || academicStream === 'Primary School' ? "flex justify-center mt-[16px] sm:mt-[70px] mb-1 sm:mb-10"
           : academicStream && " "
-            ? "flex justify-center mt-[5px] mb-3 sm:mb-10" : "flex justify-center mt-[140px] mb-3 sm:mb-10"}>
+            ? "flex justify-center mt-[16px] sm:mt-[2px] mb-1 sm:mb-10" : "flex justify-center mt-[140px] sm:mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

@@ -63,7 +63,8 @@ const SecondForm = () => {
   }
 
   const getDistricts = async () => {
-    await getAllDistricts(stateID)
+    const query = stateID ? stateID : " "
+    await getAllDistricts(query)
       .then((result) => {
         console.log(result);
         setNDistricts(result.data.districts)
@@ -74,7 +75,8 @@ const SecondForm = () => {
   }
 
   const getMotherToungue = async () => {
-    await getAllMotherToungues(stateID)
+    const query = stateID ? stateID : " "
+    await getAllMotherToungues(query)
       .then((result) => {
         console.log(result);
         setNMotherToungue(result.data.motherToungue)
@@ -114,7 +116,7 @@ const SecondForm = () => {
 
   useEffect(() => {
     getCountry()
-    getStates()
+    getStates()  
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [country])
 
@@ -141,14 +143,21 @@ const SecondForm = () => {
               setSearch(searchValue);
               setCountry(e.target.value);
             }}
-            onClick={() => setIsOpen("Country")}
+            onClick={() => setIsOpen((prev) => (prev === "Country" ? "" : "Country"))}
+            onBlur={() => setIsOpen(null)}
             placeholder="Enter Country" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Country' ? (
             <>
-              <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <ul className="absolute z-10 w-72 mt-14 max-h-48 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                <li
+                  className="px-4 py-2 cursor-pointer flex"
+                >
+                  <p className="mr-2 font-semibold">Select Your Country</p>
+                </li>
+                <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                 {countryData.map((data) => (
                   <>
                     <li
@@ -170,16 +179,22 @@ const SecondForm = () => {
         <div className="mb-6 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("State")}
-          >
+            onClick={() => setIsOpen((prev) => (prev === "State" ? "" : "State"))}
+          >onBlur={() => setIsOpen(null)}
+
             <p className="w-44 mt-3 ml-2 truncate text-sm">{state ? state : "State"}</p>
           </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'State' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
+            <ul className="absolute z-10 w-72 mt-14 max-h-48 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your State</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {nStates?.map((state) => (
                 <>
                   <li
@@ -202,16 +217,22 @@ const SecondForm = () => {
         <div className="mb-6 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("District")}
-          >
+            onClick={() => setIsOpen((prev) => (prev === "District" ? "" : "District"))}
+          >onBlur={() => setIsOpen(null)}
+
             <p className="w-44 mt-3 ml-2 truncate text-sm">{district ? district : "District"}</p>
           </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'District' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
+            <ul className="absolute z-10 w-72 mt-14 max-h-48 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your District</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {nDistricts?.map((district) => (
                 <>
                   <li
@@ -233,16 +254,22 @@ const SecondForm = () => {
         <div className="mb-10 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Mother Toungue")}
-          >
+            onClick={() => setIsOpen((prev) => (prev === "Mother Toungue" ? "" : "Mother Toungue"))}
+          >onBlur={() => setIsOpen(null)}
+
             <p className="w-44 mt-3 ml-2 truncate text-sm">{motherToungue ? motherToungue : "Mother Toungue"}</p>
           </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Mother Toungue' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
+            <ul className="absolute z-10 w-72 mt-14 max-h-48 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Mother Toungue</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {nMotherToungue?.map((lang) => (
                 lang?.languages?.map((langs) => (
                   <>

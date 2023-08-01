@@ -106,15 +106,22 @@ const ThirdForm = () => {
         <div className="mb-6 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Religion")}
+            onClick={() => setIsOpen((prev) => (prev === "Religion" ? "" : "Religion"))}
+            onBlur={() => setIsOpen(null)}
           >
-            <p className="w-44 mt-3 ml-2 truncate text-sm">{religion ? religion : "Religion"}</p>
+            <p className="w-44 mt-3 truncate text-sm">{religion ? religion : "Religion"}</p>
           </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Religion' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 mt-14 max-h-48 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Religion</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
 
               {nReligion?.map((religion) => (
                 <>
@@ -137,15 +144,22 @@ const ThirdForm = () => {
         <div className="mb-6 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Caste")}
+            onClick={() => setIsOpen((prev) => (prev === "Caste" ? "" : "Caste"))}
+            onBlur={() => setIsOpen(null)}
           >
-            <p className="w-44 mt-3 ml-2 truncate text-sm">{caste ? caste : "Caste"}</p>
+            <p className="w-44 mt-3 truncate text-sm">{caste ? caste : "Caste"}</p>
           </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Caste' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 mt-14 max-h-48 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Caste</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
 
               {nCaste?.map((caste) => (
                 <>
@@ -169,7 +183,8 @@ const ThirdForm = () => {
           <button
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Marital Status")}
+            onClick={() => setIsOpen((prev) => (prev === "Marital Status" ? "" : "Marital Status"))}
+            onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{maritalStatus ? maritalStatus : "Marital Status"}</p>
           </button>
@@ -177,7 +192,13 @@ const ThirdForm = () => {
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen == 'Marital Status' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 mt-14 max-h-48 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Marital Status</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {marriedStatus.map((status) => (
                 <>
                   <li
@@ -199,7 +220,7 @@ const ThirdForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
             type="number"
             placeholder="Height (in cm)"
             value={height}
@@ -209,7 +230,7 @@ const ThirdForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
             type="number"
             placeholder="Weight (in kg)"
             value={weight}
@@ -221,7 +242,8 @@ const ThirdForm = () => {
           <button
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Body Type")}
+            onClick={() => setIsOpen((prev) => (prev === "Body Type" ? "" : "Body Type"))}
+            onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{bodyType ? bodyType : "Body Type"}</p>
           </button>
@@ -229,7 +251,13 @@ const ThirdForm = () => {
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen == 'Body Type' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 mt-14 max-h-48 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Body Type</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {typeBody.map((type) => (
                 <>
                   <li
@@ -253,7 +281,8 @@ const ThirdForm = () => {
           <button
             type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Physical Status")}
+            onClick={() => setIsOpen((prev) => (prev === "Physical Status" ? "" : "Physical Status"))}
+            onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{physicalStatus ? physicalStatus : "Physical Status"}</p>
           </button>
@@ -261,7 +290,13 @@ const ThirdForm = () => {
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen == 'Physical Status' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            <ul className="absolute z-10 w-72 mt-14 max-h-48 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Physical Status</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
 
               <li
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"

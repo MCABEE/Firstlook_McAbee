@@ -2,7 +2,7 @@ import Navbar from '../Home/Navbar';
 import bgContact from '../../assets/contactBg.png'
 import iconMsg from '../../assets/icon_msg.png'
 import { useEffect } from 'react';
-
+import './contact.css'
 
 const ContactDetails = () => {
     useEffect(() => {

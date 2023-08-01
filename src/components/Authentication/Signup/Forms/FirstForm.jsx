@@ -42,8 +42,14 @@ const FirstForm = () => {
   const handleData = async (e) => {
     e.preventDefault()
 
+    const isValidDisplayName = /^[a-zA-Z0-9_]{6,16}$/.test(displayName);
+
     if (selectedGender === null) {
       toast.error("Select your Gender")
+    }
+
+    else if (!isValidDisplayName) {
+      toast.error("Display name must be 6 to 16 characters long and should only contain letters, numbers, and underscores.");
     }
 
     else if (selectedDate === null || selectedDate === 'DOB') {
@@ -127,8 +133,6 @@ const FirstForm = () => {
             placeholder="Display Name"
             value={displayName}
             required
-            pattern="[A-Za-z]+"
-            title="Display Name is not valid"
             onChange={(e) => setDisplayName(e.target.value)}
           ></input>
         </div>

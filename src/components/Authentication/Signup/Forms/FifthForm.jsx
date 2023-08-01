@@ -74,7 +74,8 @@ const FifthForm = () => {
   }
 
   const getDistricts = async () => {
-    await getAllDistricts(stateID)
+    const query = stateID ? stateID : " "
+    await getAllDistricts(query)
       .then((result) => {
         console.log(result);
         setNDistricts(result.data.districts)
@@ -85,7 +86,8 @@ const FifthForm = () => {
   }
 
   const getCity = async () => {
-    await getAllCities(stateID)
+    const query = stateID ? stateID : " "
+    await getAllCities(query)
       .then((result) => {
         console.log(result);
         setNCity(result.data.cities)
@@ -179,7 +181,7 @@ const FifthForm = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-}, [])
+  }, [])
 
   return (
     <>
@@ -221,14 +223,21 @@ const FifthForm = () => {
                   setSearch(searchValue);
                   setCountry(e.target.value);
                 }}
-                onClick={() => setIsOpen("Country")}
-                placeholder="Enter Country" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                onClick={() => setIsOpen((prev) => (prev === "Country" ? "" : "Country"))}
+                onBlur={() => setIsOpen(null)}
+                placeholder="Enter Country" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
               {isOpen === 'Country' ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                    <li
+                      className="px-4 py-2 cursor-pointer flex"
+                    >
+                      <p className="mr-2 font-semibold">Select Your Country</p>
+                    </li>
+                    <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                     {countryData.map((data) => (
                       <>
                         <li
@@ -250,15 +259,22 @@ const FifthForm = () => {
             <div className="mb-6 mt-5 flex">
               <div
                 className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-                onClick={() => setIsOpen("State")}
-              >
-                <p className="w-44 mt-3 ml-2 truncate text-sm">{state ? state : "State / Province"}</p>
+                onClick={() => setIsOpen((prev) => (prev === "State" ? "" : "State"))}
+              >onBlur={() => setIsOpen(null)}
+
+                <p className="w-44 mt-3  truncate text-sm">{state ? state : "State / Province"}</p>
               </div>
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
               {isOpen === 'State' ? (
                 <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                  <li
+                    className="px-4 py-2 cursor-pointer flex"
+                  >
+                    <p className="mr-2 font-semibold">Select Your State</p>
+                  </li>
+                  <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
 
                   {nStates?.map((state) => (
                     <>
@@ -279,36 +295,46 @@ const FifthForm = () => {
               ) : " "}
             </div>
 
-            <div className="mb-6 mt-5 flex">
-              <div
-                className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-                onClick={() => setIsOpen("District")}
-              >
-                <p className="w-44 mt-3 ml-2 truncate text-sm">{district ? district : "District / Area"}</p>
-              </div>
-              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-                <KeyboardArrowDownRoundedIcon />
-              </div>
-              {isOpen === 'District' ? (
-                <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+            {country === 'India' ?
+              <div className="mb-6 mt-5 flex">
+                <div
+                  className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+                  onClick={() => setIsOpen((prev) => (prev === "District" ? "" : "District"))}
+                >onBlur={() => setIsOpen(null)}
 
-                  {nDistricts?.map((district) => (
-                    <>
-                      <li
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                        onClick={() => {
-                          setDistrict(district?.name)
-                          setIsOpen("")
-                        }}
-                      >
-                        <p className="mr-2">{district?.name}</p>
-                      </li>
-                    </>
-                  ))}
+                  <p className="w-44 mt-3  truncate text-sm">{district ? district : "District / Area"}</p>
+                </div>
+                <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
+                  <KeyboardArrowDownRoundedIcon />
+                </div>
+                {isOpen === 'District' ? (
+                  <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                    <li
+                      className="px-4 py-2 cursor-pointer flex"
+                    >
+                      <p className="mr-2 font-semibold">Select Your District</p>
+                    </li>
+                    <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
 
-                </ul>
-              ) : " "}
-            </div>
+                    {nDistricts?.map((district) => (
+                      <>
+                        <li
+                          className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
+                          onClick={() => {
+                            setDistrict(district?.name)
+                            setIsOpen("")
+                          }}
+                        >
+                          <p className="mr-2">{district?.name}</p>
+                        </li>
+                      </>
+                    ))}
+
+                  </ul>
+                ) : " "}
+              </div>
+              : " "
+            }
 
             <div className="mb-6 mt-5 flex">
               <input type="text"
@@ -318,14 +344,21 @@ const FifthForm = () => {
                   setSearch(searchValue);
                   setCity(e.target.value);
                 }}
-                onClick={() => setIsOpen("City")}
-                placeholder="Enter City" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                onClick={() => setIsOpen((prev) => (prev === "City" ? "" : "City"))}
+                onBlur={() => setIsOpen(null)}
+                placeholder="Enter City" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
               {isOpen === 'City' ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                    <li
+                      className="px-4 py-2 cursor-pointer flex"
+                    >
+                      <p className="mr-2 font-semibold">Select Your City</p>
+                    </li>
+                    <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                     {cityData.map((data) => (
                       <>
                         <li
@@ -348,8 +381,9 @@ const FifthForm = () => {
               <button
                 type="button"
                 className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-                onClick={() => setIsOpen("Annual Income")}
-              >
+                onClick={() => setIsOpen((prev) => (prev === "Annual Income" ? "" : "Annual Income"))}
+              >onBlur={() => setIsOpen(null)}
+
                 <p className="w-44 truncate text-sm">{annualIncome ? annualIncome : "Annual Income (Approx.)"}</p>
               </button>
               <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
@@ -358,6 +392,12 @@ const FifthForm = () => {
               {isOpen == 'Annual Income' ? (
 
                 <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                  <li
+                    className="px-4 py-2 cursor-pointer flex"
+                  >
+                    <p className="mr-2 font-semibold">Select Your Annual Income</p>
+                  </li>
+                  <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                   {annualIncomes.map((income) => (
                     <>
                       <li
@@ -389,7 +429,7 @@ const FifthForm = () => {
 
           <button
             onClick={handleData}
-            className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20"
+            className={ country === 'India' ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20 mb-[4.4rem]" }
           >
             Continue
           </button>

@@ -29,6 +29,7 @@ const Footer = () => {
                                     <div
                                         className="w-full h-10 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                                         onClick={() => handleDropdown()}
+                                        onBlur={() => setIsOpen(false)}
                                     >
                                         <p className="w-44 mt-2 truncate text-sm">{country ? country : "Region"}</p>
                                     </div>
