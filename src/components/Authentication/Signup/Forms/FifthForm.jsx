@@ -229,7 +229,7 @@ const FifthForm = () => {
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
-              {isOpen === 'Country' ? (
+              {isOpen === 'Country' && countryData && countryData.length > 0 ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                     <li
@@ -303,7 +303,6 @@ const FifthForm = () => {
                   onClick={() => setIsOpen((prev) => (prev === "District" ? "" : "District"))}
                   onBlur={() => setIsOpen(null)}
                 >
-
                   <p className="w-44 mt-3  truncate text-sm">{district ? district : "District / Area"}</p>
                 </div>
                 <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
@@ -352,7 +351,7 @@ const FifthForm = () => {
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
-              {isOpen === 'City' ? (
+              {isOpen === 'City' && cityData && cityData.length > 0 ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                     <li
@@ -380,15 +379,14 @@ const FifthForm = () => {
             </div>
 
             <div className="mb-10 flex">
-              <button
-                type="button"
+              <div
                 className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Annual Income" ? "" : "Annual Income"))}
                 onBlur={() => setIsOpen(null)}
               >
 
                 <p className="w-44 truncate text-sm">{annualIncome ? annualIncome : "Annual Income (Approx.)"}</p>
-              </button>
+              </div>
               <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
                 <KeyboardArrowDownRoundedIcon />
               </div>

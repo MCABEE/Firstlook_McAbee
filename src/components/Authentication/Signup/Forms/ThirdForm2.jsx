@@ -70,14 +70,13 @@ const ThirdForm2 = () => {
       <form onSubmit={handleData} className="w-72 ml-3.5 sm:ml-12">
         <Toaster />
         <div className="mb-6 flex ">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Drink" ? "" : "Drink"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{drink ? drink : "Do You Drink ?"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -108,14 +107,13 @@ const ThirdForm2 = () => {
         </div>
 
         <div className="mb-6 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Smoke" ? "" : "Smoke"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{smoke ? smoke : "Do You Smoke ?"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -146,14 +144,13 @@ const ThirdForm2 = () => {
         </div>
 
         <div className="mb-6 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Diet" ? "" : "Diet"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{diet ? diet : "Your Diet ?"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -184,14 +181,13 @@ const ThirdForm2 = () => {
         </div>
 
         <div className="mb-6 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Blood Group" ? "" : "Blood Group"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{bloodGroup ? bloodGroup : "Blood Group"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -222,14 +218,13 @@ const ThirdForm2 = () => {
         </div>
 
         <div className="mb-6 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "License" ? "" : "License"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{license ? license : "Do you have a Driving License ?"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -260,14 +255,13 @@ const ThirdForm2 = () => {
         </div>
 
         <div className="mb-10 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Financial Status" ? "" : "Financial Status"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{financialStatus ? financialStatus : "Financial Status"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -297,12 +291,12 @@ const ThirdForm2 = () => {
           ) : " "}
         </div>
 
-        <button
+        <div
           type='submit'
           className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
         >
           Continue
-        </button>
+        </div>
 
         <div className="flex items-center justify-between"></div>
       </form>

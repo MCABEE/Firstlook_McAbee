@@ -180,14 +180,13 @@ const ThirdForm = () => {
         </div>
 
         <div className="mb-6 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Marital Status" ? "" : "Marital Status"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{maritalStatus ? maritalStatus : "Marital Status"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -239,14 +238,13 @@ const ThirdForm = () => {
         </div>
 
         <div className="mb-6 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Body Type" ? "" : "Body Type"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{bodyType ? bodyType : "Body Type"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -278,14 +276,13 @@ const ThirdForm = () => {
         </div>
 
         <div className="mb-10 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Physical Status" ? "" : "Physical Status"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{physicalStatus ? physicalStatus : "Physical Status"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>

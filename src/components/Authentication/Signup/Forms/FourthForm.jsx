@@ -309,7 +309,7 @@ const FourthForm = () => {
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
-          {isOpen === 'courseDetails' ? (
+          {isOpen === 'courseDetails' && courseData && courseData.length > 0 ? (
             <>
               <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                 <li
@@ -349,7 +349,7 @@ const FourthForm = () => {
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
-          {isOpen === 'Country' ? (
+          {isOpen === 'Country' && countryData && countryData.length > 0 ? (
             <>
               <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                 <li
@@ -391,7 +391,7 @@ const FourthForm = () => {
             <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
               <KeyboardArrowDownRoundedIcon />
             </div>
-            {isOpen === 'Institute' ? (
+            {isOpen === 'Institute' && instituteData && instituteData.length > 0 ? (
               <>
                 <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                   <li
@@ -432,7 +432,7 @@ const FourthForm = () => {
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
-              {isOpen === 'University' ? (
+              {isOpen === 'University' && universityData && universityData.length > 0 ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                     <li
@@ -473,7 +473,7 @@ const FourthForm = () => {
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
-              {isOpen === 'College' ? (
+              {isOpen === 'College' && collegeData && collegeData.length > 0 ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                     <li
@@ -503,14 +503,13 @@ const FourthForm = () => {
         }
 
         {option === 'No' ? <div className="mb-8 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Pass-out Year" ? "" : "Pass-out Year"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{passYear ? passYear : "Pass-out Year"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>

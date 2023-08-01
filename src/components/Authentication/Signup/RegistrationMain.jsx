@@ -145,13 +145,15 @@ const RegistrationMain = () => {
     useEffect(() => {
         getUserDetail()
         setForm(status)
-        setActivePage(page)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [status])
 
     useEffect(() => {
         const listElement = listRef.current;
+        console.log(listElement)
         const activeElement = listElement.children[activePage];
+
+        console.log(activeElement)
 
         if (activeElement) {
             activeElement.scrollIntoView({
@@ -160,13 +162,15 @@ const RegistrationMain = () => {
                 inline: "center",
             });
         }
-        
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activePage]);
 
     useEffect(() => {
+        setActivePage(page)
         window.scrollTo(0, 0)
-      }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <>
@@ -213,6 +217,10 @@ const RegistrationMain = () => {
                                 Personal Info
                             </li>
 
+                            <li className='hidden'>
+                                Personal Info
+                            </li>
+
                             <li
                                 className={
                                     page === 4 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent flex items-center ml-2 text-[#807D7D] cursor-pointer"
@@ -229,11 +237,19 @@ const RegistrationMain = () => {
                                 Occupation
                             </li>
 
+                            <li className='hidden'>
+                                Occupation
+                            </li>
+
                             <li
                                 className={
                                     page === 7 || page === 8 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent flex items-center ml-2 text-[#807D7D] cursor-pointer"
                                 }
                             >
+                                Family
+                            </li>
+
+                            <li className='hidden'>
                                 Family
                             </li>
 
@@ -250,6 +266,10 @@ const RegistrationMain = () => {
                                     page === 10 || page === 11 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent flex items-center ml-2 text-[#807D7D] cursor-pointer"
                                 }
                             >
+                                Verification
+                            </li>
+
+                            <li className='hidden'>
                                 Verification
                             </li>
 

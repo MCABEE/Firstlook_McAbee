@@ -86,14 +86,13 @@ const SixthForm = () => {
         </div>
 
         <div className="mb-6 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Fathers Education" ? "" : "Fathers Education"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{fatherEducation ? fatherEducation : "Father's Education"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -125,14 +124,13 @@ const SixthForm = () => {
         </div>
 
         <div className="mb-6 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Father’s Occupation" ? "" : "Father’s Occupation"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{fatherOccupation ? fatherOccupation : "Father’s Occupation"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -176,14 +174,13 @@ const SixthForm = () => {
         </div>
 
         <div className="mb-6 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Mother Education" ? "" : "Mother Education"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{motherEducation ? motherEducation : "Mother's Education"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -215,14 +212,13 @@ const SixthForm = () => {
         </div>
 
         <div className="mb-6 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Mother Occupation" ? "" : "Mother Occupation"))}
             onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{motherOccupation ? motherOccupation : "Mother's Occupation"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>

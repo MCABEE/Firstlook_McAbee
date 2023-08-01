@@ -113,15 +113,14 @@ const FifthForm2 = () => {
       <form className="w-72 ml-3.5 sm:ml-12">
 
         <div className="mb-6 mt-4 flex">
-          <button
-            type="button"
+          <div
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Job Category" ? "" : "Job Category"))}
             onBlur={() => setIsOpen(null)}
           >
 
             <p className="w-44 truncate text-sm">{jobCategory ? jobCategory : "Job Category ?"}</p>
-          </button>
+          </div>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -172,7 +171,7 @@ const FifthForm2 = () => {
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
-              {isOpen === 'Designation' ? (
+              {isOpen === 'Designation' && designationData && designationData.length > 0 ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                     <li
@@ -225,7 +224,7 @@ const FifthForm2 = () => {
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
-              {isOpen === 'Designation' ? (
+              {isOpen === 'Designation' && designationData && designationData.length > 0 ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                     <li
@@ -252,15 +251,14 @@ const FifthForm2 = () => {
               ) : " "}
             </div>
             <div className="mb-6 mt-5 flex">
-              <button
-                type="button"
+              <div
                 className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Job Type" ? "" : "Job Type"))}
                 onBlur={() => setIsOpen(null)}
               >
 
                 <p className="w-44 truncate text-sm">{jobType ? jobType : "Job Type"}</p>
-              </button>
+              </div>
               <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
                 <KeyboardArrowDownRoundedIcon />
               </div>
@@ -309,7 +307,7 @@ const FifthForm2 = () => {
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
-              {isOpen === 'Employer' ? (
+              {isOpen === 'Employer' && employerData && employerData.length > 0 ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                     <li
@@ -389,7 +387,7 @@ const FifthForm2 = () => {
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
-              {isOpen === 'Designation' ? (
+              {isOpen === 'Designation' && designationData && designationData.length > 0 ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                     <li
@@ -429,7 +427,7 @@ const FifthForm2 = () => {
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
-              {isOpen === 'Employer' ? (
+              {isOpen === 'Employer' && employerData && employerData.length > 0 ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                     <li
@@ -509,7 +507,7 @@ const FifthForm2 = () => {
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
-              {isOpen === 'Designation' ? (
+              {isOpen === 'Designation' && designationData && designationData.length > 0 ? (
                 <>
                   <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
                     <li
