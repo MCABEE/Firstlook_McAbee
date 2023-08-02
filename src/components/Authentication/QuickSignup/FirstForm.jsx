@@ -136,18 +136,18 @@ const FirstForm = () => {
         <Toaster />
         <div className="flex justify-center space-x-20">
           <div
-            className={`flex items-center justify-center rounded-full w-24 h-24 focus:outline-none ${selectedGender === 'male' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'
+            className={`flex items-center justify-center rounded-full w-24 h-24 focus:outline-none ${selectedGender === 'Male' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'
               }`}
-            onClick={() => handleGenderClick('male')}
-            disabled={selectedGender === 'male'}
+            onClick={() => handleGenderClick('Male')}
+            disabled={selectedGender === 'Male'}
           >
             <img src={boyImage} alt="Boy" className="w-24 h-24" />
           </div>
           <div
-            className={`flex items-center justify-center rounded-full w-24 h-24 focus:outline-none ${selectedGender === 'female' ? 'bg-pink-500 text-white' : 'bg-gray-300 text-gray-600'
+            className={`flex items-center justify-center rounded-full w-24 h-24 focus:outline-none ${selectedGender === 'Female' ? 'bg-pink-500 text-white' : 'bg-gray-300 text-gray-600'
               }`}
-            onClick={() => handleGenderClick('female')}
-            disabled={selectedGender === 'female'}
+            onClick={() => handleGenderClick('Female')}
+            disabled={selectedGender === 'Female'}
           >
             <img src={girlImage} alt="Girl" className="w-24 h-24" />
           </div>
