@@ -164,10 +164,13 @@ const RegistrationMain = () => {
     }, [activePage]);
 
     useEffect(() => {
-        setActivePage(page)
         window.scrollTo(0, 0)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    useEffect(() => {
+        setActivePage(page)
+    }, [page])
 
     return (
         <>
