@@ -1,17 +1,29 @@
 import logo from '../../assets/firstlookLogo.png'
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import firstLook from '../../assets/firstLook.png'
 import { Link } from "react-router-dom"
+import { getUserDetails } from '../../api'
+import { setUserData } from '../../Redux/Reducer/getUserData'
 
 const LandingPage = () => {
     const userData = useSelector((state) => state.getUserFilledData.data)
+    const dispatch = useDispatch()
+    const getUserDetail = async () => {
+        await getUserDetails().then((result) => {
+            dispatch(setUserData(result?.data?.userData))
+        })
+    }
+
     useEffect(() => {
+        getUserDetail()
         window.scrollTo(0, 0)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
     return (
         <>
-            
+
             <div className="bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
                 <div>
                     <nav className="flex h-9 items-center justify-between" aria-label="Global">
