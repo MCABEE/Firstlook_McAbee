@@ -150,10 +150,7 @@ const RegistrationMain = () => {
 
     useEffect(() => {
         const listElement = listRef.current;
-        console.log(listElement)
         const activeElement = listElement.children[activePage];
-
-        console.log(activeElement)
 
         if (activeElement) {
             activeElement.scrollIntoView({

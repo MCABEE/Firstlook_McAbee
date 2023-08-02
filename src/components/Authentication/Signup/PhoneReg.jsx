@@ -137,9 +137,17 @@ const PhoneReg = () => {
             .then(async () => {
                 toast.success("OTP Successfully Verified!");
                 await registerUser(phone).then((result) => {
-                    localStorage.setItem("userId", result.data.data.user._id)
-                    localStorage.setItem("token", result.data.token)
-                    navigate('/register/signupOption')
+
+                    localStorage.setItem("userId", result?.data?.data?.user?._id)
+                    localStorage.setItem("token", result?.data?.token) 
+                    const regStatus = result?.data?.data?.user?.registartionStatus
+                    if (regStatus.length === 0) {
+                        console.log(result?.data?.data?.user?.registartionStatus,"hhhhhhhjjjjjjjjjhh")
+                        navigate('/home')
+                    } else {
+                        navigate('/register/signupOption')
+                    }
+                    
                 })
             })
             .catch((error) => {

@@ -137,7 +137,6 @@ const SixthForm2 = () => {
               setHomeTown(e.target.value);
             }}
             onClick={() => setIsOpen((prev) => (prev === "Home Town" ? "" : "Home Town"))}
-            onBlur={() => setIsOpen(null)}
             placeholder="Enter Your Home Town" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
@@ -176,7 +175,6 @@ const SixthForm2 = () => {
               setPincode(e.target.value);
             }}
             onClick={() => setIsOpen((prev) => (prev === "Pincode" ? "" : "Pincode"))}
-            onBlur={() => setIsOpen(null)}
             placeholder="Enter Your Pincode" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />

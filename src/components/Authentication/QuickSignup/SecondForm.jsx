@@ -38,6 +38,7 @@ const SecondForm = () => {
 
   const tempDesignation = []
   const tempEmployers = []
+  const tempCountry = []
 
   const { page, setPage } = useContext(registrationContext)
 
@@ -55,8 +56,13 @@ const SecondForm = () => {
     tempEmployers.push(employer?.name)
   })
 
+  nCountries.map((data) => {
+    tempCountry.push(data?.name)
+  })
+
   const designationData = tempDesignation.filter(searchData)
   const employerData = tempEmployers.filter(searchData)
+  const countryData = tempCountry.filter(searchData)
 
   const getCountry = async () => {
     await getAllCountries()
@@ -223,41 +229,50 @@ const SecondForm = () => {
         }
       `}</style>
 
-        <div className="mb-6 flex">
-          <div
-            className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Country")}
-          >
-            <p className="w-44 mt-3 ml-2 truncate text-sm">{country ? country : "Country"}</p>
-          </div>
+        <div className="mb-6 mt-5 flex">
+          <input type="text"
+            value={country}
+            onChange={(e) => {
+              let searchValue = e.target.value.toLocaleLowerCase();
+              setSearch(searchValue);
+              setCountry(e.target.value);
+            }}
+            onClick={() => setIsOpen((prev) => (prev === "Country" ? "" : "Country"))}
+            placeholder="Enter Country" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Country' ? (
-            <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
-              {nCountries.map((country) => (
-                <>
-                  <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                    onClick={() => {
-                      setCountry(country?.name)
-                      setIsOpen("")
-                    }}
-                  >
-                    <p className="mr-2">{country?.name}</p>
-                  </li>
-                </>
-              ))}
-
-            </ul>
+            <>
+              <ul className="absolute z-10 w-72 mt-14 max-h-48 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                <li
+                  className="px-4 py-2 cursor-pointer flex"
+                >
+                  <p className="mr-2 font-semibold">Select Your Country</p>
+                </li>
+                <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
+                {countryData.map((data) => (
+                  <>
+                    <li
+                      className="px-4 py-2 cursor-pointer flex"
+                      onClick={() => {
+                        setCountry(data);
+                        setIsOpen("");
+                      }}
+                    >
+                      <p className="mr-2">{data}</p>
+                    </li>
+                  </>
+                ))}
+              </ul>
+            </>
           ) : " "}
         </div>
 
         <div className="mb-6 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("State")}
+            onClick={() => setIsOpen((prev) => (prev === "State" ? "" : "State"))}
           >
             <p className="w-44 mt-3 ml-2 truncate text-sm">{state ? state : "State"}</p>
           </div>
@@ -289,7 +304,7 @@ const SecondForm = () => {
         <div className="mb-6 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("District")}
+            onClick={() => setIsOpen((prev) => (prev === "District" ? "" : "District"))}
           >
             <p className="w-44 mt-3 ml-2 truncate text-sm">{district ? district : "District"}</p>
           </div>
@@ -320,7 +335,7 @@ const SecondForm = () => {
         <div className="mb-6 flex">
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Mother Toungue")}
+            onClick={() => setIsOpen((prev) => (prev === "Mother Toungue" ? "" : "Mother Toungue"))}
           >
             <p className="w-44 mt-3 ml-2 truncate text-sm">{motherToungue ? motherToungue : "Mother Toungue"}</p>
           </div>
@@ -353,18 +368,25 @@ const SecondForm = () => {
         {option === 'Yes' ?
           <>
             <div className="mb-6 mt-4 flex">
-              <button
-                type="button"
+              <button type="button"
                 className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-                onClick={() => setIsOpen("Job Category")}
+                onClick={() => setIsOpen((prev) => (prev === "Job Category" ? "" : "Job Category"))}
+
               >
+
                 <p className="w-44 truncate text-sm">{jobCategory ? jobCategory : "Job Category ?"}</p>
               </button>
-              <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
+              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
               {isOpen === 'Job Category' ? (
                 <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                  <li
+                    className="px-4 py-2 cursor-pointer flex"
+                  >
+                    <p className="mr-2 font-semibold">Select Your Job Category</p>
+                  </li>
+                  <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                   {jobCategories.map((category) => (
                     <>
                       <li
@@ -372,6 +394,11 @@ const SecondForm = () => {
                         onClick={() => {
                           setJobCategory(category.name)
                           setIsOpen("")
+                          setJobType("")
+                          setDesignation("")
+                          setStream("")
+                          setCompanyName("")
+                          setEmployerName("")
                         }}
                       >
                         <p className="mr-2" >{category.name}</p>
@@ -393,14 +420,20 @@ const SecondForm = () => {
                       setSearch(searchValue);
                       setDesignation(e.target.value);
                     }}
-                    onClick={() => setIsOpen("Designation")}
-                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                    onClick={() => setIsOpen((prev) => (prev === "Designation" ? "" : "Designation"))}
+                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
                   <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                     <KeyboardArrowDownRoundedIcon />
                   </div>
-                  {isOpen === 'Designation' ? (
+                  {isOpen === 'Designation' && designationData && designationData.length > 0 ? (
                     <>
                       <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        <li
+                          className="px-4 py-2 cursor-pointer flex"
+                        >
+                          <p className="mr-2 font-semibold">Select Your Designation</p>
+                        </li>
+                        <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                         {designationData.map((data) => (
                           <>
                             <li
@@ -439,14 +472,20 @@ const SecondForm = () => {
                       setSearch(searchValue);
                       setDesignation(e.target.value);
                     }}
-                    onClick={() => setIsOpen("Designation")}
-                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                    onClick={() => setIsOpen((prev) => (prev === "Designation" ? "" : "Designation"))}
+                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
                   <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                     <KeyboardArrowDownRoundedIcon />
                   </div>
-                  {isOpen === 'Designation' ? (
+                  {isOpen === 'Designation' && designationData && designationData.length > 0 ? (
                     <>
                       <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        <li
+                          className="px-4 py-2 cursor-pointer flex"
+                        >
+                          <p className="mr-2 font-semibold">Select Your Designation</p>
+                        </li>
+                        <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                         {designationData.map((data) => (
                           <>
                             <li
@@ -465,18 +504,24 @@ const SecondForm = () => {
                   ) : " "}
                 </div>
                 <div className="mb-6 mt-5 flex">
-                  <button
-                    type="button"
+                  <button type="button"
                     className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-                    onClick={() => setIsOpen("Job Type")}
+                    onClick={() => setIsOpen((prev) => (prev === "Job Type" ? "" : "Job Type"))}
                   >
+
                     <p className="w-44 truncate text-sm">{jobType ? jobType : "Job Type"}</p>
                   </button>
-                  <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
+                  <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                     <KeyboardArrowDownRoundedIcon />
                   </div>
                   {isOpen === 'Job Type' ? (
                     <ul className="absolute z-10 w-72 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                      <li
+                        className="px-4 py-2 cursor-pointer flex"
+                      >
+                        <p className="mr-2 font-semibold">Select Your Job Type</p>
+                      </li>
+                      <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
 
                       <li
                         className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
@@ -508,14 +553,20 @@ const SecondForm = () => {
                       setSearch(searchValue);
                       setEmployerName(e.target.value);
                     }}
-                    onClick={() => setIsOpen("Employer")}
-                    placeholder="Department / Employer / Authority" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                    onClick={() => setIsOpen((prev) => (prev === "Employer" ? "" : "Employer"))}
+                    placeholder="Department / Employer / Authority" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
                   <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                     <KeyboardArrowDownRoundedIcon />
                   </div>
-                  {isOpen === 'Employer' ? (
+                  {isOpen === 'Employer' && employerData && employerData.length > 0 ? (
                     <>
                       <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        <li
+                          className="px-4 py-2 cursor-pointer flex"
+                        >
+                          <p className="mr-2 font-semibold">Select Your Department</p>
+                        </li>
+                        <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                         {employerData.map((data) => (
                           <>
                             <li
@@ -539,8 +590,10 @@ const SecondForm = () => {
                 <div className="mb-6 mt-5 flex">
                   <div
                     className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-                    onClick={() => setIsOpen("Job Stream")}
+                    onClick={() => setIsOpen((prev) => (prev === "Job Stream" ? "" : "Job Stream"))}
+
                   >
+
                     <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
                   </div>
                   <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
@@ -548,6 +601,12 @@ const SecondForm = () => {
                   </div>
                   {isOpen === 'Job Stream' ? (
                     <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                      <li
+                        className="px-4 py-2 cursor-pointer flex"
+                      >
+                        <p className="mr-2 font-semibold">Select Your Job Stream</p>
+                      </li>
+                      <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
 
                       {nStream?.map((stream) => (
                         <>
@@ -573,14 +632,20 @@ const SecondForm = () => {
                       setSearch(searchValue);
                       setDesignation(e.target.value);
                     }}
-                    onClick={() => setIsOpen("Designation")}
-                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                    onClick={() => setIsOpen((prev) => (prev === "Designation" ? "" : "Designation"))}
+                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
                   <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                     <KeyboardArrowDownRoundedIcon />
                   </div>
-                  {isOpen === 'Designation' ? (
+                  {isOpen === 'Designation' && designationData && designationData.length > 0 ? (
                     <>
                       <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        <li
+                          className="px-4 py-2 cursor-pointer flex"
+                        >
+                          <p className="mr-2 font-semibold">Select Your Designation</p>
+                        </li>
+                        <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                         {designationData.map((data) => (
                           <>
                             <li
@@ -600,26 +665,32 @@ const SecondForm = () => {
                 </div>
                 <div className="mb-6 mt-5 flex">
                   <input type="text"
-                    value={employerName}
+                    value={companyName}
                     onChange={(e) => {
                       let searchValue = e.target.value.toLocaleLowerCase();
                       setSearch(searchValue);
-                      setEmployerName(e.target.value);
+                      setCompanyName(e.target.value);
                     }}
-                    onClick={() => setIsOpen("Employer")}
-                    placeholder="Employer / Company  Name" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                    onClick={() => setIsOpen((prev) => (prev === "Employer" ? "" : "Employer"))}
+                    placeholder="Employer / Company  Name" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
                   <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                     <KeyboardArrowDownRoundedIcon />
                   </div>
-                  {isOpen === 'Employer' ? (
+                  {isOpen === 'Employer' && employerData && employerData.length > 0 ? (
                     <>
                       <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        <li
+                          className="px-4 py-2 cursor-pointer flex"
+                        >
+                          <p className="mr-2 font-semibold">Select Your Employer / Company  Name</p>
+                        </li>
+                        <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                         {employerData.map((data) => (
                           <>
                             <li
                               className="px-4 py-2 cursor-pointer flex"
                               onClick={() => {
-                                setEmployerName(data);
+                                setCompanyName(data);
                                 setIsOpen("");
                               }}
                             >
@@ -637,8 +708,10 @@ const SecondForm = () => {
                 <div className="mb-6 mt-5 flex">
                   <div
                     className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-                    onClick={() => setIsOpen("Job Stream")}
+                    onClick={() => setIsOpen((prev) => (prev === "Job Stream" ? "" : "Job Stream"))}
+
                   >
+
                     <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
                   </div>
                   <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
@@ -646,6 +719,12 @@ const SecondForm = () => {
                   </div>
                   {isOpen === 'Job Stream' ? (
                     <ul className="absolute z-10 w-72 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                      <li
+                        className="px-4 py-2 cursor-pointer flex"
+                      >
+                        <p className="mr-2 font-semibold">Select Your Job Stream</p>
+                      </li>
+                      <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
 
                       {nStream?.map((stream) => (
                         <>
@@ -671,14 +750,20 @@ const SecondForm = () => {
                       setSearch(searchValue);
                       setDesignation(e.target.value);
                     }}
-                    onClick={() => setIsOpen("Designation")}
-                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+                    onClick={() => setIsOpen((prev) => (prev === "Designation" ? "" : "Designation"))}
+                    placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
                   <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                     <KeyboardArrowDownRoundedIcon />
                   </div>
-                  {isOpen === 'Designation' ? (
+                  {isOpen === 'Designation' && designationData && designationData.length > 0 ? (
                     <>
                       <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+                        <li
+                          className="px-4 py-2 cursor-pointer flex"
+                        >
+                          <p className="mr-2 font-semibold">Select Your Designation</p>
+                        </li>
+                        <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                         {designationData.map((data) => (
                           <>
                             <li
@@ -711,7 +796,7 @@ const SecondForm = () => {
         <div className="flex items-center justify-between"></div>
       </form>
       {option === 'No' ?
-        <div className="flex justify-center mb-3 sm:mb-10 mt-[19.8rem]">
+        <div className="flex justify-center mb-3 sm:mb-10 mt-[18.5rem]">
           <div className={
             page === 0
               ? " text-[#F92739] font-medium"
@@ -738,11 +823,11 @@ const SecondForm = () => {
       }
       {
         <div className={
-          jobCategory === 'Business' ? "flex justify-center mt-[6.2rem] mb-3" :
-            jobCategory === "Government" ? "flex justify-center mt-[1.8rem] mb-3"
-              : jobCategory === "Private" ? "flex justify-center mt-[1.8rem] mb-3"
-                : jobCategory === "Self Employed" ? "flex justify-center mt-[6.2rem] mb-3"
-                  : "flex justify-center mt-[15rem] mb-3"
+          jobCategory === 'Business' ? "flex justify-center mt-[5.2rem] mb-3" :
+            jobCategory === "Government" ? "flex justify-center mt-[0.7rem] mb-3"
+              : jobCategory === "Private" ? "flex justify-center mt-[0.7rem] mb-3"
+                : jobCategory === "Self Employed" && option === "Yes" ? "flex justify-center mt-[5.2rem] mb-3"
+                  : "hidden"
         }>
           <div className={
             page === 0

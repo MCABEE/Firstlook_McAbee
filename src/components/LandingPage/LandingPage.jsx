@@ -1,4 +1,3 @@
-import Navbar from "../Home/Navbar"
 import logo from '../../assets/firstlookLogo.png'
 import { useSelector } from "react-redux"
 import { useEffect } from "react"
@@ -12,10 +11,8 @@ const LandingPage = () => {
     }, [])
     return (
         <>
-            <div className="sm:block hidden">
-                <Navbar />
-            </div>
-            <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
+            
+            <div className="bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
                 <div>
                     <nav className="flex h-9 items-center justify-between" aria-label="Global">
                         <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
@@ -27,7 +24,7 @@ const LandingPage = () => {
                     </nav>
                 </div>
             </div>
-            <div className="flex h-screen sm:justify-center sm:items-center ml-5 sm:ml-0">
+            <div className="flex sm:justify-center sm:items-center ml-5 sm:ml-0 mb-10">
                 <div className="w-full sm:h-[50rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md mt-10">
                     <p className="font-oxygen font-bold flex justify-center sm:mt-16 text-[1rem]">
                         Welcome
@@ -40,7 +37,7 @@ const LandingPage = () => {
                         <p className="mt-4 text-[1.5rem]">
                             Welcomes you
                         </p>
-                        <p className="font-bold text-[1.5rem]">
+                        <p className="font-bold text-[1.5rem] text-start">
                             {userData?.gender === 'Male' ? `Mr. ${userData?.firstName} ${userData?.lastName}` : `Mrs. ${userData?.firstName} ${userData?.lastName}`}
                         </p>
                         <p className="mt-4 font-medium">

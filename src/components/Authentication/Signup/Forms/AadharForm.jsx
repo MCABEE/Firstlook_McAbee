@@ -159,7 +159,11 @@ const AadharForm = () => {
                     <p className="text-[12px] font-oxygen text-[#4D4D4D">
                         Here you can select multiple images at a time.
                     </p>
-                    <div onClick={() => setIsOpen("photo")} className="bg-white cursor-pointer w-full mt-10 border border-[##B8B8B8] flex gap-1 items-center justify-center py-2.5 text-[12px] text-[#4D4D4D] rounded-xl">
+                    <div onClick={() => {
+                        setIsOpen("photo")
+                        window.scrollTo(0, 300)
+                    }}
+                        className="bg-white cursor-pointer w-full mt-10 border border-[##B8B8B8] flex gap-1 items-center justify-center py-2.5 text-[12px] text-[#4D4D4D] rounded-xl">
                         <p className="mr-3 -mt-0.5">
                             <ArrowUpwardOutlinedIcon sx={{ height: "22px" }} />
                         </p>
@@ -253,6 +257,7 @@ const AadharForm = () => {
                                 <div
                                     onClick={() => {
                                         setImageSide("photoBack")
+                                        window.scrollTo(0, 300)
                                     }}
                                     className="bg-[#F92739] cursor-pointer rounded-xl w-40 text-[14px] text-center text-white py-2 ml-[13.5rem] sm:ml-[15rem] mt-[36rem]"
                                 >

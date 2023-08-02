@@ -261,7 +261,7 @@ const FourthForm = () => {
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Academic Stream" ? "" : "Academic Stream"))}
-            onBlur={() => setIsOpen(null)}
+            
           >
             <p className="w-44 mt-3 ml-2 truncate text-sm">{academicStream ? academicStream : "Select Academic Stream"}</p>
           </div>
@@ -304,7 +304,6 @@ const FourthForm = () => {
               setCourseName(e.target.value);
             }}
             onClick={() => setIsOpen((prev) => (prev === "courseDetails" ? "" : "courseDetails"))}
-            onBlur={() => setIsOpen(null)}
             placeholder="Enter Course Name" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
@@ -344,7 +343,6 @@ const FourthForm = () => {
               setCountry(e.target.value);
             }}
             onClick={() => setIsOpen((prev) => (prev === "Country" ? "" : "Country"))}
-            onBlur={() => setIsOpen(null)}
             placeholder="Enter Country" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
@@ -386,7 +384,6 @@ const FourthForm = () => {
                 setInstitute(e.target.value)
               }}
               onClick={() => setIsOpen((prev) => (prev === "Institute" ? "" : "Institute"))}
-              onBlur={() => setIsOpen(null)}
               placeholder="Name of Institute / School" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
             <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
               <KeyboardArrowDownRoundedIcon />
@@ -427,7 +424,6 @@ const FourthForm = () => {
                   setUniversity(e.target.value);
                 }}
                 onClick={() => setIsOpen((prev) => (prev === "University" ? "" : "University"))}
-                onBlur={() => setIsOpen(null)}
                 placeholder="Enter University" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
@@ -468,7 +464,6 @@ const FourthForm = () => {
                   setCollege(e.target.value);
                 }}
                 onClick={() => setIsOpen((prev) => (prev === "College" ? "" : "College"))}
-                onBlur={() => setIsOpen(null)}
                 placeholder="Enter College" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
@@ -503,13 +498,13 @@ const FourthForm = () => {
         }
 
         {option === 'No' ? <div className="mb-8 flex">
-          <div
+          <button type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Pass-out Year" ? "" : "Pass-out Year"))}
-            onBlur={() => setIsOpen(null)}
+            
           >
             <p className="w-44 truncate text-sm">{passYear ? passYear : "Pass-out Year"}</p>
-          </div>
+          </button>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>

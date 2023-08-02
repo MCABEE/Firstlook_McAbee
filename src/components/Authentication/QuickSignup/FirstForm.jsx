@@ -51,6 +51,8 @@ const FirstForm = () => {
 
     e.preventDefault()
 
+    const isValidDisplayName = /^[a-zA-Z0-9_]{6,16}$/.test(displayName);
+
     if (selectedGender === null) {
       toast.error("Select your Gender")
     }
@@ -63,8 +65,8 @@ const FirstForm = () => {
       toast.error("Enter your Last Name")
     }
 
-    else if (displayName === "") {
-      toast.error("Enter your Display Name")
+    else if (!isValidDisplayName) {
+      toast.error("Display name must be 6 to 16 characters long and should only contain letters, numbers, and underscores.");
     }
 
     else if (selectedDate === null) {
@@ -127,7 +129,7 @@ const FirstForm = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-  
+
   return (
     <>
       <form>
@@ -184,8 +186,6 @@ const FirstForm = () => {
             placeholder="Display Name"
             value={displayName}
             required
-            pattern="[A-Za-z]+"
-            title="Display Name is not valid"
             onChange={(e) => setDisplayName(e.target.value)}
           ></input>
         </div>
@@ -220,7 +220,7 @@ const FirstForm = () => {
         <div className="mb-6 flex">
           <div
             className="w-72 ml-3.5 sm:ml-12 h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Religion")}
+            onClick={() => setIsOpen((prev) => (prev === "Religion" ? "" : "Religion"))}
           >
             <p className="w-44 mt-3 ml-2 truncate text-sm">{religion ? religion : "Religion"}</p>
           </div>
@@ -229,7 +229,12 @@ const FirstForm = () => {
           </div>
           {isOpen === 'Religion' ? (
             <ul className="absolute z-10 w-72 ml-3.5 sm:ml-12 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Religion</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {nReligion?.map((religion) => (
                 <>
                   <li
@@ -251,7 +256,7 @@ const FirstForm = () => {
         <div className="mb-6 flex">
           <div
             className="w-72 ml-3.5 sm:ml-12 h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Caste")}
+            onClick={() => setIsOpen((prev) => (prev === "Caste" ? "" : "Caste"))}
           >
             <p className="w-44 mt-3 ml-2 truncate text-sm">{caste ? caste : "Caste"}</p>
           </div>
@@ -260,7 +265,12 @@ const FirstForm = () => {
           </div>
           {isOpen === 'Caste' ? (
             <ul className="absolute z-10 w-72 ml-3.5 sm:ml-12 mt-14 h-56 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Caste</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {nCaste?.map((caste) => (
                 <>
                   <li
@@ -283,7 +293,7 @@ const FirstForm = () => {
           <button
             type="button"
             className="w-72 ml-3.5 sm:ml-12 h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
-            onClick={() => setIsOpen("Marital Status")}
+            onClick={() => setIsOpen((prev) => (prev === "Marital Status" ? "" : "Marital Status"))}
           >
             <p className="w-44 truncate text-sm">{maritalStatus ? maritalStatus : "Marital Status"}</p>
           </button>
@@ -292,6 +302,12 @@ const FirstForm = () => {
           </div>
           {isOpen == 'Marital Status' ? (
             <ul className="absolute z-10 w-72 ml-3.5 sm:ml-12 mt-14 h-fit bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
+              <li
+                className="px-4 py-2 cursor-pointer flex"
+              >
+                <p className="mr-2 font-semibold">Select Your Marital Status</p>
+              </li>
+              <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
               {marriedStatus.map((status) => (
                 <>
                   <li
@@ -312,8 +328,8 @@ const FirstForm = () => {
         </div>
 
         <button
-        
-        onClick={handleData}
+
+          onClick={handleData}
           className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-40 sm:ml-48"
         >
           Continue

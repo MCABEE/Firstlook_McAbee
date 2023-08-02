@@ -113,15 +113,15 @@ const FifthForm2 = () => {
       <form className="w-72 ml-3.5 sm:ml-12">
 
         <div className="mb-6 mt-4 flex">
-          <div
+          <button type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Job Category" ? "" : "Job Category"))}
-            onBlur={() => setIsOpen(null)}
+            
           >
 
             <p className="w-44 truncate text-sm">{jobCategory ? jobCategory : "Job Category ?"}</p>
-          </div>
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
+          </button>
+          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
           {isOpen === 'Job Category' ? (
@@ -166,7 +166,6 @@ const FifthForm2 = () => {
                   setDesignation(e.target.value);
                 }}
                 onClick={() => setIsOpen((prev) => (prev === "Designation" ? "" : "Designation"))}
-                onBlur={() => setIsOpen(null)}
                 placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
@@ -219,7 +218,6 @@ const FifthForm2 = () => {
                   setDesignation(e.target.value);
                 }}
                 onClick={() => setIsOpen((prev) => (prev === "Designation" ? "" : "Designation"))}
-                onBlur={() => setIsOpen(null)}
                 placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
@@ -251,15 +249,14 @@ const FifthForm2 = () => {
               ) : " "}
             </div>
             <div className="mb-6 mt-5 flex">
-              <div
+              <button type="button"
                 className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Job Type" ? "" : "Job Type"))}
-                onBlur={() => setIsOpen(null)}
               >
 
                 <p className="w-44 truncate text-sm">{jobType ? jobType : "Job Type"}</p>
-              </div>
-              <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
+              </button>
+              <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
               </div>
               {isOpen === 'Job Type' ? (
@@ -302,7 +299,6 @@ const FifthForm2 = () => {
                   setEmployerName(e.target.value);
                 }}
                 onClick={() => setIsOpen((prev) => (prev === "Employer" ? "" : "Employer"))}
-                onBlur={() => setIsOpen(null)}
                 placeholder="Department / Employer / Authority" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
@@ -340,7 +336,7 @@ const FifthForm2 = () => {
               <div
                 className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Job Stream" ? "" : "Job Stream"))}
-                onBlur={() => setIsOpen(null)}
+                
               >
 
                 <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
@@ -382,7 +378,6 @@ const FifthForm2 = () => {
                   setDesignation(e.target.value);
                 }}
                 onClick={() => setIsOpen((prev) => (prev === "Designation" ? "" : "Designation"))}
-                onBlur={() => setIsOpen(null)}
                 placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
@@ -422,7 +417,6 @@ const FifthForm2 = () => {
                   setCompanyName(e.target.value);
                 }}
                 onClick={() => setIsOpen((prev) => (prev === "Employer" ? "" : "Employer"))}
-                onBlur={() => setIsOpen(null)}
                 placeholder="Employer / Company  Name" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
@@ -460,7 +454,7 @@ const FifthForm2 = () => {
               <div
                 className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Job Stream" ? "" : "Job Stream"))}
-                onBlur={() => setIsOpen(null)}
+                
               >
 
                 <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
@@ -502,7 +496,6 @@ const FifthForm2 = () => {
                   setDesignation(e.target.value);
                 }}
                 onClick={() => setIsOpen((prev) => (prev === "Designation" ? "" : "Designation"))}
-                onBlur={() => setIsOpen(null)}
                 placeholder="Enter Your Designation" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />

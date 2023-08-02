@@ -107,7 +107,7 @@ const ThirdForm = () => {
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Religion" ? "" : "Religion"))}
-            onBlur={() => setIsOpen(null)}
+            
           >
             <p className="w-44 mt-3 truncate text-sm">{religion ? religion : "Religion"}</p>
           </div>
@@ -145,7 +145,7 @@ const ThirdForm = () => {
           <div
             className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Caste" ? "" : "Caste"))}
-            onBlur={() => setIsOpen(null)}
+            
           >
             <p className="w-44 mt-3 truncate text-sm">{caste ? caste : "Caste"}</p>
           </div>
@@ -180,13 +180,12 @@ const ThirdForm = () => {
         </div>
 
         <div className="mb-6 flex">
-          <div
+          <button type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Marital Status" ? "" : "Marital Status"))}
-            onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{maritalStatus ? maritalStatus : "Marital Status"}</p>
-          </div>
+          </button>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -238,13 +237,13 @@ const ThirdForm = () => {
         </div>
 
         <div className="mb-6 flex">
-          <div
+          <button type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Body Type" ? "" : "Body Type"))}
-            onBlur={() => setIsOpen(null)}
+            
           >
             <p className="w-44 truncate text-sm">{bodyType ? bodyType : "Body Type"}</p>
-          </div>
+          </button>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -276,13 +275,12 @@ const ThirdForm = () => {
         </div>
 
         <div className="mb-10 flex">
-          <div
+          <button type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Physical Status" ? "" : "Physical Status"))}
-            onBlur={() => setIsOpen(null)}
           >
             <p className="w-44 truncate text-sm">{physicalStatus ? physicalStatus : "Physical Status"}</p>
-          </div>
+          </button>
           <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
             <KeyboardArrowDownRoundedIcon />
           </div>

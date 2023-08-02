@@ -30,7 +30,7 @@ const FifthForm = () => {
 
   const tempCity = []
   const tempCountry = []
-
+  console.log(country)
   const { page, setPage } = useContext(registrationContext)
 
   const searchData = (tempProduct) => {
@@ -224,7 +224,6 @@ const FifthForm = () => {
                   setCountry(e.target.value);
                 }}
                 onClick={() => setIsOpen((prev) => (prev === "Country" ? "" : "Country"))}
-                onBlur={() => setIsOpen(null)}
                 placeholder="Enter Country" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
@@ -238,18 +237,17 @@ const FifthForm = () => {
                       <p className="mr-2 font-semibold">Select Your Country</p>
                     </li>
                     <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
-                    {countryData.map((data) => (
-                      <>
-                        <li
-                          className="px-4 py-2 cursor-pointer flex"
-                          onClick={() => {
-                            setCountry(data);
-                            setIsOpen("");
-                          }}
-                        >
-                          <p className="mr-2">{data}</p>
-                        </li>
-                      </>
+                    {countryData.map((data, index) => (
+                      <li key={index}
+                        className="px-4 py-2 cursor-pointer flex"
+                        onClick={() => {
+                          console.log("data")
+                          setCountry(data);
+                          setIsOpen("");
+                        }}
+                      >
+                        <p className="mr-2">{data}</p>
+                      </li>
                     ))}
                   </ul>
                 </>
@@ -262,7 +260,6 @@ const FifthForm = () => {
                 onClick={() => setIsOpen((prev) => (prev === "State" ? "" : "State"))}
                 onBlur={() => setIsOpen(null)}
               >
-
                 <p className="w-44 mt-3  truncate text-sm">{state ? state : "State / Province"}</p>
               </div>
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
@@ -346,7 +343,6 @@ const FifthForm = () => {
                   setCity(e.target.value);
                 }}
                 onClick={() => setIsOpen((prev) => (prev === "City" ? "" : "City"))}
-                onBlur={() => setIsOpen(null)}
                 placeholder="Enter City" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
               <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
                 <KeyboardArrowDownRoundedIcon />
@@ -379,14 +375,12 @@ const FifthForm = () => {
             </div>
 
             <div className="mb-10 flex">
-              <div
+              <button type="button"
                 className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Annual Income" ? "" : "Annual Income"))}
-                onBlur={() => setIsOpen(null)}
               >
-
                 <p className="w-44 truncate text-sm">{annualIncome ? annualIncome : "Annual Income (Approx.)"}</p>
-              </div>
+              </button>
               <div className="-ml-8 mt-2.5 text-[#B8B8B8]">
                 <KeyboardArrowDownRoundedIcon />
               </div>
@@ -438,7 +432,7 @@ const FifthForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form >
-      <div className={option === 'Yes' ? "flex justify-center mt-[60px] mb-3 sm:mb-10" : "flex justify-center mt-[29rem] mb-3 sm:mb-10"}>
+      <div className={option === 'Yes' ? "flex justify-center mt-[60px] mb-3 sm:mb-10" : "flex justify-center mt-[24.8rem] mb-3 sm:mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

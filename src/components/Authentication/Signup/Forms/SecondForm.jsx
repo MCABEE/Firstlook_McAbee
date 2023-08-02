@@ -144,7 +144,6 @@ const SecondForm = () => {
               setCountry(e.target.value);
             }}
             onClick={() => setIsOpen((prev) => (prev === "Country" ? "" : "Country"))}
-            onBlur={() => setIsOpen(null)}
             placeholder="Enter Country" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
