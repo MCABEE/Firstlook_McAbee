@@ -21,7 +21,7 @@ const PageUnderConstruction = () => {
                 Service will resume as early as possible.
               </p>
             </div>
-            <div className="pt-6 pb-4 space-y-2">
+            <div className="pt-3 pb-4 space-y-2">
               <p>
                 Thank you.
               </p>

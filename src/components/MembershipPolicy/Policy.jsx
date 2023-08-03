@@ -7,7 +7,7 @@ const Policy = () => {
       }, [])
     return (
         <>
-            <div className='w-[78%] mx-auto h-fit'>
+            <div className='w-[78%] mx-auto h-fit'> 
                 <p className="text-[24px] flex justify-center font-oxygen font-bold mt-10">
                     MEMBERSHIP POLICY
                 </p>

@@ -38,7 +38,8 @@ const NewsDetails = () => {
 
             </div>
 
-            <hr className="border-t-2 border-gray-300 border-dashed w-full mb-4 md:hidden block" />
+            <hr className="mb-5 border-gray-300 border-1 w-full md:hidden block" />
+
             <div className="w-full md:w-4/7">
               <Link className="inline-flex items-center py-2 space-x-2 bg-[#FC3657] text-[12px] px-6 rounded-md text-white ml-4 md:ml-0 md:mt-0 mt-4 mb-5">
                 MORE NEWS

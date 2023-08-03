@@ -20,6 +20,7 @@ import AppInstallPage from './components/AppInstallPage/AppInstallPage';
 import NewsPage from './components/News/NewsPage';
 import AboutUsPage from './components/AboutUs/AboutUsPage';
 import PricingPage from './components/Pricing/PricingPage';
+import PrivacyPolicyPage from './components/PrivacyPolicy/PrivacyPolicyPage';
 
 function App() {
   const [page, setPage] = useState(0)
@@ -40,7 +41,8 @@ function App() {
           <registrationContext.Provider value={{ page, setPage }}>
             <QuickSignup />
           </registrationContext.Provider>} />
-        <Route path='/privacypolicy' element={<TermsOfUse />} />
+        <Route path='/termsofuse' element={<TermsOfUse />} />
+        <Route path='/privacypolicy' element={<PrivacyPolicyPage />} />
         <Route path='/membershippolicy' element={<MembershipPolicy />} />
         <Route path='/refundpolicy' element={<RefundPolicy />} />
         <Route path='/home' element={<LandingPage />} />
@@ -49,6 +51,7 @@ function App() {
         <Route path='/faq' element={<PageConstruct />} />
         <Route path='/pricing' element={<PricingPage />} />
         <Route path='/mediaCentre' element={<PageConstruct />} />
+        <Route path='/pageunderconstruction' element={<PageConstruct />} />
         <Route path='/news' element={<NewsPage />} />
         <Route path='/about' element={<AboutUsPage />} />
         <Route path='*' element={<PageNotFound />} />

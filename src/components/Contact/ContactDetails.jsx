@@ -3,14 +3,30 @@ import bgContact from '../../assets/contactBg.png'
 import iconMsg from '../../assets/icon_msg.png'
 import { useEffect } from 'react';
 import './contact.css'
+import { Toaster, toast } from 'react-hot-toast';
+import { useState } from 'react';
 
 const ContactDetails = () => {
+
+    const [email, setEmail] = useState("")
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        if (!email) {
+            toast.error("Please Enter Your Email")
+        }
+        else {
+            toast.success(`Thank you! You are in the community`)
+        }
+    }
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
     return (
         <>
-
+            <Toaster />
             <div className="flex flex-col-reverse py-16 lg:py-0 lg:flex-col">
                 <div className="absolute inset-0">
                     <Navbar />
@@ -31,15 +47,15 @@ const ContactDetails = () => {
                         </h2>
                         <div className='flex flex-col sm:flex-row mb-8'>
                             <div className="p-4 rounded-2xl border border-[#DDDCDC] md:w-56 md:p-7">
-                                <h2 className="text-base font-medium text-[16px] text-[#FC3657]">Address</h2>
-                                <p className="mt-3 text-sm text-[14px] text-black">7th Floor, Spencer Plaza</p>
+                                <h2 className="text-base font-medium text-[16px] text-[#FC3657]">Reg. Address</h2>
+                                <p className="mt-3 text-sm text-[14px] text-black">MCABEE, 7 th Floor, Spencer Plaza</p>
                                 <p className="mt-1 text-sm text-[14px] text-black">Mount Road, Anna Salai</p>
                                 <p className="mt-1 text-sm text-[14px] text-black">Chennai - 600 002</p>
                                 <p className="mt-1 text-sm text-[14px] text-black">Tamil Nadu, India</p>
                             </div>
                             <div className="p-4 rounded-2xl border border-[#DDDCDC] md:p-7 md:w-56 mt-10 sm:mt-0 sm:ml-10">
                                 <h2 className="text-base font-medium text-[16px] text-[#FC3657]">Customer Care</h2>
-                                <p className="mt-3 text-sm font-semibold text-[14px] text-black">Phone</p>
+                                <p className="mt-3 text-sm font-semibold text-[14px] text-black">Toll Free (All India)</p>
                                 <p className="mt-0 text-sm text-[14px] text-black">1800 270 1431</p>
                                 <p className="mt-3 text-sm font-semibold text-[14px] text-black">Email</p>
                                 <p className="mt-0 text-sm text-[14px] text-black">support@firstlook.pro</p>
@@ -77,7 +93,7 @@ const ContactDetails = () => {
                             </div>
 
                             <div className="col-span-3 lg:col-span-2 lg:flex lg:items-end">
-                                <form className="w-full">
+                                <form onSubmit={handleSubmit} className="w-full">
                                     <label htmlFor="UserEmail"></label>
                                     <div
                                         className="border border-[#DDDCDC] bg-white rounded-xl flex items-center sm:gap-4"
@@ -86,10 +102,12 @@ const ContactDetails = () => {
                                             type="email"
                                             id="UserEmail"
                                             placeholder="Email ID"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
                                             className="w-full text-sm px-3 border-none py-2 rounded-xl"
                                         />
 
-                                        <button
+                                        <button type='submit'
                                             className="w-2/4 bg-[#FC4055] cursor-pointer rounded-br-xl rounded-tr-xl sm:px-6 py-2 text-[14px] text-white transition-none sm:mt-0"
                                         >
                                             Ready

@@ -75,7 +75,7 @@ const Banner = () => {
                         <motion.div initial={{ y: "-10vw", opacity: 0 }}
                             whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
                             viewport={{ once: true, amount: 0.8 }} className="max-w-xl mb-8 lg:mb-16">
-                            <h2 className="font-oxygen text-3xl font-bold tracking-tight text-gray-900 sm:text-[48px] sm:leading-none max-w-lg mb-6 mt-20">
+                            <h2 className="font-oxygen text-3xl font-bold tracking-tight text-gray-900 sm:text-[48px] sm:leading-none max-w-lg mb-6 mt-5 sm:mt-20">
                                 You will never be
                                 <br />
                                 Alone!
@@ -93,12 +93,12 @@ const Banner = () => {
                             viewport={{ once: true, amount: 0.8 }}>
                             <p className="text-lg">Download</p>
                             <div className="flex flex-wrap">
-                                <Link
+                                <Link 
                                     className={
                                         "group relative inline-block overflow-hiddenx` px-8 py-3 focus:outline-none focus:ring" +
                                         (isHovered1 ? " mt-4 h-[75px] w-[75px] flex justify-center items-center rounded-lg" : " mt-4 border border-gray-400 h-[75px] w-[75px] flex justify-center items-center rounded-lg")
                                     }
-                                    href="/download"
+                                    to="https://play.google.com/store/apps/details?id=com.firstlookmatrimony.first_look&hl=en-IN"
                                     onMouseEnter={handleMouseEnter1}
                                     onMouseLeave={handleMouseLeave1}
                                 >
@@ -143,7 +143,7 @@ const Banner = () => {
                                         "group relative inline-block overflow-hiddenx` px-8 py-3 focus:outline-none focus:ring ml-4" +
                                         (isHovered2 ? " mt-4 h-[75px] w-[75px] flex justify-center items-center rounded-lg" : " mt-4 border border-gray-400 h-[75px] w-[75px] flex justify-center items-center rounded-lg")
                                     }
-                                    href="/download"
+                                    to="/"
                                     onMouseEnter={handleMouseEnter2}
                                     onMouseLeave={handleMouseLeave2}
                                 >
@@ -200,7 +200,7 @@ const Banner = () => {
                                         "group relative inline-block overflow-hiddenx` px-8 py-3 focus:outline-none focus:ring ml-4" +
                                         (isHovered3 ? " mt-4 h-[75px] w-[75px] flex justify-center items-center rounded-lg" : " mt-4 border border-gray-400 h-[75px] w-[75px] flex justify-center items-center rounded-lg")
                                     }
-                                    href="/download"
+                                    to="/"
                                     onMouseEnter={handleMouseEnter3}
                                     onMouseLeave={handleMouseLeave3}
                                 >

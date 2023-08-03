@@ -11,6 +11,7 @@ const News = () => {
                     <div className="md:flex justify-between items-center">
 
                         <div className="lg:w-6/12 lg:p-0 p-7">
+
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
                                 viewport={{ once: true, amount: 0.8 }} className="sm:pt-6 pb-4 space-y-2 -mt-8">
@@ -19,31 +20,47 @@ const News = () => {
                                     News and updates from us.
                                 </p>
                             </motion.div>
+
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.8 } }}
                                 viewport={{ once: true, amount: 0.8 }}
-                                className="md:w-6/12 order-2 xl:ml-20 sm:pt-0 pt-10 sm:hidden block">
-                                <img src={news} alt="" />
+                                className="md:w-6/12 order-2 xl:ml-20 sm:pt-0 pt-2 sm:hidden block">
+                                <Link to='/news'>
+                                    <img src={news} className='border-2 rounded-lg' alt="" />
+                                </Link>
                             </motion.div>
+
                             <motion.hr initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.5 } }}
                                 viewport={{ once: true, amount: 0.8 }} className='border-t-1 border-gray-300 sm:mt-2 mt-6 sm:w-[435px] hidden sm:block' />
+
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.6 } }}
                                 viewport={{ once: true, amount: 0.8 }} className="pt-5 sm:pt-5 space-y-2">
+
                                 <span className="text-[12px]">13 JULY 2023</span>
-                                <h1 className="text-[21px] font-bold sm:w-[337px] pt-3 sm:pt-2">‘Firstlook’ introduced the web version in India</h1>
+
+                                <Link to='/news'>
+                                    <h1 className="text-[21px] font-bold sm:w-[337px] pt-2 sm:pt-2">‘Firstlook’ introduced the web version in India</h1>
+                                </Link>
+
                                 <p className='pt-3 sm:w-[435px] text-justify pb-6 sm:pb-4'>Launched ‘Firstlook’ a social netwrok for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro</p>
-                                <Link to='/news' className="inline-flex items-center py-3 space-x-2 bg-[#FC3657] text-[12px] px-5 rounded-md text-white">
+
+                                <Link to='/pageunderconstruction' className="inline-flex items-center py-3 space-x-2 bg-[#FC3657] text-[12px] px-5 rounded-md text-white transform transition hover:scale-95 duration-300 ease-in-out">
                                     MORE NEWS
                                 </Link>
+
                             </motion.div>
+
                         </div>
                         <motion.div initial={{ y: "-10vw", opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.8 } }}
                             viewport={{ once: true, amount: 0.8 }}
                             className="md:w-6/12 order-2 xl:ml-20 sm:block hidden">
-                            <img src={news} className='border-2' alt="" />
+
+                            <Link to='/news'>
+                                <img src={news} className='border-2 rounded-lg' alt="" />
+                            </Link>
                         </motion.div>
                     </div>
                 </div>

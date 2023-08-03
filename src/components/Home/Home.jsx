@@ -16,6 +16,7 @@ const Home = () => {
       <hr className='mt-4 border-gray-300 border-1 w-5/6 mx-auto sm:hidden block' />
       <News />
       <Media />
+      <hr className='mt-4 border-gray-300 border-1 w-5/6 mx-auto sm:hidden block' />
       <Footer />
     </div>
   )

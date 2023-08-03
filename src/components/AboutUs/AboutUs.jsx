@@ -143,7 +143,7 @@ const AboutUs = () => {
                     </p>
                 </div>
                 <div className="flex justify-center">
-                    <Link className="mt-10 px-[20vw] sm:px-28 py-2 rounded-lg font-semibold bg-[#77867F] text-white text-[14px]">
+                    <Link to='https://mcabee.in/' className="mt-10 px-[20vw] sm:px-28 py-2 rounded-lg font-semibold bg-[#77867F] text-white text-[14px]">
                         www.mcabee.in
                     </Link>
                 </div>

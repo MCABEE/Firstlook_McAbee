@@ -4,10 +4,19 @@ import SensorOccupiedOutlinedIcon from '@mui/icons-material/SensorOccupiedOutlin
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Pricing = () => {
+
+    const handlePurchase = (e) => {
+        e.preventDefault()
+
+        toast.error("You should login to make payments !")
+    }
+
     return (
         <>
+            <Toaster />
             <div className="relative w-full h-full mt-10 sm:mt-0">
                 <div className="absolute hidden w-full lg:block h-96" />
                 <div className="relative px-4 sm:px-4 sm:py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -41,10 +50,10 @@ const Pricing = () => {
                                     Basic
                                 </p>
                                 <p className="text-[22px] h-full flex items-center ml-auto mr-8 font-oxygen font-semibold text-white line-through">
-                                    3599.00
+                                    3599<span className='text-[14px] mt-1.5'>.00</span>
                                 </p>
                             </div>
-                            <div className="p-8 bg-white shadow-gray-400 shadow-md rounded-b-xl border-2 border-gray-300">
+                            <div className="p-8 bg-white shadow-gray-400 shadow-md rounded-b-xl border-gray-300">
                                 <div className="text-start">
                                     <p className='font-bold text-[#747474] mt-2 mb-1'>
                                         LAUNCHING OFFER
@@ -89,18 +98,17 @@ const Pricing = () => {
                                         <p className="font-medium text-[#585858]">And many more</p>
                                     </li>
                                 </ul>
-                                <button
-                                    type="submit"
+                                <div onClick={handlePurchase}
                                     className="inline-flex mt-4 items-center bg-[#FC3657] justify-center w-full h-10 px-6 font-normal tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Purchase
-                                </button>
-                                <button
+                                </div>
+                                <div
                                     type="submit"
                                     className="inline-flex items-center justify-center w-full h-10 px-6 font-normal tracking-wide text-gray-500 mt-5 underline transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     more details
-                                </button>
+                                </div>
                             </div>
                         </motion.div>
                         <motion.div
@@ -113,10 +121,10 @@ const Pricing = () => {
                                     Pro
                                 </p>
                                 <p className="text-[22px] h-full flex items-center ml-auto mr-8 font-oxygen font-semibold text-white line-through">
-                                    5999.00
+                                    5999<span className='text-[14px] mt-1.5'>.00</span>
                                 </p>
                             </div>
-                            <div className="p-8 bg-white shadow-gray-400 shadow-md rounded-b-xl border-2 border-gray-300">
+                            <div className="p-8 bg-white shadow-gray-400 shadow-md rounded-b-xl border-gray-300">
                                 <div className="text-start">
                                     <p className='font-bold text-[#747474] mt-2 mb-1'>
                                         LAUNCHING OFFER
@@ -161,18 +169,17 @@ const Pricing = () => {
                                         <p className="font-medium text-[#585858]">And many more</p>
                                     </li>
                                 </ul>
-                                <button
-                                    type="submit"
+                                <div onClick={handlePurchase}
                                     className="inline-flex mt-4 items-center bg-[#FC3657] justify-center w-full h-10 px-6 font-normal tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Purchase
-                                </button>
-                                <button
+                                </div>
+                                <div
                                     type="submit"
                                     className="inline-flex items-center justify-center w-full h-10 px-6 font-normal tracking-wide text-gray-500 mt-5 underline transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     more details
-                                </button>
+                                </div>
                             </div>
                         </motion.div>
                         <motion.div
@@ -185,10 +192,10 @@ const Pricing = () => {
                                     Top Up
                                 </p>
                                 <p className="text-[22px] h-full flex items-center ml-auto mr-8 font-oxygen font-semibold text-white line-through">
-                                    299.00
+                                    299<span className='text-[14px] mt-1.5'>.00</span>
                                 </p>
                             </div>
-                            <div className="p-8 bg-white shadow-gray-400 shadow-md rounded-b-xl border-2 border-gray-300">
+                            <div className="p-8 bg-white shadow-gray-400 shadow-md rounded-b-xl border-gray-300">
                                 <p className='font-bold text-[#747474] mt-2 mb-1'>
                                     LAUNCHING OFFER
                                 </p>
@@ -233,18 +240,17 @@ const Pricing = () => {
                                         <p className="font-medium text-[#585858]">And many more</p>
                                     </li>
                                 </ul>
-                                <button
-                                    type="submit"
+                                <div onClick={handlePurchase}
                                     className="inline-flex mt-4 items-center bg-[#8B8F86] justify-center w-full h-10 px-6 font-normal tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Add on
-                                </button>
-                                <button
+                                </div>
+                                <div
                                     type="submit"
                                     className="inline-flex items-center justify-center w-full h-10 px-6 font-normal tracking-wide text-gray-500 mt-5 underline transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     more details
-                                </button>
+                                </div>
                             </div>
                         </motion.div>
                     </div>
