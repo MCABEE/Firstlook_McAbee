@@ -19,6 +19,7 @@
     "@mui/material": "^5.12.3",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
+    "crypto-js": "^4.1.1",
     "date-fns": "^2.30.0",
     "firebase": "^9.22.0",
     "framer-motion": "^10.12.9",
