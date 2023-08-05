@@ -13,6 +13,7 @@ import firstLook from '../../../assets/firstLook.png'
 
 const PhoneReg = () => {
     const [sendingOtp, setSendingOtp] = useState(false);
+    const [verifyOtp, setVerifyOtp] = useState(false);
     const [countryState, setCountryState] = useState({
         loading: false,
         countries: [],
@@ -147,6 +148,7 @@ const PhoneReg = () => {
         }
 
         else {
+            setVerifyOtp(true)
             window.confirmationResult
                 .confirm(otp)
                 .then(async () => {
@@ -235,9 +237,18 @@ const PhoneReg = () => {
                                 ></OtpInput>
                                 <div
                                     onClick={onOTPVerify}
-                                    className="bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-8"
+                                    className={verifyOtp ? "pointer-events-none bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-8" : "bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-8"}
                                 >
-                                    <span>Verify OTP</span>
+                                    {verifyOtp ? (
+                                        <>
+                                            <div className="flex items-center justify-center">
+                                                <div className="h-5 w-5 border-t-transparent border-solid animate-spin rounded-full border-white border-2"></div>
+                                                <div className="ml-2"> Verifying OTP</div>
+                                            </div>
+                                        </>
+                                    ) : (
+                                        'Verify OTP'
+                                    )}
                                 </div>
                             </div>
                         </>
