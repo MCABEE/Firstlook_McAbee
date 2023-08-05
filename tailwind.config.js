@@ -26,6 +26,7 @@ export default {
       moveToCloud: 'moveToCloud 4s infinite',
       moveToCloud_sm: 'moveToCloud_sm 4s infinite',
       moveToCloud_heart: 'moveToCloud_heart 4s infinite',
+      spin: 'spin 1s linear infinite'
     },
     keyframes: {
       wiggle: {
@@ -50,6 +51,10 @@ export default {
         '0%': { transform: 'translateY(900%)', opacity: '1' },
         '50%': { transform: 'translateY(-1400%)', opacity: '0' },
         '100%': { transform: 'translateY(900%)', opacity: '0' }
+      },
+      spin: {
+        from: { transform: 'rotate(0deg)' },
+        to: { transform: 'rotate(360deg)' }
       }
     }
   }

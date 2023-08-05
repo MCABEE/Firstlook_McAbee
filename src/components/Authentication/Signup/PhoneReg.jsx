@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import firstLook from '../../../assets/firstLook.png'
 
 const PhoneReg = () => {
+    const [sendingOtp, setSendingOtp] = useState(false);
     const [countryState, setCountryState] = useState({
         loading: false,
         countries: [],
@@ -106,18 +107,25 @@ const PhoneReg = () => {
         }
     }
 
-    function onSignup() {
-        onCaptchVerify();
+    const onSignup = (e) => {
+        e.preventDefault()
 
-        const appVerifier = window.recaptchaVerifier;
+        if (selectedCountry === undefined) {
+            toast.error("Select your Country code")
+        }
 
-        const number = `+${searchSelectedCountry.callingCodes}` + phone
-
-        if (phone === " ") {
+        else if (phone === '') {
             toast.error("Enter your Phone Number")
         }
 
         else {
+
+            setSendingOtp(true);
+            onCaptchVerify();
+            const appVerifier = window.recaptchaVerifier;
+
+            const number = `+${searchSelectedCountry?.callingCodes}` + phone
+
             signInWithPhoneNumber(auth, number, appVerifier)
                 .then((confirmationResult) => {
                     window.confirmationResult = confirmationResult;
@@ -131,29 +139,33 @@ const PhoneReg = () => {
 
     }
 
-    function onOTPVerify() {
-        window.confirmationResult
-            .confirm(otp)
-            .then(async () => {
-                toast.success("OTP Successfully Verified!");
-                await registerUser(phone).then((result) => {
+    const onOTPVerify = () => {
 
-                    localStorage.setItem("userId", result?.data?.data?.user?._id)
-                    localStorage.setItem("token", result?.data?.token) 
-                    const regStatus = result?.data?.data?.user?.registartionStatus
-                    if (regStatus.length === 0) {
-                        console.log(result?.data?.data?.user?.registartionStatus,"hhhhhhhjjjjjjjjjhh")
-                        navigate('/home')
-                    } else {
-                        navigate('/register/signupOption')
-                    }
-                    
+        if (otp === '') {
+            toast.error("Enter a valid OTP")
+        }
+
+        else {
+            window.confirmationResult
+                .confirm(otp)
+                .then(async () => {
+                    toast.success("OTP Successfully Verified!");
+                    await registerUser(phone).then((result) => {
+                        localStorage.setItem("userId", result?.data?.data?.user?._id)
+                        localStorage.setItem("token", result?.data?.token)
+                        const regStatus = result?.data?.data?.user?.registartionStatus
+                        if (regStatus.length === 0) {
+                            navigate('/home')
+                        } else {
+                            navigate('/register/signupOption')
+                        }
+                    })
                 })
-            })
-            .catch((error) => {
-                console.log(error);
-                toast.error("Invalid OTP")
-            });
+                .catch((error) => {
+                    console.log(error);
+                    toast.error("Invalid OTP")
+                });
+        }
     }
 
     useEffect(() => {
@@ -295,8 +307,17 @@ const PhoneReg = () => {
 
                             </div>
 
-                            <div onClick={onSignup} className='bg-red-500 w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20'>
-                                Verify Mobile
+                            <div onClick={onSignup} className={sendingOtp ? 'pointer-events-none bg-red-500 w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20' : 'bg-red-500 w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20'}>
+                                {sendingOtp ? (
+                                    <>
+                                        <div className="flex items-center justify-center">
+                                            <div className="h-5 w-5 border-t-transparent border-solid animate-spin rounded-full border-white border-2"></div>
+                                            <div className="ml-2"> Sending OTP</div>
+                                        </div>
+                                    </>
+                                ) : (
+                                    'Send OTP'
+                                )}
                             </div>
                             <div id="recaptcha-container"></div>
                         </>

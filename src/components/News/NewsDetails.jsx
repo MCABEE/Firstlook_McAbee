@@ -11,7 +11,7 @@ const NewsDetails = () => {
           <div className="flex flex-wrap md:flex-nowrap space-x-0 md:space-x-28 mb-16">
 
             <div className="mb-4 lg:mb-0 p-4 lg:p-0 w-full md:w-[90rem] relative rounded block">
-              <span className="text-gray-500 md:text-sm text-[10px] sm:text-[13px]"> 13 SEPTEMBER 2023 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>PUBLISHED BY : FIRSTLOOK TEAM</span> </span>
+              <p className="text-gray-500 md:text-sm text-[10px] sm:text-[13px] flex -mt-2 sm:mt-0 mb-6"> 13 SEPTEMBER 2023 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p>PUBLISHED BY : FIRSTLOOK TEAM</p> </p>
               <img src="https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="rounded-md object-fill sm:w-[600px] w-full sm:h-[359px] sm:mb-0 mb-4 mt-6" />
               <p className="text-gray-600 mb-4 text-justify mt-6">
                 Launched ‘Firstlook’ a social network for singles to find life partner.
@@ -38,7 +38,7 @@ const NewsDetails = () => {
 
             </div>
 
-            <hr className="mb-5 border-gray-300 border-1 w-full md:hidden block" />
+            <hr className="mb-5 border-gray-300 border-1 w-5/6 text-center md:hidden block" />
 
             <div className="w-full md:w-4/7">
               <Link className="inline-flex items-center py-2 space-x-2 bg-[#FC3657] text-[12px] px-6 rounded-md text-white ml-4 md:ml-0 md:mt-0 mt-4 mb-5">
@@ -46,65 +46,65 @@ const NewsDetails = () => {
               </Link>
 
               <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0" />
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0 lg:pt-2 lg:lg:rounded-t-xl" />
                 <div className="bg-white rounded px-4">
-                  <span className="text-gray-500 text-sm hidden md:block"> 27 JULY 2023 </span>
-                  <div className="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
+                  <span className="text-gray-500 text-[12px]"> 27 JULY 2023 </span>
+                  <div className="md:mt-0 text-gray-800 font-semibold text-[14px] mb-2">
                     Android version of ‘Firstlook’ released today.
                   </div>
-                  <p className="block md:hidden p-2 pl-0 pt-1 text-sm text-gray-600">
+                  <p className=" p-2 pl-0 pt-1 text-[12px] text-gray-600 text-justify">
                     Launched ‘Firstlook’ a social netwrok for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro
                   </p>
                 </div>
               </div>
 
               <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0" />
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0 lg:pt-2 lg:rounded-t-xl" />
                 <div className="bg-white rounded px-4">
-                  <span className="text-gray-500 text-sm hidden md:block"> 17 AUGUST 2023 </span>
-                  <div className="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
+                  <span className="text-gray-500 text-[12px]"> 17 AUGUST 2023 </span>
+                  <div className="md:mt-0 text-gray-800 font-semibold text-[14px] mb-2">
                     ‘Firstlook’ introduce ‘Booster Plan’ to target particular user’s.
                   </div>
-                  <p className="block md:hidden p-2 pl-0 pt-1 text-sm text-gray-600">
+                  <p className="p-2 pl-0 pt-1 text-[12px] text-gray-600">
                     Launched ‘Firstlook’ a social netwrok for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro
                   </p>
                 </div>
               </div>
 
               <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0" />
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0 lg:pt-2 lg:rounded-t-xl" />
                 <div className="bg-white rounded px-4">
-                  <span className="text-gray-500 text-sm hidden md:block"> 01 SEPTEMBER 2023 </span>
-                  <div className="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
+                  <span className="text-gray-500 text-[12px]"> 01 SEPTEMBER 2023 </span>
+                  <div className="md:mt-0 text-gray-800 font-semibold text-[14px] mb-2">
                     ‘Nearby’ search system introduced in matchmaking app.
                   </div>
-                  <p className="block md:hidden p-2 pl-0 pt-1 text-sm text-gray-600">
+                  <p className="p-2 pl-0 pt-1 text-[12px] text-gray-600">
                     Launched ‘Firstlook’ a social netwrok for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro
                   </p>
                 </div>
               </div>
 
               <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10">
-                <img src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0" />
+                <img src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0 lg:pt-2 lg:rounded-t-xl" />
                 <div className="bg-white rounded px-4">
-                  <span className="text-gray-500 text-sm hidden md:block"> 01 SEPTEMBER 2023 </span>
-                  <div className="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
+                  <span className="text-gray-500 text-[12px]"> 01 SEPTEMBER 2023 </span>
+                  <div className="md:mt-0 text-gray-800 font-semibold text-[14px] mb-2">
                     Advice me cousin an spring of needed. Tell use paid law ever yet new.
                   </div>
-                  <p className="block md:hidden p-2 pl-0 pt-1 text-sm text-gray-600">
+                  <p className="p-2 pl-0 pt-1 text-[12px] text-gray-600">
                     Meant to learn of vexed if style allow he there. Tiled man stand tears ten joy there terms any widen.
                   </p>
                 </div>
               </div>
 
               <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10">
-                <img src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0" />
+                <img src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0 lg:pt-2 lg:rounded-t-xl" />
                 <div className="bg-white rounded px-4">
-                  <span className="text-gray-500 text-sm hidden md:block"> 01 SEPTEMBER 2023 </span>
-                  <div className="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
+                  <span className="text-gray-500 text-[12px]"> 01 SEPTEMBER 2023 </span>
+                  <div className="md:mt-0 text-gray-800 font-semibold text-[14px] mb-2">
                     Advice me cousin an spring of needed. Tell use paid law ever yet new.
                   </div>
-                  <p className="block md:hidden p-2 pl-0 pt-1 text-sm text-gray-600">
+                  <p className="p-2 pl-0 pt-1 text-[12px] text-gray-600">
                     Meant to learn of vexed if style allow he there. Tiled man stand tears ten joy there terms any widen.
                   </p>
                 </div>
