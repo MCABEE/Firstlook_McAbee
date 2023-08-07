@@ -17,7 +17,7 @@ export const tokenHeader = () => {
     };
 };
 
-export const getUserDetails = () => axios.get(`/user/v1/getUserData/${getUserId()}`, tokenHeader())
+export const getUserDetails = () => axios.get('/user/v1/getLoggedUserData', tokenHeader())
 
 export const registerUser = (encryptedPhoneNumber) => axios.post('/auth/v1/register/mobile', { encryptedPhoneNumber })
 
