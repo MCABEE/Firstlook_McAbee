@@ -157,7 +157,7 @@ const PhoneReg = () => {
                     toast.success("OTP Successfully Verified!");
 
                     const secretKey = import.meta.env.VITE_CRYPTO_SECRET_KEY
-                    const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, secretKey).toString();
+                    const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, import.meta.env.VITE_CRYPTO_SECRET_KEY).toString();
 
                     console.log(secretKey)
                     console.log(encryptedPhoneNumber)
