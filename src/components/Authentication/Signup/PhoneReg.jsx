@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 import { registerUser } from "../../../api";
 import { Link } from "react-router-dom";
 import firstLook from '../../../assets/firstLook.png'
-// import CryptoJS from 'crypto-js';
+import CryptoJS from 'crypto-js';
 
 const PhoneReg = () => {
     const [sendingOtp, setSendingOtp] = useState(false);
@@ -148,20 +148,22 @@ const PhoneReg = () => {
         }
 
         else {
+            
             setVerifyOtp(true)
             window.confirmationResult
                 .confirm(otp)
                 .then(async () => {
                     toast.success("OTP Successfully Verified!");
 
-                    // const secretKey = 'your-secret-key';
-                    // const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, secretKey).toString();
-                    // console.log(encryptedPhoneNumber)
-                    await registerUser(phone).then((result) => {
+                    const secretKey = 'GJYN9jToAmNe095TYZWqMglYzdI763';
+                    const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, secretKey).toString();
+
+                    await registerUser(encryptedPhoneNumber).then((result) => {
 
                         localStorage.setItem("userId", result?.data?.data?.user?._id)
                         localStorage.setItem("token", result?.data?.token)
                         const regStatus = result?.data?.data?.user?.registartionStatus
+
                         if (regStatus.length === 0) {
                             navigate('/home')
                         } else {
