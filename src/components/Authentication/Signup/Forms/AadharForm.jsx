@@ -257,16 +257,16 @@ const AadharForm = () => {
                                 <div
                                     onClick={() => {
                                         setImageSide("photoBack")
-                                        window.scrollTo(0, 300)
+                                        window.scrollTo(0, 900)
                                     }}
-                                    className="bg-[#F92739] cursor-pointer rounded-xl w-40 text-[14px] text-center text-white py-2 ml-[13.5rem] sm:ml-[15rem] mt-[36rem]"
+                                    className="bg-[#F92739] cursor-pointer rounded-xl w-40 text-[14px] text-center text-white py-2 ml-[13.5rem] sm:ml-[15rem] mt-[36rem] sm:mb-0 mb-10"
                                 >
                                     Continue
                                 </div>
                                 {imageSide === "photoBack" ?
                                     <>
-                                        <div className='mb-20 ml-12'>
-                                            <div className='absolute w-96 py-3 rounded-xl bg-[#FE1940] h-16 '>
+                                        <div className='mb-20 sm:ml-12 ml-4 -mt-7'>
+                                            <div className='absolute w-96 py-3 sm:rounded-xl bg-[#FE1940] h-16 '>
                                                 <p className='font-oxygen text-white text-[14px] text-center font-semibold'>
                                                     Add Photo (Back Side)
                                                 </p>
@@ -294,12 +294,12 @@ const AadharForm = () => {
                 <>
                     {isOpen === "photo" ?
                         <>
-                            <div className="absolute w-[24rem] py-3 rounded-xl mb-6 bg-white sm:bg-[#F2F2F2] sm:h-[55rem] -mt-64">
+                            <div className="absolute w-[24rem] py-3 rounded-xl mb-6 bg-white sm:bg-[#F2F2F2] sm:h-[35rem] -mt-48 sm:-mt-64">
                                 <button className="rounded-2xl py-3 mt-8 ml-4 sm:ml-[2rem] flex">
                                     <div className='mx-auto'>
                                         <div className='mt-[5rem]'>
-                                            <img src={imgFrontAfterCrop} className="rounded-xl h-56 w-[318px]" />
-                                            <img src={imgBackAfterCrop} className="rounded-xl h-56 w-[318px] mt-5" />
+                                            <img src={imgFrontAfterCrop} className="rounded-xl h-48 w-[318px]" />
+                                            <img src={imgBackAfterCrop} className="rounded-xl h-48 w-[318px] mt-5" />
                                         </div>
 
                                         <div

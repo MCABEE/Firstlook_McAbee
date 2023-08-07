@@ -148,7 +148,10 @@ const SeventhForm = () => {
         <Toaster />
         {currentPage === "choose-img" ? (
           <>
-            <div onClick={() => setIsOpen("photo")} className="bg-[#F92739] text-center cursor-pointer text-white w-full py-3 rounded-xl mb-6">
+            <div onClick={() => {
+              setIsOpen("photo")
+              window.scrollTo(0, 300)
+            }} className="bg-[#F92739] text-center cursor-pointer text-white w-full py-3 rounded-xl mb-6">
               Upload Photos
             </div>
             <div className="w-full py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-white h-fit">

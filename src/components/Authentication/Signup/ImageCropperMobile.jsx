@@ -6,11 +6,17 @@ import { registrationContext } from "../../../context/formContext";
 // eslint-disable-next-line react/prop-types
 function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
     const { page } = useContext(registrationContext)
-    console.log(page)
+
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [zoom, setZoom] = useState(1);
     const [croppedArea, setCroppedArea] = useState(null);
-    const aspect = 4 / 5;
+
+    let aspect = 0
+    if(page === 11) { 
+        aspect = 4.2 / 2.6;
+    } else {
+        aspect = 4 / 5
+    }
 
     const onCropComplete = (croppedAreaPercentage, croppedAreaPixels) => {
         setCroppedArea(croppedAreaPixels);
