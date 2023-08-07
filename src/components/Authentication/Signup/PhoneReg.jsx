@@ -155,13 +155,13 @@ const PhoneReg = () => {
                 .confirm(otp)
                 .then(async () => {
                     toast.success("OTP Successfully Verified!");
+                    console.log("kiuuuuuu")
 
                     const secretKey = import.meta.env.VITE_CRYPTO_SECRET_KEY
+                    console.log(secretKey)
                     const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, import.meta.env.VITE_CRYPTO_SECRET_KEY).toString();
 
-                    console.log(secretKey)
                     console.log(encryptedPhoneNumber)
-                    console.log("kiuuuuuu")
 
                     await registerUser(encryptedPhoneNumber).then((result) => {
                         console.log("first")
