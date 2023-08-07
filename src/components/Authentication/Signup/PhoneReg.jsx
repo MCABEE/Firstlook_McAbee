@@ -109,7 +109,8 @@ const PhoneReg = () => {
         }
     }
 
-    const onSignup = () => {
+    const onSignup = (e) => {
+        e.preventDefault()
 
         if (selectedCountry === undefined) {
             toast.error("Select your Country code")
