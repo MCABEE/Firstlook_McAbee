@@ -109,8 +109,7 @@ const PhoneReg = () => {
         }
     }
 
-    const onSignup = (e) => {
-        e.preventDefault()
+    const onSignup = () => {
 
         if (selectedCountry === undefined) {
             toast.error("Select your Country code")
@@ -125,11 +124,12 @@ const PhoneReg = () => {
             setSendingOtp(true);
             onCaptchVerify();
             const appVerifier = window.recaptchaVerifier;
-
+            console.log(appVerifier)
             const number = `+${searchSelectedCountry?.callingCodes}` + phone
-
+            console.log(number)
             signInWithPhoneNumber(auth, number, appVerifier)
                 .then((confirmationResult) => {
+                    console.log(confirmationResult)
                     window.confirmationResult = confirmationResult;
                     setShowOTP(true);
                     toast.success("OTP send successfully!");
@@ -166,7 +166,9 @@ const PhoneReg = () => {
 
                         if (regStatus.length === 0) {
                             navigate('/home')
+                            console.log("home")
                         } else {
+                            console.log("option")
                             navigate('/register/signupOption')
                         }
                     })
