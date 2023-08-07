@@ -103,7 +103,7 @@ const SixthForm2 = () => {
   useEffect(() => {
     getPincode()
     getHomeTown()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -112,7 +112,7 @@ const SixthForm2 = () => {
 
   return (
     <>
-      <form className="w-72 ml-3.5 sm:ml-12">
+      <form onSubmit={handleData} className="w-72 ml-3.5 sm:ml-12">
         <Toaster />
         <p className="mb-3 text-sm font-medium">
           Your Residential Address
@@ -224,8 +224,7 @@ const SixthForm2 = () => {
           ></input>
         </div>
 
-        <button
-          onClick={handleData}
+        <button type="submit"
           className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
         >
           Continue
