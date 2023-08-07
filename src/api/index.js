@@ -19,7 +19,7 @@ export const tokenHeader = () => {
 
 export const getUserDetails = () => axios.get(`/user/v1/getUserData/${getUserId()}`, tokenHeader())
 
-export const registerUser = (phone) => axios.post('/auth/v1/register/mobile', { phone })
+export const registerUser = (encryptedPhoneNumber) => axios.post('/auth/v1/register/mobile', { encryptedPhoneNumber })
 
 export const registerAboutYou = (firstName, lastName, displayName, dob, gender) => axios.patch(`/user/v1/register/${getUserId()}/aboutYou`, { firstName, lastName, displayName, dob, gender }, tokenHeader())
 
