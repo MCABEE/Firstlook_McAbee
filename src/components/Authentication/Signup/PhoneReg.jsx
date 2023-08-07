@@ -159,12 +159,16 @@ const PhoneReg = () => {
                     const secretKey = import.meta.env.VITE_CRYPTO_SECRET_KEY
                     const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, secretKey).toString();
 
-                    await registerUser(encryptedPhoneNumber).then((result) => {
+                    console.log(secretKey)
+                    console.log(encryptedPhoneNumber)
+                    console.log("kiuuuuuu")
 
+                    await registerUser(encryptedPhoneNumber).then((result) => {
+                        console.log("first")
                         localStorage.setItem("userId", result?.data?.data?.user?._id)
                         localStorage.setItem("token", result?.data?.token)
                         const regStatus = result?.data?.data?.user?.registartionStatus
-
+                        console.log(regStatus)
                         if (regStatus.length === 0) {
                             navigate('/home')
                             console.log("home")
