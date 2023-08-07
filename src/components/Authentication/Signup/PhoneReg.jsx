@@ -148,14 +148,14 @@ const PhoneReg = () => {
         }
 
         else {
-            
+
             setVerifyOtp(true)
             window.confirmationResult
                 .confirm(otp)
                 .then(async () => {
                     toast.success("OTP Successfully Verified!");
 
-                    const secretKey = 'GJYN9jToAmNe095TYZWqMglYzdI763';
+                    const secretKey = import.meta.env.VITE_CRYPTO_SECRET_KEY
                     const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, secretKey).toString();
 
                     await registerUser(encryptedPhoneNumber).then((result) => {
