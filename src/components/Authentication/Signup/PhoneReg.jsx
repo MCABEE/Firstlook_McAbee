@@ -155,7 +155,7 @@ const PhoneReg = () => {
                 .confirm(otp)
                 .then(async () => {
                     toast.success("OTP Successfully Verified!");
-                    console.log("kiuuuuuu")
+                    console.log("kiuuuuu")
 
                     const secretKey = import.meta.env.VITE_CRYPTO_SECRET_KEY
                     console.log(secretKey)
