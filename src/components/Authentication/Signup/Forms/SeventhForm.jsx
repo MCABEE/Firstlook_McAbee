@@ -150,7 +150,7 @@ const SeventhForm = () => {
           <>
             <div onClick={() => {
               setIsOpen("photo")
-              window.scrollTo(0, 300)
+              window.scrollTo(0, 600)
             }} className="bg-[#F92739] text-center cursor-pointer text-white w-full py-3 rounded-xl mb-6">
               Upload Photos
             </div>
@@ -182,11 +182,11 @@ const SeventhForm = () => {
             {isOpen === "photo" ?
               <>
                 <div className='mb-20'>
-                  <div className='absolute w-96 -ml-12 py-3 rounded-xl border border-[#D8D8D8] bg-[#FE1940] h-16 -mt-6'>
+                  <div className='absolute w-96 -ml-12 py-3 sm:rounded-xl border border-[#D8D8D8] bg-[#FE1940] h-16 -mt-6'>
                     <p className='font-oxygen text-white text-[14px] text-center font-semibold'>
                       Add Photo
                     </p>
-                    <div onClick={() => setIsOpen(" ")} className='text-white ml-[21rem] -mt-6 cursor-pointer'>
+                    <div onClick={() => setIsOpen(" ")} className='text-white ml-[19rem] -mt-6 cursor-pointer'>
                       <KeyboardArrowDownOutlinedIcon />
                     </div>
                   </div>
@@ -204,13 +204,13 @@ const SeventhForm = () => {
           </>
         ) : currentPage === "crop-img" ? (
           <>
-            <div className='mt-[29rem] sm:block hidden'>
+            <div className='mt-[29rem] -ml-1.5 sm:block hidden'>
               <ImageCropper
                 image={image}
                 onCropDone={onCropDone}
                 onCropCancel={onCropCancel} />
             </div>
-            <div className='mt-[29rem] sm:hidden block'>
+            <div className='mt-[29rem] -ml-1 sm:hidden block'>
               <ImageCropperMobile
                 image={image}
                 onCropDone={onCropDone}
@@ -221,11 +221,12 @@ const SeventhForm = () => {
           <>
             {isOpen === "photo" ?
               <>
-                <div className="absolute -ml-12 w-[24rem] py-3 rounded-xl mb-6 -mt-72">
+                <div className="absolute -ml-12 w-[19rem] sm:w-[24rem] py-3 rounded-xl mb-6 -mt-72">
                   <button className="rounded-2xl py-3 mt-8 ml-[2rem] flex">
                     <div className='mx-auto'>
-                      <div className='mt-[13rem]'>
-                        <img src={imgAfterCrop} className="mx-auto rounded-xl h-[22.5rem] w-72 ml-4" />
+                      <p className='font-bold text-xl mt-[11rem] ml-8'>Preview</p>
+                      <div className='mt-[2rem]'>
+                        <img src={imgAfterCrop} className="mx-auto rounded-xl h-[22rem] w-72 ml-[1.65rem] sm:ml-4" />
                       </div>
 
                       <div
@@ -234,7 +235,7 @@ const SeventhForm = () => {
                           setIsRunning(false)
                           setFilled(0)
                         }}
-                        className="text-black -mt-[35rem] -ml-72"
+                        className="text-black -mt-[36.2rem] -ml-56 sm:-ml-64"
                       >
                         <KeyboardBackspaceOutlinedIcon />
                       </div>
@@ -262,78 +263,69 @@ const SeventhForm = () => {
               : " "}
           </>
         )}
-        {currentPage != "crop-img" && isOpen != 'photo' ?
-          <div className="flex mt-10">
-            <button
-              onClick={handleFileUpload}
-              className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
-            >
-              Continue
-            </button>
-          </div>
-          : " "
-        }
 
         <div className="flex items-center justify-between"></div>
       </form>
-      <div className={currentPage === "crop-img" ? "flex justify-center sm:mt-[8rem] mt-[16rem] mb-3 sm:mb-10" : "flex justify-center mt-[4.2rem] sm:mb-10"}>
-        <div className={
-          page === 0
-            ? " text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
-        } >
-          <CircleIcon sx={{ height: "8px" }} />
+      {isOpen === 'photo' ? "" :
+        <div className={currentPage === "crop-img" ? "flex justify-center sm:mt-[8.3rem] mt-[16rem] mb-3 sm:mb-10" : "flex justify-center mt-[7.5rem] sm:mb-10"}>
+          <div className={
+            page === 0
+              ? " text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
+          <div className={
+            page === 1
+              ? "text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
+          <div className={
+            page === 2 || page === 3
+              ? "text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
+          <div className={
+            page === 4
+              ? "text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
+          <div className={
+            page === 5 || page === 6
+              ? "text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
+          <div className={
+            page === 7 || page === 8
+              ? "text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
+          <div className={
+            page === 9
+              ? "text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
+          <div className={
+            page === 10
+              ? "text-[#F92739] font-medium"
+              : "text-gray-300 cursor-pointer"
+          } >
+            <CircleIcon sx={{ height: "8px" }} />
+          </div>
         </div>
-        <div className={
-          page === 1
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
-        } >
-          <CircleIcon sx={{ height: "8px" }} />
-        </div>
-        <div className={
-          page === 2 || page === 3
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
-        } >
-          <CircleIcon sx={{ height: "8px" }} />
-        </div>
-        <div className={
-          page === 4
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
-        } >
-          <CircleIcon sx={{ height: "8px" }} />
-        </div>
-        <div className={
-          page === 5 || page === 6
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
-        } >
-          <CircleIcon sx={{ height: "8px" }} />
-        </div>
-        <div className={
-          page === 7 || page === 8
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
-        } >
-          <CircleIcon sx={{ height: "8px" }} />
-        </div>
-        <div className={
-          page === 9
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
-        } >
-          <CircleIcon sx={{ height: "8px" }} />
-        </div>
-        <div className={
-          page === 10
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
-        } >
-          <CircleIcon sx={{ height: "8px" }} />
-        </div>
-      </div>
+      }
     </>
   );
 };

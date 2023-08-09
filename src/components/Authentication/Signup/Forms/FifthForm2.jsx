@@ -8,6 +8,7 @@ import { getAllDesignations, getAllJobStreams, getEmployerDetails, registerOccup
 import { useDispatch, useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
 import { setUserData } from "../../../../Redux/Reducer/getUserData";
+import { Toaster, toast } from "react-hot-toast";
 
 const FifthForm2 = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
@@ -87,14 +88,61 @@ const FifthForm2 = () => {
 
   const handleData = async (e) => {
     e.preventDefault()
-    await registerOccupationCategory(jobCategory, jobType, designation, stream, companyName, employerName)
-      .then((data) => {
-        dispatch(setUserData(data?.data?.userData))
-        setPage(page === 10 ? 0 : page + 1);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+
+    if (jobCategory === '') {
+      toast.error("Select Job Category")
+    }
+
+    else if (jobCategory === 'Business' && designation === '') {
+      toast.error("Select Designation")
+    }
+
+    else if (jobCategory === 'Business' && companyName.length < 6) {
+      toast.error("Company Name requires a minimum of 6 characters")
+    }
+
+    else if (jobCategory === 'Government' && designation === '') {
+      toast.error("Select Designation")
+    }
+
+    else if (jobCategory === 'Government' && jobType === '') {
+      toast.error("Select Job Type")
+    }
+
+    else if (jobCategory === 'Government' && employerName === '') {
+      toast.error("Select Designation")
+    }
+
+    else if (jobCategory === 'Private' && stream === '') {
+      toast.error("Select Stream")
+    }
+
+    else if (jobCategory === 'Private' && designation === '') {
+      toast.error("Select Designation")
+    }
+
+    else if (jobCategory === 'Private' && companyName === '') {
+      toast.error("Select Designation")
+    }
+
+    else if (jobCategory === 'Self Employed' && stream === '') {
+      toast.error("Select Stream")
+    }
+
+    else if (jobCategory === 'Self Employed' && designation === '') {
+      toast.error("Select Designation")
+    }
+
+    else {
+      await registerOccupationCategory(jobCategory, jobType, designation, stream, companyName, employerName)
+        .then((data) => {
+          dispatch(setUserData(data?.data?.userData))
+          setPage(page === 10 ? 0 : page + 1);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
   }
 
   useEffect(() => {
@@ -111,12 +159,12 @@ const FifthForm2 = () => {
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
-
+        <Toaster />
         <div className="mb-6 mt-4 flex">
           <button type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Job Category" ? "" : "Job Category"))}
-            
+
           >
 
             <p className="w-44 truncate text-sm">{jobCategory ? jobCategory : "Job Category ?"}</p>
@@ -199,7 +247,7 @@ const FifthForm2 = () => {
 
             <div className="mb-6 mt-5 flex">
               <input
-                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
+                className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
                 type="text"
                 placeholder="Company Name"
                 value={companyName}
@@ -336,7 +384,7 @@ const FifthForm2 = () => {
               <div
                 className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Job Stream" ? "" : "Job Stream"))}
-                
+
               >
 
                 <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>
@@ -454,7 +502,7 @@ const FifthForm2 = () => {
               <div
                 className="w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
                 onClick={() => setIsOpen((prev) => (prev === "Job Stream" ? "" : "Job Stream"))}
-                
+
               >
 
                 <p className="w-44 mt-3 truncate text-sm">{stream ? stream : "Job Stream"}</p>

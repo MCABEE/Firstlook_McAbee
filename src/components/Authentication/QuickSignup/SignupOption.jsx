@@ -21,7 +21,8 @@ const SignupOption = () => {
                 </div>
             </div>
             <div className="flex justify-center items-center sm:mb-10 sm:mt-10">
-                <div className="w-full h-fit sm:max-w-sm sm:rounded-2xl sm:shadow-md bg-bg_signup bg-no-repeat bg-contain">
+                
+                <div className="w-full h-fit sm:max-w-sm sm:rounded-2xl sm:shadow-md bg-bg_signup bg-no-repeat sm:bg-contain bg-[length:450px_450px]">
                     <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
                         <div>
                             <nav className="flex h-9 items-center justify-between" aria-label="Global">
@@ -39,7 +40,7 @@ const SignupOption = () => {
                             Signup
                         </p>
                     </div>
-                    <div className="grid gap-4 mt-10">
+                    <div className="grid gap-4 mt-16 sm:mt-10">
                         <div className="flex-1">
                             <p className="text-white text-[24px] ml-10">
                                 Go for a <br />
@@ -49,13 +50,12 @@ const SignupOption = () => {
                                 While choosing this option, you can easily launch profile. But will have to provide complete information about yourself before doing any activity on your profile.
                             </p>
                             <Link to="/register/quickSignup">
-                                <button className="text-[14px] font-semibold bg-white ml-[4.35rem] w-56 mt-6 py-3 rounded-xl">
+                                <div className="text-[14px] font-semibold bg-white mx-auto text-center w-56 mt-6 py-3 rounded-xl">
                                     Let’s Start
-                                </button>
+                                </div>
                             </Link>
-                            <p className="ml-10 text-[14px] font-semibold mt-20">
-                                Or
-                            </p>
+                            <div className="ml-10 text-[14px] font-semibold sm:mt-32 mt-28">
+                            </div>
                             <p className="font-semibold text-[24px] ml-10 mt-5">
                                 Standard Signup
                             </p>
@@ -63,9 +63,9 @@ const SignupOption = () => {
                                 If you choose the <span className="font-semibold">’Standard Signup’</span> option, enter the complete information now and start search without any hassles further.
                             </p>
                             <Link to="/register/signup">
-                                <button className="text-[14px] font-semibold bg-white border border-[#F92739] ml-[4.35rem] w-56 mt-9 py-3 rounded-xl mb-28">
+                                <div className="text-[14px] font-semibold bg-[#F92739] text-white border border-[#F92739] mx-auto text-center w-56 mt-9 py-3 rounded-xl mb-28">
                                     I Select this
-                                </button>
+                                </div>
                             </Link>
                         </div>
                     </div>

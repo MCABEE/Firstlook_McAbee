@@ -107,11 +107,7 @@ const FifthForm = () => {
   };
 
   const handleNext = () => {
-    if (option === 'No') {
       setPage(page === 10 ? 0 : page + 2);
-    } else {
-      setPage(page === 10 ? 0 : page + 1);
-    }
   };
 
   const handleData = async (e) => {
@@ -126,7 +122,7 @@ const FifthForm = () => {
         toast.error("select State")
       }
 
-      else if (district === '') {
+      else if (country === 'India' && district === '') {
         toast.error("select District")
       }
 
@@ -415,16 +411,17 @@ const FifthForm = () => {
           : null}
 
         <div className="flex mt-10">
-          <button
-            onClick={handleNext}
-            className="rounded-xl text-[#A0A0A0] px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"
-          >
-            Skip
-          </button>
+          
+            <button
+              onClick={handleNext}
+              className={option === 'No' ? "hidden" : "rounded-xl text-[#A0A0A0] px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"}
+            >
+              Skip
+            </button>
 
           <button
             onClick={handleData}
-            className={country === 'India' ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20 mb-[4.4rem]"}
+            className={country === 'India' ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-auto mb-[4.4rem]"}
           >
             Continue
           </button>

@@ -62,20 +62,24 @@ const ThirdForm = () => {
       toast.error("select Marital Status")
     }
 
+    else if (height === '') {
+      toast.error("select Height")
+    }
+
+    else if (height > 200) {
+      toast.error("Height should be less than 200cm")
+    }
+
+    else if (weight === '') {
+      toast.error("select Weight")
+    }
+
     else if (bodyType === '') {
       toast.error("select Body Type")
     }
 
     else if (physicalStatus === '') {
       toast.error("select Physical Status")
-    }
-
-    else if (height === '') {
-      toast.error("select Height")
-    }
-
-    else if (weight === '') {
-      toast.error("select Weight")
     }
 
     else {
@@ -218,7 +222,7 @@ const ThirdForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="number"
             placeholder="Height (in cm)"
             value={height}
@@ -228,7 +232,7 @@ const ThirdForm = () => {
 
         <div className="mb-6 flex">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="number"
             placeholder="Weight (in kg)"
             value={weight}

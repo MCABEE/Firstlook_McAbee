@@ -85,8 +85,12 @@ const SixthForm2 = () => {
       toast.error("select Pincode")
     }
 
-    else if (contactNumber === '' && homeContactNumber === '') {
+    else if (contactNumber === '' || homeContactNumber === '') {
       toast.error("Enter Contact Number")
+    }
+
+    else if (homeContactNumber == contactNumber) {
+      toast.error("Enter a different Home Contact Number")
     }
 
     else {
@@ -120,7 +124,7 @@ const SixthForm2 = () => {
 
         <div className="mb-6">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
             placeholder="Your Family / House Name"
             value={familyName}
@@ -206,7 +210,7 @@ const SixthForm2 = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
             placeholder="Your Contact Number"
             value={contactNumber}
@@ -216,7 +220,7 @@ const SixthForm2 = () => {
 
         <div className="mb-10">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
             placeholder="Home Contact Number"
             value={homeContactNumber}

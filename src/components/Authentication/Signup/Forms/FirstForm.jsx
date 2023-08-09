@@ -13,6 +13,7 @@ import { registerAboutYou } from "../../../../api";
 import { useSelector } from "react-redux";
 import { Toaster, toast } from "react-hot-toast";
 import { useEffect } from "react";
+import { differenceInYears } from 'date-fns';
 
 const FirstForm = () => {
   const userData = useSelector((state) => state.getUserFilledData?.data)
@@ -43,6 +44,11 @@ const FirstForm = () => {
     e.preventDefault()
 
     const isValidDisplayName = /^[a-zA-Z0-9_]{6,16}$/.test(displayName);
+    const currentDate = new Date();
+    const ageLimitFemale = 18;
+    const ageLimitMale = 21;
+
+    const age = differenceInYears(currentDate, selectedDate);
 
     if (selectedGender === null) {
       toast.error("Select your Gender")
@@ -54,6 +60,11 @@ const FirstForm = () => {
 
     else if (selectedDate === null || selectedDate === 'DOB') {
       toast.error("Enter your DOB")
+    }
+
+    else if ((selectedGender === 'Male' && age < ageLimitMale) ||
+        (selectedGender === 'Female' && age < ageLimitFemale)) {
+      toast.error(`You must be ${selectedGender === 'Male' ? ageLimitMale : ageLimitFemale} years or older.`);
     }
 
     else {
@@ -102,7 +113,7 @@ const FirstForm = () => {
 
         <div className="mb-6 mt-10">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
             placeholder="First Name"
             value={firstName}
@@ -115,7 +126,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
             placeholder="Last Name"
             required
@@ -128,7 +139,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
             placeholder="Display Name"
             value={displayName}
@@ -143,7 +154,7 @@ const FirstForm = () => {
             value={formattedDate || "DOB"}
             readOnly
             onClick={handleInputClick}
-            className="w-72 ml-3.5 sm:ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
+            className="w-72 ml-3.5 sm:ml-12 px-5 py-3 text-sm placeholder:text-[#4D4D4D] bg-white border border-[#B8B8B8] text-[#4D4D4D] rounded-xl shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer"
           />
           <span
             onClick={handleInputClick}

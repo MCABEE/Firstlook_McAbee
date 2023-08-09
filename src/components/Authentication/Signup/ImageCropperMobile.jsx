@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import Cropper from "react-easy-crop";
 import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
 import { registrationContext } from "../../../context/formContext";
+import { useEffect } from "react";
 
 // eslint-disable-next-line react/prop-types
 function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
@@ -22,10 +23,15 @@ function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
         setCroppedArea(croppedAreaPixels);
     };
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
     return (
         <div className="cropper">
 
-            <div>
+            <div className="relative">
                 <Cropper
                     image={image}
                     aspect={aspect}
@@ -37,7 +43,7 @@ function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
                     style={{
                         containerStyle: {
                             borderRadius: "0.85rem",
-                            top: "25rem",
+                            top: "-480px",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
@@ -49,8 +55,8 @@ function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
                     }}
                 />
                 <div className="w-28 flex">
-                    <div className={page === 9 ? "absolute text-black -mt-[40rem] -ml-3.5 cursor-pointer"
-                        : page === 11 ? "absolute text-black -mt-[40rem] -ml-3.5 cursor-pointer"
+                    <div className={page === 9 ? "absolute text-black -mt-[40rem] ml-1 cursor-pointer"
+                        : page === 11 ? "absolute text-black -mt-[40rem] ml-3 cursor-pointer"
                             : "absolute text-black -mt-[40rem] -ml-3.5 cursor-pointer"} onClick={onCropCancel}>
                         <KeyboardBackspaceOutlinedIcon />
                     </div>

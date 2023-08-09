@@ -235,19 +235,20 @@ const AadharForm = () => {
                 <>
                     {isOpen === "photo" ?
                         <>
-                            <div className="absolute -ml-12 w-[24rem] py-3 rounded-xl mb-6 -mt-72">
+                            <div className="absolute -ml-12 w-[20.5rem] sm:w-[24rem] py-3 rounded-xl mb-6 -mt-72">
                                 <button className="rounded-2xl py-3 mt-8 ml-[2rem] flex">
                                     <div className='mx-auto'>
                                         <div className='mt-[19rem]'>
-                                            <img src={imgFrontAfterCrop} className="rounded-xl h-[13rem] w-[20rem] ml-7 sm:ml-12" />
+                                            <img src={imgFrontAfterCrop} className="rounded-xl h-[10rem] w-[20rem] ml-7 sm:ml-12" />
                                         </div>
 
                                         <div
                                             onClick={() => {
                                                 setCurrentPage("crop-img");
+                                                setImgFrontAfterCrop("")
                                                 setCount(0)
                                             }}
-                                            className="text-black -mt-[28.5rem] -ml-[18rem] sm:-ml-60"
+                                            className="text-black -mt-[25.5rem] -ml-[14rem] sm:-ml-60"
                                         >
                                             <KeyboardBackspaceOutlinedIcon />
                                         </div>
@@ -257,9 +258,9 @@ const AadharForm = () => {
                                 <div
                                     onClick={() => {
                                         setImageSide("photoBack")
-                                        window.scrollTo(0, 900)
+                                        window.scrollTo(0, 500)
                                     }}
-                                    className="bg-[#F92739] cursor-pointer rounded-xl w-40 text-[14px] text-center text-white py-2 ml-[13.5rem] sm:ml-[15rem] mt-[36rem] sm:mb-0 mb-10"
+                                    className="bg-[#F92739] cursor-pointer rounded-xl w-40 text-[14px] text-center text-white py-2 ml-[12.2rem] sm:ml-[15rem] mt-[32rem] sm:mb-0 "
                                 >
                                     Continue
                                 </div>
@@ -294,9 +295,10 @@ const AadharForm = () => {
                 <>
                     {isOpen === "photo" ?
                         <>
-                            <div className="absolute w-[24rem] py-3 rounded-xl mb-6 bg-white sm:bg-[#F2F2F2] sm:h-[35rem] -mt-48 sm:-mt-64">
+                            <div className="absolute w-[19rem] sm:w-[24rem] py-3 rounded-xl mb-6 bg-white sm:bg-[#F2F2F2] sm:h-[35rem] -mt-48 sm:-mt-64">
                                 <button className="rounded-2xl py-3 mt-8 ml-4 sm:ml-[2rem] flex">
                                     <div className='mx-auto'>
+                                        <p className='font-bold text-xl'>Preview</p>
                                         <div className='mt-[5rem]'>
                                             <img src={imgFrontAfterCrop} className="rounded-xl h-48 w-[318px]" />
                                             <img src={imgBackAfterCrop} className="rounded-xl h-48 w-[318px] mt-5" />
@@ -307,8 +309,11 @@ const AadharForm = () => {
                                                 setCurrentPage("crop-img");
                                                 setIsRunning(false)
                                                 setFilled(0)
+                                                setCount(0)
+                                                setImgFrontAfterCrop("")
+                                                setImgBackAfterCrop("")
                                             }}
-                                            className="text-black -mt-[34rem] -ml-[290px]"
+                                            className="text-black -mt-[32rem] -ml-[290px]"
                                         >
                                             <KeyboardBackspaceOutlinedIcon />
                                         </div>
@@ -316,7 +321,7 @@ const AadharForm = () => {
                                 </button>
 
                                 {isRunning &&
-                                    <div className="progressbar mt-[36rem] ml-[3.3rem] sm:ml-[4.2rem]">
+                                    <div className="progressbar mt-[34rem] ml-[3.3rem] sm:ml-[4.2rem]">
                                         <div style={{
                                             height: "100%",
                                             width: `${filled}%`,
@@ -327,7 +332,7 @@ const AadharForm = () => {
                                 }
                                 <button
                                     onClick={handleFileUpload}
-                                    className={isRunning ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[12rem] sm:ml-[13rem] mt-[3.8rem] mb-4" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[12rem] sm:ml-[13rem] mt-[37rem] mb-4"}
+                                    className={isRunning ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[10rem] sm:ml-[13rem] mt-[3.8rem] mb-4" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[10rem] sm:ml-[13rem] mt-[34rem] mb-4"}
                                 >
                                     Continue
                                 </button>

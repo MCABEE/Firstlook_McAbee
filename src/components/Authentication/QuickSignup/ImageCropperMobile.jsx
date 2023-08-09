@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import Cropper from "react-easy-crop";
 import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
 import { registrationContext } from "../../../context/formContext";
+import { useEffect } from "react";
 
 // eslint-disable-next-line react/prop-types
 function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
@@ -15,6 +16,11 @@ function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
     const onCropComplete = (croppedAreaPercentage, croppedAreaPixels) => {
         setCroppedArea(croppedAreaPixels);
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <div className="cropper">

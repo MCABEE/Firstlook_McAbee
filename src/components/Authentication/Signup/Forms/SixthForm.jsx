@@ -74,7 +74,7 @@ const SixthForm = () => {
         <Toaster />
         <div className="mb-6">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
             required
             pattern="[A-Za-z]+"
@@ -162,7 +162,7 @@ const SixthForm = () => {
 
         <div className="mb-6">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
             required
             pattern="[A-Za-z]+"
@@ -269,7 +269,7 @@ const SixthForm = () => {
             </div>
           </div> */}
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="number"
             required
             placeholder="How Many Siblings ?"

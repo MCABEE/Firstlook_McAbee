@@ -192,7 +192,7 @@ const RegistrationMain = () => {
                         Registration
                     </p>
                     <div className="grid gap-4 mt-10">
-                        <ul ref={listRef} className="gap-16 ml-4 sm:ml-[21px] mb-10 flex justify-between w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right-xs">
+                        <ul ref={listRef} className="gap-16 ml-4 sm:ml-[21px] mb-10 flex justify-between w-[94%] sm:w-full whitespace-nowrap overflow-x-scroll hide-scroll-bar px-3 py-3 bg-white border border-[#B8B8B8] rounded-2xl clip-right-xs">
                             <li
                                 className={
                                     page === 0 ? " w-2/6 rounded-lg flex items-center ml-2 text-[#F92739] font-medium cursor-pointer" : "bg: transparent ml-2 flex items-center text-[#807D7D] cursor-pointer"

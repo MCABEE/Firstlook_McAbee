@@ -164,6 +164,8 @@ const SecondForm = () => {
                       onClick={() => {
                         setCountry(data);
                         setIsOpen("");
+                        setState("")
+                        setStateID("")
                       }}
                     >
                       <p className="mr-2">{data}</p>

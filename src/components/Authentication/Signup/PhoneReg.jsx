@@ -3,15 +3,16 @@ import axios from "axios";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { auth } from "../../../config/Firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "@firebase/auth";
-import OtpInput from "otp-input-react";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router";
 import { registerUser } from "../../../api";
 import { Link } from "react-router-dom";
 import firstLook from '../../../assets/firstLook.png'
 import CryptoJS from 'crypto-js';
+import { useRef } from "react";
 
 const PhoneReg = () => {
+    const [otp, setOtp] = useState(new Array(6).fill(""));
     const [sendingOtp, setSendingOtp] = useState(false);
     const [verifyOtp, setVerifyOtp] = useState(false);
     const [countryState, setCountryState] = useState({
@@ -21,7 +22,6 @@ const PhoneReg = () => {
     });
     const [selectedCountry, setSelectedCountry] = useState();
     const [isOpen, setIsOpen] = useState(false);
-    const [otp, setOtp] = useState("")
     const [phone, setPhone] = useState("")
     const [showOTP, setShowOTP] = useState(false);
     const [search, setSearch] = useState("");
@@ -35,6 +35,34 @@ const PhoneReg = () => {
     };
 
     const navigate = useNavigate()
+
+    const inputRefs = useRef([]);
+
+    const handleChange = (e, index) => {
+        const value = e.target.value;
+
+        if (!isNaN(value) && value.length <= 1) {
+
+            setOtp([...otp.map((d, idx) => (idx === index ? value : d))]);
+            if (value !== "") {
+                if (index < inputRefs.current.length - 1) {
+                    inputRefs.current[index + 1].focus();
+                }
+            } else {
+                if (index > 0) {
+                    inputRefs.current[index - 1].focus();
+                }
+            }
+        }
+    };
+
+    const handleKeyDown = (e, index) => {
+        if (e.key === "Backspace" && otp[index] === "") {
+            if (index > 0) {
+                inputRefs.current[index - 1].focus();
+            }
+        }
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -125,12 +153,9 @@ const PhoneReg = () => {
             setSendingOtp(true);
             onCaptchVerify();
             const appVerifier = window.recaptchaVerifier;
-            console.log(appVerifier)
             const number = `+${searchSelectedCountry?.callingCodes}` + phone
-            console.log(number)
             signInWithPhoneNumber(auth, number, appVerifier)
                 .then((confirmationResult) => {
-                    console.log(confirmationResult)
                     window.confirmationResult = confirmationResult;
                     setShowOTP(true);
                     toast.success("OTP send successfully!");
@@ -150,18 +175,14 @@ const PhoneReg = () => {
 
         else {
 
+            const finalOtp = otp.join("")
             setVerifyOtp(true)
+
             window.confirmationResult
-                .confirm(otp)
+                .confirm(finalOtp)
                 .then(async () => {
                     toast.success("OTP Successfully Verified!");
-                    console.log("kiuuuuu")
-
-                    const secretKey = import.meta.env.VITE_CRYPTO_SECRET_KEY
-                    console.log(secretKey)
                     const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, import.meta.env.VITE_CRYPTO_SECRET_KEY).toString();
-
-                    console.log(encryptedPhoneNumber)
 
                     await registerUser(encryptedPhoneNumber).then((result) => {
                         console.log("first")
@@ -225,39 +246,52 @@ const PhoneReg = () => {
                                 Registration
                             </p>
 
-                            <p className='ml-10 mt-14 text-sm font-medium'>
-                                OTP Verfication
-                            </p>
+                            <div className="mx-auto w-[88%] sm:w-[85%]">
+                                <p className='mt-14 text-[15px] font-semibold'>
+                                    OTP Verfication
+                                </p>
 
-                            <p className='ml-10 text-sm font-medium'>
-                                Please Enter the OTP received in your mobile
-                            </p>
+                                <p className='text-sm font-normal'>
+                                    Please enter the received OTP on your mobile
+                                </p>
+                            </div>
 
-                            <div className="grid justify-center mt-7 rounded-2xl mx-10">
-
-                                <OtpInput
-                                    value={otp}
-                                    onChange={setOtp}
-                                    OTPLength={6}
-                                    otpType="number"
-                                    disabled={false}
-                                    autoFocus
-                                    className="opt-container ml-6 mb-3 mt-7"
-                                ></OtpInput>
-                                <div
-                                    onClick={onOTPVerify}
-                                    className={verifyOtp ? "pointer-events-none bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-8" : "bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-8"}
-                                >
-                                    {verifyOtp ? (
-                                        <>
-                                            <div className="flex items-center justify-center">
-                                                <div className="h-5 w-5 border-t-transparent border-solid animate-spin rounded-full border-white border-2"></div>
-                                                <div className="ml-2"> Verifying OTP</div>
-                                            </div>
-                                        </>
-                                    ) : (
-                                        'Verify OTP'
-                                    )}
+                            <div className="mt-8 w-full">
+                                <div className="mx-auto p-5">
+                                    <div className="flex">
+                                        {otp.map((data, index) => (
+                                            <input
+                                                className="otp-field rounded-lg w-10 h-10 text-center border border-gray-400 mx-auto"
+                                                type="text"
+                                                name="otp"
+                                                maxLength="1"
+                                                key={index}
+                                                value={data}
+                                                ref={el => (inputRefs.current[index] = el)}
+                                                onChange={e => handleChange(e, index)}
+                                                onKeyDown={e => handleKeyDown(e, index)}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="mx-auto w-[90vw] sm:w-[85%] sm:mx-7 mt-10">
+                                    <div
+                                        onClick={onOTPVerify}
+                                        className={verifyOtp ? "pointer-events-none bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-8" : "bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-8"}
+                                    >
+                                        {verifyOtp ? (
+                                            <>
+                                                <div className="flex items-center justify-center">
+                                                    <div className="h-5 w-5 border-t-transparent border-solid animate-spin rounded-full border-white border-2"></div>
+                                                    <div className="ml-2"> Verifying OTP</div>
+                                                </div>
+                                            </>
+                                        ) : (
+                                            'Verify OTP'
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </>
