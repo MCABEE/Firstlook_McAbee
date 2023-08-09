@@ -25,7 +25,7 @@ function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
     return (
         <div className="cropper">
 
-            <div>
+            <div className="relative">
                 <Cropper
                     image={image}
                     aspect={aspect}
@@ -37,7 +37,7 @@ function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
                     style={{
                         containerStyle: {
                             borderRadius: "0.85rem",
-                            top: "3rem",
+                            top: "-450px",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
@@ -49,7 +49,7 @@ function ImageCropperMobile({ image, onCropDone, onCropCancel }) {
                     }}
                 />
                 <div className="w-28 flex">
-                    <div className="absolute text-black -mt-[33rem] -ml-3.5 cursor-pointer" onClick={onCropCancel}>
+                    <div className="absolute text-black -mt-[33rem] ml-1 cursor-pointer" onClick={onCropCancel}>
                         <KeyboardBackspaceOutlinedIcon />
                     </div>
                     <div

@@ -24,7 +24,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
     return (
         <div className="cropper">
 
-            <div>
+            <div className="relative">
                 <Cropper
                     image={image}
                     aspect={aspect}
@@ -36,7 +36,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
                     style={{
                         containerStyle: {
                             borderRadius: "0.85rem",
-                            top: "24rem",
+                            top: "-430px",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",

@@ -142,14 +142,17 @@ const SeventhForm = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-  
+
   return (
     <>
       <form className="w-72 ml-3.5 sm:ml-12 sm:mt-4">
         <Toaster />
         {currentPage === "choose-img" ? (
           <>
-            <div onClick={() => setIsOpen("photo")} className="bg-[#F92739] text-center cursor-pointer text-white w-full py-3 rounded-xl mb-6">
+            <div onClick={() => {
+              setIsOpen("photo")
+              window.scrollTo(0, 400)
+            }} className="bg-[#F92739] text-center cursor-pointer text-white w-full py-3 rounded-xl mb-6">
               Upload Photos
             </div>
             <div className="w-full py-3 rounded-xl border border-[#D8D8D8] bg-white h-fit sm:mt-16">
@@ -202,13 +205,13 @@ const SeventhForm = () => {
           </>
         ) : currentPage === "crop-img" ? (
           <>
-            <div className='mt-[29rem] sm:block hidden'>
+            <div className='mt-[29rem] -ml-1.5 sm:block hidden'>
               <ImageCropper
                 image={image}
                 onCropDone={onCropDone}
                 onCropCancel={onCropCancel} />
             </div>
-            <div className='mt-[29rem] sm:hidden block'>
+            <div className='mt-[29rem] -ml-1 sm:hidden block'>
               <ImageCropperMobile
                 image={image}
                 onCropDone={onCropDone}
@@ -220,11 +223,11 @@ const SeventhForm = () => {
           <>
             {isOpen === "photo" ?
               <>
-                <div className="absolute -ml-12 w-[24rem] py-3 rounded-xl mb-6 -mt-[193px]">
+                <div className="absolute -ml-12 w-[19rem] sm:w-[24rem] py-3 rounded-xl mb-6 -mt-[193px]">
                   <button className="rounded-2xl py-3 mt-8 ml-[2rem] flex">
                     <div className='mx-auto'>
                       <div className='mt-40'>
-                        <img src={imgAfterCrop} className="mx-auto rounded-xl h-[22rem] w-72 ml-4" />
+                        <img src={imgAfterCrop} className="mx-auto rounded-xl h-[22rem] w-72 ml-6" />
                       </div>
 
                       <div
@@ -233,7 +236,7 @@ const SeventhForm = () => {
                           setIsRunning(false)
                           setFilled(0)
                         }}
-                        className="-mt-[27.5rem] sm:-mt-[28.5rem] text-black -ml-[290px]"
+                        className="-mt-[27.5rem] sm:-mt-[28.5rem] text-black -ml-[13.5rem]"
                       >
                         <KeyboardBackspaceOutlinedIcon />
                       </div>

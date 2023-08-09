@@ -62,11 +62,11 @@ const FirstForm = () => {
       toast.error("Select your Gender")
     }
 
-    else if (firstName === "") {
+    else if (firstName === " " || firstName === "") {
       toast.error("Enter your First Name")
     }
 
-    else if (lastName === "") {
+    else if (lastName === " " || firstName === "") {
       toast.error("Enter your Last Name")
     }
 

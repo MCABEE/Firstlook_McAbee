@@ -147,7 +147,7 @@ const SecondForm = () => {
       toast.error("select Mother Toungue")
     }
 
-    if (option === 'Yes' && jobCategory === '') {
+    else if (option === 'Yes' && jobCategory === '') {
       toast.error("Select Job Category")
     }
 
@@ -251,7 +251,9 @@ const SecondForm = () => {
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
         <Toaster />
-
+        <p className='text-sm text-[#4D4D4D]'>
+          I am a Citizen of
+        </p>
         <div className="mb-6 mt-5 flex">
           <input type="text"
             value={country}
@@ -498,7 +500,7 @@ const SecondForm = () => {
 
                 <div className="mb-6 mt-5 flex">
                   <input
-                    className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm"
+                    className="appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
                     type="text"
                     placeholder="Company Name"
                     value={companyName}
