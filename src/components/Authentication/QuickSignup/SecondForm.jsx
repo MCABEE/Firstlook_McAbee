@@ -147,6 +147,50 @@ const SecondForm = () => {
       toast.error("select Mother Toungue")
     }
 
+    if (option === 'Yes' && jobCategory === '') {
+      toast.error("Select Job Category")
+    }
+
+    else if (option === 'Yes' && jobCategory === 'Business' && designation === '') {
+      toast.error("Select Designation")
+    }
+
+    else if (option === 'Yes' && jobCategory === 'Business' && companyName.length < 6) {
+      toast.error("Company Name requires a minimum of 6 characters")
+    }
+
+    else if (option === 'Yes' && jobCategory === 'Government' && designation === '') {
+      toast.error("Select Designation")
+    }
+
+    else if (option === 'Yes' && jobCategory === 'Government' && jobType === '') {
+      toast.error("Select Job Type")
+    }
+
+    else if (option === 'Yes' && jobCategory === 'Government' && employerName === '') {
+      toast.error("Select Designation")
+    }
+
+    else if (option === 'Yes' && jobCategory === 'Private' && stream === '') {
+      toast.error("Select Stream")
+    }
+
+    else if (option === 'Yes' && jobCategory === 'Private' && designation === '') {
+      toast.error("Select Designation")
+    }
+
+    else if (option === 'Yes' && jobCategory === 'Private' && companyName === '') {
+      toast.error("Select Designation")
+    }
+
+    else if (option === 'Yes' && jobCategory === 'Self Employed' && stream === '') {
+      toast.error("Select Stream")
+    }
+
+    else if (option === 'Yes' && jobCategory === 'Self Employed' && designation === '') {
+      toast.error("Select Designation")
+    }
+
     else {
       await quickSignupNative(country, state, district, motherToungue, jobCategory, jobType, designation, stream, companyName, employerName)
         .then(() => {
@@ -207,27 +251,6 @@ const SecondForm = () => {
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
         <Toaster />
-
-        <div className='flex'>
-          <label className=" relative w-max cursor-pointer select-none mb-7">
-            <span className="text-sm font-oxygen">Are you working now ? </span>
-          </label>
-          <input type="checkbox" className="ml-[5.8rem] appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}
-            onChange={handleToggle} />
-          <span className="pointer-events-none absolute font-medium text-xs uppercase ml-[16.2rem] mt-1.5 text-white"> {selectedOption ? '' : 'No'} </span>
-          <span className="pointer-events-none absolute font-medium text-xs uppercase ml-[14.8rem] mt-1.5 text-white"> {selectedOption ? 'Yes' : ''} </span>
-          <span className="pointer-events-none w-5 h-5 ml-[14.7rem] mt-1 absolute rounded-full transform transition-transform bg-gray-200" />
-        </div>
-
-        <style>{`
-        input:checked {
-          background-color: #22c55e;
-        }
-
-        input:checked ~ span:last-child {
-          --tw-translate-x: 1.75rem;
-        }
-      `}</style>
 
         <div className="mb-6 mt-5 flex">
           <input type="text"
@@ -364,6 +387,27 @@ const SecondForm = () => {
             </ul>
           ) : " "}
         </div>
+
+        <div className='flex mt-10 ml-1.5'>
+          <label className=" relative w-max cursor-pointer select-none mb-7">
+            <span className="text-sm font-oxygen">Are you working now ? </span>
+          </label>
+          <input type="checkbox" className="ml-[5.5rem] appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}
+            onChange={handleToggle} />
+          <span className="pointer-events-none absolute font-medium text-xs uppercase ml-[16rem] mt-1.5 text-white"> {selectedOption ? '' : 'No'} </span>
+          <span className="pointer-events-none absolute font-medium text-xs uppercase ml-[14.6rem] mt-1.5 text-white"> {selectedOption ? 'Yes' : ''} </span>
+          <span className="pointer-events-none w-5 h-5 ml-[14.4rem] mt-1 absolute rounded-full transform transition-transform bg-gray-200" />
+        </div>
+
+        <style>{`
+        input:checked {
+          background-color: #22c55e;
+        }
+
+        input:checked ~ span:last-child {
+          --tw-translate-x: 1.75rem;
+        }
+      `}</style>
 
         {option === 'Yes' ?
           <>
@@ -788,7 +832,7 @@ const SecondForm = () => {
 
         <button
           onClick={handleData}
-          className="bg-[#F92739] rounded-xl text-white py-2 px-10 mt-4 ml-36"
+          className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
         >
           Continue
         </button>
@@ -823,10 +867,10 @@ const SecondForm = () => {
       }
       {
         <div className={
-          jobCategory === 'Business' ? "flex justify-center mt-[5.2rem] mb-3" :
-            jobCategory === "Government" ? "flex justify-center mt-[0.7rem] mb-3"
-              : jobCategory === "Private" ? "flex justify-center mt-[0.7rem] mb-3"
-                : jobCategory === "Self Employed" && option === "Yes" ? "flex justify-center mt-[5.2rem] mb-3"
+          jobCategory === 'Business' && option === "Yes" ? "flex justify-center mt-[4.4rem] mb-3" :
+            jobCategory === "Government" && option === "Yes" ? "flex justify-center mb-3"
+              : jobCategory === "Private" && option === "Yes" ? "flex justify-center mb-3"
+                : jobCategory === "Self Employed" && option === "Yes" ? "flex justify-center mt-[4.4rem] mb-3"
                   : "hidden"
         }>
           <div className={

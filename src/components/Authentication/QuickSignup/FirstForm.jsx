@@ -3,7 +3,7 @@ import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownR
 import { Calendar } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // Main style file
 import 'react-date-range/dist/theme/default.css'; // Theme CSS file
-import { format } from 'date-fns';
+import { differenceInYears, format } from 'date-fns';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import boyImage from '../../../assets/man.png';
 import girlImage from '../../../assets/woman.png';
@@ -52,6 +52,11 @@ const FirstForm = () => {
     e.preventDefault()
 
     const isValidDisplayName = /^[a-zA-Z0-9_]{6,16}$/.test(displayName);
+    const currentDate = new Date();
+    const ageLimitFemale = 18;
+    const ageLimitMale = 21;
+
+    const age = differenceInYears(currentDate, selectedDate);
 
     if (selectedGender === null) {
       toast.error("Select your Gender")
@@ -71,6 +76,11 @@ const FirstForm = () => {
 
     else if (selectedDate === null) {
       toast.error("Enter your DOB")
+    }
+
+    else if ((selectedGender === 'Male' && age < ageLimitMale) ||
+        (selectedGender === 'Female' && age < ageLimitFemale)) {
+      toast.error(`You must be ${selectedGender === 'Male' ? ageLimitMale : ageLimitFemale} years or older.`);
     }
 
     else if (religion === '') {
@@ -155,7 +165,7 @@ const FirstForm = () => {
 
         <div className="mb-6 mt-10">
           <input
-            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
             placeholder="First Name"
             value={firstName}
@@ -168,7 +178,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
             placeholder="Last Name"
             value={lastName}
@@ -181,7 +191,7 @@ const FirstForm = () => {
 
         <div className="mb-6">
           <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm"
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
             placeholder="Display Name"
             value={displayName}
@@ -292,7 +302,7 @@ const FirstForm = () => {
         <div className="mb-8 flex">
           <button
             type="button"
-            className="w-72 ml-3.5 sm:ml-12 h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
+            className="w-72 ml-3.5 sm:ml-12 h-12 text-left border border-[#B8B8B8] rounded-xl px-6 text-[#4D4D4D] bg-white"
             onClick={() => setIsOpen((prev) => (prev === "Marital Status" ? "" : "Marital Status"))}
           >
             <p className="w-44 truncate text-sm">{maritalStatus ? maritalStatus : "Marital Status"}</p>
