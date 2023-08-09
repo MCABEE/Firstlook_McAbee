@@ -183,9 +183,9 @@ const PhoneReg = () => {
                 .then(async () => {
                     toast.success("OTP Successfully Verified!");
                     console.log("first")
+                    console.log(import.meta.env.VITE_CRYPTO_SECRET_KEY)
                     const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, import.meta.env.VITE_CRYPTO_SECRET_KEY).toString();
                     console.log(encryptedPhoneNumber)
-                    console.log(import.meta.env.VITE_CRYPTO_SECRET_KEY)
                     await registerUser(encryptedPhoneNumber).then((result) => {
                         console.log("first")
                         localStorage.setItem("userId", result?.data?.data?.user?._id)
