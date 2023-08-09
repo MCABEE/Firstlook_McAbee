@@ -164,11 +164,9 @@ const FourthForm = () => {
   const handleData = async (e) => {
     e.preventDefault()
 
-    if (passYear === '') {
-      toast.error("select Pass Year")
-    }
+    
 
-    else if (academicStream === '') {
+    if (academicStream === '') {
       toast.error("select Academic Stream")
     }
 
@@ -182,6 +180,10 @@ const FourthForm = () => {
 
     else if (university === '' && college === '' && institute === '') {
       toast.error("select any University, Institute or College")
+    }
+
+    else if (option === 'No' && passYear === '') {
+      toast.error("select Pass Year")
     }
 
     else {
