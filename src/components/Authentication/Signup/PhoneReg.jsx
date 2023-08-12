@@ -181,28 +181,24 @@ const PhoneReg = () => {
             window.confirmationResult
                 .confirm(finalOtp)
                 .then(async () => {
+                   
                     toast.success("OTP Successfully Verified!");
-                    console.log("first")
-                    console.log(import.meta.env.VITE_CRYPTO_SECRET_KEY)
                     const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, import.meta.env.VITE_CRYPTO_SECRET_KEY).toString();
-                    console.log(encryptedPhoneNumber)
+                    
                     await registerUser(encryptedPhoneNumber).then((result) => {
-                        console.log("first")
+
                         localStorage.setItem("userId", result?.data?.data?.user?._id)
                         localStorage.setItem("token", result?.data?.token)
                         const regStatus = result?.data?.data?.user?.registartionStatus
-                        console.log(regStatus)
+
                         if (regStatus.length === 0) {
                             navigate('/home')
-                            console.log("home")
                         } else {
-                            console.log("option")
                             navigate('/register/signupOption')
                         }
                     })
                 })
-                .catch((error) => {
-                    console.log(error);
+                .catch(() => {
                     toast.error("Invalid OTP")
                 });
         }
