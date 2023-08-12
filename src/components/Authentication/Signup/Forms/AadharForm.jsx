@@ -262,7 +262,7 @@ const AadharForm = () => {
                                     }}
                                     className="bg-[#F92739] cursor-pointer rounded-xl w-40 text-[14px] text-center text-white py-2 ml-[12.2rem] sm:ml-[15rem] mt-[32rem] sm:mb-0 "
                                 >
-                                    Continue
+                                    Upload Rear Side
                                 </div>
                                 {imageSide === "photoBack" ?
                                     <>
@@ -334,7 +334,7 @@ const AadharForm = () => {
                                     onClick={handleFileUpload}
                                     className={isRunning ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[10rem] sm:ml-[13rem] mt-[3.8rem] mb-4" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-[10rem] sm:ml-[13rem] mt-[34rem] mb-4"}
                                 >
-                                    Continue
+                                    Finish
                                 </button>
                             </div>
                         </>
@@ -351,50 +351,50 @@ const AadharForm = () => {
                 </div>
                 <div className={
                     page === 1
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
+                        ? "text-[#F92739] font-medium -ml-1"
+                        : "text-gray-300 cursor-pointer -ml-1"
                 } >
                     <CircleIcon sx={{ height: "8px" }} />
                 </div>
                 <div className={
                     page === 2 || page === 3
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
+                        ? "text-[#F92739] font-medium -ml-1"
+                        : "text-gray-300 cursor-pointer -ml-1"
                 } >
                     <CircleIcon sx={{ height: "8px" }} />
                 </div>
                 <div className={
                     page === 4
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
+                        ? "text-[#F92739] font-medium -ml-1"
+                        : "text-gray-300 cursor-pointer -ml-1"
                 } >
                     <CircleIcon sx={{ height: "8px" }} />
                 </div>
                 <div className={
                     page === 5 || page === 6
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
+                        ? "text-[#F92739] font-medium -ml-1"
+                        : "text-gray-300 cursor-pointer -ml-1"
                 } >
                     <CircleIcon sx={{ height: "8px" }} />
                 </div>
                 <div className={
                     page === 7 || page === 8
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
+                        ? "text-[#F92739] font-medium -ml-1"
+                        : "text-gray-300 cursor-pointer -ml-1"
                 } >
                     <CircleIcon sx={{ height: "8px" }} />
                 </div>
                 <div className={
                     page === 9
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
+                        ? "text-[#F92739] font-medium -ml-1"
+                        : "text-gray-300 cursor-pointer -ml-1"
                 } >
                     <CircleIcon sx={{ height: "8px" }} />
                 </div>
                 <div className={
                     page === 10 || page === 11
-                        ? "text-[#F92739] font-medium"
-                        : "text-gray-300 cursor-pointer"
+                        ? "text-[#F92739] font-medium -ml-1"
+                        : "text-gray-300 cursor-pointer -ml-1"
                 } >
                     <CircleIcon sx={{ height: "8px" }} />
                 </div>

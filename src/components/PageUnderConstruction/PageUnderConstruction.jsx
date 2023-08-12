@@ -8,12 +8,12 @@ const PageUnderConstruction = () => {
   }, [])
   return (
     <>
-      <div className="text-gray-900 mt-14 flex justify-center items-center">
+      <div className="text-gray-900 mt-8 flex justify-center items-center">
         <div className="grid grid-cols-12 mx-auto max-w-7xl">
           <div className="justify-center items-end col-span-12 lg:col-span-6 lg:h-auto block lg:hidden">
-            <img src={coding} className='w-[500px] h-[350px]' alt="" />
+            <img src={coding} className='w-[500px] sm:h-[350px]' alt="" />
           </div>
-          <div className="flex flex-col col-span-12 px-16 lg:px-0 lg:col-span-6 lg:p-4 divide-gray-300">
+          <div className="flex flex-col col-span-12 px-8 lg:px-0 lg:col-span-6 lg:p-4 divide-gray-300">
             <div className="pt-6 pb-4 space-y-2 mb-5">
               <img src={sign} className='h-[52.2px] w-[60px]' alt="" />
               <h1 className="text-5xl font-bold">Sorry !</h1>

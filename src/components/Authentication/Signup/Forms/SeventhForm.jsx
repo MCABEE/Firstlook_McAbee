@@ -144,7 +144,7 @@ const SeventhForm = () => {
 
   return (
     <>
-      <form className="w-72 ml-3.5 sm:ml-12 mt-12">
+      <form className="w-72 ml-3.5 sm:ml-12 sm:mt-12 mt-2">
         <Toaster />
         {currentPage === "choose-img" ? (
           <>
@@ -154,7 +154,7 @@ const SeventhForm = () => {
             }} className="bg-[#F92739] text-center cursor-pointer text-white w-full py-3 rounded-xl mb-6">
               Upload Photos
             </div>
-            <div className="w-full py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-white h-fit">
+            <div className="mt-10 sm:mt-0 w-full py-3 rounded-xl mb-6 border border-[#D8D8D8] bg-white h-fit">
               <div className='font-oxygen text-[12px] text-justify p-4'>
                 <p className='font-bold'>
                   Guidelines to add Pictures
@@ -276,54 +276,54 @@ const SeventhForm = () => {
             <CircleIcon sx={{ height: "8px" }} />
           </div>
           <div className={
-            page === 1
-              ? "text-[#F92739] font-medium"
-              : "text-gray-300 cursor-pointer"
-          } >
-            <CircleIcon sx={{ height: "8px" }} />
-          </div>
-          <div className={
-            page === 2 || page === 3
-              ? "text-[#F92739] font-medium"
-              : "text-gray-300 cursor-pointer"
-          } >
-            <CircleIcon sx={{ height: "8px" }} />
-          </div>
-          <div className={
-            page === 4
-              ? "text-[#F92739] font-medium"
-              : "text-gray-300 cursor-pointer"
-          } >
-            <CircleIcon sx={{ height: "8px" }} />
-          </div>
-          <div className={
-            page === 5 || page === 6
-              ? "text-[#F92739] font-medium"
-              : "text-gray-300 cursor-pointer"
-          } >
-            <CircleIcon sx={{ height: "8px" }} />
-          </div>
-          <div className={
-            page === 7 || page === 8
-              ? "text-[#F92739] font-medium"
-              : "text-gray-300 cursor-pointer"
-          } >
-            <CircleIcon sx={{ height: "8px" }} />
-          </div>
-          <div className={
-            page === 9
-              ? "text-[#F92739] font-medium"
-              : "text-gray-300 cursor-pointer"
-          } >
-            <CircleIcon sx={{ height: "8px" }} />
-          </div>
-          <div className={
-            page === 10
-              ? "text-[#F92739] font-medium"
-              : "text-gray-300 cursor-pointer"
-          } >
-            <CircleIcon sx={{ height: "8px" }} />
-          </div>
+          page === 1
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 2 || page === 3
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 4
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 5 || page === 6
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 7 || page === 8
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 9
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
+        <div className={
+          page === 10
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
+        } >
+          <CircleIcon sx={{ height: "8px" }} />
+        </div>
         </div>
       }
     </>

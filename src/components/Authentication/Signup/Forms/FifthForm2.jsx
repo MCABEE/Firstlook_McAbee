@@ -332,7 +332,7 @@ const FifthForm2 = () => {
                       setIsOpen("")
                     }}
                   >
-                    <p className="mr-2">Temporary</p>
+                    <p className="mr-2">Temporary / On-Contract</p>
                   </li>
 
                 </ul>
@@ -612,50 +612,50 @@ const FifthForm2 = () => {
         </div>
         <div className={
           page === 1
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
         } >
           <CircleIcon sx={{ height: "8px" }} />
         </div>
         <div className={
           page === 2 || page === 3
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
         } >
           <CircleIcon sx={{ height: "8px" }} />
         </div>
         <div className={
           page === 4
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
         } >
           <CircleIcon sx={{ height: "8px" }} />
         </div>
         <div className={
           page === 5 || page === 6
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
         } >
           <CircleIcon sx={{ height: "8px" }} />
         </div>
         <div className={
           page === 7 || page === 8
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
         } >
           <CircleIcon sx={{ height: "8px" }} />
         </div>
         <div className={
           page === 9
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
         } >
           <CircleIcon sx={{ height: "8px" }} />
         </div>
         <div className={
           page === 10
-            ? "text-[#F92739] font-medium"
-            : "text-gray-300 cursor-pointer"
+            ? "text-[#F92739] font-medium -ml-1"
+            : "text-gray-300 cursor-pointer -ml-1"
         } >
           <CircleIcon sx={{ height: "8px" }} />
         </div>
