@@ -1,6 +1,10 @@
 import CircleIcon from '@mui/icons-material/Circle';
+import { useEffect } from 'react';
 
 const Terms = () => {
+    useEffect(() => {
+        window.scrollTo(0,0)
+      }, [])
     return (
         <>
             <div className='w-[78%] mx-auto h-fit'>

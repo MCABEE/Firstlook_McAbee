@@ -3,10 +3,20 @@ import { registrationContext } from "../../../context/formContext";
 import FirstForm from "./FirstForm";
 import SecondForm from "./SecondForm";
 import SeventhForm from "./SeventhForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import firstLook from '../../../assets/firstLook.png'
 
 const QuickSignup = () => {
+
+    const navigate = useNavigate()
+
+    const token = localStorage.getItem("token")
+
+    const logout = () => {
+        localStorage.clear();
+        navigate("/register")
+        window.location.reload()
+    }
 
     const { page } = useContext(registrationContext)
 
@@ -39,11 +49,19 @@ const QuickSignup = () => {
                 <div>
                     <nav className="flex h-9 items-center justify-between" aria-label="Global">
                         <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
-                            <Link to="/" className="">
+                            <Link className="">
                                 <span className="sr-only">Your Company</span>
                                 <img className="h-10" src={firstLook} alt="Alt" />
                             </Link>
                         </div>
+                        {token && <div className="lg:flex lg:min-w-0 lg:flex-1 mr-5 sm:mr-0 lg:justify-end">
+                            <Link
+                                onClick={logout}
+                                className="inline-block rounded-lg px-6 py-1.5 text-sm font-semibold leading-6 bg-[#FC3657] shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
+                            >
+                                Logout
+                            </Link>
+                        </div>}
                     </nav>
                 </div>
             </div>

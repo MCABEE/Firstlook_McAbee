@@ -4,14 +4,21 @@ import { Link } from 'react-router-dom'
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { useState } from 'react';
 import { regions } from '../../lib/constants';
+import { useEffect } from 'react';
 
 const Footer = () => {
+
     const [country, setCountry] = useState("")
     const [isOpen, setIsOpen] = useState(false);
 
     const handleDropdown = () => {
         setIsOpen(!isOpen)
     }
+
+    useEffect(() => {
+      
+    }, [])
+    
     return (
         <>
             <footer aria-label="Site Footer" className="bg-white">
@@ -39,17 +46,18 @@ const Footer = () => {
                                     {isOpen ? (
                                         <ul className="absolute z-10 lg:w-[14%] sm:w-[37.5%] w-[75%] mt-12 h-40 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg">
                                             <>
-                                                {regions.map((status) => (
+                                                {regions.map((region) => (
                                                     <>
                                                         <li
                                                             className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                                                             onClick={() => {
-                                                                setCountry(status?.name)
+                                                                setCountry(region?.name)
+                                                                localStorage.setItem("region", region?.name)
                                                                 setIsOpen("")
                                                                 window.scrollTo(0, 0)
                                                             }}
                                                         >
-                                                            <p className="mr-2" >{status?.name}</p>
+                                                            <p className="mr-2" >{region?.name}</p>
                                                         </li>
                                                     </>
                                                 ))}

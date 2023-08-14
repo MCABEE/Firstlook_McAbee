@@ -18,9 +18,10 @@ import { setUserData } from "../../../Redux/Reducer/getUserData";
 import { useDispatch } from "react-redux";
 import AadharForm from "./Forms/AadharForm";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegistrationMain = () => {
+    const navigate = useNavigate()
     const [status, setStatus] = useState([])
 
     const { page, setPage } = useContext(registrationContext)
@@ -163,9 +164,17 @@ const RegistrationMain = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activePage]);
 
+    const token = localStorage.getItem("token")
+
+    const logout = () => {
+        localStorage.clear();
+        navigate("/register")
+        window.location.reload()
+    }
+
     useEffect(() => {
         window.scrollTo(0, 0)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
@@ -183,6 +192,14 @@ const RegistrationMain = () => {
                                 <img className="h-10" src={firstLook} alt="Alt" />
                             </Link>
                         </div>
+                        {token && <div className="lg:flex lg:min-w-0 lg:flex-1 mr-5 sm:mr-0 lg:justify-end">
+                            <Link
+                                onClick={logout}
+                                className="inline-block rounded-lg px-6 py-1.5 text-sm font-semibold leading-6 bg-[#FC3657] shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
+                            >
+                                Logout
+                            </Link>
+                        </div>}
                     </nav>
                 </div>
             </div>

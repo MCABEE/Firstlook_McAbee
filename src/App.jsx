@@ -21,6 +21,8 @@ import NewsPage from './components/News/NewsPage';
 import AboutUsPage from './components/AboutUs/AboutUsPage';
 import PricingPage from './components/Pricing/PricingPage';
 import PrivacyPolicyPage from './components/PrivacyPolicy/PrivacyPolicyPage';
+import ProtectedRoute from './ProtectedRoute';
+import HomeRoute from './HomeRoute';
 
 function App() {
   const [page, setPage] = useState(0)
@@ -29,17 +31,21 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/Signup' element={<SignupRedirect />} />
-        <Route path='/register' element={<MembershipPage />} />
-        <Route path='/register/verify' element={<PhoneReg />} />
-        <Route path='/register/signupOption' element={<SignupOption />} />
+        <Route path='/Signup' element={<ProtectedRoute><SignupRedirect /></ProtectedRoute>} />
+        <Route path='/register' element={<ProtectedRoute><MembershipPage /></ProtectedRoute>} />
+        <Route path='/register/verify' element={<ProtectedRoute><PhoneReg /></ProtectedRoute>} />
+        <Route path='/register/signupOption' element={<HomeRoute><SignupOption /></HomeRoute>} />
         <Route path='/register/signup' element={
           <registrationContext.Provider value={{ page, setPage }}>
-            <RegistrationMain />
+            <HomeRoute>
+              <RegistrationMain />
+            </HomeRoute>
           </registrationContext.Provider>} />
         <Route path='/register/quickSignup' element={
           <registrationContext.Provider value={{ page, setPage }}>
-            <QuickSignup />
+            <HomeRoute>
+              <QuickSignup />
+            </HomeRoute>
           </registrationContext.Provider>} />
         <Route path='/termsofuse' element={<TermsOfUse />} />
         <Route path='/privacypolicy' element={<PrivacyPolicyPage />} />

@@ -1,8 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import firstLook from '../../../assets/firstLook.png'
 
 const SignupOption = () => {
+    const navigate = useNavigate()
+
+    const token = localStorage.getItem("token")
+
+    const logout = () => {
+        localStorage.clear();
+        navigate("/register")
+        window.location.reload()
+    }
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -17,11 +27,19 @@ const SignupOption = () => {
                                 <img className="h-10" src={firstLook} alt="Alt" />
                             </Link>
                         </div>
+                        {token && <div className="lg:flex lg:min-w-0 lg:flex-1 mr-5 sm:mr-0 lg:justify-end">
+                            <Link
+                                onClick={logout}
+                                className="inline-block rounded-lg px-6 py-1.5 text-sm font-semibold leading-6 bg-[#FC3657] shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
+                            >
+                                Logout
+                            </Link>
+                        </div>}
                     </nav>
                 </div>
             </div>
             <div className="flex justify-center items-center sm:mb-10 sm:mt-10">
-                
+
                 <div className="w-full h-fit sm:max-w-sm sm:rounded-2xl sm:shadow-md bg-bg_signup bg-no-repeat sm:bg-contain bg-[length:450px_450px]">
                     <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
                         <div>
@@ -32,6 +50,14 @@ const SignupOption = () => {
                                         <img className="h-10" src={firstLook} alt="Alt" />
                                     </Link>
                                 </div>
+                                {token && <div className="lg:flex lg:min-w-0 lg:flex-1 mr-5 sm:mr-0 lg:justify-end">
+                                    <Link
+                                        onClick={logout}
+                                        className="inline-block rounded-lg px-6 py-1.5 text-sm font-semibold leading-6 bg-[#FC3657] shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
+                                    >
+                                        Logout
+                                    </Link>
+                                </div>}
                             </nav>
                         </div>
                     </div>

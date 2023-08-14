@@ -2,17 +2,26 @@ import logo from '../../assets/firstlookLogo.png'
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import firstLook from '../../assets/firstLook.png'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { getUserDetails } from '../../api'
 import { setUserData } from '../../Redux/Reducer/getUserData'
 
 const LandingPage = () => {
     const userData = useSelector((state) => state.getUserFilledData.data)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const getUserDetail = async () => {
         await getUserDetails().then((result) => {
             dispatch(setUserData(result?.data?.userData))
         })
+    }
+
+    const token = localStorage.getItem("token")
+
+    const logout = () => {
+        localStorage.clear();
+        navigate("/register")
+        window.location.reload()
     }
 
     useEffect(() => {
@@ -32,6 +41,14 @@ const LandingPage = () => {
                                 <img className="h-10" src={firstLook} alt="Alt" />
                             </Link>
                         </div>
+                        { token && <div className="lg:flex lg:min-w-0 lg:flex-1 mr-5 sm:mr-0 lg:justify-end">
+                            <Link
+                                onClick={logout}
+                                className="inline-block rounded-lg px-6 py-1.5 text-sm font-semibold leading-6 bg-[#FC3657] shadow-sm text-white transform transition hover:scale-95 duration-300 ease-in-out"
+                            >
+                                Logout
+                            </Link>
+                        </div> }
                     </nav>
                 </div>
             </div>
