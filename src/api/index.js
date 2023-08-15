@@ -10,6 +10,7 @@ export const getUserId = () => {
 
 export const tokenHeader = () => {
     const token = getToken();
+    console.log(token)
     return {
         headers: {
             Authorization: `Bearer ${token}`,
@@ -39,6 +40,8 @@ export const registerFamily = (fatherName, motherName, fatherEducation, motherEd
 
 export const registerFamilyAddress = (familyName, homeTown, pincode, contactNumber, homeContactNumber, district) => axios.patch(`/user/v1/register/${getUserId()}/familyAddress`, { familyName, homeTown, pincode, contactNumber, homeContactNumber, district }, tokenHeader())
 
+export const updateSignupStatus = () => axios.patch('/user/v1/register/updateSignupStatus', {}, tokenHeader())
+
 export const getAllCountries = () => axios.get('/data/general/getAllCountries')
 
 export const getAllStates = (country) => axios.get(`/data/general/state?country=${country}`)
@@ -54,8 +57,6 @@ export const getAllCaste = (religion) => axios.get(`/data/general/caste?religion
 export const getAllAcademicStream = () => axios.get('/data/general/getAllAcademicStream')
 
 export const getAllCourse = (stream) => axios.get(`/data/general/course?stream=${stream}`)
-
-export const getAllPincode = (district) => axios.get(`/data/general/getAllPincode?district=${district}`)
 
 export const getAllHomeTown = () => axios.get('/data/general/getAllHomeTown')
 

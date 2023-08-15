@@ -2,9 +2,9 @@ import { Navigate } from "react-router-dom"
 
 // eslint-disable-next-line react/prop-types
 const HomeRoute = ({ children }) => {
-    const regStatus = localStorage.getItem("regStatus")
+    const signupStatus = localStorage.getItem("signupStatus")
 
-    if(regStatus === 0) {
+    if(signupStatus === 'Completed') {
         return <Navigate to = {"/home"} replace = {true}></Navigate>
     }
     return children

@@ -191,11 +191,11 @@ const PhoneReg = () => {
                         localStorage.setItem("userId", result?.data?.data?.user?._id)
                         localStorage.setItem("token", result?.data?.token)
 
-                        const regStatus = result?.data?.data?.user?.registartionStatus
+                        const signupStatus = result?.data?.data?.user?.signupStatus
 
-                        localStorage.setItem("regStatus", regStatus.length)
+                        localStorage.setItem("signupStatus", signupStatus)
 
-                        if (regStatus.length === 0) {
+                        if (signupStatus === 'Completed') {
                             navigate('/home')
                         } else {
                             navigate('/register/signupOption')

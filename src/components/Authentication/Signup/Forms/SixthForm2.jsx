@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { registrationContext } from "../../../../context/formContext";
-import { getAllHomeTown, getAllPincode, registerFamilyAddress } from "../../../../api";
+import { getAllHomeTown, registerFamilyAddress } from "../../../../api";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { useSelector } from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
@@ -19,10 +19,8 @@ const SixthForm2 = () => {
   const [homeContactNumber, setHomeContactNumber] = useState(userData?.familyAddress?.homePhone || "")
   const [search, setSearch] = useState("");
 
-  const [nPincode, setNPincode] = useState([])
   const [nHomeTown, setNHomeTown] = useState([])
 
-  const tempPincode = []
   const tempHomeTown = []
 
   const { page, setPage } = useContext(registrationContext)
@@ -33,32 +31,11 @@ const SixthForm2 = () => {
       : tempProduct.toLowerCase().includes(search)
   };
 
-  const searchPincodeData = (tempProduct) => {
-    return search === ""
-      ? tempProduct
-      : tempProduct.toString().includes(search)
-  };
-
-  nPincode?.map((data) => {
-    tempPincode.push(data?.code)
-  })
-
   nHomeTown?.map((data) => {
     tempHomeTown.push(data?.name)
   })
 
   const homeTownData = tempHomeTown.filter(searchData)
-  const pincodeData = tempPincode.filter(searchPincodeData)
-
-  const getPincode = async () => {
-    await getAllPincode(district)
-      .then((result) => {
-        setNPincode(result.data?.pincode)
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  }
 
   const getHomeTown = async () => {
     await getAllHomeTown()
@@ -105,7 +82,6 @@ const SixthForm2 = () => {
   }
 
   useEffect(() => {
-    getPincode()
     getHomeTown()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -171,41 +147,13 @@ const SixthForm2 = () => {
         </div>
 
         <div className="mb-6 mt-5 flex">
-          <input type="number"
+          <input
+            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
+            type="number"
+            placeholder="Enter Your Pincode"
             value={pincode}
-            onChange={(e) => {
-              let searchValue = e.target.value.toString();
-              setSearch(searchValue);
-              setPincode(e.target.value);
-            }}
-            onClick={() => setIsOpen((prev) => (prev === "Pincode" ? "" : "Pincode"))}
-            placeholder="Enter Your Pincode" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
-          <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
-            <KeyboardArrowDownRoundedIcon />
-          </div>
-          {isOpen === 'Pincode' && pincodeData && pincodeData.length > 0 ? (
-            <>
-              <ul className="absolute z-10 w-72 mt-14 max-h-56 h-fit overflow-y-scroll bg-white border border-[#B8B8B8] rounded-lg shadow-lg">
-                <li
-                  className="px-4 py-2 cursor-pointer flex"
-                >
-                  <p className="mr-2 font-semibold">Enter Your Pincode</p>
-                </li>
-                <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
-                {pincodeData?.map((data, index) => (
-                  <li key={index}
-                    className="px-4 py-2 cursor-pointer flex"
-                    onClick={() => {
-                      setPincode(data);
-                      setIsOpen("");
-                    }}
-                  >
-                    <p className="mr-2">{data}</p>
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : " "}
+            onChange={(e) => setPincode(e.target.value)}
+          ></input>
         </div>
 
         <div className="mb-6">

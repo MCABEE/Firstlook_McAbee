@@ -122,7 +122,8 @@ const SeventhForm = () => {
             console.log(progress)
           },
         })
-          .then(() => {
+          .then((result) => {
+            localStorage.setItem("signupStatus", result?.data?.signupStatus)
             navigate('/home')
           })
           .catch((err) => {
@@ -264,17 +265,6 @@ const SeventhForm = () => {
               : " "}
           </>
         )}
-        {currentPage != "crop-img" && isOpen != 'photo' ?
-          <div className="flex mt-10">
-            <button
-              onClick={handleFileUpload}
-              className="bg-[#F92739] rounded-xl text-white py-2 px-10 ml-36"
-            >
-              Continue
-            </button>
-          </div>
-          : " "
-        }
 
         <div className="flex items-center justify-between"></div>
       </form>

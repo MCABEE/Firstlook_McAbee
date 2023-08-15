@@ -4,7 +4,7 @@ import { Toaster, toast } from "react-hot-toast";
 import CircleIcon from '@mui/icons-material/Circle';
 import { registrationContext } from "../../../../context/formContext";
 import { Link, useNavigate } from "react-router-dom";
-import { uploadAadharDetails } from "../../../../api";
+import { updateSignupStatus, uploadAadharDetails } from "../../../../api";
 import { useEffect } from "react";
 import { useRef } from "react";
 
@@ -77,7 +77,8 @@ const EighthForm = () => {
             response?.data?.data?.aadhaar_data?.date_of_birth,
             response?.data?.data?.aadhaar_data?.pincode,
             response?.data?.data?.aadhaar_data?.house
-          ).then(() => {
+          ).then((result) => {
+            localStorage.setItem("signupStatus", result?.data?.signupStatus)
             navigate('/home')
           })
         })
@@ -85,6 +86,16 @@ const EighthForm = () => {
           toast.error("Invalid OTP")
         })
     }
+  }
+
+  const handleDoItLater = async (e) => {
+    e.preventDefault()
+
+    await updateSignupStatus()
+      .then((result) => {
+        localStorage.setItem("signupStatus", result?.data?.signupStatus)
+        navigate('/home')
+      })
   }
 
   const inputRefs = useRef([]);
@@ -184,7 +195,7 @@ const EighthForm = () => {
               Request OTP
             </button>
 
-            <Link to='/home' className="bg-[#B5B5B5] text-white px-[111.5px] py-3 rounded-xl text-sm">
+            <Link onClick={handleDoItLater} className="bg-[#B5B5B5] text-white px-[111.5px] py-3 rounded-xl text-sm">
               Do it Later
             </Link>
 

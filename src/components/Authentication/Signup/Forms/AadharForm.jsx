@@ -127,7 +127,8 @@ const AadharForm = () => {
                     console.log(progress)
                 },
             })
-                .then(() => {
+                .then((result) => {
+                    localStorage.setItem("signupStatus", result?.data?.signupStatus)
                     navigate('/home')
                 })
                 .catch((err) => {
