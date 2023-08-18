@@ -66,12 +66,20 @@ const ThirdForm = () => {
       toast.error("select Height")
     }
 
-    else if (height > 200) {
-      toast.error("Height should be less than 200cm")
+    else if (height < 100) {
+      toast.error("Height should be greater than 100cm")
+    }
+
+    else if (height > 210) {
+      toast.error("Height should be less than 210cm")
     }
 
     else if (weight === '') {
       toast.error("select Weight")
+    }
+
+    else if (weight < 35) {
+      toast.error("Weight should be greater than 35 kg")
     }
 
     else if (bodyType === '') {

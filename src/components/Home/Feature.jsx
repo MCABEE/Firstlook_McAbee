@@ -60,7 +60,7 @@ const Feature = () => {
                         <img src={chat} className='h-[159px] w-[223px]' alt="" />
                         <h3 className="my-3 text-3xl font-semibold">Chat</h3>
                         <div className="space-y-1 text-justify">
-                            <p className='text-[14px]'>you can talk to anyone you loved via this chat feature. Images and smileys can also be used.</p>
+                            <p className='text-[14px]'>You can talk to anyone you loved via this chat feature. Images and smileys can also be used.</p>
                         </div>
                     </motion.div>
                     <motion.div initial={{ y: "-10vw", opacity: 0 }}

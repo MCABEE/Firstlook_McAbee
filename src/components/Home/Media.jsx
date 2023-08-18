@@ -14,7 +14,7 @@ const Media = () => {
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
                                 viewport={{ once: true, amount: 0.8 }} className="sm:pt-6 pb-4 space-y-2">
                                 <h1 className="text-4xl sm:text-5xl font-bold text-[#3A3737] font-oxygen">Media</h1>
-                                <h1 className="text-4xl sm:text-5xl font-bold text-[#3A3737] font-oxygen">Say’s about us !</h1>
+                                <h1 className="text-4xl sm:text-5xl font-bold text-[#3A3737] font-oxygen">Say’s About Us !</h1>
                                 <p className="text-base text-[#545454] pt-6">See, what’s new from Firstlook. <br />
                                     News and updates from us.
                                 </p>

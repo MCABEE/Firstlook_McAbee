@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { useState } from 'react';
 import { regions } from '../../lib/constants';
-import { useEffect } from 'react';
 
 const Footer = () => {
 
@@ -15,10 +14,6 @@ const Footer = () => {
         setIsOpen(!isOpen)
     }
 
-    useEffect(() => {
-      
-    }, [])
-    
     return (
         <>
             <footer aria-label="Site Footer" className="bg-white">
@@ -81,7 +76,7 @@ const Footer = () => {
                                             Membership Policy
                                         </Link>
                                     </li>
-                                    
+
                                     <li>
                                         <Link
                                             className="text-gray-700 transition hover:text-gray-700/75"
@@ -329,7 +324,9 @@ const Footer = () => {
 
                         <div className="mt-10 sm:flex sm:justify-between">
                             <div className="flex justify-center sm:justify-start sm:-ml-4">
-                                <img src={firstLook} className='h-10' alt="" />
+                                <Link to='/' onClick={() =>  window.scrollTo(0, 0)}>
+                                    <img src={firstLook} className='h-10' alt="" />
+                                </Link>
                             </div>
 
                             <p className='text-center text-gray-500 flex mt-6 sm:mt-2 justify-center items-center'>

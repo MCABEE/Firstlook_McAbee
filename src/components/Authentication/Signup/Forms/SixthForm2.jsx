@@ -15,8 +15,8 @@ const SixthForm2 = () => {
   const [familyName, setFamilyName] = useState(userData?.familyAddress?.houseName || "")
   const [homeTown, setHomeTown] = useState(userData?.familyAddress?.homeTown || "")
   const [pincode, setPincode] = useState(userData?.familyAddress?.pincode || "")
-  const [contactNumber, setContactNumber] = useState(userData?.familyAddress?.secondPhone || "")
-  const [homeContactNumber, setHomeContactNumber] = useState(userData?.familyAddress?.homePhone || "")
+  const [contactNumber, setContactNumber] = useState(userData?.familyAddress?.homePhone || "")
+  const [homeContactNumber, setHomeContactNumber] = useState(userData?.familyAddress?.secondPhone || "")
   const [search, setSearch] = useState("");
 
   const [nHomeTown, setNHomeTown] = useState([])
@@ -62,8 +62,16 @@ const SixthForm2 = () => {
       toast.error("select Pincode")
     }
 
-    else if (contactNumber === '' || homeContactNumber === '') {
+    else if (contactNumber === '' && homeContactNumber === '') {
       toast.error("Enter Contact Number")
+    }
+
+    else if (contactNumber && contactNumber.length < 7) {
+      toast.error("Enter Valid Contact Number")
+    }
+
+    else if (homeContactNumber && homeContactNumber.length < 7) {
+      toast.error("Enter Valid Home Contact Number")
     }
 
     else if (homeContactNumber == contactNumber) {

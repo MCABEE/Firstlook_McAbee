@@ -20,7 +20,7 @@ const LandingPage = () => {
 
     const logout = () => {
         localStorage.clear();
-        navigate("/register")
+        navigate("/")
         window.location.reload()
     }
 

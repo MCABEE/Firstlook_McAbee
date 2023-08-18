@@ -45,8 +45,8 @@ const NewsDetails = () => {
                 MORE NEWS
               </Link>
 
-              <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0 lg:pt-2 lg:lg:rounded-t-xl" />
+              <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10 items-center">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0" />
                 <div className="bg-white rounded px-4">
                   <span className="text-gray-500 text-[12px]"> 27 JULY 2023 </span>
                   <div className="md:mt-0 text-gray-800 font-semibold text-[14px] mb-2">
@@ -58,8 +58,8 @@ const NewsDetails = () => {
                 </div>
               </div>
 
-              <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0 lg:pt-2 lg:rounded-t-xl" />
+              <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10 items-center">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0" />
                 <div className="bg-white rounded px-4">
                   <span className="text-gray-500 text-[12px]"> 17 AUGUST 2023 </span>
                   <div className="md:mt-0 text-gray-800 font-semibold text-[14px] mb-2">
@@ -71,8 +71,8 @@ const NewsDetails = () => {
                 </div>
               </div>
 
-              <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0 lg:pt-2 lg:rounded-t-xl" />
+              <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10 items-center">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0" />
                 <div className="bg-white rounded px-4">
                   <span className="text-gray-500 text-[12px]"> 01 SEPTEMBER 2023 </span>
                   <div className="md:mt-0 text-gray-800 font-semibold text-[14px] mb-2">
@@ -84,8 +84,8 @@ const NewsDetails = () => {
                 </div>
               </div>
 
-              <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10">
-                <img src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0 lg:pt-2 lg:rounded-t-xl" />
+              <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10 items-center">
+                <img src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0" />
                 <div className="bg-white rounded px-4">
                   <span className="text-gray-500 text-[12px]"> 01 SEPTEMBER 2023 </span>
                   <div className="md:mt-0 text-gray-800 font-semibold text-[14px] mb-2">
@@ -97,8 +97,8 @@ const NewsDetails = () => {
                 </div>
               </div>
 
-              <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10">
-                <img src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0 lg:pt-2 lg:rounded-t-xl" />
+              <div className="rounded w-full flex flex-col md:flex-row mb-3 md:mb-10 items-center">
+                <img src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md h-44 md:h-32 m-4 md:m-0" />
                 <div className="bg-white rounded px-4">
                   <span className="text-gray-500 text-[12px]"> 01 SEPTEMBER 2023 </span>
                   <div className="md:mt-0 text-gray-800 font-semibold text-[14px] mb-2">
