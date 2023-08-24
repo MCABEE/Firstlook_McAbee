@@ -23,6 +23,8 @@ import PricingPage from './components/Pricing/PricingPage';
 import PrivacyPolicyPage from './components/PrivacyPolicy/PrivacyPolicyPage';
 import ProtectedRoute from './ProtectedRoute';
 import HomeRoute from './HomeRoute';
+import AllNewsPage from './components/News/AllNewsPage';
+import HelpCenterPage from './components/HelpCenter/HelpCenterPage';
 
 function App() {
   const [page, setPage] = useState(0)
@@ -54,11 +56,12 @@ function App() {
         <Route path='/home' element={<LandingPage />} />
         <Route path='/firstlookFeatures' element={<FeaturePage />} />
         <Route path='/stories' element={<PageConstruct />} />
-        <Route path='/faq' element={<PageConstruct />} />
+        <Route path='/faq' element={<HelpCenterPage />} />
         <Route path='/pricing' element={<PricingPage />} />
         <Route path='/mediaCentre' element={<PageConstruct />} />
         <Route path='/pageunderconstruction' element={<PageConstruct />} />
         <Route path='/news' element={<NewsPage />} />
+        <Route path='/allnews' element={<AllNewsPage />} />
         <Route path='/about' element={<AboutUsPage />} />
         <Route path='*' element={<PageNotFound />} />
         <Route path='/installapp' element={<AppInstallPage />} />
