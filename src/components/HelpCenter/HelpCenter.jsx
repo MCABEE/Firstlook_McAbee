@@ -54,7 +54,7 @@ const HelpCenter = () => {
                             <div className="grid gap-10 md:gap-8 sm:p-3 md:grid-cols-2 2xl:px-32">
                                 <div>
                                     <h3 className="font-semibold">What is FirstLook app?</h3>
-                                    <p className="mt-1 text-gray-600">Launched ‘Firstlook’ a social netwrok for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro <span onClick={() => setIsOpen((prev) => (prev === "Q1" ? "" : "Q1"))} className="text-[#FC3657] font-bold">[ More ]</span></p>
+                                    <p className="mt-1 text-gray-600">Launched ‘Firstlook’ a social netwrok for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro <span onClick={() => setIsOpen((prev) => (prev === "Q1" ? "" : "Q1"))} className="text-[#FC3657] font-bold cursor-pointer">[ More ]</span></p>
                                     {isOpen === 'Q1' ?
                                         <div className="overflow-x-hidden overflow-y-auto mt-8 sm:mt-0 sm:fixed md:h-full top-4 left-0 right-0 md:inset-0 z-50 flex justify-center items-center">
                                             <div className="relative w-full max-w-4xl px-4 h-full md:h-auto">
