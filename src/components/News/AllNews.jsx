@@ -9,10 +9,10 @@ const AllNews = () => {
     return (
         <>
             <div className="max-w-screen-xl mx-auto px-6 sm:px-2">
-                <main className="mt-10">
+                <main>
 
-                    <div className="flex flex-wrap sm:space-y-6">
-                        <div className="max-w-2xl mx-auto mt-6">
+                    <div className="flex flex-wrap">
+                        <div className="max-w-2xl mx-auto mt-14">
                             <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm">
                                 <a href="#">
                                     <img className="rounded-t-lg" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="" />
@@ -30,7 +30,7 @@ const AllNews = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="max-w-2xl mx-auto mt-6">
+                        <div className="max-w-2xl mx-auto mt-14">
                             <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm">
                                 <a href="#">
                                     <img className="rounded-t-lg" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="" />
@@ -48,7 +48,7 @@ const AllNews = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="max-w-2xl mx-auto mt-6">
+                        <div className="max-w-2xl mx-auto mt-14">
                             <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm">
                                 <a href="#">
                                     <img className="rounded-t-lg" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="" />
@@ -66,7 +66,7 @@ const AllNews = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="max-w-2xl mx-auto mt-6">
+                        <div className="max-w-2xl mx-auto mt-16">
                             <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm">
                                 <a href="#">
                                     <img className="rounded-t-lg" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="" />
@@ -84,7 +84,7 @@ const AllNews = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="max-w-2xl mx-auto mt-6">
+                        <div className="max-w-2xl mx-auto mt-16">
                             <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm">
                                 <a href="#">
                                     <img className="rounded-t-lg" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="" />
@@ -102,7 +102,7 @@ const AllNews = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="max-w-2xl mx-auto mt-6">
+                        <div className="max-w-2xl mx-auto mt-16">
                             <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm">
                                 <a href="#">
                                     <img className="rounded-t-lg" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="" />
@@ -120,7 +120,7 @@ const AllNews = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="max-w-2xl mx-auto mt-6">
+                        <div className="max-w-2xl mx-auto mt-16">
                             <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm">
                                 <a href="#">
                                     <img className="rounded-t-lg" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="" />
@@ -138,7 +138,7 @@ const AllNews = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="max-w-2xl mx-auto mt-6">
+                        <div className="max-w-2xl mx-auto mt-16">
                             <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm">
                                 <a href="#">
                                     <img className="rounded-t-lg" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="" />
