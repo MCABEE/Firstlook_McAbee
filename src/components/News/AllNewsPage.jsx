@@ -8,7 +8,6 @@ const AllNewsPage = () => {
         <>
             <Navbar />
             <TopNews />
-            <hr className='mt-4 border-gray-300 border-1 w-4/5 mx-auto' />
             <AllNews/>
             <Footer />
         </>

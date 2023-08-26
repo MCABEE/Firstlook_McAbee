@@ -19,6 +19,12 @@ const TopNews = () => {
                                 </p>
                             </div>
 
+                            <div className='sm:hidden block'>
+                                <button className="inline-flex items-center py-2 mb-4 space-x-2 bg-[#FC3657] text-[12px] px-6 rounded-md text-white cursor-default">
+                                    TOP NEWS
+                                </button>
+                            </div>
+
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.8 } }}
                                 viewport={{ once: true, amount: 0.8 }}
@@ -32,9 +38,11 @@ const TopNews = () => {
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.5 } }}
                                 viewport={{ once: true, amount: 0.8 }} className='border-t-1 border-gray-300 sm:mt-2 mt-6 sm:w-[435px] hidden sm:block' />
 
-                            <Link to='/pageunderconstruction' className="inline-flex items-center py-2 mt-8 space-x-2 bg-[#FC3657] text-[12px] px-6 rounded-md text-white transform transition hover:scale-95 duration-300 ease-in-out">
-                                TOP NEWS
-                            </Link>
+                            <div className='sm:block hidden'>
+                                <button className="inline-flex items-center py-2 mt-8 space-x-2 bg-[#FC3657] text-[12px] px-6 rounded-md text-white cursor-default">
+                                    TOP NEWS
+                                </button>
+                            </div>
 
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.6 } }}
@@ -47,7 +55,7 @@ const TopNews = () => {
                                     <h1 className="text-[21px] font-bold sm:w-[337px] pt-2 sm:pt-2">‘Firstlook’ introduced the web version in India</h1>
                                 </Link>
 
-                                <p className='pt-3 sm:w-[435px] text-justify pb-6 sm:pb-4'>Launched ‘Firstlook’ a social network for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro. The app is now available for Indian citizen’s globally. User’s can signup with mobile number and ‘Firtlook’ assured the data security of each users.</p>
+                                <p className='pt-3 sm:w-[435px] text-justify sm:pb-4'>Launched ‘Firstlook’ a social network for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro. The app is now available for Indian citizen’s globally. User’s can signup with mobile number and ‘Firtlook’ assured the data security of each users.</p>
 
                             </motion.div>
 
@@ -62,6 +70,7 @@ const TopNews = () => {
                             </Link>
                         </motion.div>
                     </div>
+                    <hr className='sm:mt-10 border-gray-300 border-1 w-5/6 sm:w-full mx-auto' />
                 </div>
             </div>
         </>
