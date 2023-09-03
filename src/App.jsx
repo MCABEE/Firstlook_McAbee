@@ -60,7 +60,7 @@ function App() {
         <Route path='/pricing' element={<PricingPage />} />
         <Route path='/mediaCentre' element={<PageConstruct />} />
         <Route path='/pageunderconstruction' element={<PageConstruct />} />
-        <Route path='/news' element={<NewsPage />} />
+        <Route path='/news/:newsId' element={<NewsPage />} />
         <Route path='/allnews' element={<AllNewsPage />} />
         <Route path='/about' element={<AboutUsPage />} />
         <Route path='*' element={<PageNotFound />} />

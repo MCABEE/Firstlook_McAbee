@@ -1,8 +1,24 @@
-import { Link } from 'react-router-dom';
-import news from '../../assets/news.jpg'
-import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { getAllNews } from '../../api';
+import { useEffect } from 'react';
 
 const TopNews = () => {
+
+    const navigate = useNavigate()
+    const [news, setNews] = useState([])
+
+    const allNews = async () => {
+        await getAllNews()
+            .then((result) => {
+                setNews(result?.data?.topNews)
+            })
+    }
+
+    useEffect(() => {
+        allNews()
+    }, [])
+
     return (
         <>
             <div className="max-w-screen-xl lg:px-6 mx-auto mt-8 sm:mt-16 sm:mb-8">
@@ -25,18 +41,12 @@ const TopNews = () => {
                                 </button>
                             </div>
 
-                            <motion.div initial={{ y: "-10vw", opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.8 } }}
-                                viewport={{ once: true, amount: 0.8 }}
+                            <div
                                 className="md:w-6/12 order-2 xl:ml-20 sm:pt-0 pt-2 sm:hidden block">
-                                <Link to='/news'>
-                                    <img src={news} className='border-2 rounded-lg' alt="" />
-                                </Link>
-                            </motion.div>
+                                <img onClick={() => navigate(`/news/${news?._id}`)} src={news?.coverImage?.url} className='border-2 rounded-lg h-full w-full cursor-pointer' alt="" />
+                            </div>
 
-                            <motion.hr initial={{ y: "-10vw", opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.5 } }}
-                                viewport={{ once: true, amount: 0.8 }} className='border-t-1 border-gray-300 sm:mt-2 mt-6 sm:w-[435px] hidden sm:block' />
+                            <hr className='border-t-1 border-gray-300 sm:mt-2 mt-6 sm:w-[435px] hidden sm:block' />
 
                             <div className='sm:block hidden'>
                                 <button className="inline-flex items-center py-2 mt-8 space-x-2 bg-[#FC3657] text-[12px] px-6 rounded-md text-white cursor-default">
@@ -44,31 +54,21 @@ const TopNews = () => {
                                 </button>
                             </div>
 
-                            <motion.div initial={{ y: "-10vw", opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.6 } }}
-                                viewport={{ once: true, amount: 0.8 }} className="pt-5 sm:pt-5 space-y-2">
-
+                            <div className="pt-5 sm:pt-5 space-y-2">
 
                                 <span className="text-[12px]">13 JULY 2023</span>
 
-                                <Link to='/news'>
-                                    <h1 className="text-[21px] font-bold sm:w-[337px] pt-2 sm:pt-2">‘Firstlook’ introduced the web version in India</h1>
-                                </Link>
+                                <h1 onClick={() => navigate(`/news/${news?._id}`)} className="text-[21px] font-bold sm:w-[337px] pt-2 sm:pt-2 cursor-pointer">{news?.title}</h1>
 
-                                <p className='pt-3 sm:w-[435px] text-justify sm:pb-4'>Launched ‘Firstlook’ a social network for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro. The app is now available for Indian citizen’s globally. User’s can signup with mobile number and ‘Firtlook’ assured the data security of each users.</p>
+                                <p className='pt-1.5 sm:w-[435px] text-justify sm:pb-4 truncate-lines-5' dangerouslySetInnerHTML={{ __html: news?.content }} />
 
-                            </motion.div>
+                            </div>
 
                         </div>
-                        <motion.div initial={{ y: "-10vw", opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.8 } }}
-                            viewport={{ once: true, amount: 0.8 }}
+                        <div
                             className="md:w-6/12 order-2 xl:ml-20 sm:block hidden">
-
-                            <Link to='/news'>
-                                <img src={news} className='border-2 rounded-lg' alt="" />
-                            </Link>
-                        </motion.div>
+                            <img onClick={() => navigate(`/news/${news?._id}`)} src={news?.coverImage?.url} className='border-2 rounded-lg h-full w-full cursor-pointer' alt="" />
+                        </div>
                     </div>
                     <hr className='sm:mt-10 border-gray-300 border-1 w-5/6 sm:w-full mx-auto' />
                 </div>

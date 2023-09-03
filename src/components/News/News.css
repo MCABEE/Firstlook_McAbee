@@ -1,0 +1,26 @@
+.truncate-lines-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines of text */
+  -webkit-box-orient: vertical;
+  max-height: 3em; /* Adjust this value to control the line height and truncation point */
+}
+
+.truncate-lines-3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 2 lines of text */
+  -webkit-box-orient: vertical;
+  max-height: 5.5em; /* Adjust this value to control the line height and truncation point */
+}
+
+.truncate-lines-5 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Limit to 2 lines of text */
+  -webkit-box-orient: vertical;
+  max-height: 8em; /* Adjust this value to control the line height and truncation point */
+}

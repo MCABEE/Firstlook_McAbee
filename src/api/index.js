@@ -83,3 +83,7 @@ export const uploadImage = (imgAfterCrop) => axios.post(`/user/v1/register/uploa
 export const uploadAadharImage = (imgFrontAfterCrop, imgBackAfterCrop) => axios.post(`/user/v1/register/uploadAadharImage`, { imgFrontAfterCrop, imgBackAfterCrop }, tokenHeader())
 
 export const uploadAadharDetails = (careOf, fullName, aadhar, dob, pincode, houseName) => axios.post(`/user/v1/register/uploadAadhar`, { careOf, fullName, aadhar, dob, pincode, houseName }, tokenHeader())
+
+export const getAllNews = () => axios.get('/data/general/news')
+
+export const getSingleNews = (newsId) => axios.get(`/data/general/newsDetails?newsId=${newsId}`)
