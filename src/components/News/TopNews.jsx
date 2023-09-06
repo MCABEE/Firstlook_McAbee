@@ -60,7 +60,7 @@ const TopNews = () => {
 
                                 <h1 onClick={() => navigate(`/news/${news?._id}`)} className="text-[21px] font-bold sm:w-[337px] pt-2 sm:pt-2 cursor-pointer">{news?.title}</h1>
 
-                                <p className='pt-1.5 sm:w-[435px] text-justify sm:pb-4 truncate-lines-5' dangerouslySetInnerHTML={{ __html: news?.content }} />
+                                <p className='pt-1.5 sm:w-[435px] text-justify sm:pb-4 truncate-lines-4' dangerouslySetInnerHTML={{ __html: news?.content }} />
 
                             </div>
 
@@ -70,7 +70,7 @@ const TopNews = () => {
                             <img onClick={() => navigate(`/news/${news?._id}`)} src={news?.coverImage?.url} className='border-2 rounded-lg h-full w-full cursor-pointer' alt="" />
                         </div>
                     </div>
-                    <hr className='sm:mt-10 border-gray-300 border-1 w-5/6 sm:w-full mx-auto' />
+                    <hr className='mt-4 mb-1 sm:mb-0 sm:mt-10 border-gray-300 border-1 w-5/6 sm:w-full mx-auto' />
                 </div>
             </div>
         </>

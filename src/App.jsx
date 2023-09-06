@@ -56,7 +56,7 @@ function App() {
         <Route path='/home' element={<LandingPage />} />
         <Route path='/firstlookFeatures' element={<FeaturePage />} />
         <Route path='/stories' element={<PageConstruct />} />
-        <Route path='/faq' element={<HelpCenterPage />} />
+        <Route path='/helpcenter' element={<HelpCenterPage />} />
         <Route path='/pricing' element={<PricingPage />} />
         <Route path='/mediaCentre' element={<PageConstruct />} />
         <Route path='/pageunderconstruction' element={<PageConstruct />} />

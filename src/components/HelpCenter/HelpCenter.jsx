@@ -1,17 +1,70 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
 import { faq } from "../../lib/constants";
+import { useNavigate } from "react-router-dom";
+import { getAllNews } from "../../api";
+import { Toaster, toast } from "react-hot-toast";
 
 const HelpCenter = () => {
 
     const [isOpen, setIsOpen] = useState("")
+    const [search, setSearch] = useState("")
+    const navigate = useNavigate()
+
+    const [allNews, setAllNews] = useState([])
+
+    const moreNews = async () => {
+        await getAllNews()
+            .then((result) => {
+                setAllNews(result?.data?.news)
+            })
+    }
+
+    // Function to randomly select two objects from the news array
+    const getRandomNews = () => {
+        const newsCopy = [...allNews];
+        const selectedNews = [];
+
+        while (selectedNews.length < 2 && newsCopy.length > 0) {
+
+            const randomIndex = Math.floor(Math.random() * newsCopy.length);
+            const randomNewsItem = newsCopy.splice(randomIndex, 1)[0];
+
+            // Check if the selectedNews already contains the same _id & Check if the _id is not the same as the current news item
+            if (!selectedNews.some((item) => item._id === randomNewsItem._id)) {
+                selectedNews.push(randomNewsItem);
+            }
+
+        }
+
+        return selectedNews;
+    };
+
+    // Get two random news objects
+    const selectedNews = getRandomNews();
+
+    const handleSearch = (e) => {
+        e.preventDefault()
+
+        if (search === '' || search === ' ') {
+            toast.error("Please enter a search query")
+        }
+        else {
+            toast.error("We're working on it! \nSearch will be Available Soon")
+        }
+    }
+
+    useEffect(() => {
+        moreNews()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <>
             <div className="flex flex-col justify-center items-center">
-
+                <Toaster />
                 <section className=" text-gray-800">
                     <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
                         <div className="grid gap-10 lg:gap-20 sm:p-3 md:grid-cols-2 2xl:px-32">
@@ -28,12 +81,16 @@ const HelpCenter = () => {
                                 <p className="text-[21px]">
                                     How can we help you?
                                 </p>
-                                <form>
+                                <form onSubmit={handleSearch}>
                                     <div className="flex mt-4">
                                         <div className="absolute px-1.5 py-1">
                                             <SearchOutlinedIcon />
                                         </div>
-                                        <input type="text" className="sm:w-[32vw] w-[80vw] px-8 rounded-bl-md rounded-tl-md border border-[#DDDCDC] bg-[#DDDCDC]" />
+                                        <input
+                                            value={search}
+                                            onChange={(e) => setSearch(e.target.value)}
+                                            type="text"
+                                            className="sm:w-[32vw] w-[80vw] px-8 rounded-bl-md rounded-tl-md border border-[#DDDCDC] bg-[#DDDCDC]" />
                                         <button type='submit'
                                             className="sm:ml-1 w-1/4 bg-[#FC4055] cursor-pointer rounded-br-md rounded-tr-md sm:px-6 px-1 py-2 text-[14px] text-white transition-none"
                                         >
@@ -46,7 +103,7 @@ const HelpCenter = () => {
                     </div>
                 </section>
 
-                <div className="container flex flex-col justify-center sm:px-4 md:px-8 2xl:px-40 mx-auto">
+                <div className="container flex flex-col justify-center sm:px-4 md:px-8 2xl:px-40 mt-6 sm:mt-0 mb-4 sm:mb-0 mx-auto">
                     <hr className='border-gray-300 border-1 w-full mx-auto' />
                 </div>
 
@@ -235,7 +292,7 @@ const HelpCenter = () => {
                     </div>
                 </section>
 
-                <div className="container flex flex-col justify-center sm:px-4 md:px-8 2xl:px-40 mx-auto">
+                <div className="container flex flex-col justify-center sm:px-4 md:px-8 2xl:px-40 mt-6 sm:mt-0 mb-5 sm:mb-0 mx-auto">
                     <hr className='border-gray-300 border-1 w-full mx-auto' />
                 </div>
 
@@ -276,149 +333,25 @@ const HelpCenter = () => {
                                             <hr className="my-8 border-gray-200" />
                                         </>
                                     ))}
-
-                                    {/* <div>
-                                        <button onClick={() => setIsOpen((prev) => (prev === "q2" ? "" : "q2"))} className="flex items-center focus:outline-none">
-                                            {isOpen === 'q2' ?
-                                                <svg className="flex-shrink-0 w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4"></path></svg>
-                                                :
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-                                                </svg>
-                                            }
-
-                                            <h1 className="mx-4 text-[18px] text-gray-700 text-start">What can I expect at my first consultation ?</h1>
-                                        </button>
-
-                                        {isOpen === 'q2'
-                                            ?
-                                            <div className="flex mt-8 md:mx-10">
-                                                <span className="border border-blue-500"></span>
-
-                                                <p className="max-w-3xl px-4 text-gray-500">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eum quae. Harum officiis reprehenderit ex quia ducimus minima id provident molestias optio nam vel, quidem iure voluptatem, repellat et ipsa.
-                                                </p>
-                                            </div>
-                                            :
-                                            ""
-                                        }
-                                    </div>
-
-                                    <hr className="my-8 border-gray-200" />
-
-                                    <div>
-                                        <button onClick={() => setIsOpen((prev) => (prev === "q3" ? "" : "q3"))} className="flex items-center focus:outline-none">
-                                            {isOpen === 'q3' ?
-                                                <svg className="flex-shrink-0 w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4"></path></svg>
-                                                :
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-                                                </svg>
-                                            }
-
-                                            <h1 className="mx-4 text-[18px] text-gray-700 text-start">What are your opening hours ?</h1>
-                                        </button>
-
-                                        {isOpen === 'q3'
-                                            ?
-                                            <div className="flex mt-8 md:mx-10">
-                                                <span className="border border-blue-500"></span>
-
-                                                <p className="max-w-3xl px-4 text-gray-500">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eum quae. Harum officiis reprehenderit ex quia ducimus minima id provident molestias optio nam vel, quidem iure voluptatem, repellat et ipsa.
-                                                </p>
-                                            </div>
-                                            :
-                                            ""
-                                        }
-                                    </div>
-
-                                    <hr className="my-8 border-gray-200" />
-
-                                    <div>
-                                        <button onClick={() => setIsOpen((prev) => (prev === "q4" ? "" : "q4"))} className="flex items-center focus:outline-none">
-                                            {isOpen === 'q4' ?
-                                                <svg className="flex-shrink-0 w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4"></path></svg>
-                                                :
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-                                                </svg>
-                                            }
-
-                                            <h1 className="mx-4 text-[18px] text-gray-700 text-start">Do I need a referral ?</h1>
-                                        </button>
-
-                                        {isOpen === 'q4'
-                                            ?
-                                            <div className="flex mt-8 md:mx-10">
-                                                <span className="border border-blue-500"></span>
-
-                                                <p className="max-w-3xl px-4 text-gray-500">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eum quae. Harum officiis reprehenderit ex quia ducimus minima id provident molestias optio nam vel, quidem iure voluptatem, repellat et ipsa.
-                                                </p>
-                                            </div>
-                                            :
-                                            ""
-                                        }
-                                    </div>
-
-                                    <hr className="my-8 border-gray-200" />
-
-                                    <div>
-                                        <button onClick={() => setIsOpen((prev) => (prev === "q5" ? "" : "q5"))} className="flex items-center focus:outline-none">
-                                            {isOpen === 'q5' ?
-                                                <svg className="flex-shrink-0 w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4"></path></svg>
-                                                :
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-                                                </svg>
-                                            }
-
-                                            <h1 className="mx-4 text-[18px] text-gray-700 text-start">Is the cost of the appointment covered by private health insurance ?</h1>
-                                        </button>
-
-                                        {isOpen === 'q5'
-                                            ?
-                                            <div className="flex mt-8 md:mx-10">
-                                                <span className="border border-blue-500"></span>
-
-                                                <p className="max-w-3xl px-4 text-gray-500">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eum quae. Harum officiis reprehenderit ex quia ducimus minima id provident molestias optio nam vel, quidem iure voluptatem, repellat et ipsa.
-                                                </p>
-                                            </div>
-                                            :
-                                            ""
-                                        }
-                                    </div> */}
                                 </div>
                             </div>
                             <div>
-                                <button className="inline-flex items-center py-2 mt-8 sm:mt-2 space-x-2 bg-[#FC3657] text-[12px] px-6 rounded-md text-white cursor-default">
+                                <button className="inline-flex items-center py-2 mt-1 sm:mt-2 space-x-2 bg-[#FC3657] text-[12px] px-6 rounded-md text-white cursor-default">
                                     TOP ARTICLES
                                 </button>
-                                <div className="rounded w-full flex flex-col mb-3 md:mb-10 items-start">
-                                    <div className="text-gray-800 font-semibold text-[21px] mt-10 mb-5">
-                                        Android version of ‘Firstlook’ released today.
-                                    </div>
-                                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md sm:h-44 sm:m-4 md:m-0" />
-                                    <div className="bg-white rounded mt-5">
-                                        <p className=" p-2 pl-0 pt-1 text-[14px] text-gray-600 text-justify">
-                                            Launched ‘Firstlook’ a social netwrok for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro
-                                        </p>
-                                    </div>
-                                </div>
 
-                                <div className="rounded w-full flex flex-col mb-3 md:mb-10 items-start sm:mt-0 mt-10">
-                                    <div className="md:mt-0 text-gray-800 font-semibold text-[21px] mb-5">
-                                        ‘Firstlook’ introduce ‘Booster Plan’ to target particular user’s.
+                                {selectedNews.map((newsItem) => (
+                                    <div className="rounded w-full flex flex-col mb-3 md:mb-10 items-start" key={newsItem?._id}>
+                                        <div onClick={() => navigate(`/news/${newsItem?._id}`)} className="text-gray-800 font-semibold text-[21px] mt-10 mb-5 cursor-pointer">
+                                            {newsItem?.title}
+                                        </div>
+                                        <img onClick={() => navigate(`/news/${newsItem?._id}`)} src={newsItem?.coverImage?.url} className="block md:hidden lg:block rounded-md sm:h-44 sm:w-3/4 lg:w-full xl:w-3/4 w-full object-cover sm:m-4 md:m-0 cursor-pointer" />
+                                        <div className="bg-white rounded mt-5">
+                                            <p className=" p-2 pl-0 pt-1 text-[14px] text-gray-600 text-justify truncate-lines-3" dangerouslySetInnerHTML={{ __html: newsItem?.content }} />
+                                        </div>
                                     </div>
-                                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="block md:hidden lg:block rounded-md sm:h-44 sm:m-4 md:m-0" />
-                                    <div className="bg-white rounded mt-5">
-                                        <p className="p-2 pl-0 pt-1 text-[14px] text-gray-600 text-justify">
-                                            Launched ‘Firstlook’ a social netwrok for singles to find life partner. The web version is now introduced in India in the domain called www.firstlok.pro
-                                        </p>
-                                    </div>
-                                </div>
+                                ))}
+
                             </div>
                         </div>
                     </div>
