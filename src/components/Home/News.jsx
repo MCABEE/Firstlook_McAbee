@@ -58,7 +58,7 @@ const News = () => {
 
                                 <h1 onClick={() => navigate(`/news/${news?._id}`)} className="text-[21px] font-bold sm:w-[337px] pt-2 sm:pt-2 cursor-pointer">{news?.title}</h1>
 
-                                <p className='pt-3 sm:w-[435px] text-justify sm:pb-4 truncate-lines-3' dangerouslySetInnerHTML={{ __html: news?.content }} />
+                                <p className='pt-3 sm:w-[435px] text-justify sm:pb-4 truncate-lines-3-home' dangerouslySetInnerHTML={{ __html: news?.content }} />
 
                                 <div className='mt-5'>
                                     <Link to='/allnews' className="inline-flex items-center py-3 space-x-2 bg-[#FC3657] text-[12px] px-5 rounded-md text-white transform transition hover:scale-95 duration-300 ease-in-out">

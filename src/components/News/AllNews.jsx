@@ -64,7 +64,7 @@ const AllNews = () => {
                                     </div>
                                 </div>
 
-                                <p className="flex flex-row flex-wrap w-full px-4  overflow-hidden text-sm text-justify text-gray-700 truncate-lines-2" dangerouslySetInnerHTML={{ __html: news?.content }} />
+                                <p className="flex-wrap w-full px-4 text-sm text-gray-700 truncate-lines-2 text-justify" dangerouslySetInnerHTML={{ __html: news?.content }} />
 
                                 <section className="px-4 mt-2">
                                     <div className="flex items-center justify-between">

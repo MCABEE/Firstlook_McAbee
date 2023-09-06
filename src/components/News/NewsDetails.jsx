@@ -69,7 +69,7 @@ const NewsDetails = () => {
 
             <div className="mb-4 lg:mb-0 p-4 lg:p-0 w-full md:w-[90rem] relative rounded block">
               <p className="text-gray-500 md:text-sm text-[10px] sm:text-[13px] flex -mt-2 sm:mt-0 mb-6"> 13 SEPTEMBER 2023 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p>PUBLISHED BY : FIRSTLOOK TEAM</p> </p>
-              <img src={news?.coverImage?.url} className="rounded-md object-fill sm:w-[600px] w-full sm:h-[359px] sm:mb-0 mb-4 mt-6" />
+              <img src={news?.coverImage?.url} className="rounded-md object-cover sm:w-[600px] w-full sm:h-[359px] sm:mb-0 mb-4 mt-6" />
               <p className="text-gray-600 mb-4 text-justify mt-6" dangerouslySetInnerHTML={{ __html: news?.content }} />
 
             </div>
