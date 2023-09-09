@@ -32,7 +32,7 @@ export const registerAdditionalPersonalInfo = (drinkingHabits, smokingHabits, fo
 
 export const registerAcademic = (passYear, option, academicStream, courseName, country, university, institute, college) => axios.patch(`/user/v1/register/${getUserId()}/academic`, { passYear, option, academicStream, courseName, country, university, institute, college }, tokenHeader())
 
-export const registerOccupation = (annualIncome, option, country, state, district, city, stateID) => axios.patch(`/user/v1/register/${getUserId()}/occupation`, { annualIncome, option, country, state, district, city, stateID }, tokenHeader())
+export const registerOccupation = (annualIncome, option, country, state, district, city) => axios.patch(`/user/v1/register/${getUserId()}/occupation`, { annualIncome, option, country, state, district, city }, tokenHeader())
 
 export const registerOccupationCategory = (jobCategory, jobType, designation, stream, companyName, employerName) => axios.patch(`/user/v1/register/${getUserId()}/occupationCategory`, { jobCategory, jobType, designation, stream, companyName, employerName }, tokenHeader())
 
@@ -46,9 +46,9 @@ export const getAllCountries = () => axios.get('/data/general/getAllCountries')
 
 export const getAllStates = (country) => axios.get(`/data/general/state?country=${country}`)
 
-export const getAllDistricts = (state) => axios.get(`/data/general/district?state=${state}`)
+export const getAllDistricts = (state, country) => axios.get(`/data/general/districts?state=${state}&country=${country}`)
 
-export const getAllMotherToungues = (state) => axios.get(`/data/general/motherToungue?state=${state}`)
+export const getAllMotherToungues = (state, country) => axios.get(`/data/general/motherToungue?state=${state}&country=${country}`)
 
 export const getAllReligion = () => axios.get('/data/general/getAllReligion')
 
@@ -60,7 +60,7 @@ export const getAllCourse = (stream) => axios.get(`/data/general/course?stream=$
 
 export const getAllHomeTown = () => axios.get('/data/general/getAllHomeTown')
 
-export const getAllCities = (state) => axios.get(`/data/general/city?state=${state}`)
+export const getAllCities = (state, country) => axios.get(`/data/general/city?state=${state}&country=${country}`)
 
 export const getAllUniversities = (country) => axios.get(`/data/general/getAllUniversities?country=${country}`)
 

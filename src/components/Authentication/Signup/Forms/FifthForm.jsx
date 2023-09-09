@@ -17,7 +17,6 @@ const FifthForm = () => {
   const [selectedOption, setSelectedOption] = useState(false);
   const [country, setCountry] = useState(userData?.occupation?.country || "")
   const [state, setState] = useState(userData?.occupation?.state || "")
-  const [stateID, setStateID] = useState(null)
   const [district, setDistrict] = useState(userData?.occupation?.district || "")
   const [city, setCity] = useState(userData?.occupation?.city || "")
   const [option, setOption] = useState(userData?.occupation?.hasJob || "No")
@@ -74,8 +73,7 @@ const FifthForm = () => {
   }
 
   const getDistricts = async () => {
-    const query = stateID ? stateID : " "
-    await getAllDistricts(query)
+    await getAllDistricts(state, country)
       .then((result) => {
         console.log(result);
         setNDistricts(result.data.districts)
@@ -86,8 +84,7 @@ const FifthForm = () => {
   }
 
   const getCity = async () => {
-    const query = stateID ? stateID : " "
-    await getAllCities(query)
+    await getAllCities(state, country)
       .then((result) => {
         console.log(result);
         setNCity(result.data.cities)
@@ -135,7 +132,7 @@ const FifthForm = () => {
       }
 
       else {
-        await registerOccupation(annualIncome, option, country, state, district, city, stateID)
+        await registerOccupation(annualIncome, option, country, state, district, city)
           .then(() => {
             setPage(page === 10 ? 0 : page + 1);
           })
@@ -276,7 +273,6 @@ const FifthForm = () => {
                         className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                         onClick={() => {
                           setState(state?.name)
-                          setStateID(state?._id)
                           setIsOpen("")
                         }}
                       >

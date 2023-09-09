@@ -255,7 +255,7 @@ const FifthForm2 = () => {
               ></input>
             </div>
           </>
-        ) : jobCategory === "Government" ? (
+        ) : jobCategory === "Government / Public Sector" ? (
           <>
             <div className="mb-6 mt-5 flex">
               <input type="text"
