@@ -45,13 +45,13 @@ const QuickSignup = () => {
 
     return (
         <>
-            <div className="bg-white pt-4 pb-4 sm:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
+            <div className="bg-white pt-4 pb-4 px-2 sm:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
                 <div>
                     <nav className="flex h-9 items-center justify-between" aria-label="Global">
                         <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
                             <Link className="">
                                 <span className="sr-only">Your Company</span>
-                                <img className="h-10" src={firstLook} alt="Alt" />
+                                <img className="sm:h-10 h-8" src={firstLook} alt="Alt" />
                             </Link>
                         </div>
                         {token && <div className="lg:flex lg:min-w-0 lg:flex-1 mr-5 sm:mr-0 lg:justify-end">

@@ -29,13 +29,13 @@ const AppInstallPage = () => {
     return (
         <>
             <div className="lg:block hidden">
-                <div className="relative bg-white h-16 pt-4 pb-4 sm:px-3 border border-gray-100 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
+                <div className="relative bg-white h-16 pt-4 pb-4 px-2 sm:px-6 border border-gray-100 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
                     <div>
                         <nav className="flex h-9 items-center justify-between" aria-label="Global">
                             <div className="flex lg:min-w-0 lg:flex-1 mb-2" aria-label="Global">
                                 <Link to="/" className="">
                                     <span className="sr-only">Your Company</span>
-                                    <img className="h-10" src={firstLook} alt="Alt" />
+                                    <img className="sm:h-10 h-8" src={firstLook} alt="Alt" />
                                 </Link>
                             </div>
                         </nav>
@@ -60,7 +60,7 @@ const AppInstallPage = () => {
                                     "group relative inline-block overflow-hiddenx` px-8 py-3 focus:outline-none focus:ring bg-white" +
                                     (isHovered2 ? " mt-4 h-[75px] w-[75px] flex justify-center items-center rounded-lg" : " mt-4 h-[75px] w-[75px] flex justify-center items-center rounded-lg")
                                 }
-                                href="/download"
+                                to="https://play.google.com/store/apps/details?id=com.firstlookmatrimony.first_look&hl=en-IN"
                                 onMouseEnter={handleMouseEnter2}
                                 onMouseLeave={handleMouseLeave2}
                             >
@@ -213,7 +213,7 @@ const AppInstallPage = () => {
                                     "group relative inline-block overflow-hiddenx` px-8 py-3 focus:outline-none focus:ring bg-white" +
                                     (isHovered2 ? " mt-4 h-[60px] w-[50px] flex justify-center items-center rounded-lg" : " mt-4 h-[60px] w-[50px] flex justify-center items-center rounded-lg")
                                 }
-                                href="/download"
+                                to="https://play.google.com/store/apps/details?id=com.firstlookmatrimony.first_look&hl=en-IN"
                                 onMouseEnter={handleMouseEnter2}
                                 onMouseLeave={handleMouseLeave2}
                             >
