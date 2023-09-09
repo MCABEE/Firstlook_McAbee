@@ -37,10 +37,12 @@ const ContactDetails = () => {
                             Have something you want to share with us?
                         </h2>
                         <p className='text-base text-gray-700 md:text-[16px] md:text-start'>
-                            Don’t be shy; feel free to contact us.
+                            Let us know if you have any suggestions. Your feedback helps us serve you better.
+                            We take each comment and opinion seriously.
                         </p>
-                        <p className="mb-14 text-base text-gray-700 md:text-[16px] md:text-start">
-                            You have the power to make us better, and of course, we consider the words of encouragement as well. Our customer support team is always available to attend you.
+                        <p className="mb-14 text-base text-gray-700 md:text-[16px] md:text-start mt-3">
+                            We are eagerly waiting to receive your appraisals and compliments with all our hearts.
+                            Our customer support team is here for you 24x7.
                         </p>
                         <h2 className="mb-8 font-sans text-[24px] font-semibold tracking-tight text-gray-900 sm:text-[24px] md:text-start">
                             Say hello to us !
@@ -87,7 +89,7 @@ const ContactDetails = () => {
                                     </h2>
 
                                     <p className="mt-1 text-[14px] text-black">
-                                        I agreed to receive newsletter’s, promotions to my e-mail
+                                        I am granting permission to receive newsletters and promotions in this E-Mail
                                     </p>
                                 </div>
                             </div>
@@ -126,8 +128,8 @@ const ContactDetails = () => {
                             alt=""
                         />
                         <p className='hidden lg:block lg:-mt-[33rem] lg:mr-16 lg:text-[36px] text-white text-end font-oxygen'>
-                            We always love to <br />
-                            hear from the community
+                            We love to hear<br />
+                            from the community
 
                         </p>
                         <img src={iconMsg} className='hidden lg:block ml-80 lg:-mt-48' alt="" />

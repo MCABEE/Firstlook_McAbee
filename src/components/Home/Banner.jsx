@@ -37,11 +37,11 @@ const Banner = () => {
     };
     return (
         <>
-            <div className="relative z-10 bg-white px-6 pt-4 pb-4 lg:px-8 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
+            <div className="relative z-10 bg-white px-6 pt-4 pb-4 lg:px-6 border border-gray-200 rounded-2xl w-11/12 mx-auto mt-5">
                 <div>
                     <nav className="flex h-9 items-center justify-between" aria-label="Global">
                         <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
-                            <Link to="/" className="-ml-[1.75rem] p-1.5">
+                            <Link to="/" className="">
                                 <span className="sr-only">Your Company</span>
                                 <img className="h-10" src={firstLook} alt="Alt" />
                             </Link>
@@ -84,7 +84,7 @@ const Banner = () => {
                                 Join the Social Network,
                             </p>
                             <p className="text-gray-600 text-base md:text-lg">
-                                Exclusively for finding life partners!
+                                For those in search of a life partner
                             </p>
                         </motion.div>
                         <motion.div

@@ -13,10 +13,10 @@ const Media = () => {
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
                                 viewport={{ once: true, amount: 0.8 }} className="sm:pt-6 pb-4 space-y-2">
-                                <h1 className="text-4xl sm:text-5xl font-bold text-[#3A3737] font-oxygen">Media</h1>
-                                <h1 className="text-4xl sm:text-5xl font-bold text-[#3A3737] font-oxygen">Say’s About Us !</h1>
-                                <p className="text-base text-[#545454] pt-6">See, what’s new from Firstlook. <br />
-                                    News and updates from us.
+                                <h1 className="text-4xl sm:text-5xl font-bold text-[#3A3737] font-oxygen">What Media Say</h1>
+                                <h1 className="text-4xl sm:text-5xl font-bold text-[#3A3737] font-oxygen">About Us !</h1>
+                                <p className="text-base text-[#545454] pt-6">Learn about the latest updates,<br />
+                                    And news about Firstlook
                                 </p>
                             </motion.div>
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}

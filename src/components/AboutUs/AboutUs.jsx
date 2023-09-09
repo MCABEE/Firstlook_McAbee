@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 
 const AboutUs = () => {
     useEffect(() => {
-        window.scrollTo(0,0)
-      }, [])
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <div className="w-[89%] mx-auto">
@@ -12,13 +12,14 @@ const AboutUs = () => {
                     About Firstlook
                 </p>
                 <p className="flex justify-center mt-4 text-[20px] sm:text-[36px] font-oxygen font-bold text-center">
-                    a group of people <br />
-                    who love’s ‘Firstlook’ the most.
+                    We are a bunch of people <br /> who carefully crafted Firstlook with all our hearts and soul.
                 </p>
 
                 <p className="flex justify-center mt-4 sm:text-[21px] text-center">
-                    Our mission is to connect people who are planning to marry or wish to find life partner. <br className="lg:block hidden" />
-                    And make this network as a space for mingle with each other, chat, share pics, videos and propose.
+                    Firstlook fulfills the need of people who want to get married soon, by providing them
+                    with matching profiles from all around the world. Using our network, anyone can
+                    connect and communicate with people from anywhere in the world. Just like any social
+                    media app, Firstlook is rather fun and easy to use.
                 </p>
 
                 <div className="flex justify-center mt-8 mb-6">
@@ -36,17 +37,21 @@ const AboutUs = () => {
                     Our Story
                 </p>
                 <div className="flex justify-center mt-5">
-                    <p className="max-w-6xl text-center sm:text-[21px]">
-                        The ‘Firstlook’ journey begins in May 2021. Then it took about six months to complete the first prototype and went live on trial basis in December 2021.
-                        After live test which took about three months it was withdrawn for further updates.
-                        After sixteen months, the commercial version of ‘Firstlook’ was released in July 2023.
-                        In the first phase, the service available only to Indian citizen’s worldwide.
-                        ‘Firstlook’ will be available to citizens of other countries soon.
+                    <p className="max-w-5xl sm:text-[21px] text-justify">
+                        The initial idea of such a platform was conceived during the first half of 2021. After a
+                        brief period of mental exercise and incubation, we started developing Phase I in the
+                        month of May. Within 7 months, around December 2021, an MVP of the Android version
+                        was released. The app completed its 3 month trial run among selected individuals and
+                        pulled back for further updates and improvements. Then, after 18 months, commercial
+                        version of Firstlook app was released in September 2023.
+
+                        Currently ‘Firstlook’ is only available for Indian’s across the globe. It will be accessible
+                        for everyone after the next update.
                     </p>
                 </div>
                 <div className="flex justify-center">
                     <button className="mt-10 px-[10vw] sm:px-28 py-3 rounded-lg font-semibold bg-[#C8E9A0] text-[10px] sm:text-[14px]">
-                        DOWLOAD MEDIA KIT FOR MORE DETAILS
+                        DOWLOAD THE MEDIA KIT TO KNOW MORE
                     </button>
                 </div>
 
@@ -137,9 +142,12 @@ const AboutUs = () => {
                 </p>
                 <div className="flex justify-center mt-5">
                     <p className="max-w-6xl text-center sm:text-[21px]">
-                        The social network ‘Firstlook’ owned by ‘MCABEE’ a Chennai based company and it was the trade name of ‘Sebastian and Sons Digital Pvt Ltd’. It is an IT company registered under the companies act, under Govt. of India in 2021. The company is familiar in its trade name ‘MCABEE’.
-                        It’s a technology company in the SaaS category.
-                        The founder of the social network ‘Firstlook’ is Mr. Shibin Sebastian, who is also the CEO of MCABEE.
+                        The match making social network Firstlook is owned by Mcabee, an IT company
+                        registered in Chennai. Macabee is specialized in the development of SaaS related
+                        service products. Apart from product development, Macabee also provides consultation
+                        services in web application development, Android &amp; iOS mobile application
+                        development, cloud hosting etc. Macabee started as a web design company in 2012
+                        and recently rebranded in 2021 after a prosperous 9 year period.
                     </p>
                 </div>
                 <div className="flex justify-center">
@@ -153,9 +161,8 @@ const AboutUs = () => {
                 </p>
                 <div className="flex justify-center mt-5">
                     <p className="max-w-6xl text-center sm:text-[21px]">
-                        Here is a summary of what we tell the world through the media about the ‘Firstlook’
-                        - Social Network, and what the media generally report about us.
-                        You can see that news in detail through the link.
+                        Get a summary of the important news articles about Firstlook from various Media, our
+                        press releases and other important announcements regarding our service from here.
                     </p>
                 </div>
 
@@ -196,7 +203,7 @@ const AboutUs = () => {
                 <hr className="mt-6" />
 
                 <p className="flex justify-center mt-16 mb-16 sm:text-[24px] text-center font-bold">
-                    Thank you for being here. Keep in touch !
+                    Thank you for your Interest in Us
                 </p>
             </div>
         </>

@@ -188,7 +188,7 @@ const Footer = () => {
                                 </ul>
                             </nav>
                         </div>
-                        <div className="text-center lg:ml-auto sm:text-left lg:text-start">
+                        <div className="text-center lg:ml-auto sm:text-start">
                             <p className="text-lg font-medium text-white">.</p>
 
                             <nav aria-label="Footer Resources Nav" className="-mt-10 sm:mt-8">
@@ -314,17 +314,20 @@ const Footer = () => {
 
                         <div>
                             <p className='text-gray-700 sm:mt-20 mt-14 font-thin text-center'>
-                                Firstlook is a freemium social network to find life partners for Indian
-                                citizen’s Globally. Before registering or using this website or mobile
-                                application, everyone should read our <Link to='/membershippolicy' className='text-rose-600 font-normal'> Membership Policy</Link>,<Link to='/privacypolicy' className='text-rose-600 font-normal'> Terms of Use</Link>,<Link to='/privacypolicy' className='text-rose-600 font-normal'> Privacy Policy</Link>  and <Link to='/refundpolicy' className='text-rose-600 font-normal'>Refund Policy</Link> in detail. Firstlook is under the
-                                complete ownership and control of an Internet Company ‘MCABEE’,
-                                which is registered at Chennai, India. For more details <Link to='/contact' className='text-rose-600 font-normal'>Connect </Link> with us.
+                                Firstlook is a social network app that connects bachelors from all around the world and
+                                solely intended to be used by unmarried users with a plan to get married soon. This is a
+                                freemium application. Before using this website or mobile application, you must read and agree with our
+                                <Link to='/membershippolicy' className='text-rose-600 font-normal'> Membership Policy</Link>,
+                                <Link to='/termsofuse' className='text-rose-600 font-normal'> Terms of Use</Link>,
+                                <Link to='/privacypolicy' className='text-rose-600 font-normal'> Privacy Policy</Link> and
+                                <Link to='/refundpolicy' className='text-rose-600 font-normal'> Refund and Cancellation Policy.</Link> Please visit
+                                <Link to='/about' className='text-rose-600 font-normal'> About </Link> page to know more about the ownership and management of Firstlook.
                             </p>
                         </div>
 
                         <div className="mt-10 sm:flex sm:justify-between">
                             <div className="flex justify-center sm:justify-start sm:-ml-4">
-                                <Link to='/' onClick={() =>  window.scrollTo(0, 0)}>
+                                <Link to='/' onClick={() => window.scrollTo(0, 0)}>
                                     <img src={firstLook} className='h-10' alt="" />
                                 </Link>
                             </div>

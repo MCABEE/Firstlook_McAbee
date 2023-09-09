@@ -32,7 +32,7 @@ const JoinSection = () => {
                                 initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.5 } }}
                                 viewport={{ once: true, amount: 0.8 }}
-                                className="text-[16px] font-oxygen text-gray-500">Experience how quickly you can find a life partner, <br /> through Firstlook ... </motion.p>
+                                className="text-[16px] font-oxygen text-gray-500">Get convinced yourself how easy it is to find someone, <br /> From any corner of the world.</motion.p>
 
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.6 } }}

@@ -36,7 +36,10 @@ const Pricing = () => {
                             whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.2 } }}
                             viewport={{ once: true, amount: 0.8 }}
                             className="text-gray-700 text-[13px] sm:text-[15px] text-center">
-                            We want you to support our effort’s to bring you the best features. Here are the most affordable prices you can’t turn down. Choose the one that suit’s you and confirm your participation.
+                            We require your immense support to let us serve you better and bring you finer search
+                            results. That’s why we are in need of your cooperation with our affordably priced
+                            subscription plans. Choose any plan from the list as per your requirement and show
+                            your support.
                         </motion.p>
                     </div>
                     <div className="grid gap-10 lg:grid-cols-3 mt-10 sm:mt-20 sm:mx-auto">
