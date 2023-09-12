@@ -21,11 +21,16 @@ const EighthForm = () => {
   const sendOtp = async (e) => {
     e.preventDefault()
 
+    console.log("first")
+
     if (aadhar === '') {
       toast.error("Enter Your Aadhar Number")
     }
 
     else {
+
+      console.log("second")
+
       const headers = {
         'X-Auth-Type': 'API-Key',
         'Content-Type': 'application/json',
@@ -40,10 +45,11 @@ const EighthForm = () => {
           setShowOTP(true)
           setTransactionId(response?.data?.data?.transaction_id)
           setShareCode(response?.data?.data?.code)
-          console.log(response.data);
+          console.log(response?.data);
         })
         .catch((err) => {
-          toast.error(err)
+          console.log(err)
+          toast.error(err?.response?.data?.message)
         })
     }
 
@@ -136,11 +142,10 @@ const EighthForm = () => {
 
   return (
     <>
-      <Toaster toastOptions={{ duration: 4000 }} />
       {showOTP ? (
         <>
           <form onSubmit={onOTPVerify} className="w-72 ml-3.5 sm:ml-12">
-
+            <Toaster toastOptions={{ duration: 4000 }} />
             <p className=' mt-10 mb-14 text-justify text-sm font-medium'>
               An OTP has been sent to your Aadhar-linked mobile number. Please enter the OTP below to verify your account
             </p>
@@ -148,7 +153,7 @@ const EighthForm = () => {
             <div className="mt-8 w-full">
               <div className="mx-auto">
                 <div className="flex">
-                  {otp.map((data, index) => (
+                  {otp?.map((data, index) => (
                     <input
                       className="otp-field rounded-lg w-10 h-10 text-center border border-gray-400 mx-auto text-[#4D4D4D]"
                       type="text"
@@ -176,6 +181,7 @@ const EighthForm = () => {
       ) : (
         <>
           <form onSubmit={sendOtp} className="w-72 ml-3.5 sm:ml-12">
+            <Toaster toastOptions={{ duration: 4000 }} />
             <p className="text-sm font-medium mb-6">
               Verify your Account with Aadhar
             </p>

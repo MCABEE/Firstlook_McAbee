@@ -18,9 +18,9 @@ const Home = () => {
         <div className="flex-1 w-0 p-4">
           <div className="flex items-start">
             <div className="ml-3 flex-1">
-              <p className="text-sm font-medium text-gray-900">
+              <p className="text-[0.8rem] sm:text-sm font-medium text-gray-900">
                 We are providing you this web experience
-                using cookies. Can we proceed ?
+                using cookies. <br className='sm:hidden block'/>Can we proceed ?
               </p>
             </div>
           </div>

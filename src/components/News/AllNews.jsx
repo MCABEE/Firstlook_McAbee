@@ -50,7 +50,7 @@ const AllNews = () => {
                                     <img
                                         src={news?.coverImage?.url}
                                         alt="Blog Cover"
-                                        className="object-fill w-full rounded-lg rounded-b-none md:h-56"
+                                        className="object-cover w-full rounded-lg rounded-b-none md:h-56"
                                     />
                                 </div>
 

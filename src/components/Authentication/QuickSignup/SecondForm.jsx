@@ -15,7 +15,6 @@ const SecondForm = () => {
   const [isOpen, setIsOpen] = useState("");
   const [country, setCountry] = useState(userData?.native?.country || "")
   const [state, setState] = useState(userData?.native?.state || "")
-  const [stateID, setStateID] = useState(null)
   const [district, setDistrict] = useState(userData?.native?.district || "")
   const [motherToungue, setMotherToungue] = useState(userData?.native?.motherTongue || "")
   const [jobCategory, setJobCategory] = useState(userData?.occupation?.jobCategory || "")
@@ -87,7 +86,7 @@ const SecondForm = () => {
   }
 
   const getDistricts = async () => {
-    await getAllDistricts(stateID)
+    await getAllDistricts(state, country)
       .then((result) => {
         console.log(result);
         setNDistricts(result.data.districts)
@@ -98,7 +97,7 @@ const SecondForm = () => {
   }
 
   const getMotherToungue = async () => {
-    await getAllMotherToungues(stateID)
+    await getAllMotherToungues(state, country)
       .then((result) => {
         console.log(result);
         setNMotherToungue(result.data.motherToungue)
@@ -313,7 +312,6 @@ const SecondForm = () => {
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
                     onClick={() => {
                       setState(state?.name)
-                      setStateID(state?._id)
                       setIsOpen("")
                     }}
                   >
