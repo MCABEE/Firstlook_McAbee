@@ -26,7 +26,9 @@ export default {
       moveToCloud: 'moveToCloud 4s infinite',
       moveToCloud_sm: 'moveToCloud_sm 4s infinite',
       moveToCloud_heart: 'moveToCloud_heart 4s infinite',
-      spin: 'spin 1s linear infinite'
+      spin: 'spin 1s linear infinite',
+      enter: 'enterToast 1s ease-in-out forwards',
+      leave: 'leaveToast 1s ease-in-out forwards'
     },
     keyframes: {
       wiggle: {
@@ -55,6 +57,14 @@ export default {
       spin: {
         from: { transform: 'rotate(0deg)' },
         to: { transform: 'rotate(360deg)' }
+      },
+      enterToast: {
+        '0%': { transform: 'translateY(20px)', opacity: '0' },
+        '100%': { transform: 'translateY(0)', opacity: '1' }
+      },
+      leaveToast: {
+        '0%': { transform: 'translateY(0)', opacity: '1' },
+        '100%': { transform: 'translateY(20px)', opacity: '0' }
       }
     }
   }
