@@ -1,4 +1,4 @@
-import logo from '../../assets/firstlookLogo.png'
+import logo from '../../assets/FirstlookIcon.png'
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import firstLook from '../../assets/firstLook.png'
@@ -57,7 +57,7 @@ const LandingPage = () => {
                     <p className="font-oxygen font-bold flex justify-center sm:mt-16 text-[1rem]">
                         Welcome
                     </p>
-                    <img src={logo} alt="" className="mt-10 mx-auto" />
+                    <img src={logo} alt="" className="mt-10 h-28 mx-auto" />
                     <div className="font-oxygen font-medium mt-10 text-justify w-3/4 mx-auto">
                         <p>
                             FIRSTLOOK
