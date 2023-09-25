@@ -18,7 +18,7 @@ export const tokenHeader = () => {
     };
 };
 
-export const getUserDetails = () => axios.get('/user/v1/getLoggedUserData', tokenHeader())
+export const getUserDetails = () => axios.get('/user/v1/profile', tokenHeader())
 
 export const registerUser = (encryptedPhoneNumber) => axios.post('/auth/v1/register/mobile', { encryptedPhoneNumber })
 
@@ -42,37 +42,37 @@ export const registerFamilyAddress = (familyName, homeTown, pincode, contactNumb
 
 export const updateSignupStatus = () => axios.patch('/user/v1/register/updateSignupStatus', {}, tokenHeader())
 
-export const getAllCountries = () => axios.get('/data/general/getAllCountries')
+export const getAllCountries = () => axios.get('/data/general/countries')
 
 export const getAllStates = (country) => axios.get(`/data/general/state?country=${country}`)
 
 export const getAllDistricts = (state, country) => axios.get(`/data/general/districts?state=${state}&country=${country}`)
 
-export const getAllMotherToungues = (state, country) => axios.get(`/data/general/motherToungue?state=${state}&country=${country}`)
+export const getAllMotherToungues = (state, country) => axios.get(`/data/general/languages?state=${state}&country=${country}`)
 
-export const getAllReligion = () => axios.get('/data/general/getAllReligion')
+export const getAllReligion = () => axios.get('/data/general/religions')
 
 export const getAllCaste = (religion) => axios.get(`/data/general/caste?religion=${religion}`)
 
-export const getAllAcademicStream = () => axios.get('/data/general/getAllAcademicStream')
+export const getAllAcademicStream = () => axios.get('/data/general/academicStreams')
 
 export const getAllCourse = (stream) => axios.get(`/data/general/course?stream=${stream}`)
 
-export const getAllHomeTown = () => axios.get('/data/general/getAllHomeTown')
+export const getAllHomeTown = (district) => axios.get(`/data/general/homeTown?district=${district}`)
 
 export const getAllCities = (state, country) => axios.get(`/data/general/city?state=${state}&country=${country}`)
 
-export const getAllUniversities = (country) => axios.get(`/data/general/getAllUniversities?country=${country}`)
+export const getAllUniversities = (country) => axios.get(`/data/general/universities?country=${country}`)
 
-export const getAllInstitutes = (country) => axios.get(`/data/general/getAllInstitutes?country=${country}`)
+export const getAllInstitutes = (country) => axios.get(`/data/general/institutes?country=${country}`)
 
-export const getAllColleges = (country) => axios.get(`/data/general/getAllColleges?country=${country}`)
+export const getAllColleges = (country) => axios.get(`/data/general/colleges?country=${country}`)
 
-export const getAllDesignations = (category) => axios.get(`/data/general/getAllDesignations?category=${category}`)
+export const getAllDesignations = (category) => axios.get(`/data/general/designations?category=${category}`)
 
-export const getAllJobStreams = (category) => axios.get(`/data/general/getAllJobStreams?category=${category}`)
+export const getAllJobStreams = (category) => axios.get(`/data/general/jobStreams?category=${category}`)
 
-export const getEmployerDetails = (category) => axios.get(`/data/general/getEmployerDetails?category=${category}`)
+export const getEmployerDetails = (category) => axios.get(`/data/general/employerDetails?category=${category}`)
 
 export const quickSignupAboutYou = (firstName, lastName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus) => axios.patch(`/user/v1/register/${getUserId()}/aboutYouQuick`, { firstName, lastName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus }, tokenHeader())
 

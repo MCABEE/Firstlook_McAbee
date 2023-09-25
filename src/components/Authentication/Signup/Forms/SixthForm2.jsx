@@ -38,7 +38,7 @@ const SixthForm2 = () => {
   const homeTownData = tempHomeTown.filter(searchData)
 
   const getHomeTown = async () => {
-    await getAllHomeTown()
+    await getAllHomeTown(district)
       .then((result) => {
         setNHomeTown(result.data?.homeTown)
       })
