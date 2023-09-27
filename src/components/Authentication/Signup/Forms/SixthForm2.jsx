@@ -15,7 +15,6 @@ const SixthForm2 = () => {
   const [familyName, setFamilyName] = useState(userData?.familyAddress?.houseName || "")
   const [homeTown, setHomeTown] = useState(userData?.familyAddress?.homeTown || "")
   const [pincode, setPincode] = useState(userData?.familyAddress?.pincode || "")
-  const [contactNumber, setContactNumber] = useState(userData?.familyAddress?.homePhone || "")
   const [homeContactNumber, setHomeContactNumber] = useState(userData?.familyAddress?.secondPhone || "")
   const [search, setSearch] = useState("");
 
@@ -62,24 +61,16 @@ const SixthForm2 = () => {
       toast.error("select Pincode")
     }
 
-    else if (contactNumber === '' && homeContactNumber === '') {
-      toast.error("Enter Contact Number")
-    }
-
-    else if (contactNumber && contactNumber.length < 7) {
-      toast.error("Enter Valid Contact Number")
+    else if (homeContactNumber === '') {
+      toast.error("Enter Home Contact Number")
     }
 
     else if (homeContactNumber && homeContactNumber.length < 7) {
       toast.error("Enter Valid Home Contact Number")
     }
 
-    else if (homeContactNumber == contactNumber) {
-      toast.error("Enter a different Home Contact Number")
-    }
-
     else {
-      await registerFamilyAddress(familyName, homeTown, pincode, contactNumber, homeContactNumber, district)
+      await registerFamilyAddress(familyName, homeTown, pincode, homeContactNumber, district)
         .then(() => {
           setPage(page === 10 ? 0 : page + 1);
         })
@@ -161,16 +152,6 @@ const SixthForm2 = () => {
             placeholder="Enter Your Pincode"
             value={pincode}
             onChange={(e) => setPincode(e.target.value)}
-          ></input>
-        </div>
-
-        <div className="mb-6">
-          <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-full py-3 px-4 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
-            type="text"
-            placeholder="Your Contact Number"
-            value={contactNumber}
-            onChange={(e) => setContactNumber(e.target.value)}
           ></input>
         </div>
 

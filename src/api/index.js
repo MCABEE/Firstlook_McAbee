@@ -22,6 +22,8 @@ export const getUserDetails = () => axios.get('/user/v1/profile', tokenHeader())
 
 export const registerUser = (encryptedPhoneNumber) => axios.post('/auth/v1/register/mobile', { encryptedPhoneNumber })
 
+export const checkDisplayName = (displayName) => axios.get(`/user/v1/displayNameStatus?name=${displayName}`, tokenHeader())
+
 export const registerAboutYou = (firstName, lastName, displayName, dob, gender) => axios.patch(`/user/v1/register/${getUserId()}/aboutYou`, { firstName, lastName, displayName, dob, gender }, tokenHeader())
 
 export const registerNative = (country, state, district, motherToungue) => axios.patch(`/user/v1/register/${getUserId()}/native`, { country, state, district, motherToungue }, tokenHeader())
@@ -38,7 +40,7 @@ export const registerOccupationCategory = (jobCategory, jobType, designation, st
 
 export const registerFamily = (fatherName, motherName, fatherEducation, motherEducation, fatherOccupation, motherOccupation, siblings) => axios.patch(`/user/v1/register/${getUserId()}/family`, { fatherName, motherName, fatherEducation, motherEducation, fatherOccupation, motherOccupation, siblings }, tokenHeader())
 
-export const registerFamilyAddress = (familyName, homeTown, pincode, contactNumber, homeContactNumber, district) => axios.patch(`/user/v1/register/${getUserId()}/familyAddress`, { familyName, homeTown, pincode, contactNumber, homeContactNumber, district }, tokenHeader())
+export const registerFamilyAddress = (familyName, homeTown, pincode, homeContactNumber, district) => axios.patch(`/user/v1/register/${getUserId()}/familyAddress`, { familyName, homeTown, pincode, homeContactNumber, district }, tokenHeader())
 
 export const updateSignupStatus = () => axios.patch('/user/v1/register/updateSignupStatus', {}, tokenHeader())
 

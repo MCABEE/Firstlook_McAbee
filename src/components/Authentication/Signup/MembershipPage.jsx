@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const MembershipPage = () => {
     const termsAndConditionsRef = useRef(null);
+    // eslint-disable-next-line no-unused-vars
     const [showAcceptButton, setShowAcceptButton] = useState(false);
 
     useEffect(() => {
@@ -180,13 +181,18 @@ const MembershipPage = () => {
                             FIRSTLOOK
                         </p>
                     </div>
-                    {showAcceptButton && (
+                    {/* {showAcceptButton && (
                         <Link to='/register/verify'>
                             <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-8 text-white w-3/4'>
                                 I Accept, Let’s Go
                             </button>
                         </Link>
-                    )}
+                    )} */}
+                    <Link to='/register/verify'>
+                        <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-8 text-white w-3/4'>
+                            I Accept, Let’s Go
+                        </button>
+                    </Link>
                 </div>
             </div>
         </>

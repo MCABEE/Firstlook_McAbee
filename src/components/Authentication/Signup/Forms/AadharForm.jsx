@@ -267,7 +267,7 @@ const AadharForm = () => {
                                 </div>
                                 {imageSide === "photoBack" ?
                                     <>
-                                        <div className='mb-20 sm:ml-12 ml-4 -mt-7'>
+                                        <div className='mb-20 sm:ml-12 ml-4 mt-9'>
                                             <div className='absolute w-96 py-3 sm:rounded-xl bg-[#FE1940] h-16 '>
                                                 <p className='font-oxygen text-white text-[14px] text-center font-semibold'>
                                                     Add Photo (Back Side)

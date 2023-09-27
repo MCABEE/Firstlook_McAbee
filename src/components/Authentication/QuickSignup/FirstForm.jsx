@@ -8,7 +8,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import boyImage from '../../../assets/man.png';
 import girlImage from '../../../assets/woman.png';
 import { useContext } from "react";
-import { getAllCaste, getAllReligion, quickSignupAboutYou } from "../../../api";
+import { checkDisplayName, getAllCaste, getAllReligion, quickSignupAboutYou } from "../../../api";
 import { registrationContext } from "../../../context/formContext";
 import { marriedStatus } from "../../../lib/constants";
 import { useSelector } from "react-redux";
@@ -28,11 +28,23 @@ const FirstForm = () => {
   const [maritalStatus, setMaritalStatus] = useState(userData?.personalInfo?.maritalStatus || "")
   const [religion, setReligion] = useState(userData?.personalInfo?.religion || "")
   const [caste, setCaste] = useState(userData?.personalInfo?.caste || "")
+  const [displayNameStatus, setDisplayNameStatus] = useState(null)
 
   const [nReligion, setNReligion] = useState([])
   const [nCaste, setNCaste] = useState([])
 
   const { page, setPage } = useContext(registrationContext)
+
+  const handleDisplayName = async () => {
+
+    if (displayName.length > 5) {
+      await checkDisplayName(displayName)
+        .then((result) => {
+          setDisplayNameStatus(result?.data?.status)
+        })
+    }
+
+  }
 
   const handleGenderClick = (gender) => {
     setSelectedGender(gender);
@@ -140,6 +152,11 @@ const FirstForm = () => {
     window.scrollTo(0, 0)
   }, [])
 
+  useEffect(() => {
+    handleDisplayName()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [displayName])
+
   return (
     <>
       <form>
@@ -198,6 +215,12 @@ const FirstForm = () => {
             required
             onChange={(e) => setDisplayName(e.target.value)}
           ></input>
+          {
+            displayNameStatus === 200 || displayNameStatus === null ? ""
+             : <p className="text-xs text-red-500 ml-3.5 sm:ml-12 py-1.5">
+                This display name has already been taken
+              </p>
+          }
         </div>
 
         <div className="relative inline-block mb-6">
