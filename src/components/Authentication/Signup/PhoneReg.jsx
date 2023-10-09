@@ -193,14 +193,16 @@ const PhoneReg = () => {
                         localStorage.setItem("$target*", encryptedPhoneNumber)
 
                         const signupStatus = result?.data?.data?.user?.signupStatus
+                        const registartionStatus = result?.data?.data?.user?.registartionStatus[0]
 
                         localStorage.setItem("signupStatus", signupStatus)
 
                         if (signupStatus === 'Completed') {
                             navigate('/home')
-                        } else {
-                            console.log("first")
+                        } else if (registartionStatus != 'Password') {
                             navigate('/register/setPassword')
+                        } else {
+                            navigate('/register/signupOption')
                         }
 
                     })
