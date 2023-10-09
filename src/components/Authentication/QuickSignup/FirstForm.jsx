@@ -21,8 +21,7 @@ const FirstForm = () => {
   const [selectedGender, setSelectedGender] = useState(userData?.gender || null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
-  const [firstName, setFirstName] = useState(userData?.firstName || "")
-  const [lastName, setLastName] = useState(userData?.lastName || "")
+  const [fullName, setFullName] = useState(userData?.fullName || "")
   const [displayName, setDisplayName] = useState(userData?.displayName || "")
   const [isOpen, setIsOpen] = useState("");
   const [maritalStatus, setMaritalStatus] = useState(userData?.personalInfo?.maritalStatus || "")
@@ -74,12 +73,8 @@ const FirstForm = () => {
       toast.error("Select your Gender")
     }
 
-    else if (firstName === " " || firstName === "") {
+    else if (fullName === " " || fullName === "") {
       toast.error("Enter your First Name")
-    }
-
-    else if (lastName === " " || firstName === "") {
-      toast.error("Enter your Last Name")
     }
 
     else if (!isValidDisplayName) {
@@ -108,7 +103,7 @@ const FirstForm = () => {
     }
 
     else {
-      await quickSignupAboutYou(firstName, lastName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus).then((result) => {
+      await quickSignupAboutYou(fullName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus).then((result) => {
         console.log(result);
         setPage(page === 10 ? 0 : page + 1);
       })
@@ -184,25 +179,12 @@ const FirstForm = () => {
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
-            placeholder="First Name"
-            value={firstName}
+            placeholder="Full Name"
+            value={fullName}
             required
             pattern="[A-Za-z]+"
-            title="First Name is not valid"
-            onChange={(e) => setFirstName(e.target.value)}
-          ></input>
-        </div>
-
-        <div className="mb-6">
-          <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
-            type="text"
-            placeholder="Last Name"
-            value={lastName}
-            required
-            pattern="[A-Za-z]+"
-            title="Last Name is not valid"
-            onChange={(e) => setLastName(e.target.value)}
+            title="Full Name is not valid"
+            onChange={(e) => setFullName(e.target.value)}
           ></input>
         </div>
 

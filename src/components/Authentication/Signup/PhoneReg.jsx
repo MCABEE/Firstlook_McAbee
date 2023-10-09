@@ -190,6 +190,7 @@ const PhoneReg = () => {
 
                         localStorage.setItem("userId", result?.data?.data?.user?._id)
                         localStorage.setItem("token", result?.data?.token)
+                        localStorage.setItem("$target*", encryptedPhoneNumber)
 
                         const signupStatus = result?.data?.data?.user?.signupStatus
 
@@ -198,7 +199,8 @@ const PhoneReg = () => {
                         if (signupStatus === 'Completed') {
                             navigate('/home')
                         } else {
-                            navigate('/register/signupOption')
+                            console.log("first")
+                            navigate('/register/setPassword')
                         }
 
                     })

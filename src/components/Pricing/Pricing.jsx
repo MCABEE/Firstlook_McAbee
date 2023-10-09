@@ -48,7 +48,7 @@ const Pricing = () => {
                             whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.2 } }}
                             viewport={{ once: true, amount: 0.8 }}
                         >
-                            <div className="w-full h-12 bg-[#8B8F86] rounded-t-xl flex">
+                            <div className="w-full h-12 bg-[#352F44] rounded-t-xl flex">
                                 <p className="text-[22px] h-full flex justify-start ml-8 items-center font-oxygen font-semibold text-white">
                                     Basic
                                 </p>
@@ -102,7 +102,7 @@ const Pricing = () => {
                                     </li>
                                 </ul>
                                 <div onClick={handlePurchase}
-                                    className="inline-flex mt-4 items-center bg-[#FC3657] justify-center w-full h-10 px-6 font-normal tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
+                                    className="inline-flex mt-4 items-center bg-[#352F44] justify-center w-full h-10 px-6 font-normal tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Purchase
                                 </div>
@@ -119,7 +119,7 @@ const Pricing = () => {
                             whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.3 } }}
                             viewport={{ once: true, amount: 0.8 }}
                         >
-                            <div className="w-full h-12 bg-[#8B8F86] rounded-t-xl flex">
+                            <div className="w-full h-12 bg-[#5C5470] rounded-t-xl flex">
                                 <p className="text-[22px] h-full flex justify-start ml-8 items-center font-oxygen font-semibold text-white">
                                     Pro
                                 </p>
@@ -173,7 +173,7 @@ const Pricing = () => {
                                     </li>
                                 </ul>
                                 <div onClick={handlePurchase}
-                                    className="inline-flex mt-4 items-center bg-[#FC3657] justify-center w-full h-10 px-6 font-normal tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
+                                    className="inline-flex mt-4 items-center bg-[#5C5470] justify-center w-full h-10 px-6 font-normal tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Purchase
                                 </div>
@@ -190,7 +190,7 @@ const Pricing = () => {
                             whileInView={{ y: 1, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.4 } }}
                             viewport={{ once: true, amount: 0.8 }}
                         >
-                            <div className="w-full h-12 bg-[#8B8F86] rounded-t-xl flex">
+                            <div className="w-full h-12 bg-[#B9B4C7] rounded-t-xl flex">
                                 <p className="text-[22px] h-full flex justify-start ml-8 items-center font-oxygen font-semibold text-white">
                                     Top Up
                                 </p>
@@ -244,7 +244,7 @@ const Pricing = () => {
                                     </li>
                                 </ul>
                                 <div onClick={handlePurchase}
-                                    className="inline-flex mt-4 items-center bg-[#8B8F86] justify-center w-full h-10 px-6 font-normal tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
+                                    className="inline-flex mt-4 items-center bg-[#B9B4C7] justify-center w-full h-10 px-6 font-normal tracking-wide text-white rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none transform transition hover:scale-95 duration-300 ease-in-out"
                                 >
                                     Add on
                                 </div>

@@ -29,7 +29,7 @@ const Media = () => {
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.6 } }}
                                 viewport={{ once: true, amount: 0.8 }} className="pt-10 sm:pt-20 space-y-2 flex justify-center sm:justify-normal">
-                                <Link className="inline-flex items-center py-3 px-14 sm:py-4 space-x-2 border border-[#DDDCDC] text-[16px] sm:px-14 rounded-lg">
+                                <Link to='/pageunderconstruction' className="inline-flex items-center py-3 px-14 sm:py-4 space-x-2 border border-[#DDDCDC] text-[16px] sm:px-14 rounded-lg">
                                     Get Media Kit
                                 </Link>
                             </motion.div>

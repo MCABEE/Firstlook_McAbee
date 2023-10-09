@@ -25,6 +25,7 @@ import ProtectedRoute from './ProtectedRoute';
 import HomeRoute from './HomeRoute';
 import AllNewsPage from './components/News/AllNewsPage';
 import HelpCenterPage from './components/HelpCenter/HelpCenterPage';
+import SetPassword from './components/Authentication/Signup/SetPassword';
 
 function App() {
   const [page, setPage] = useState(0)
@@ -36,6 +37,7 @@ function App() {
         <Route path='/Signup' element={<ProtectedRoute><SignupRedirect /></ProtectedRoute>} />
         <Route path='/register' element={<ProtectedRoute><MembershipPage /></ProtectedRoute>} />
         <Route path='/register/verify' element={<ProtectedRoute><PhoneReg /></ProtectedRoute>} />
+        <Route path='/register/setPassword' element={<HomeRoute><SetPassword /></HomeRoute>} />
         <Route path='/register/signupOption' element={<HomeRoute><SignupOption /></HomeRoute>} />
         <Route path='/register/signup' element={
           <registrationContext.Provider value={{ page, setPage }}>

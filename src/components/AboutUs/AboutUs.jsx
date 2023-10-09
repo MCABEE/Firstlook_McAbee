@@ -50,9 +50,11 @@ const AboutUs = () => {
                     </p>
                 </div>
                 <div className="flex justify-center">
-                    <button className="mt-10 px-[10vw] sm:px-28 py-3 rounded-lg font-semibold bg-[#C8E9A0] text-[10px] sm:text-[14px]">
-                        DOWLOAD THE MEDIA KIT TO KNOW MORE
-                    </button>
+                    <Link to='/pageunderconstruction'>
+                        <button className="mt-10 px-[10vw] sm:px-28 py-3 rounded-lg font-semibold bg-[#C8E9A0] text-[10px] sm:text-[14px]">
+                            DOWLOAD THE MEDIA KIT TO KNOW MORE
+                        </button>
+                    </Link>
                 </div>
 
                 <p className="flex justify-center text-[28px] sm:text-[36px] font-oxygen font-bold text-center mt-10 sm:mt-16">
@@ -151,7 +153,7 @@ const AboutUs = () => {
                     </p>
                 </div>
                 <div className="flex justify-center">
-                    <Link to='https://mcabee.in/' className="mt-10 px-[20vw] sm:px-28 py-2 rounded-lg font-semibold bg-[#77867F] text-white text-[14px]">
+                    <Link to='https://www.mcabee.in/' className="mt-10 px-[20vw] sm:px-28 py-2 rounded-lg font-semibold bg-[#77867F] text-white text-[14px]">
                         www.mcabee.in
                     </Link>
                 </div>

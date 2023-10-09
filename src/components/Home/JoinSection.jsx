@@ -61,7 +61,7 @@ const JoinSection = () => {
                                     Here are frequently asked questions. Might help you as well.
                                 </p>
 
-                                <Link to='/faq'>
+                                <Link to='/helpcenter'>
                                     <p className="mt-4 text-[14px] text-black">
                                         View FAQ <span aria-hidden="true"> <KeyboardDoubleArrowRightOutlinedIcon sx={{ color: "gray" }} /></span>
                                     </p>

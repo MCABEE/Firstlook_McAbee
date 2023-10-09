@@ -21,8 +21,7 @@ const FirstForm = () => {
   const [selectedGender, setSelectedGender] = useState(userData?.gender || null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
-  const [firstName, setFirstName] = useState(userData?.firstName || "")
-  const [lastName, setLastName] = useState(userData?.lastName || "")
+  const [fullName, setFullName] = useState(userData?.fullName || "")
   const [displayName, setDisplayName] = useState(userData?.displayName || "")
   const [displayNameStatus, setDisplayNameStatus] = useState(null)
 
@@ -80,7 +79,7 @@ const FirstForm = () => {
     }
 
     else {
-      await registerAboutYou(firstName, lastName, displayName, selectedDate, selectedGender).then((result) => {
+      await registerAboutYou(fullName, displayName, selectedDate, selectedGender).then((result) => {
         console.log(result);
         setPage(page === 10 ? 0 : page + 1);
       })
@@ -133,25 +132,12 @@ const FirstForm = () => {
           <input
             className="appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
             type="text"
-            placeholder="First Name"
-            value={firstName}
+            placeholder="Full Name"
+            value={fullName}
             required
             pattern="[A-Za-z]+"
-            title="Fist Name is not valid"
-            onChange={(e) => setFirstName(e.target.value)}
-          ></input>
-        </div>
-
-        <div className="mb-6">
-          <input
-            className=" appearance-none border border-[#B8B8B8] rounded-xl w-72 ml-3.5 sm:ml-12 py-3 px-6 placeholder:text-[#4D4D4D] text-sm text-[#4D4D4D]"
-            type="text"
-            placeholder="Last Name"
-            required
-            pattern="[A-Za-z]+"
-            title="Last Name is not valid"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            title="Full Name is not valid"
+            onChange={(e) => setFullName(e.target.value)}
           ></input>
         </div>
 
