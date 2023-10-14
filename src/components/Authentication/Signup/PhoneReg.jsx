@@ -199,7 +199,7 @@ const PhoneReg = () => {
 
                         if (signupStatus === 'Completed') {
                             navigate('/home')
-                        } else if (registartionStatus != 'Password') {
+                        } else if (registartionStatus == 'Password') {
                             navigate('/register/setPassword')
                         } else {
                             navigate('/register/signupOption')

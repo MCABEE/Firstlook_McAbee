@@ -26,7 +26,7 @@ export const setNewPassword = (password, encryptedPhoneNumber) => axios.patch('/
 
 export const checkDisplayName = (displayName) => axios.get(`/user/v1/displayNameStatus?name=${displayName}`, tokenHeader())
 
-export const registerAboutYou = (firstName, lastName, displayName, dob, gender) => axios.patch(`/user/v1/register/${getUserId()}/aboutYou`, { firstName, lastName, displayName, dob, gender }, tokenHeader())
+export const registerAboutYou = (fullName, displayName, dob, gender) => axios.patch(`/user/v1/register/${getUserId()}/aboutYou`, { fullName, displayName, dob, gender }, tokenHeader())
 
 export const registerNative = (country, state, district, motherToungue) => axios.patch(`/user/v1/register/${getUserId()}/native`, { country, state, district, motherToungue }, tokenHeader())
 
@@ -78,7 +78,7 @@ export const getAllJobStreams = (category) => axios.get(`/data/general/jobStream
 
 export const getEmployerDetails = (category) => axios.get(`/data/general/employerDetails?category=${category}`)
 
-export const quickSignupAboutYou = (firstName, lastName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus) => axios.patch(`/user/v1/register/${getUserId()}/aboutYouQuick`, { firstName, lastName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus }, tokenHeader())
+export const quickSignupAboutYou = (fullName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus) => axios.patch(`/user/v1/register/${getUserId()}/aboutYouQuick`, { fullName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus }, tokenHeader())
 
 export const quickSignupNative = (country, state, district, motherToungue, jobCategory, jobType, designation, stream, companyName, department) => axios.patch(`/user/v1/register/${getUserId()}/addNativeQuick`, { country, state, district, motherToungue, jobCategory, jobType, designation, stream, companyName, department }, tokenHeader())
 

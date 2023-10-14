@@ -55,6 +55,7 @@ const FirstForm = () => {
     e.preventDefault()
 
     const isValidDisplayName = /^[a-zA-Z0-9_]{6,16}$/.test(displayName);
+    const fullNameRegex = /^(?!.*\s\s)[A-Za-z][A-Za-z\s]{1,}[A-Za-z]$/.test(fullName);
     const currentDate = new Date();
     const ageLimitFemale = 18;
     const ageLimitMale = 21;
@@ -67,6 +68,10 @@ const FirstForm = () => {
 
     else if (!isValidDisplayName) {
       toast.error("Display name must be 6 to 16 characters long and should only contain letters, numbers, and underscores.");
+    }
+
+    else if (!fullNameRegex) {
+      toast.error("Your Full Name should have at least 3 letters and no extra spaces.");
     }
 
     else if (selectedDate === null || selectedDate === 'DOB') {
@@ -135,8 +140,6 @@ const FirstForm = () => {
             placeholder="Full Name"
             value={fullName}
             required
-            pattern="[A-Za-z]+"
-            title="Full Name is not valid"
             onChange={(e) => setFullName(e.target.value)}
           ></input>
         </div>
