@@ -95,16 +95,13 @@ const PhoneReg = () => {
     }, []);
     // eslint-disable-next-line no-unused-vars
     const { loading, errorMessage, countries } = countryState;
-    console.log("loading", loading);
-    console.log("countries", countries);
-    console.log("errorMessage", errorMessage);
 
     countries?.map((country) => {
         tempCountry.push(country)
     })
 
     const countryData = tempCountry?.filter(searchData)
-    console.log(countryData)
+
     //   find selected country data
     //search selected country
     const searchSelectedCountry = countries.find((obj) => {
@@ -142,12 +139,7 @@ const PhoneReg = () => {
     const onSignup = (e) => {
         e.preventDefault()
 
-        if (phone) {
-            const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, import.meta.env.VITE_CRYPTO_SECRET_KEY).toString();
-            console.log(encryptedPhoneNumber)
-        }
-
-        else if (selectedCountry === undefined) {
+        if (selectedCountry === undefined) {
             toast.error("Select your Country code")
         }
 
@@ -359,7 +351,7 @@ const PhoneReg = () => {
                                                         onClick={() => handleOptionClick(item?.name?.common)}
                                                     >
                                                         <img src={item?.flags?.png} className="w-8 h-5 mr-2" alt="" />
-                                                        <p className="mr-2">{item?.idd?.root}</p>
+                                                        <p className="mr-2">{item?.idd?.root}{item?.idd?.suffixes}</p>
                                                         <p className="truncate">{item?.name?.common}</p>
                                                     </li>
                                                 ))}
