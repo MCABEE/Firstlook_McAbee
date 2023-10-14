@@ -31,7 +31,7 @@ const PhoneReg = () => {
     const searchData = (tempProduct) => {
         return search === ""
             ? tempProduct
-            : tempProduct?.name.toLowerCase().includes(search)
+            : tempProduct?.name?.common?.toLowerCase().includes(search)
     };
 
     const navigate = useNavigate()
@@ -74,11 +74,11 @@ const PhoneReg = () => {
                 });
 
                 //  fetch data
-                const dataUrl = `https://restcountries.com/v2/all`;
+                const dataUrl = `https://restcountries.com/v3.1/all`;
                 const response = await axios.get(dataUrl);
                 setCountryState({
                     ...countryState,
-                    countries: response.data,
+                    countries: response?.data,
                     loading: false,
                 });
             } catch (error) {
@@ -95,18 +95,20 @@ const PhoneReg = () => {
     }, []);
     // eslint-disable-next-line no-unused-vars
     const { loading, errorMessage, countries } = countryState;
-
+    console.log("loading", loading);
+    console.log("countries", countries);
+    console.log("errorMessage", errorMessage);
 
     countries?.map((country) => {
         tempCountry.push(country)
     })
 
     const countryData = tempCountry?.filter(searchData)
-
+    console.log(countryData)
     //   find selected country data
     //search selected country
     const searchSelectedCountry = countries.find((obj) => {
-        if (obj.name === selectedCountry) {
+        if (obj?.name?.common === selectedCountry) {
             return true;
         }
         return false;
@@ -140,7 +142,12 @@ const PhoneReg = () => {
     const onSignup = (e) => {
         e.preventDefault()
 
-        if (selectedCountry === undefined) {
+        if (phone) {
+            const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, import.meta.env.VITE_CRYPTO_SECRET_KEY).toString();
+            console.log(encryptedPhoneNumber)
+        }
+
+        else if (selectedCountry === undefined) {
             toast.error("Select your Country code")
         }
 
@@ -153,7 +160,7 @@ const PhoneReg = () => {
             setSendingOtp(true);
             onCaptchVerify();
             const appVerifier = window.recaptchaVerifier;
-            const number = `+${searchSelectedCountry?.callingCodes}` + phone
+            const number = `+${searchSelectedCountry?.idd?.root + searchSelectedCountry?.idd?.suffixes}` + phone
             signInWithPhoneNumber(auth, number, appVerifier)
                 .then((confirmationResult) => {
                     window.confirmationResult = confirmationResult;
@@ -193,13 +200,13 @@ const PhoneReg = () => {
                         localStorage.setItem("$target*", encryptedPhoneNumber)
 
                         const signupStatus = result?.data?.data?.user?.signupStatus
-                        const registartionStatus = result?.data?.data?.user?.registartionStatus[0]
+                        const registrationStatus = result?.data?.data?.user?.registrationStatus[0]
 
                         localStorage.setItem("signupStatus", signupStatus)
 
                         if (signupStatus === 'Completed') {
                             navigate('/home')
-                        } else if (registartionStatus == 'Password') {
+                        } else if (registrationStatus == 'Password') {
                             navigate('/register/setPassword')
                         } else {
                             navigate('/register/signupOption')
@@ -323,7 +330,7 @@ const PhoneReg = () => {
                                         } alt="Image" className="absolute w-8 h-5 mt-3.5 ml-[15.3rem] pointer-events-none" />}
                                     <p className="absolute ml-48 mt-3 pointer-events-none">
                                         {searchSelectedCountry &&
-                                            "+" + searchSelectedCountry.callingCodes}
+                                            "" + searchSelectedCountry?.idd?.root + searchSelectedCountry?.idd?.suffixes}
 
                                     </p>
                                     <div className="absolute mt-2.5 ml-72 text-gray-500 pointer-events-none">
@@ -347,13 +354,13 @@ const PhoneReg = () => {
                                             <ul className="absolute z-10 w-full h-64 overflow-y-scroll bg-white border border-[#B8B8B8] rounded-b-xl shadow-lg">
                                                 {countryData.map((item) => (
                                                     <li
-                                                        key={item.name.common}
+                                                        key={item?.name?.common}
                                                         className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex"
-                                                        onClick={() => handleOptionClick(item.name)}
+                                                        onClick={() => handleOptionClick(item?.name?.common)}
                                                     >
-                                                        <img src={item.flags.png} className="w-8 h-5 mr-2" alt="" />
-                                                        <p className="mr-2">{item.callingCodes}</p>
-                                                        <p className="truncate">{item.name}</p>
+                                                        <img src={item?.flags?.png} className="w-8 h-5 mr-2" alt="" />
+                                                        <p className="mr-2">{item?.idd?.root}</p>
+                                                        <p className="truncate">{item?.name?.common}</p>
                                                     </li>
                                                 ))}
                                             </ul>

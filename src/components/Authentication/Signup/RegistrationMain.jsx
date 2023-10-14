@@ -31,7 +31,7 @@ const RegistrationMain = () => {
 
     const getUserDetail = async () => {
         await getUserDetails().then((result) => {
-            setStatus(result?.data?.userData?.registartionStatus[0])
+            setStatus(result?.data?.userData?.registrationStatus[0])
             dispatch(setUserData(result?.data?.userData))
         })
     }
