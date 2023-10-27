@@ -21,21 +21,17 @@ const EighthForm = () => {
   const sendOtp = async (e) => {
     e.preventDefault()
 
-    console.log("first")
-
     if (aadhar === '') {
       toast.error("Enter Your Aadhar Number")
     }
 
     else {
 
-      console.log("second")
-
       const headers = {
         'X-Auth-Type': 'API-Key',
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        'X-API-Key': 'xUUtz7gQMpPZrdXVlcgPQVgmM0amF8kR'
+        'X-API-Key': 'M1YdLqCERyXpfY1eGHOCu9qc7rH0Sgfu'
       };
       const data = { aadhaar_number: aadhar, consent: 'Y' };
 
@@ -45,10 +41,8 @@ const EighthForm = () => {
           setShowOTP(true)
           setTransactionId(response?.data?.data?.transaction_id)
           setShareCode(response?.data?.data?.code)
-          console.log(response?.data);
         })
         .catch((err) => {
-          console.log(err)
           toast.error(err?.response?.data?.message)
         })
     }
