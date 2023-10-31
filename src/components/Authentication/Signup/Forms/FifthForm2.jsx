@@ -101,15 +101,15 @@ const FifthForm2 = () => {
       toast.error("Company Name requires a minimum of 6 characters")
     }
 
-    else if (jobCategory === 'Government' && designation === '') {
+    else if (jobCategory === 'Government/Public' && designation === '') {
       toast.error("Select Designation")
     }
 
-    else if (jobCategory === 'Government' && jobType === '') {
+    else if (jobCategory === 'Government/Public' && jobType === '') {
       toast.error("Select Job Type")
     }
 
-    else if (jobCategory === 'Government' && employerName === '') {
+    else if (jobCategory === 'Government/Public' && employerName === '') {
       toast.error("Select Designation")
     }
 
@@ -255,7 +255,7 @@ const FifthForm2 = () => {
               ></input>
             </div>
           </>
-        ) : jobCategory === "Government / Public Sector" ? (
+        ) : jobCategory === "Government/Public" ? (
           <>
             <div className="mb-6 mt-5 flex">
               <input type="text"
@@ -598,7 +598,7 @@ const FifthForm2 = () => {
       </form >
       <div className={
         jobCategory === 'Business' ? "flex justify-center mt-[20.4rem] mb-3 sm:mb-10" :
-          jobCategory === "Government" ? "flex justify-center mt-[16rem] mb-3 sm:mb-10"
+          jobCategory === "Government/Public" ? "flex justify-center mt-[16rem] mb-3 sm:mb-10"
             : jobCategory === "Private" ? "flex justify-center mt-[16rem] mb-3 sm:mb-10"
               : jobCategory === "Self Employed" ? "flex justify-center mt-[20.4rem] mb-3 sm:mb-10"
                 : "flex justify-center mt-[29.4rem] mb-3 sm:mb-10"

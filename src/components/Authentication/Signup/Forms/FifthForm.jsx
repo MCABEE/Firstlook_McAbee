@@ -104,7 +104,7 @@ const FifthForm = () => {
   };
 
   const handleNext = () => {
-      setPage(page === 10 ? 0 : page + 2);
+    setPage(page === 10 ? 0 : page + 2);
   };
 
   const handleData = async (e) => {
@@ -182,10 +182,10 @@ const FifthForm = () => {
         <Toaster />
 
         <div className='flex'>
-          <label className=" relative w-max cursor-pointer select-none mb-7">
-            <span className="text-sm font-oxygen">Are you working now ? </span>
+          <label className=" relative w-max cursor-pointer select-none mb-3 -mt-3">
+            <span className="text-sm font-oxygen">Do you have a Job or Business or are you Self-Employed? </span>
           </label>
-          <input type="checkbox" className="ml-[5.8rem] appearance-none transition-colors cursor-pointer w-14 h-7 rounded-xl bg-red-500" checked={selectedOption}
+          <input type="checkbox" className="ml-[0.8rem] appearance-none transition-colors cursor-pointer w-24 h-7 rounded-xl bg-red-500" checked={selectedOption}
             onChange={handleToggle} />
           <span className="pointer-events-none absolute font-medium text-xs uppercase ml-[16.2rem] mt-1.5 text-white"> {selectedOption ? '' : 'No'} </span>
           <span className="pointer-events-none absolute font-medium text-xs uppercase ml-[14.8rem] mt-1.5 text-white"> {selectedOption ? 'Yes' : ''} </span>
@@ -406,26 +406,45 @@ const FifthForm = () => {
           </>
           : null}
 
-        <div className="flex mt-10">
-          
+        {option === 'No' ?
+          <div className="flex flex-col">
             <button
               onClick={handleNext}
-              className={option === 'No' ? "hidden" : "rounded-xl text-[#A0A0A0] px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"}
+              className="bg-[#F92739] rounded-xl text-white py-2 px-10 mt-10"
             >
-              Skip
+              I&apos;m not working
             </button>
 
-          <button
-            onClick={handleData}
-            className={country === 'India' ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-auto mb-[4.4rem]"}
+            <button
+              onClick={handleToggle}
+              className="rounded-xl px-4 py-2.5 bg-white text-sm border mt-6 border-[#D8D8D8]"
+            >
+              Add Occupation Details
+            </button>
+          </div>
+          : null}
+
+        <div className="flex mt-10">
+
+          {/* <button
+            onClick={handleNext}
+            className={option === 'No' ? "hidden" : "rounded-xl text-[#A0A0A0] px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"}
           >
-            Continue
-          </button>
+            Skip
+          </button> */}
+
+          {option === 'No' ? null :
+            <button
+              onClick={handleData}
+              className={country === 'India' ? "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-20" : "bg-[#F92739] rounded-xl text-white py-2 px-10 ml-auto mb-[4.4rem]"}
+            >
+              Continue
+            </button>}
         </div>
 
         <div className="flex items-center justify-between"></div>
       </form >
-      <div className={option === 'Yes' ? "flex justify-center mt-[60px] mb-3 sm:mb-10" : "flex justify-center mt-[24.8rem] mb-3 sm:mb-10"}>
+      <div className={option === 'Yes' ? "flex justify-center mt-[64px] mb-3 sm:mb-10" : "flex justify-center mt-[22.8rem] mb-3 sm:mb-10"}>
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

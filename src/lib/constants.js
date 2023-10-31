@@ -16,7 +16,7 @@ export const annualIncomes = [
 
 export const jobCategories = [
     { id: 1, name: "Business" },
-    { id: 2, name: "Government / Public Sector" },
+    { id: 2, name: "Government/Public" },
     { id: 3, name: "Private" },
     { id: 4, name: "Self Employed" },
 ];
