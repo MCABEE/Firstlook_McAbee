@@ -66,7 +66,6 @@ const SecondForm = () => {
   const getCountry = async () => {
     await getAllCountries()
       .then((result) => {
-        console.log(result);
         setNCountries(result.data.countries)
       })
       .catch((err) => {
@@ -77,7 +76,6 @@ const SecondForm = () => {
   const getStates = async () => {
     await getAllStates(country)
       .then((result) => {
-        console.log(result);
         setNStates(result.data.states)
       })
       .catch((err) => {
@@ -88,7 +86,6 @@ const SecondForm = () => {
   const getDistricts = async () => {
     await getAllDistricts(state, country)
       .then((result) => {
-        console.log(result);
         setNDistricts(result.data.districts)
       })
       .catch((err) => {
@@ -99,7 +96,6 @@ const SecondForm = () => {
   const getMotherToungue = async () => {
     await getAllMotherToungues(state, country)
       .then((result) => {
-        console.log(result);
         setNMotherToungue(result.data.motherToungue)
       })
       .catch((err) => {
@@ -110,7 +106,6 @@ const SecondForm = () => {
   const getEmployers = async () => {
     await getEmployerDetails(jobCategory)
       .then((result) => {
-        console.log(result);
         setNEmployerName(result.data?.occupationStream)
       })
       .catch((err) => {
@@ -158,15 +153,15 @@ const SecondForm = () => {
       toast.error("Company Name requires a minimum of 6 characters")
     }
 
-    else if (option === 'Yes' && jobCategory === 'Government' && designation === '') {
+    else if (option === 'Yes' && jobCategory === 'Government/Public' && designation === '') {
       toast.error("Select Designation")
     }
 
-    else if (option === 'Yes' && jobCategory === 'Government' && jobType === '') {
+    else if (option === 'Yes' && jobCategory === 'Government/Public' && jobType === '') {
       toast.error("Select Job Type")
     }
 
-    else if (option === 'Yes' && jobCategory === 'Government' && employerName === '') {
+    else if (option === 'Yes' && jobCategory === 'Government/Public' && employerName === '') {
       toast.error("Select Designation")
     }
 
@@ -204,7 +199,6 @@ const SecondForm = () => {
   const getDesignations = async () => {
     await getAllDesignations(jobCategory)
       .then((result) => {
-        console.log(result);
         setNDesignation(result.data.designation)
       })
       .catch((err) => {
@@ -215,7 +209,6 @@ const SecondForm = () => {
   const getJobStreams = async () => {
     await getAllJobStreams(jobCategory)
       .then((result) => {
-        console.log(result);
         setNStream(result.data.occupationStream)
       })
       .catch((err) => {
@@ -506,7 +499,7 @@ const SecondForm = () => {
                   ></input>
                 </div>
               </>
-            ) : jobCategory === "Government" ? (
+            ) : jobCategory === "Government/Public" ? (
               <>
                 <div className="mb-6 mt-5 flex">
                   <input type="text"
@@ -840,7 +833,7 @@ const SecondForm = () => {
         <div className="flex items-center justify-between"></div>
       </form>
       {option === 'No' ?
-        <div className="flex justify-center mb-3 sm:mb-10 mt-[18.5rem]">
+        <div className="flex justify-center mb-3 sm:mb-10 mt-[17rem]">
           <div className={
             page === 0
               ? " text-[#F92739] font-medium"
@@ -865,10 +858,10 @@ const SecondForm = () => {
         </div>
         : ""
       }
-      {
+      {/* {
         <div className={
           jobCategory === 'Business' && option === "Yes" ? "flex justify-center mt-[4.4rem] mb-3" :
-            jobCategory === "Government" && option === "Yes" ? "flex justify-center mb-3"
+            jobCategory === "Government/Public" && option === "Yes" ? "flex justify-center mb-3"
               : jobCategory === "Private" && option === "Yes" ? "flex justify-center mb-3"
                 : jobCategory === "Self Employed" && option === "Yes" ? "flex justify-center mt-[4.4rem] mb-3"
                   : "hidden"
@@ -895,7 +888,7 @@ const SecondForm = () => {
             <CircleIcon sx={{ height: "8px" }} />
           </div>
         </div>
-      }
+      } */}
     </>
   );
 };

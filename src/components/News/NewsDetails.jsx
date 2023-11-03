@@ -14,7 +14,6 @@ const NewsDetails = () => {
   const getNewsDetails = async () => {
     await getSingleNews(newsId)
       .then((result) => {
-        console.log(result)
         setNews(result?.data?.newsDetails)
       })
   }

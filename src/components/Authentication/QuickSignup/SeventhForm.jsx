@@ -119,7 +119,6 @@ const SeventhForm = () => {
           onUploadProgress: (progressEvent) => {
             const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
             setFilled(progress);
-            console.log(progress)
           },
         })
           .then((result) => {
@@ -268,7 +267,7 @@ const SeventhForm = () => {
 
         <div className="flex items-center justify-between"></div>
       </form>
-      {isOpen != "photo" ? <div className="flex justify-center mt-[8.8rem] sm:mt-[10.8rem] sm:mb-10">
+      {isOpen != "photo" ? <div className="flex justify-center mt-[8.8rem] sm:mt-[15.8rem] mb-4 sm:mb-10">
         <div className={
           page === 0
             ? " text-[#F92739] font-medium"

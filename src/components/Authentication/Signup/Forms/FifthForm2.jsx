@@ -49,14 +49,13 @@ const FifthForm2 = () => {
   const designationData = tempDesignation.filter(searchData)
   const employerData = tempEmployers.filter(searchData)
 
-  const handleNext = () => {
-    setPage(page === 10 ? 0 : page + 1);
-  };
+  // const handleNext = () => {
+  //   setPage(page === 10 ? 0 : page + 1);
+  // };
 
   const getDesignations = async () => {
     await getAllDesignations(jobCategory)
       .then((result) => {
-        console.log(result);
         setNDesignation(result.data?.designation)
       })
       .catch((err) => {
@@ -67,7 +66,6 @@ const FifthForm2 = () => {
   const getJobStreams = async () => {
     await getAllJobStreams(jobCategory)
       .then((result) => {
-        console.log(result);
         setNStream(result.data?.occupationStream)
       })
       .catch((err) => {
@@ -78,7 +76,6 @@ const FifthForm2 = () => {
   const getEmployers = async () => {
     await getEmployerDetails(jobCategory)
       .then((result) => {
-        console.log(result);
         setNEmployerName(result.data?.occupationStream)
       })
       .catch((err) => {
@@ -160,6 +157,7 @@ const FifthForm2 = () => {
     <>
       <form className="w-72 ml-3.5 sm:ml-12">
         <Toaster />
+        <p className="mr-2 font-semibold">Add Job or Business Details</p>
         <div className="mb-6 mt-4 flex">
           <button type="button"
             className="w-full h-12 text-left border border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white"
@@ -578,12 +576,12 @@ const FifthForm2 = () => {
         ) : ""}
 
         <div className="flex">
-          <button
+          {/* <button
             onClick={handleNext}
             className="rounded-xl text-[#A0A0A0] px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"
           >
             Skip
-          </button>
+          </button> */}
 
           <button
             onClick={handleData}

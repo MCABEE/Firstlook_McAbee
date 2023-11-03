@@ -42,7 +42,6 @@ const SecondForm = () => {
   const getCountry = async () => {
     await getAllCountries()
       .then((result) => {
-        console.log(result);
         setNCountries(result.data.countries)
       })
       .catch((err) => {
@@ -53,7 +52,6 @@ const SecondForm = () => {
   const getStates = async () => {
     await getAllStates(country)
       .then((result) => {
-        console.log(result);
         setNStates(result.data.states)
       })
       .catch((err) => {
@@ -64,7 +62,6 @@ const SecondForm = () => {
   const getDistricts = async () => {
     await getAllDistricts(state, country)
       .then((result) => {
-        console.log(result);
         setNDistricts(result.data.districts)
       })
       .catch((err) => {
@@ -75,7 +72,6 @@ const SecondForm = () => {
   const getMotherToungue = async () => {
     await getAllMotherToungues(state, country)
       .then((result) => {
-        console.log(result);
         setNMotherToungue(result.data.motherToungue)
       })
       .catch((err) => {

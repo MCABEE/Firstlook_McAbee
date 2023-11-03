@@ -84,10 +84,10 @@ const FirstForm = () => {
     }
 
     else {
-      await registerAboutYou(fullName, displayName, selectedDate, selectedGender).then((result) => {
-        console.log(result);
-        setPage(page === 10 ? 0 : page + 1);
-      })
+      await registerAboutYou(fullName, displayName, selectedDate, selectedGender)
+        .then(() => {
+          setPage(page === 10 ? 0 : page + 1);
+        })
         .catch((err) => {
           console.log(err)
         })
@@ -155,7 +155,7 @@ const FirstForm = () => {
           ></input>
           {
             displayNameStatus === 200 || displayNameStatus === null ? ""
-             : <p className="text-xs text-red-500 ml-3.5 sm:ml-12 py-1.5">
+              : <p className="text-xs text-red-500 ml-3.5 sm:ml-12 py-1.5">
                 This display name has already been taken
               </p>
           }

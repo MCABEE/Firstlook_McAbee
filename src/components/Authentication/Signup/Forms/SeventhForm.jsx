@@ -118,7 +118,6 @@ const SeventhForm = () => {
           onUploadProgress: (progressEvent) => {
             const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
             setFilled(progress);
-            console.log(progress)
           },
         })
           .then(() => {

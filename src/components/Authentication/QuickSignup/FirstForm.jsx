@@ -86,7 +86,7 @@ const FirstForm = () => {
     }
 
     else if ((selectedGender === 'Male' && age < ageLimitMale) ||
-        (selectedGender === 'Female' && age < ageLimitFemale)) {
+      (selectedGender === 'Female' && age < ageLimitFemale)) {
       toast.error(`You must be ${selectedGender === 'Male' ? ageLimitMale : ageLimitFemale} years or older.`);
     }
 
@@ -103,10 +103,10 @@ const FirstForm = () => {
     }
 
     else {
-      await quickSignupAboutYou(fullName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus).then((result) => {
-        console.log(result);
-        setPage(page === 10 ? 0 : page + 1);
-      })
+      await quickSignupAboutYou(fullName, displayName, selectedDate, selectedGender, religion, caste, maritalStatus)
+        .then(() => {
+          setPage(page === 10 ? 0 : page + 1);
+        })
         .catch((err) => {
           console.log(err)
         })
@@ -116,7 +116,6 @@ const FirstForm = () => {
   const getReligion = async () => {
     await getAllReligion()
       .then((result) => {
-        console.log(result);
         setNReligion(result.data.religion)
       })
       .catch((err) => {
@@ -127,7 +126,6 @@ const FirstForm = () => {
   const getCaste = async () => {
     await getAllCaste(religion)
       .then((result) => {
-        console.log(result);
         setNCaste(result.data.caste)
       })
       .catch((err) => {
@@ -199,7 +197,7 @@ const FirstForm = () => {
           ></input>
           {
             displayNameStatus === 200 || displayNameStatus === null ? ""
-             : <p className="text-xs text-red-500 ml-3.5 sm:ml-12 py-1.5">
+              : <p className="text-xs text-red-500 ml-3.5 sm:ml-12 py-1.5">
                 This display name has already been taken
               </p>
           }

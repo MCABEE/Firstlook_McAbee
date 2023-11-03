@@ -69,6 +69,10 @@ const SixthForm2 = () => {
       toast.error("Enter Valid Home Contact Number")
     }
 
+    else if (homeContactNumber === userData?.phone) {
+      toast.error("Home Contact Number cannot be the same as your Personal Phone Number")
+    }
+
     else {
       await registerFamilyAddress(familyName, homeTown, pincode, homeContactNumber, district)
         .then(() => {

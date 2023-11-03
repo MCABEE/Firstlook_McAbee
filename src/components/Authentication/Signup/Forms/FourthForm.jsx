@@ -83,9 +83,9 @@ const FourthForm = () => {
     }
   };
 
-  const handleNext = () => {
-    setPage(page === 10 ? 0 : page + 1);
-  };
+  // const handleNext = () => {
+  //   setPage(page === 10 ? 0 : page + 1);
+  // };
 
   const startYear = 1990;
   const endYear = 2023;
@@ -98,7 +98,6 @@ const FourthForm = () => {
   const getCountry = async () => {
     await getAllCountries()
       .then((result) => {
-        console.log(result);
         setNCountries(result.data.countries)
       })
       .catch((err) => {
@@ -109,7 +108,6 @@ const FourthForm = () => {
   const getAcademicStream = async () => {
     await getAllAcademicStream()
       .then((result) => {
-        console.log(result);
         setNAcademicStream(result.data.academicStream)
       })
       .catch((err) => {
@@ -120,7 +118,6 @@ const FourthForm = () => {
   const getCourseName = async () => {
     await getAllCourse(academicStream)
       .then((result) => {
-        console.log(result);
         setNCourseName(result.data.courseName)
       })
       .catch((err) => {
@@ -131,7 +128,6 @@ const FourthForm = () => {
   const getUniversity = async () => {
     await getAllUniversities(country)
       .then((result) => {
-        console.log(result);
         setNUniversity(result.data.institutions)
       })
       .catch((err) => {
@@ -142,7 +138,6 @@ const FourthForm = () => {
   const getInstitute = async () => {
     await getAllInstitutes(country)
       .then((result) => {
-        console.log(result);
         setNInstitute(result.data.institutions)
       })
       .catch((err) => {
@@ -153,7 +148,6 @@ const FourthForm = () => {
   const getCollege = async () => {
     await getAllColleges(country)
       .then((result) => {
-        console.log(result);
         setNCollege(result.data.institutions)
       })
       .catch((err) => {
@@ -345,7 +339,7 @@ const FourthForm = () => {
               setCountry(e.target.value);
             }}
             onClick={() => setIsOpen((prev) => (prev === "Country" ? "" : "Country"))}
-            placeholder="Enter Country" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
+            placeholder="Where Did You Study" className="text-sm w-full h-12 text-left border cursor-pointer border-[#B8B8B8] rounded-xl px-4 text-[#4D4D4D] bg-white placeholder:text-[#4D4D4D]" />
           <div className="-ml-8 mt-2.5 text-[#B8B8B8] pointer-events-none">
             <KeyboardArrowDownRoundedIcon />
           </div>
@@ -355,7 +349,7 @@ const FourthForm = () => {
                 <li
                   className="px-4 py-2 cursor-pointer flex"
                 >
-                  <p className="mr-2 font-semibold">Select Your Country</p>
+                  <p className="mr-2 font-semibold">Where Did You Study</p>
                 </li>
                 <hr className='border-gray-400 border-1 w-11/12 mx-auto' />
                 {countryData.map((data) => (
@@ -538,12 +532,12 @@ const FourthForm = () => {
         </div> : " "}
 
         <div className="flex">
-          <button
+          {/* <button
             onClick={handleNext}
             className="rounded-xl text-[#A0A0A0] px-4 bg-white w-16 h-8 mt-1 text-sm border border-[#D8D8D8]"
           >
             Skip
-          </button>
+          </button> */}
 
           <button
             onClick={handleData}

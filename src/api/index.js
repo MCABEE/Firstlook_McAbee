@@ -10,7 +10,6 @@ export const getUserId = () => {
 
 export const tokenHeader = () => {
     const token = getToken();
-    console.log(token)
     return {
         headers: {
             Authorization: `Bearer ${token}`,

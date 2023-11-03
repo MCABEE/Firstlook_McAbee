@@ -53,7 +53,6 @@ const FifthForm = () => {
   const getCountry = async () => {
     await getAllCountries()
       .then((result) => {
-        console.log(result);
         setNCountries(result.data.countries)
       })
       .catch((err) => {
@@ -64,7 +63,6 @@ const FifthForm = () => {
   const getStates = async () => {
     await getAllStates(country)
       .then((result) => {
-        console.log(result);
         setNStates(result.data.states)
       })
       .catch((err) => {
@@ -75,7 +73,6 @@ const FifthForm = () => {
   const getDistricts = async () => {
     await getAllDistricts(state, country)
       .then((result) => {
-        console.log(result);
         setNDistricts(result.data.districts)
       })
       .catch((err) => {
@@ -86,7 +83,6 @@ const FifthForm = () => {
   const getCity = async () => {
     await getAllCities(state, country)
       .then((result) => {
-        console.log(result);
         setNCity(result.data.cities)
       })
       .catch((err) => {

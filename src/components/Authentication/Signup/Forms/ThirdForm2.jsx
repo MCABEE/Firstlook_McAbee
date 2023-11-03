@@ -51,8 +51,7 @@ const ThirdForm2 = () => {
 
     else {
       await registerAdditionalPersonalInfo(drink, smoke, diet, bloodGroup, license, financialStatus)
-        .then((result) => {
-          console.log(result)
+        .then(() => {
           setPage(page === 10 ? 0 : page + 1);
         })
         .catch((err) => {

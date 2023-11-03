@@ -12,7 +12,9 @@ const EighthForm = () => {
   const { page, setPage } = useContext(registrationContext)
   const navigate = useNavigate()
 
+  const [verifyOtp, setVerifyOtp] = useState(false);
   const [otp, setOtp] = useState(new Array(6).fill(""));
+  const [sendingOtp, setSendingOtp] = useState(false);
   const [aadhar, setAadhar] = useState("")
   const [shareCode, setShareCode] = useState("")
   const [transactionId, setTransactionId] = useState("")
@@ -21,17 +23,19 @@ const EighthForm = () => {
   const sendOtp = async (e) => {
     e.preventDefault()
 
+
     if (aadhar === '') {
       toast.error("Enter Your Aadhar Number")
     }
 
     else {
+      setSendingOtp(true)
 
       const headers = {
         'X-Auth-Type': 'API-Key',
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        'X-API-Key': 'M1YdLqCERyXpfY1eGHOCu9qc7rH0Sgfu'
+        'X-API-Key': import.meta.env.VITE_AADHAR_API
       };
       const data = { aadhaar_number: aadhar, consent: 'Y' };
 
@@ -57,14 +61,16 @@ const EighthForm = () => {
     }
 
     else {
+      setVerifyOtp(true)
+      const finalOtp = otp.join("")
       const headers = {
         'X-Auth-Type': 'API-Key',
         'X-Transaction-ID': transactionId,
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        'X-API-Key': 'M1YdLqCERyXpfY1eGHOCu9qc7rH0Sgfu'
+        'X-API-Key': import.meta.env.VITE_AADHAR_API
       }
-      const data = { otp: otp, include_xml: true, share_code: shareCode }
+      const data = { otp: finalOtp, include_xml: true, share_code: shareCode }
 
       await axios.post(`https://api.gridlines.io/aadhaar-api/boson/submit-otp`, data, { headers })
         .then(async (response) => {
@@ -164,12 +170,22 @@ const EighthForm = () => {
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="bg-[#F92739] w-full flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-10"
-            >
-              <span>Verify OTP</span>
-            </button>
+            {verifyOtp ? (
+              <>
+                <div className="bg-[#F92739] w-full gap-1 py-3 text-white rounded-xl mt-10 flex items-center justify-center">
+                  <div className="h-5 w-5 border-t-transparent border-solid animate-spin rounded-full border-white border-2"></div>
+                  <div className="ml-2"> Verifying OTP</div>
+                </div>
+              </>
+            ) : (
+              <button
+                type="submit"
+                className="bg-[#F92739] w-full flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-10"
+              >
+                <span>Verify OTP</span>
+              </button>
+            )}
+
           </form>
         </>
       ) : (
@@ -191,9 +207,18 @@ const EighthForm = () => {
               ></input>
             </div>
 
-            <button type="submit" className="bg-[#F92739] text-white w-full py-3 rounded-xl mb-6 text-sm">
-              Request OTP
-            </button>
+            {sendingOtp ? (
+              <>
+                <div className="bg-[#F92739] text-white w-full py-3 rounded-xl mb-6 text-sm flex items-center justify-center">
+                  <div className="h-5 w-5 border-t-transparent border-solid animate-spin rounded-full border-white border-2"></div>
+                  <div className="ml-2"> Requesting OTP</div>
+                </div>
+              </>
+            ) : (
+              <button type="submit" className="bg-[#F92739] text-white w-full py-3 rounded-xl mb-6 text-sm">
+                Request OTP
+              </button>
+            )}
 
             <Link onClick={handleDoItLater} className="bg-[#B5B5B5] text-white px-[111.5px] py-3 rounded-xl text-sm">
               Do it Later
