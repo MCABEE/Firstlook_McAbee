@@ -188,6 +188,7 @@ const PhoneReg = () => {
 
                         localStorage.setItem("userId", result?.data?.data?.user?._id)
                         localStorage.setItem("token", result?.data?.token)
+                        localStorage.setItem("phone", phone)
                         localStorage.setItem("$target*", encryptedPhoneNumber)
 
                         const signupStatus = result?.data?.data?.user?.signupStatus
@@ -231,7 +232,7 @@ const PhoneReg = () => {
                 </div>
             </div>
             <div className="flex justify-center items-center sm:mb-10 mt-2 sm:mt-10">
-                <Toaster toastOptions={{ duration: 4000 }} />
+                <Toaster/>
 
                 <div className="w-full h-screen sm:h-[45rem] sm:max-w-sm bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md -mt-2">
                     <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">

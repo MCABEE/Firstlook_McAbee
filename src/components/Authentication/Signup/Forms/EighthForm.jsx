@@ -145,7 +145,7 @@ const EighthForm = () => {
       {showOTP ? (
         <>
           <form onSubmit={onOTPVerify} className="w-72 ml-3.5 sm:ml-12">
-            <Toaster toastOptions={{ duration: 4000 }} />
+            <Toaster />
             <p className=' mt-10 mb-14 text-justify text-sm font-medium'>
               An OTP has been sent to your Aadhar-linked mobile number. Please enter the OTP below to verify your account
             </p>
@@ -191,7 +191,7 @@ const EighthForm = () => {
       ) : (
         <>
           <form onSubmit={sendOtp} className="w-72 ml-3.5 sm:ml-12">
-            <Toaster toastOptions={{ duration: 4000 }} />
+            <Toaster />
             <p className="text-sm font-medium mb-6">
               Verify your Account with Aadhar
             </p>

@@ -9,6 +9,7 @@ import { setNewPassword } from "../../../api";
 const SetPassword = () => {
 
     const navigate = useNavigate()
+    const phoneNumber = localStorage.getItem("phone")
 
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -31,6 +32,13 @@ const SetPassword = () => {
 
     }
 
+    // Extract the first three and last four digits
+    const firstThree = phoneNumber.slice(0, 3);
+    const lastThree = phoneNumber.slice(-3);
+
+    // Create the modified number with 'xxx'
+    const modifiedNumber = `${firstThree}xxxx${lastThree}`;
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -50,7 +58,7 @@ const SetPassword = () => {
                 </div>
             </div>
             <div className="flex justify-center items-center sm:mb-10 mt-2 sm:mt-10">
-                <Toaster toastOptions={{ duration: 4000 }} />
+                <Toaster />
 
                 <div className="w-full h-screen sm:h-[45rem] sm:max-w-sm sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md -mt-2">
                     <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
@@ -82,7 +90,7 @@ const SetPassword = () => {
                     </p>
 
                     <p className='ml-10 mt-3 font-normal text-sm'>
-                        Use your mobile number <span className="font-semibold">984xxxx070</span> <br />
+                        Use your mobile number <span className="font-semibold">{modifiedNumber}</span> <br />
                         as username. Create a password now.
                     </p>
 
@@ -124,7 +132,7 @@ const SetPassword = () => {
                         onClick={() => {
                             updatePassword()
                             setIsPasswordTyped(true)
-                        }} className={ isPasswordTyped ? 'pointer-events-none bg-red-500 w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20' : 'bg-red-500 w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20' }>
+                        }} className={isPasswordTyped ? 'pointer-events-none bg-red-500 w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20' : 'bg-red-500 w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20'}>
 
                         {isPasswordTyped ? (
                             <>
