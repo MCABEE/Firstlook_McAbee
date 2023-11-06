@@ -10,6 +10,7 @@ import './style.css'
 const SixthForm2 = () => {
   const userData = useSelector((state) => state.getUserFilledData.data)
   const district = userData?.native?.district
+  const phone = localStorage.getItem("phone")
 
   const [isOpen, setIsOpen] = useState("");
   const [familyName, setFamilyName] = useState(userData?.familyAddress?.houseName || "")
@@ -69,7 +70,7 @@ const SixthForm2 = () => {
       toast.error("Enter Valid Home Contact Number")
     }
 
-    else if (homeContactNumber === userData?.phone) {
+    else if (homeContactNumber === phone) {
       toast.error("Home Contact Number cannot be the same as your Personal Phone Number")
     }
 

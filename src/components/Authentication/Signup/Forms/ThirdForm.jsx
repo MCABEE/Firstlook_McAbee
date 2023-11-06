@@ -28,7 +28,7 @@ const ThirdForm = () => {
   const getReligion = async () => {
     await getAllReligion()
       .then((result) => {
-        setNReligion(result.data.religion)
+        setNReligion(result.data?.religion)
       })
       .catch((err) => {
         console.log(err);
@@ -38,7 +38,7 @@ const ThirdForm = () => {
   const getCaste = async () => {
     await getAllCaste(religion)
       .then((result) => {
-        setNCaste(result.data.caste)
+        setNCaste(result.data?.caste)
       })
       .catch((err) => {
         console.log(err);

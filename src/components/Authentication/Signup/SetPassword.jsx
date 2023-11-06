@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import firstLook from '../../../assets/firstLook.png'
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { setNewPassword } from "../../../api";
@@ -24,12 +24,29 @@ const SetPassword = () => {
 
     const updatePassword = async () => {
 
-        await setNewPassword(password, encryptedPhoneNumber)
-            .then(() => {
-                localStorage.removeItem('$target*')
-                navigate('/register/signupOption')
-            })
+        if (password === '') {
+            toast.error("Enter password")
+        }
+        
+        else if (password.length < 8) {
+            toast.error("Password must be at least 8 characters")
+        }
 
+        else if (confirmPassword === '') {
+            toast.error("Enter confirmPassword")
+        }
+
+        else if (password != confirmPassword) {
+            toast.error("Passwords do not match. Please try again")
+        }
+
+        else {
+            await setNewPassword(password, encryptedPhoneNumber)
+                .then(() => {
+                    localStorage.removeItem('$target*')
+                    navigate('/register/signupOption')
+                })
+        }
     }
 
     // Extract the first three and last four digits
@@ -46,6 +63,7 @@ const SetPassword = () => {
     return (
         <>
             <div className="sm:block hidden bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
+                <Toaster />
                 <div>
                     <nav className="flex h-9 items-center justify-between" aria-label="Global">
                         <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
