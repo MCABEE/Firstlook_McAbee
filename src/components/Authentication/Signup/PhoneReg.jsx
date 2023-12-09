@@ -5,7 +5,7 @@ import { auth } from "../../../config/Firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "@firebase/auth";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router";
-import { registerUser } from "../../../api";
+import { registerUser, sendOtpIndia } from "../../../api";
 import { Link } from "react-router-dom";
 import firstLook from '../../../assets/firstLook.png'
 import CryptoJS from 'crypto-js';
@@ -13,6 +13,7 @@ import { useRef } from "react";
 
 const PhoneReg = () => {
     const [otp, setOtp] = useState(new Array(6).fill(""));
+    const [fetchOtp, setFetchOtp] = useState("");
     const [sendingOtp, setSendingOtp] = useState(false);
     const [verifyOtp, setVerifyOtp] = useState(false);
     const [countryState, setCountryState] = useState({
@@ -150,18 +151,29 @@ const PhoneReg = () => {
         else {
 
             setSendingOtp(true);
-            onCaptchVerify();
-            const appVerifier = window.recaptchaVerifier;
-            const number = `+${searchSelectedCountry?.idd?.root + searchSelectedCountry?.idd?.suffixes}` + phone
-            signInWithPhoneNumber(auth, number, appVerifier)
-                .then((confirmationResult) => {
-                    window.confirmationResult = confirmationResult;
+
+            if (`${searchSelectedCountry?.idd?.root + searchSelectedCountry?.idd?.suffixes}` === '+91') {
+                sendOtpIndia(phone).then((result) => {
+                    setFetchOtp(result?.data?.otp?.otp)
                     setShowOTP(true);
                     toast.success("OTP send successfully!");
                 })
-                .catch((error) => {
-                    toast.error(error?.message)
-                });
+            }
+
+            else {
+                onCaptchVerify();
+                const appVerifier = window.recaptchaVerifier;
+                const number = `+${searchSelectedCountry?.idd?.root + searchSelectedCountry?.idd?.suffixes}` + phone
+                signInWithPhoneNumber(auth, number, appVerifier)
+                    .then((confirmationResult) => {
+                        window.confirmationResult = confirmationResult;
+                        setShowOTP(true);
+                        toast.success("OTP send successfully!");
+                    })
+                    .catch((error) => {
+                        toast.error(error?.message)
+                    });
+            }
         }
 
     }
@@ -174,17 +186,18 @@ const PhoneReg = () => {
 
         else {
 
+            const countryCode = `+${searchSelectedCountry?.idd?.root + searchSelectedCountry?.idd?.suffixes}`
+            const country = selectedCountry
             const finalOtp = otp.join("")
             setVerifyOtp(true)
 
-            window.confirmationResult
-                .confirm(finalOtp)
-                .then(async () => {
+            if (`${searchSelectedCountry?.idd?.root + searchSelectedCountry?.idd?.suffixes}` === '+91') {
+                if (finalOtp == fetchOtp) {
 
                     toast.success("OTP Successfully Verified!");
                     const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, import.meta.env.VITE_CRYPTO_SECRET_KEY).toString();
 
-                    await registerUser(encryptedPhoneNumber).then((result) => {
+                    registerUser(encryptedPhoneNumber, countryCode, country).then((result) => {
 
                         localStorage.setItem("userId", result?.data?.data?.user?._id)
                         localStorage.setItem("token", result?.data?.token)
@@ -205,11 +218,48 @@ const PhoneReg = () => {
                         }
 
                     })
-                })
-                .catch(() => {
+                } else {
                     setVerifyOtp(false)
                     toast.error("Invalid OTP")
-                });
+                }
+            }
+
+            else {
+                window.confirmationResult
+                    .confirm(finalOtp)
+                    .then(async () => {
+
+                        toast.success("OTP Successfully Verified!");
+                        const encryptedPhoneNumber = CryptoJS.AES.encrypt(phone, import.meta.env.VITE_CRYPTO_SECRET_KEY).toString();
+
+                        await registerUser(encryptedPhoneNumber, countryCode, country).then((result) => {
+
+                            localStorage.setItem("userId", result?.data?.data?.user?._id)
+                            localStorage.setItem("token", result?.data?.token)
+                            localStorage.setItem("phone", phone)
+                            localStorage.setItem("$target*", encryptedPhoneNumber)
+
+                            const signupStatus = result?.data?.data?.user?.signupStatus
+                            const registrationStatus = result?.data?.data?.user?.registrationStatus[0]
+
+                            localStorage.setItem("signupStatus", signupStatus)
+
+                            if (signupStatus === 'Completed') {
+                                navigate('/home')
+                            } else if (registrationStatus == 'Password') {
+                                navigate('/register/setPassword')
+                            } else {
+                                navigate('/register/signupOption')
+                            }
+
+                        })
+                    })
+                    .catch(() => {
+                        setVerifyOtp(false)
+                        toast.error("Invalid OTP")
+                    });
+            }
+
         }
     }
 
@@ -232,7 +282,7 @@ const PhoneReg = () => {
                 </div>
             </div>
             <div className="flex justify-center items-center sm:mb-10 mt-2 sm:mt-10">
-                <Toaster/>
+                <Toaster />
 
                 <div className="w-full h-screen sm:h-[45rem] sm:max-w-sm bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md -mt-2">
                     <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">

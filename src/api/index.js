@@ -17,9 +17,16 @@ export const tokenHeader = () => {
     };
 };
 
+const SMSBUDDY_API_KEY = import.meta.env.VITE_SMSBUDDY_API_KEY
+const SMSBUDDY_SENDERID = import.meta.env.VITE_SMSBUDDY_SENDERID
+const SMSBUDDY_MESSAGE = import.meta.env.VITE_SMSBUDDY_MESSAGE
+const SMSBUDDY_TEMPLATEID = import.meta.env.VITE_SMSBUDDY_TEMPLATEID
+
 export const getUserDetails = () => axios.get('/user/v1/profile', tokenHeader())
 
-export const registerUser = (encryptedPhoneNumber) => axios.post('/auth/v1/register/mobile', { encryptedPhoneNumber })
+export const sendOtpIndia = (phoneNumber) => axios.post(`https://thesmsbuddy.com/api/v1/otp/create?key=${SMSBUDDY_API_KEY}&to=${phoneNumber}&sender=${SMSBUDDY_SENDERID}&message=${SMSBUDDY_MESSAGE}&template_id=${SMSBUDDY_TEMPLATEID}&digits=6 `)
+
+export const registerUser = (encryptedPhoneNumber, countryCode, country) => axios.post('/auth/v1/register/mobile', { encryptedPhoneNumber, countryCode, country })
 
 export const setNewPassword = (password, encryptedPhoneNumber) => axios.patch('/auth/v1/setpassword', { password, encryptedPhoneNumber })
 
