@@ -351,7 +351,10 @@ const PhoneReg = () => {
                                     </div>
                                 </div>
                                 <p className="text-center text-[#4D4D4D] text-[12px] mt-8">
-                                    Not received OTP? <span onClick={() => setShowOTP(false)} className="cursor-pointer text-[#FE1940] font-bold">Resend</span>
+                                    Not received OTP? <span onClick={() => {
+                                        setShowOTP(false)
+                                        setSendingOtp(false)
+                                    }} className="cursor-pointer text-[#FE1940] font-bold">Resend</span>
                                 </p>
                             </div>
                         </>

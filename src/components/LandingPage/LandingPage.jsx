@@ -53,22 +53,20 @@ const LandingPage = () => {
                 </div>
             </div>
             <div className="flex justify-center items-center mb-10">
-                <div className="w-full sm:h-[50rem] max-w-xs sm:max-w-sm bg-white sm:bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md mt-10">
-                    <p className="font-oxygen font-bold flex justify-center sm:mt-16 text-[1rem]">
-                        Welcome
-                    </p>
-                    <img src={logo} alt="" className="mt-10 h-28 mx-auto" />
-                    <div className="font-oxygen font-medium mt-10 text-justify w-3/4 mx-auto">
-                        <p>
+                <div className="w-full sm:h-[50rem] max-w-xs sm:max-w-sm bg-white border border-gray-400 rounded-2xl  mt-10">
+                    
+                    <img src={logo} alt="" className="mt-28 h-28 mx-auto" />
+                    <div className="mt-28 text-center w-3/4 mx-auto">
+                        <p className='font-bold text-[#4D4D4D]'>
                             FIRSTLOOK
                         </p>
-                        <p className="mt-4 text-[1.5rem]">
+                        <p className="mt-4 text-[24px] text-center">
                             Welcomes you
                         </p>
-                        <p className="font-bold text-[1.5rem] text-start">
+                        <p className="font-bold text-[24px] text-[#FE1940] text-center">
                             {userData?.gender === 'Male' ? `Mr. ${userData?.fullName}` : `Mrs. ${userData?.fullName}`}
                         </p>
-                        <p className="mt-4 font-medium">
+                        <p className="mt-4">
                             Your profile has been registered with us.
                             Install App to access your profile.
                         </p>
