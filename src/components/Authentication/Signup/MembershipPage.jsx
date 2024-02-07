@@ -189,7 +189,7 @@ const MembershipPage = () => {
                         </Link>
                     )} */}
                     <Link to='/register/verify'>
-                        <button className='bg-rose-500 p-3 rounded-xl mt-10 mb-10 ml-8 text-white w-3/4'>
+                        <button className='bg-[#FE1940] p-3 rounded-xl mt-10 mb-10 ml-8 text-white w-3/4'>
                             I Accept, Let’s Go
                         </button>
                     </Link>

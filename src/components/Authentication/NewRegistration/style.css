@@ -1,0 +1,30 @@
+.App{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10%;
+}
+
+.progressbar{
+	position: relative;
+	overflow: hidden;
+	width: 250px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #eee;
+}
+
+.progressPercent{
+    font-size: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	color: "white";
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

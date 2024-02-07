@@ -5,7 +5,7 @@ const ProtectedRoute = ({ children }) => {
     const token = localStorage.getItem("token")
 
     if(token) {
-        return <Navigate to = {"/register/signupOption"} replace = {true}></Navigate>
+        return <Navigate to = {"/register/signup"} replace = {true}></Navigate>
     }
     return children
 }

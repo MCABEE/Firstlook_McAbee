@@ -123,6 +123,7 @@ const FirstForm = () => {
           >
             <img src={boyImage} alt="Boy" className="w-24 h-24" />
           </div>
+            
           <div
             className={`flex items-center justify-center rounded-full w-24 h-24 focus:outline-none ${selectedGender === 'Female' ? 'bg-pink-500 text-white' : 'bg-gray-300 text-gray-600'
               }`}

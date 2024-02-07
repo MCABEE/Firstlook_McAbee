@@ -205,16 +205,13 @@ const PhoneReg = () => {
                         localStorage.setItem("$target*", encryptedPhoneNumber)
 
                         const signupStatus = result?.data?.data?.user?.signupStatus
-                        const registrationStatus = result?.data?.data?.user?.registrationStatus[0]
 
                         localStorage.setItem("signupStatus", signupStatus)
 
                         if (signupStatus === 'Completed') {
                             navigate('/home')
-                        } else if (registrationStatus == 'Password') {
-                            navigate('/register/setPassword')
                         } else {
-                            navigate('/register/signupOption')
+                            navigate('/register/signup')
                         }
 
                     })
@@ -240,16 +237,13 @@ const PhoneReg = () => {
                             localStorage.setItem("$target*", encryptedPhoneNumber)
 
                             const signupStatus = result?.data?.data?.user?.signupStatus
-                            const registrationStatus = result?.data?.data?.user?.registrationStatus[0]
 
                             localStorage.setItem("signupStatus", signupStatus)
 
                             if (signupStatus === 'Completed') {
                                 navigate('/home')
-                            } else if (registrationStatus == 'Password') {
-                                navigate('/register/setPassword')
                             } else {
-                                navigate('/register/signupOption')
+                                navigate('/register/signup')
                             }
 
                         })
@@ -284,7 +278,7 @@ const PhoneReg = () => {
             <div className="flex justify-center items-center sm:mb-10 mt-2 sm:mt-10">
                 <Toaster />
 
-                <div className="w-full h-screen sm:h-[45rem] sm:max-w-sm bg-[#F2F2F2] sm:rounded-2xl sm:shadow-md -mt-2">
+                <div className="w-full h-screen sm:h-[45rem] sm:max-w-sm border-2 sm:rounded-2xl -mt-2">
                     <div className="sm:hidden block bg-white pt-4 pb-4 sm:px-6 border-2 shadow-sm rounded-2xl w-11/12 mx-auto mt-5">
                         <div>
                             <nav className="flex h-9 items-center justify-between" aria-label="Global">
@@ -299,21 +293,27 @@ const PhoneReg = () => {
                     </div>
                     {showOTP ? (
                         <>
-                            <p className='font-oxygen font-bold text-center text-2xl mt-16'>
-                                Registration
-                            </p>
-
-                            <div className="mx-auto w-[88%] sm:w-[85%]">
-                                <p className='mt-14 text-[15px] font-semibold'>
-                                    OTP Verfication
-                                </p>
-
-                                <p className='text-sm font-normal'>
-                                    Please enter the received OTP on your mobile
+                            <div className="flex justify-center mt-16 sm:mt-32">
+                                <div>
+                                    <div className="relative right-6">
+                                        <svg width="51" height="36" viewBox="0 0 51 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="33" cy="18" r="18" fill="#FE1940" fillOpacity="0.6" />
+                                            <circle cx="18" cy="18" r="18" fill="#FF7901" fillOpacity="0.6" />
+                                        </svg>
+                                        <div className="absolute top-0 left-4 w-44 -ml-14">
+                                            <p className="text-[21px] font-semibold text-center">Enter <br />
+                                                The OTP Received</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex justify-center mt-8">
+                                <p className="text-[12px]">
+                                    OTP Valid only for 60 Second’s
                                 </p>
                             </div>
 
-                            <div className="mt-8 w-full">
+                            <div className="mt-3 w-full">
                                 <div className="mx-auto p-5">
                                     <div className="flex">
                                         {otp.map((data, index) => (
@@ -333,10 +333,10 @@ const PhoneReg = () => {
                                 </div>
                             </div>
                             <div>
-                                <div className="mx-auto w-[90vw] sm:w-[85%] sm:mx-7 mt-10">
+                                <div className="mx-auto w-[90vw] sm:w-[85%] sm:mx-7">
                                     <div
                                         onClick={onOTPVerify}
-                                        className={verifyOtp ? "pointer-events-none bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-8" : "bg-[#F92739] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-8"}
+                                        className={verifyOtp ? "pointer-events-none bg-[#FE1940] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-5" : "bg-[#FE1940] w-full cursor-pointer flex gap-1 items-center justify-center py-3 text-white rounded-xl mt-5"}
                                     >
                                         {verifyOtp ? (
                                             <>
@@ -350,17 +350,32 @@ const PhoneReg = () => {
                                         )}
                                     </div>
                                 </div>
+                                <p className="text-center text-[#4D4D4D] text-[12px] mt-8">
+                                    Not received OTP? <span onClick={() => setShowOTP(false)} className="cursor-pointer text-[#FE1940] font-bold">Resend</span>
+                                </p>
                             </div>
                         </>
                     ) : (
                         <>
-                            <p className='font-oxygen font-bold text-center text-2xl mt-16'>
-                                Registration
-                            </p>
-
-                            <p className='ml-10 mt-16 font-medium'>
-                                Select Country Code
-                            </p>
+                            <div className="flex justify-center mt-16 sm:mt-32">
+                                <div>
+                                    <div className="relative right-6">
+                                        <svg width="51" height="36" viewBox="0 0 51 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="33" cy="18" r="18" fill="#FE1940" fillOpacity="0.6" />
+                                            <circle cx="18" cy="18" r="18" fill="#FF7901" fillOpacity="0.6" />
+                                        </svg>
+                                        <div className="absolute top-0 left-4 w-44 -ml-14">
+                                            <p className="text-[21px] font-semibold text-center">Add <br />
+                                                Mobile Number</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex justify-center mt-8">
+                                <p className="text-[12px]">
+                                    Craft a unique ID resembling your real name
+                                </p>
+                            </div>
 
                             <div className="grid justify-center mt-7 rounded-2xl mx-10">
 
@@ -424,7 +439,7 @@ const PhoneReg = () => {
 
                             </div>
 
-                            <div onClick={onSignup} className={sendingOtp ? 'pointer-events-none bg-red-500 w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20' : 'bg-red-500 w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20'}>
+                            <div onClick={onSignup} className={sendingOtp ? 'pointer-events-none bg-[#FE1940] w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20' : 'bg-[#FE1940] w-80 p-3 rounded-xl mt-8 mb-20 mx-auto text-center cursor-pointer text-white px-20'}>
                                 {sendingOtp ? (
                                     <>
                                         <div className="flex items-center justify-center">

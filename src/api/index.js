@@ -17,6 +17,16 @@ export const tokenHeader = () => {
     };
 };
 
+export const uploadHeaders = () => {
+    const token = getToken();
+    return {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+            Authorization: `Bearer ${token}`,
+        },
+    };
+};
+
 const SMSBUDDY_API_KEY = import.meta.env.VITE_SMSBUDDY_API_KEY
 const SMSBUDDY_SENDERID = import.meta.env.VITE_SMSBUDDY_SENDERID
 const SMSBUDDY_MESSAGE = import.meta.env.VITE_SMSBUDDY_MESSAGE
@@ -97,3 +107,16 @@ export const uploadAadharDetails = (careOf, fullName, aadhar, dob, pincode, hous
 export const getAllNews = () => axios.get('/data/general/news')
 
 export const getSingleNews = (newsId) => axios.get(`/data/general/newsDetails?newsId=${newsId}`)
+
+// New Registration API's
+export const saveAboutYou = (fullName, dob, gender, maritalStatus) => axios.patch(`/user/v2/register/about`, { fullName, dob, gender, maritalStatus }, tokenHeader())
+
+export const saveCareer = (career) => axios.patch(`/user/v2/register/career`, { career }, tokenHeader())
+
+export const saveCurrentLocation = (city, country) => axios.patch(`/user/v2/register/current/location`, { city, country }, tokenHeader())
+
+export const saveEducation = (academicStream, passoutYear) => axios.patch(`/user/v2/register/education`, { academicStream, passoutYear }, tokenHeader())
+
+export const savePhotos = (formData) => axios.post(`/user/v2/register/upload/photos`, formData, uploadHeaders() )
+
+export const saveDisplayName = (displayName) => axios.patch(`/user/v1/displayName`, { displayName }, tokenHeader())
