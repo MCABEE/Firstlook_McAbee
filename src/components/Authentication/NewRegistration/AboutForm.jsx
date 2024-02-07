@@ -6,9 +6,11 @@ import { differenceInYears, format } from 'date-fns';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { registrationContext } from '../../../context/formContext';
 import toast, { Toaster } from 'react-hot-toast';
-import { Calendar } from 'react-date-range';
 import { marriedStatus } from '../../../lib/constants';
 import { saveAboutYou } from '../../../api';
+import { Calendar } from 'react-date-range';
+import 'react-date-range/dist/styles.css'; // Main style file
+import 'react-date-range/dist/theme/default.css'; // Theme CSS file
 
 const AboutForm = () => {
   const userData = useSelector((state) => state.getUserFilledData?.data)
@@ -236,7 +238,7 @@ const AboutForm = () => {
 
       {isOpen === "Calendar" ?
         <>
-          <div className='-mt-[282px] -ml-0.5 sm:block hidden'>
+          <div className='-mt-[275px] -ml-0.5 sm:block hidden'>
             <div className='absolute w-96 py-3 rounded-xl border border-[#D8D8D8] bg-white h-80 mt-6'>
               <div className="flex justify-center">
                 <div>
