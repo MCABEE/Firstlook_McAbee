@@ -41,12 +41,12 @@ const AcademicForm = () => {
       toast.error("Select Academic Level")
     }
 
-    else if (passOutYear === '') {
+    else if (passYear === '') {
       toast.error("select Pass-out Year")
     }
 
     else {
-      await saveEducation(academicStream, passOutYear)
+      await saveEducation(academicStream, passYear)
         .then(() => {
           setPage(page === 10 ? 0 : page + 2);
         })
