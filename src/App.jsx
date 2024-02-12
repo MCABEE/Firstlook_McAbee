@@ -60,11 +60,7 @@ function App() {
             </HomeRoute>
           </registrationContext.Provider>} /> */}
 
-        <Route path='/home' element={
-          <HomeRoute>
-            <LandingPage />
-          </HomeRoute>} />
-
+        <Route path='/home' element={<LandingPage />} />
         <Route path='/termsofuse' element={<TermsOfUse />} />
         <Route path='/privacypolicy' element={<PrivacyPolicyPage />} />
         <Route path='/membershippolicy' element={<MembershipPolicy />} />
