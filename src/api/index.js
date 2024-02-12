@@ -119,4 +119,4 @@ export const saveEducation = (academicStream, passoutYear) => axios.patch(`/user
 
 export const savePhotos = (formData) => axios.post(`/user/v2/register/upload/photos`, formData, uploadHeaders() )
 
-export const saveDisplayName = (name) => axios.patch(`/user/v1/displayName`, { name }, tokenHeader())
+export const saveDisplayName = (name) => axios.patch(`/user/v1/displayName?name=${name}`, { name }, tokenHeader())
