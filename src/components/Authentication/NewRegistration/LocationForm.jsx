@@ -11,7 +11,7 @@ const LocationForm = () => {
 
   const [isOpen, setIsOpen] = useState("");
   const [country, setCountry] = useState(userData?.native?.country || "")
-  const [livingCity, setLivingCity] = useState("")
+  const [livingCity, setLivingCity] = useState(userData?.currentLocation?.city || "")
   const [search, setSearch] = useState("");
 
   const { page, setPage } = useContext(registrationContext)
