@@ -130,7 +130,7 @@ const SetPasswordForm = () => {
                         onClick={() => {
                             setIsPasswordTyped(true)
                         }}
-                        className="bg-[#FE1940] rounded-xl text-white py-2.5 px-32"
+                        className="bg-[#FE1940] rounded-xl text-white py-3 w-full"
                     >
                         {isPasswordTyped ? (
                             <>

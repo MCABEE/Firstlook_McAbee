@@ -11,14 +11,20 @@ import { savePhotos } from "../../../api";
 const UploadPhotoForm = () => {
   const { page, setPage } = useContext(registrationContext)
 
+  const image1 = localStorage.getItem("p1")
+  const image2 = localStorage.getItem("p2")
+  const image3 = localStorage.getItem("p3")
+  const image4 = localStorage.getItem("p4")
+
   const [currentPage, setCurrentPage] = useState("choose-img");
   const [imgNumber, setimgNumber] = useState(0)
-  const [imgAfterCrop1, setImgAfterCrop1] = useState("");
-  const [imgAfterCrop2, setImgAfterCrop2] = useState("");
-  const [imgAfterCrop3, setImgAfterCrop3] = useState("");
-  const [imgAfterCrop4, setImgAfterCrop4] = useState("");
+  const [imgAfterCrop1, setImgAfterCrop1] = useState( image1 || "");
+  const [imgAfterCrop2, setImgAfterCrop2] = useState( image2 || "");
+  const [imgAfterCrop3, setImgAfterCrop3] = useState( image3 || "");
+  const [imgAfterCrop4, setImgAfterCrop4] = useState( image4 || "");
   const [isOpen, setIsOpen] = useState("");
   const [image, setImage] = useState("");
+  const [isUploadOn, setIsUploadOn] = useState(false)
 
   // Invoked when new image file is selected
   const onImageSelected = (selectedImg) => {
@@ -135,6 +141,7 @@ const UploadPhotoForm = () => {
   const handleData = async (e) => {
     e.preventDefault()
 
+    setIsUploadOn(true)
     // Create FormData object
     const formData = new FormData();
 
@@ -197,7 +204,7 @@ const UploadPhotoForm = () => {
           <div className="font-bold ml-auto">
             6/7
           </div>
-        </div> }
+        </div>}
       <div className="flex justify-center mt-10 sm:mt-20">
         <div>
           <div className="relative right-20">
@@ -279,9 +286,18 @@ const UploadPhotoForm = () => {
             <div className='flex justify-center'>
               <button
                 type="submit"
-                className="bg-[#FE1940] rounded-xl textWhite py-2.5 px-32 text-white"
+                className="bg-[#FE1940] rounded-xl textWhite py-2.5 w-full text-white"
               >
-                Upload
+                {isUploadOn ? (
+                  <>
+                    <div className="flex items-center justify-center">
+                      <div className="h-5 w-5 border-t-transparent border-solid animate-spin rounded-full border-white border-2"></div>
+                      <div className="ml-2"> Uploading</div>
+                    </div>
+                  </>
+                ) : (
+                  'Upload'
+                )}
               </button>
             </div>
 
