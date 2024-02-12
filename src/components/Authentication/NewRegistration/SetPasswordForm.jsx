@@ -21,7 +21,8 @@ const SetPasswordForm = () => {
 
     const encryptedPhoneNumber = localStorage.getItem("$target*")
 
-    const handleTogglePassword = () => {
+    const handleTogglePassword = (e) => {
+        e.preventDefault()
         setShowPassword(!showPassword);
     };
 
