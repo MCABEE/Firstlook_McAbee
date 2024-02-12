@@ -26,8 +26,9 @@ const SetPasswordForm = () => {
         setShowPassword(!showPassword);
     };
 
-    const updatePassword = async () => {
-
+    const updatePassword = async (e) => {
+        e.preventDefault()
+        
         if (password === '') {
             toast.error("Enter password")
         }
@@ -47,8 +48,9 @@ const SetPasswordForm = () => {
         else {
             await setNewPassword(password, encryptedPhoneNumber)
                 .then((result) => {
+                    console.log(result)
                     localStorage.removeItem('$target*')
-                    localStorage.setItem("signupStatus", result?.data?.signupStatus)
+                    localStorage.setItem("signupStatus", "Completed")
                     navigate('/home')
                 })
         }
@@ -95,8 +97,6 @@ const SetPasswordForm = () => {
                     <div className="flex relative mt-5">
                         <input
                             type={showPassword ? 'text' : 'password'}
-                            name="first-name"
-                            id="first-name"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Password"
@@ -112,8 +112,6 @@ const SetPasswordForm = () => {
                     <div className="flex relative mt-5">
                         <input
                             type='text'
-                            name="first-name"
-                            id="first-name"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             placeholder="Confirm Password"
