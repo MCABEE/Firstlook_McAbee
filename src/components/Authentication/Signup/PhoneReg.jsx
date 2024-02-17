@@ -376,7 +376,7 @@ const PhoneReg = () => {
                             </div>
                             <div className="flex justify-center mt-8">
                                 <p className="text-[12px]">
-                                    Craft a unique ID resembling your real name
+                                    Ensure the mobile number is active
                                 </p>
                             </div>
 
