@@ -23,7 +23,7 @@ const Media = () => {
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.8 } }}
                                 viewport={{ once: true, amount: 0.8 }}
                                 className="md:w-6/12 order-2 xl:ml-20 sm:hidden block sm:pt-0 pt-8">
-                                <img src='https://imagetolink.com/ib/WQX2YqTqJd.png' alt="" />
+                                <img src='https://imagetolink.com/ib/8O0J0CzsRX.png' alt="" />
                             </motion.div>
 
                             <motion.div initial={{ y: "-10vw", opacity: 0 }}
@@ -38,7 +38,7 @@ const Media = () => {
                             whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.8 } }}
                             viewport={{ once: true, amount: 0.8 }}
                             className="md:w-6/12 order-2 xl:ml-20 sm:block hidden">
-                            <img src='https://imagetolink.com/ib/WQX2YqTqJd.png' alt="" />
+                            <img src='https://imagetolink.com/ib/8O0J0CzsRX.png' alt="" />
                         </motion.div>
                     </div>
                 </div>
