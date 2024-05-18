@@ -54,7 +54,7 @@ const News = () => {
                                 whileInView={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 50, delay: 0.6 } }}
                                 viewport={{ once: true, amount: 0.8 }} className="pt-5 sm:pt-5">
 
-                                <span className="text-[12px]">13 JULY 2023</span>
+                                <span className="text-[12px]">05 November 2023</span>
 
                                 <h1 onClick={() => navigate(`/news/${news?._id}`)} className="text-[21px] font-bold sm:w-[337px] pt-2 sm:pt-2 cursor-pointer">{news?.title}</h1>
 
