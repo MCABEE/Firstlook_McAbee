@@ -56,7 +56,7 @@ const TopNews = () => {
 
                             <div className="pt-5 sm:pt-5 space-y-2">
 
-                                <span className="text-[12px]">13 JULY 2023</span>
+                                <span className="text-[12px]">05 NOVEMBER 2023</span>
 
                                 <h1 onClick={() => navigate(`/news/${news?._id}`)} className="text-[21px] font-bold sm:w-[337px] pt-2 sm:pt-2 cursor-pointer">{news?.title}</h1>
 

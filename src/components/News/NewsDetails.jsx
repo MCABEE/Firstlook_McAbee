@@ -67,7 +67,7 @@ const NewsDetails = () => {
           <div className="flex flex-wrap md:flex-nowrap space-x-0 md:space-x-28">
 
             <div className="mb-4 lg:mb-0 p-4 lg:p-0 w-full md:w-[90rem] relative rounded block">
-              <p className="text-gray-500 md:text-sm text-[10px] sm:text-[13px] flex -mt-2 sm:mt-0 mb-6"> 13 SEPTEMBER 2023 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p>PUBLISHED BY : FIRSTLOOK TEAM</p> </p>
+              <p className="text-gray-500 md:text-sm text-[10px] sm:text-[13px] flex -mt-2 sm:mt-0 mb-6"> 05 NOVEMBER 2023 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p>PUBLISHED BY : FIRSTLOOK TEAM</p> </p>
               <img src={news?.coverImage?.url} className="rounded-md object-cover sm:w-[600px] w-full sm:h-[359px] sm:mb-0 mb-4 mt-6" />
               <p className="text-gray-600 mb-4 text-justify mt-6" dangerouslySetInnerHTML={{ __html: news?.content }} />
 
@@ -89,7 +89,7 @@ const NewsDetails = () => {
                       window.location.reload()
                     }} src={allNews?.coverImage?.url} className="block md:hidden lg:block rounded-md w-[17rem] md:w-44 h-44 md:h-32 object-cover m-4 md:m-0 cursor-pointer" />
                     <div className="bg-white rounded px-4">
-                      <span className="text-gray-500 text-[12px]"> 27 JULY 2023 </span>
+                      <span className="text-gray-500 text-[12px]"> 05 NOVEMBER 2023 </span>
                       <div onClick={() => {
                         navigate(`/news/${allNews?._id}`)
                         window.location.reload()

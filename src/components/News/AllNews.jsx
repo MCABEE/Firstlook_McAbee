@@ -56,7 +56,7 @@ const AllNews = () => {
 
                                 <div className="flex flex-wrap items-center flex-1 px-4 py-1 text-start">
                                     <div>
-                                        <span className="text-gray-500 text-[12px]"> 27 JULY 2023 </span>
+                                        <span className="text-gray-500 text-[12px]"> 05 NOVEMBER 2023 </span>
 
                                         <h2 className="text-2xl font-bold tracking-normal text-gray-800">
                                             {news?.title}
